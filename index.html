@@ -3,157 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO | Преміальні моди для GTA5</title>
+    <title>LSPDFR ELITE STUDIO | Преміум моди GTA5</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Завантажувач -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Шапка -->
-    <header class="header">
-        <div class="container">
-            <div class="logo" data-aos="fade-down">
-                <img src="images/logo.png" alt="LSPDFR ELITE STUDIO">
-            </div>
-            <nav class="nav" data-aos="fade-down">
-                <ul>
-                    <li><a href="#home">Головна</a></li>
-                    <li><a href="#models">Моделі авто</a></li>
-                    <li><a href="#about">Про нас</a></li>
-                    <li><a href="#contact">Контакти</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+    <!-- Навігація -->
+    <nav class="glass-nav">
+        <div class="logo">
+            <img src="images/logo.png" alt="LSPDFR ELITE STUDIO">
         </div>
-    </header>
+        <ul>
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#models">Автопарк</a></li>
+            <li><a href="#features">Переваги</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+        </ul>
+    </nav>
 
-    <!-- Головний банер -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>ПРЕМІАЛЬНІ МОДЕЛІ АВТО ДЛЯ GTA5</h1>
-            <p>Високоякісні, реалістичні моделі авто для LSPDFR та GTA5 рольових ігор</p>
-            <a href="#models" class="btn btn-primary">Переглянути моделі</a>
-        </div>
-        <div class="hero-car" data-aos="fade-left">
-            <img src="images/cars/police-car.png" alt="Поліцейський автомобіль" class="floating">
+    <!-- Герой-банер -->
+    <section id="home" class="parallax-hero">
+        <div class="hero-text">
+            <h1>ЕЛІТНІ ПОЛІЦЕЙСЬКІ АВТО ДЛЯ LSPDFR</h1>
+            <p>Тактичні транспортні засоби з фізикою реального світу</p>
+            <a href="#models" class="cta-button">Дивитися каталог</a>
         </div>
     </section>
 
-    <!-- Секція моделей -->
-    <section id="models" class="models">
-        <div class="container">
-            <h2 data-aos="fade-up">Наші моделі авто</h2>
-            <div class="models-grid">
-                <!-- Модель 1 -->
-                <div class="model-card" data-aos="zoom-in">
-                    <div class="model-image">
-                        <img src="images/cars/model1.jpg" alt="Police Charger 2020">
-                        <div class="model-overlay">
-                            <button class="btn btn-secondary">Детальніше</button>
-                        </div>
-                    </div>
-                    <h3>Dodge Charger Police 2020</h3>
-                    <div class="model-price">₴250</div>
-                    <div class="model-buttons">
-                        <button class="btn btn-small">Купити</button>
-                        <button class="btn btn-small btn-outline">Попередній перегляд</button>
+    <!-- Автопарк -->
+    <section id="models" class="vehicle-showcase">
+        <h2>Наші моделі</h2>
+        <div class="vehicle-grid">
+            <!-- Приклад 1 авто -->
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="images/vehicles/charger-police.jpg" alt="Dodge Charger Pursuit">
+                    <div class="vehicle-badge">NEW</div>
+                </div>
+                <div class="vehicle-info">
+                    <h3>Dodge Charger Pursuit 2023</h3>
+                    <div class="vehicle-price">₴299</div>
+                    <div class="vehicle-actions">
+                        <button class="details-btn">Деталі</button>
+                        <button class="buy-btn">Придбати</button>
                     </div>
                 </div>
-
-                <!-- Модель 2 -->
-                <div class="model-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="model-image">
-                        <img src="images/cars/model2.jpg" alt="Ford Explorer Police">
-                        <div class="model-overlay">
-                            <button class="btn btn-secondary">Детальніше</button>
-                        </div>
-                    </div>
-                    <h3>Ford Explorer Police 2022</h3>
-                    <div class="model-price">₴300</div>
-                    <div class="model-buttons">
-                        <button class="btn btn-small">Купити</button>
-                        <button class="btn btn-small btn-outline">Попередній перегляд</button>
-                    </div>
-                </div>
-
-                <!-- Додаткові моделі... -->
             </div>
+            <!-- Додавайте інші авто тут -->
         </div>
     </section>
-
-    <!-- Секція "Про нас" -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content" data-aos="fade-right">
-                <h2>Про LSPDFR ELITE STUDIO</h2>
-                <p>Ми професійна команда розробників модів для GTA5, яка спеціалізується на створенні високоякісних поліцейських авто та іншого контенту для LSPDFR.</p>
-                <p>Наші моделі відрізняються:</p>
-                <ul>
-                    <li>Високою деталізацією</li>
-                    <li>Реалістичною фізикою</li>
-                    <li>Оптимізацією для гри</li>
-                    <li>Своєчасними оновленнями</li>
-                </ul>
-            </div>
-            <div class="about-image" data-aos="fade-left">
-                <img src="images/screenshots/gameplay1.jpg" alt="Ігровий процес">
-            </div>
-        </div>
-    </section>
-
-    <!-- Секція контактів -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 data-aos="fade-up">Зв'яжіться з нами</h2>
-            <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Наші контакти</h3>
-                    <p><i class="fas fa-envelope"></i> contact@lspdfrelite.com</p>
-                    <p><i class="fab fa-discord"></i> Discord: LSPDFR_Elite#1234</p>
-                    <p><i class="fab fa-telegram"></i> Telegram: @LSPDFR_Elite</p>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form>
-                        <input type="text" placeholder="Ваше ім'я" required>
-                        <input type="email" placeholder="Ваш email" required>
-                        <textarea placeholder="Ваше повідомлення" required></textarea>
-                        <button type="submit" class="btn btn-primary">Надіслати</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Підвал -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <img src="images/logo.png" alt="LSPDFR ELITE STUDIO">
-            </div>
-            <div class="footer-links">
-                <a href="#">Умови використання</a>
-                <a href="#">Політика конфіденційності</a>
-                <a href="#">Підтримка</a>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 LSPDFR ELITE STUDIO. Всі права захищені.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
 </body>
 </html>
