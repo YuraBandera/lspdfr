@@ -1,0 +1,62 @@
+/* Базові стилі */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.header {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Головний банер */
+.hero {
+    padding-top: 80px;
+    background: linear-gradient(135deg, #0f0c29, #302b63);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Картки моделей */
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.model-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.model-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Кнопки */
+.btn {
+    background-color: #e94560;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
