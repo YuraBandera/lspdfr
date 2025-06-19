@@ -1,62 +1,54 @@
-/* Базові стилі */
+/* Глобальні стилі */
+:root {
+    --primary: #0a1128;
+    --accent: #e63946;
+    --text-light: #f1faee;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    background: #0a1128;
+    color: var(--text-light);
     margin: 0;
-    padding: 0;
-    color: #333;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Шапка */
-.header {
-    background-color: #1a1a2e;
-    color: white;
-    padding: 1rem 0;
+/* Навігація */
+.glass-nav {
+    background: rgba(10, 17, 40, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
-    width: 100%;
-    z-index: 1000;
+    width: 90%;
+    z-index: 100;
 }
 
-/* Головний банер */
-.hero {
-    padding-top: 80px;
-    background: linear-gradient(135deg, #0f0c29, #302b63);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
+/* Герой-секція */
+.parallax-hero {
+    background: url('../images/bg-police.jpg') center/cover fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    position: relative;
 }
 
-/* Картки моделей */
-.models-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+.hero-text h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.model-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+/* Картки авто */
+.vehicle-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s;
 }
 
-.model-card:hover {
+.vehicle-card:hover {
     transform: translateY(-10px);
-}
-
-/* Кнопки */
-.btn {
-    background-color: #e94560;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
 }
