@@ -3,70 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LSPDFR ELITE STUDIO</title>
+  <title>LSPDFR ELITE STUDIO | Українські поліцейські авто для GTA 5</title>
+  <meta name="description" content="Високоякісні 3D-моделі української поліції для GTA 5. Деталізовані та оптимізовані моделі авто.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  <header>
-    <div class="logo">LSPDFR ELITE STUDIO</div>
-    <nav>
-      <ul>
-        <li><a href="#about">Про нас</a></li>
-        <li><a href="#models">Моделі</a></li>
-        <li><a href="#contact">Контакти</a></li>
-        <li><button onclick="toggleLang()">EN</button></li>
-      </ul>
-    </nav>
+  <header class="sticky-header">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="LSPDFR ELITE STUDIO" width="40">
+        <span>LSPDFR ELITE STUDIO</span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">Про нас</a></li>
+          <li><a href="#models">Моделі</a></li>
+          <li><a href="#testimonials">Відгуки</a></li>
+          <li><a href="#contact">Контакти</a></li>
+          <li><button class="lang-btn" onclick="toggleLang()">EN <i class="fas fa-globe"></i></button></li>
+        </ul>
+        <div class="burger-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <h1>Якісні моделі української поліції для GTA 5</h1>
-    <p>Створені з любов’ю до деталей та патріотизму</p>
-    <a href="#models" class="cta">Переглянути моделі</a>
-  </section>
-
-  <section id="about">
-    <h2>Про студію</h2>
-    <p>Ми — команда розробників, які займаються створенням високоякісних 3D-моделей українських поліцейських авто для GTA 5. Наші моделі відзначаються деталізацією, відповідністю реальним прототипам та високою оптимізацією. Ми працюємо над розвитком українського LSPDFR-контенту, щоб гравці могли відчути справжній патріотичний дух навіть у віртуальному просторі.</p>
-  </section>
-
-  <section id="models">
-    <h2>Наші моделі</h2>
-    <div class="model-grid">
-      <div class="model-card">
-        <img src="duster.jpg" alt="Renault Duster">
-        <h3>Renault Duster</h3>
-        <a href="#" class="buy-btn">Придбати</a>
-      </div>
-      <div class="model-card">
-        <img src="prius.jpg" alt="Toyota Prius">
-        <h3>Toyota Prius</h3>
-        <a href="#" class="buy-btn">Придбати</a>
-      </div>
-      <div class="model-card">
-        <img src="corolla.jpg" alt="Toyota Corolla">
-        <h3>Toyota Corolla</h3>
-        <a href="#" class="buy-btn">Придбати</a>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <h1>Якісні моделі української поліції для GTA 5</h1>
+      <p>Створені з любов'ю до деталей та патріотизму</p>
+      <div class="hero-btns">
+        <a href="#models" class="cta-btn">Переглянути моделі</a>
+        <a href="#contact" class="cta-btn secondary">Приєднатися</a>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Контакти</h2>
-    <p>Приєднуйся до нас у Discord:</p>
-    <a href="https://discord.gg/TPQXBcdz" class="discord-link">Наш Discord</a>
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">Про студію</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Ми — команда розробників, які займаються створенням високоякісних 3D-моделей українських поліцейських авто для GTA 5. Наші моделі відзначаються:</p>
+          <ul class="features-list">
+            <li><i class="fas fa-check-circle"></i> Деталізованим дизайном</li>
+            <li><i class="fas fa-check-circle"></i> Відповідністю реальним прототипам</li>
+            <li><i class="fas fa-check-circle"></i> Високою оптимізацією</li>
+            <li><i class="fas fa-check-circle"></i> Патріотичним підходом</li>
+          </ul>
+          <p>Ми працюємо над розвитком українського LSPDFR-контенту, щоб гравці могли відчути справжній дух України у віртуальному просторі.</p>
+        </div>
+        <div class="about-image">
+          <img src="team.jpg" alt="Наша команда" class="rounded-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="models" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title">Наші моделі</h2>
+      <div class="model-grid">
+        <div class="model-card">
+          <div class="model-img-container">
+            <img src="duster.jpg" alt="Renault Duster" class="model-img">
+            <div class="model-badge">Новинка</div>
+          </div>
+          <div class="model-info">
+            <h3>Renault Duster</h3>
+            <p class="model-desc">Патрульний автомобіль спецпідрозділу</p>
+            <div class="model-specs">
+              <span><i class="fas fa-cog"></i> 1.5 dCi</span>
+              <span><i class="fas fa-tachometer-alt"></i> 4x4</span>
+            </div>
+            <div class="model-price">₴299</div>
+            <a href="#" class="buy-btn">Придбати</a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-img-container">
+            <img src="prius.jpg" alt="Toyota Prius" class="model-img">
+          </div>
+          <div class="model-info">
+            <h3>Toyota Prius</h3>
+            <p class="model-desc">Міський патрульний автомобіль</p>
+            <div class="model-specs">
+              <span><i class="fas fa-cog"></i> Hybrid</span>
+              <span><i class="fas fa-tachometer-alt"></i> 1.8L</span>
+            </div>
+            <div class="model-price">₴249</div>
+            <a href="#" class="buy-btn">Придбати</a>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-img-container">
+            <img src="corolla.jpg" alt="Toyota Corolla" class="model-img">
+            <div class="model-badge">Хіт</div>
+          </div>
+          <div class="model-info">
+            <h3>Toyota Corolla</h3>
+            <p class="model-desc">Швидкісний патрульний автомобіль</p>
+            <div class="model-specs">
+              <span><i class="fas fa-cog"></i> 2.0L</span>
+              <span><i class="fas fa-tachometer-alt"></i> 170 к.с.</span>
+            </div>
+            <div class="model-price">₴349</div>
+            <a href="#" class="buy-btn">Придбати</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="section-title">Що кажуть наші клієнти</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="user1.jpg" alt="Користувач" class="user-avatar">
+            <div class="user-info">
+              <h4>Андрій</h4>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-text">"Найкращі моделі української поліції, які я коли-небудь бачив у грі. Працюють ідеально без лагів!"</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="user2.jpg" alt="Користувач" class="user-avatar">
+            <div class="user-info">
+              <h4>Марія</h4>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-text">"Дуже деталізовані моделі з гарною фізикою. Раджу всім фанатам LSPDFR!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section bg-dark">
+    <div class="container">
+      <h2 class="section-title light">Контакти</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Зв'яжіться з нами</h3>
+          <p><i class="fas fa-envelope"></i> info@lspdfr-elite.com</p>
+          <p><i class="fas fa-phone"></i> +380 (XX) XXX XX XX</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше ім'я" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Ваш email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Ваше повідомлення" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Надіслати</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 LSPDFR ELITE STUDIO. Всі права захищені.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="logo.png" alt="LSPDFR ELITE STUDIO" width="50">
+          <span>LSPDFR ELITE STUDIO</span>
+        </div>
+        <div class="footer-links">
+          <h4>Посилання</h4>
+          <ul>
+            <li><a href="#about">Про нас</a></li>
+            <li><a href="#models">Моделі</a></li>
+            <li><a href="#contact">Контакти</a></li>
+            <li><a href="#">Політика конфіденційності</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Підпишіться на оновлення</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Ваш email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LSPDFR ELITE STUDIO. Всі права захищені.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
+    // Мобільне меню
+    document.querySelector('.burger-menu').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Плавна прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Фіксація хедера
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    // Перемикач мов (заглушка)
     function toggleLang() {
-      // Тут буде реалізація перемикача мов (далі додамо JS)
-      alert('Скоро буде англійська версія :)');
+      alert('Англійська версія сайту скоро буде доступна!');
+      // Реальна реалізація потребуватиме перекладів та зміни контенту
     }
+
+    // Валідація форми
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Дякуємо за ваше повідомлення! Ми зв\'яжемося з вами найближчим часом.');
+      this.reset();
+    });
   </script>
 </body>
 </html>
