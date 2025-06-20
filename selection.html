@@ -46,6 +46,49 @@
             background-clip: text;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .login-btn {
+            background: transparent;
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .login-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .register-btn {
+            background: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            color: white;
+        }
+
+        .register-btn:hover {
+            background: #2563eb;
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -105,6 +148,145 @@
             transform: translateY(-2px);
         }
 
+        /* Стилі для особистого кабінету */
+        .profile-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 350px;
+            height: calc(100vh - 40px);
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1001;
+            padding: 20px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            transform: translateX(calc(100% + 40px));
+        }
+
+        .profile-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .close-profile {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-blue);
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-email {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .profile-menu {
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-item:hover {
+            background: var(--accent-bg);
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .logout-btn {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .logout-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Стилі для кошика */
         .cart-sidebar {
             position: fixed;
             right: 20px;
@@ -221,6 +403,27 @@
             transform: scale(1.1);
         }
 
+        .profile-icon {
+            position: fixed;
+            right: 30px;
+            bottom: 110px;
+            background: var(--accent-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            transform: scale(1.1);
+        }
+
         #cartCount {
             position: absolute;
             top: -5px;
@@ -258,6 +461,199 @@
             color: white;
         }
 
+        /* Модальне вікно авторизації */
+        .auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .auth-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .auth-container {
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            width: 400px;
+            max-width: 90%;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .auth-modal.active .auth-container {
+            transform: translateY(0);
+        }
+
+        .auth-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .auth-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .auth-subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .auth-submit {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .auth-divider::before, .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            margin: 0 10px;
+        }
+
+        .social-auth {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .google-btn {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .google-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .facebook-btn {
+            background: #3b5998;
+            color: white;
+            border: 1px solid #3b5998;
+        }
+
+        .facebook-btn:hover {
+            background: #344e86;
+        }
+
+        .github-btn {
+            background: #333;
+            color: white;
+            border: 1px solid #333;
+        }
+
+        .github-btn:hover {
+            background: #222;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .auth-link {
+            color: var(--accent-blue);
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .auth-link:hover {
+            text-decoration: underline;
+        }
+
+        .close-auth {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -266,8 +662,23 @@
 </head>
 <body>
     <div class="container">
-        <h1>Магазин поліцейських авто</h1>
-        <p>Оберіть моделі для вашого LSPDFR</p>
+        <div class="header">
+            <div>
+                <h1>Магазин поліцейських авто</h1>
+                <p>Оберіть моделі для вашого LSPDFR</p>
+            </div>
+            <div class="auth-buttons" id="authButtons">
+                <button class="auth-btn login-btn" onclick="openAuthModal('login')">
+                    <i class="fas fa-sign-in-alt"></i> Увійти
+                </button>
+                <button class="auth-btn register-btn" onclick="openAuthModal('register')">
+                    <i class="fas fa-user-plus"></i> Реєстрація
+                </button>
+            </div>
+            <div id="userGreeting" style="display: none;">
+                <span id="userName"></span>
+            </div>
+        </div>
 
         <div class="product-grid">
             <div class="product-card">
@@ -301,6 +712,57 @@
             </div>
         </div>
 
+        <!-- Особистий кабінет -->
+        <div class="profile-sidebar" id="profileSidebar">
+            <div class="profile-header">
+                <h2>Особистий кабінет</h2>
+                <button class="close-profile" onclick="toggleProfile()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="profile-info">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Аватар" class="profile-avatar" id="profileAvatar">
+                <div class="profile-name" id="profileName">Іван Іванов</div>
+                <div class="profile-email" id="profileEmail">user@example.com</div>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="purchasesCount">5</div>
+                    <div class="stat-label">Покупок</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalSpent">250</div>
+                    <div class="stat-label">Витрачено (грн)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="userRating">4.8</div>
+                    <div class="stat-label">Рейтинг</div>
+                </div>
+            </div>
+            <div class="profile-menu">
+                <div class="menu-item">
+                    <i class="fas fa-history"></i>
+                    <span>Історія покупок</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Обрані товари</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Налаштування</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Безпека</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Вийти
+            </button>
+        </div>
+
         <!-- Кошик -->
         <div class="cart-sidebar" id="cartSidebar">
             <div class="cart-header">
@@ -314,7 +776,58 @@
             <button class="checkout-btn" onclick="initiatePayment()">Оформити замовлення</button>
         </div>
 
-        <!-- Іконка кошика -->
+        <!-- Модальне вікно авторизації -->
+        <div class="auth-modal" id="authModal">
+            <div class="auth-container">
+                <button class="close-auth" onclick="closeAuthModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="auth-header">
+                    <h2 class="auth-title" id="authModalTitle">Увійти</h2>
+                    <p class="auth-subtitle" id="authModalSubtitle">Увійдіть у свій обліковий запис для продовження</p>
+                </div>
+                <form class="auth-form" id="authForm">
+                    <div class="form-group" id="nameGroup" style="display: none;">
+                        <label class="form-label">Ім'я</label>
+                        <input type="text" class="form-input" id="nameInput" placeholder="Введіть ваше ім'я">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="emailInput" placeholder="Введіть ваш email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Пароль</label>
+                        <input type="password" class="form-input" id="passwordInput" placeholder="Введіть ваш пароль">
+                    </div>
+                    <button type="button" class="auth-submit" id="authSubmitBtn">Увійти</button>
+                </form>
+                <div class="auth-divider">або</div>
+                <div class="social-auth">
+                    <button class="social-btn google-btn" onclick="signInWithGoogle()">
+                        <i class="fab fa-google"></i>
+                        Увійти через Google
+                    </button>
+                    <button class="social-btn facebook-btn" onclick="signInWithFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                        Увійти через Facebook
+                    </button>
+                    <button class="social-btn github-btn" onclick="signInWithGithub()">
+                        <i class="fab fa-github"></i>
+                        Увійти через GitHub
+                    </button>
+                </div>
+                <div class="auth-footer">
+                    <span id="authFooterText">Ще не маєте облікового запису?</span>
+                    <span class="auth-link" id="authToggleLink">Зареєструватися</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Іконки для відкриття кошика та профілю -->
+        <div class="profile-icon" onclick="toggleProfile()" id="profileIcon" style="display: none;">
+            <i class="fas fa-user" style="font-size: 24px;"></i>
+        </div>
+        
         <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
             <span id="cartCount">0</span>
@@ -323,6 +836,8 @@
 
     <script>
         let cart = [];
+        let currentUser = null;
+        let isLoginForm = true;
         
         // Дані товарів
         const products = {
@@ -333,6 +848,12 @@
         
         // Додавання товару до кошика
         function addToCart(productId) {
+            if (!currentUser) {
+                showNotification('Будь ласка, увійдіть до системи', 'error');
+                openAuthModal('login');
+                return;
+            }
+            
             cart.push({...products[productId]});
             updateCart();
             showNotification('Товар додано до кошика!', 'success');
@@ -382,6 +903,11 @@
             document.getElementById('cartSidebar').classList.toggle('active');
         }
         
+        // Перемикання видимості профілю
+        function toggleProfile() {
+            document.getElementById('profileSidebar').classList.toggle('active');
+        }
+        
         // Ініціалізація оплати
         function initiatePayment() {
             if (cart.length === 0) {
@@ -389,26 +915,31 @@
                 return;
             }
             
-            // Запитуємо email користувача
-            const email = prompt("Введіть ваш email для отримання файлів:");
-            if (!email || !email.includes('@')) {
-                showNotification('Будь ласка, введіть коректний email', 'error');
+            if (!currentUser) {
+                showNotification('Будь ласка, увійдіть до системи', 'error');
+                openAuthModal('login');
                 return;
             }
             
-            // Для простоти беремо перший товар у кошику
             const product = cart[0];
             const amount = cart.reduce((sum, item) => sum + item.price, 0);
             
             // Перенаправляємо на сторінку оплати MonoBank
-            const paymentUrl = `https://pay.mono.bank/?amount=${amount*100}&ccy=980&redirect=${encodeURIComponent(window.location.href)}?payment=success&email=${encodeURIComponent(email)}&product=${product.id}`;
+            const paymentUrl = `https://pay.mono.bank/?amount=${amount*100}&ccy=980&redirect=${encodeURIComponent(window.location.href)}?payment=success&email=${encodeURIComponent(currentUser.email)}&product=${product.id}`;
             window.location.href = paymentUrl;
             
-            // Після повернення з оплати (це імітація, в реальності буде webhook)
+            // Після повернення з оплати (імітація)
             if (window.location.search.includes('payment=success')) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const email = urlParams.get('email');
                 const productId = urlParams.get('product');
+                
+                // Оновлюємо статистику користувача
+                if (currentUser) {
+                    currentUser.purchasesCount += 1;
+                    currentUser.totalSpent += amount;
+                    updateUserProfile();
+                }
                 
                 // Відправляємо файл на пошту (імітація)
                 setTimeout(() => {
@@ -435,6 +966,202 @@
                 }, 300);
             }, 3000);
         }
+        
+        // Робота з модальним вікном авторизації
+        function openAuthModal(type) {
+            const modal = document.getElementById('authModal');
+            const title = document.getElementById('authModalTitle');
+            const subtitle = document.getElementById('authModalSubtitle');
+            const submitBtn = document.getElementById('authSubmitBtn');
+            const footerText = document.getElementById('authFooterText');
+            const toggleLink = document.getElementById('authToggleLink');
+            const nameGroup = document.getElementById('nameGroup');
+            
+            if (type === 'login') {
+                isLoginForm = true;
+                title.textContent = 'Увійти';
+                subtitle.textContent = 'Увійдіть у свій обліковий запис для продовження';
+                submitBtn.textContent = 'Увійти';
+                footerText.textContent = 'Ще не маєте облікового запису?';
+                toggleLink.textContent = 'Зареєструватися';
+                nameGroup.style.display = 'none';
+            } else {
+                isLoginForm = false;
+                title.textContent = 'Реєстрація';
+                subtitle.textContent = 'Створіть новий обліковий запис';
+                submitBtn.textContent = 'Зареєструватися';
+                footerText.textContent = 'Вже маєте обліковий запис?';
+                toggleLink.textContent = 'Увійти';
+                nameGroup.style.display = 'flex';
+            }
+            
+            modal.classList.add('active');
+            document.getElementById('authForm').reset();
+        }
+        
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+        
+        function toggleAuthForm() {
+            if (isLoginForm) {
+                openAuthModal('register');
+            } else {
+                openAuthModal('login');
+            }
+        }
+        
+        // Обробка форми авторизації/реєстрації
+        function handleAuthSubmit() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            
+            if (!email || !password) {
+                showNotification('Будь ласка, заповніть всі поля', 'error');
+                return;
+            }
+            
+            if (!isLoginForm) {
+                const name = document.getElementById('nameInput').value;
+                if (!name) {
+                    showNotification('Будь ласка, введіть ваше ім\'я', 'error');
+                    return;
+                }
+                
+                // Імітація реєстрації
+                currentUser = {
+                    name: name,
+                    email: email,
+                    avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+                    purchasesCount: 0,
+                    totalSpent: 0,
+                    rating: (Math.random() * 0.5 + 4.5).toFixed(1)
+                };
+                
+                showNotification('Реєстрація успішна!', 'success');
+            } else {
+                // Імітація входу
+                currentUser = {
+                    name: 'Іван Іванов',
+                    email: email,
+                    avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+                    purchasesCount: 5,
+                    totalSpent: 250,
+                    rating: '4.8'
+                };
+                
+                showNotification('Вхід успішний!', 'success');
+            }
+            
+            updateUserInterface();
+            closeAuthModal();
+        }
+        
+        // Функції для входу через соціальні мережі (імітація)
+        function signInWithGoogle() {
+            currentUser = {
+                name: 'Google User',
+                email: 'google.user@example.com',
+                avatar: 'https://cdn-icons-png.flaticon.com/512/2702/2702602.png',
+                purchasesCount: 3,
+                totalSpent: 150,
+                rating: '4.9'
+            };
+            
+            showNotification('Вхід через Google успішний!', 'success');
+            updateUserInterface();
+            closeAuthModal();
+        }
+        
+        function signInWithFacebook() {
+            currentUser = {
+                name: 'Facebook User',
+                email: 'facebook.user@example.com',
+                avatar: 'https://cdn-icons-png.flaticon.com/512/733/733547.png',
+                purchasesCount: 2,
+                totalSpent: 100,
+                rating: '4.7'
+            };
+            
+            showNotification('Вхід через Facebook успішний!', 'success');
+            updateUserInterface();
+            closeAuthModal();
+        }
+        
+        function signInWithGithub() {
+            currentUser = {
+                name: 'GitHub User',
+                email: 'github.user@example.com',
+                avatar: 'https://cdn-icons-png.flaticon.com/512/733/733553.png',
+                purchasesCount: 7,
+                totalSpent: 350,
+                rating: '5.0'
+            };
+            
+            showNotification('Вхід через GitHub успішний!', 'success');
+            updateUserInterface();
+            closeAuthModal();
+        }
+        
+        // Вихід з системи
+        function logout() {
+            currentUser = null;
+            showNotification('Ви вийшли з системи', 'error');
+            updateUserInterface();
+            toggleProfile();
+        }
+        
+        // Оновлення інтерфейсу після входу/виходу
+        function updateUserInterface() {
+            const authButtons = document.getElementById('authButtons');
+            const userGreeting = document.getElementById('userGreeting');
+            const profileIcon = document.getElementById('profileIcon');
+            
+            if (currentUser) {
+                authButtons.style.display = 'none';
+                userGreeting.style.display = 'block';
+                profileIcon.style.display = 'flex';
+                document.getElementById('userName').textContent = `Вітаємо, ${currentUser.name.split(' ')[0]}!`;
+                updateUserProfile();
+            } else {
+                authButtons.style.display = 'flex';
+                userGreeting.style.display = 'none';
+                profileIcon.style.display = 'none';
+            }
+        }
+        
+        // Оновлення даних профілю
+        function updateUserProfile() {
+            if (!currentUser) return;
+            
+            document.getElementById('profileName').textContent = currentUser.name;
+            document.getElementById('profileEmail').textContent = currentUser.email;
+            document.getElementById('profileAvatar').src = currentUser.avatar;
+            document.getElementById('purchasesCount').textContent = currentUser.purchasesCount;
+            document.getElementById('totalSpent').textContent = currentUser.totalSpent;
+            document.getElementById('userRating').textContent = currentUser.rating;
+        }
+        
+        // Ініціалізація подій
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обробка форми авторизації
+            document.getElementById('authSubmitBtn').addEventListener('click', handleAuthSubmit);
+            
+            // Перемикання між входом і реєстрацією
+            document.getElementById('authToggleLink').addEventListener('click', toggleAuthForm);
+            
+            // Перевірка параметрів URL після оплати (імітація)
+            if (window.location.search.includes('payment=success')) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const email = urlParams.get('email');
+                const productId = urlParams.get('product');
+                
+                setTimeout(() => {
+                    showNotification(`Файл ${products[productId].file} відправлено на ${email}`, 'success');
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 500);
+            }
+        });
 
         // Ініціалізація кошика
         updateCart();
