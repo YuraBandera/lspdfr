@@ -108,7 +108,7 @@
         /* Стилі для кошика - зміщено лівіше */
         .cart-sidebar {
             position: fixed;
-            right: 20px; /* Змінено з -400px на 20px - тепер видно зразу */
+            right: 20px;
             top: 20px;
             width: 350px;
             height: calc(100vh - 40px);
@@ -119,11 +119,11 @@
             padding: 20px;
             overflow-y: auto;
             transition: all 0.3s ease;
-            transform: translateX(calc(100% + 40px)); /* Ховаємо за межі екрану */
+            transform: translateX(calc(100% + 40px));
         }
 
         .cart-sidebar.active {
-            transform: translateX(0); /* Показуємо */
+            transform: translateX(0);
         }
 
         .cart-header {
@@ -267,6 +267,20 @@
     </style>
 </head>
 <body>
+    <!-- Аудіо елементи для звукових ефектів -->
+    <audio id="errorSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="successSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="addToCartSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="removeSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <h1>Магазин поліцейських авто</h1>
         <p>Оберіть моделі для вашого LSPDFR</p>
@@ -329,6 +343,12 @@
     <script>
         let cart = [];
         
+        // Отримуємо аудіо елементи
+        const errorSound = document.getElementById('errorSound');
+        const successSound = document.getElementById('successSound');
+        const addToCartSound = document.getElementById('addToCartSound');
+        const removeSound = document.getElementById('removeSound');
+        
         // Дані товарів
         const products = {
             1: { id: 1, name: "Dacia Sandero Patrol", price: 50 },
@@ -340,6 +360,7 @@
         function addToCart(productId) {
             cart.push({...products[productId]});
             updateCart();
+            playSound(addToCartSound);
             showNotification('Товар додано до кошика!', 'success');
         }
         
@@ -347,6 +368,7 @@
         function removeFromCart(index) {
             const removedItem = cart.splice(index, 1);
             updateCart();
+            playSound(removeSound);
             showNotification(`Видалили ${removedItem[0].name}`, 'error');
         }
         
@@ -391,6 +413,7 @@
         // Оформлення замовлення
         function proceedToCheckout() {
             if(cart.length === 0) {
+                playSound(errorSound);
                 showNotification('Кошик порожній!', 'error');
                 return;
             }
@@ -398,7 +421,7 @@
             const total = cart.reduce((sum, item) => sum + item.price, 0);
             const description = cart.map(item => item.name).join(', ');
             
-            // Тут буде редирект на сторінку оплати
+            playSound(successSound);
             showNotification(`Готово до оплати: ${total} грн`, 'success');
             console.log('Замовлення:', {
                 items: cart,
@@ -409,6 +432,12 @@
             // Тимчасово: очистимо кошик після "оплати"
             cart = [];
             updateCart();
+        }
+        
+        // Функція для програвання звуку
+        function playSound(audioElement) {
+            audioElement.currentTime = 0; // Перемотуємо на початок
+            audioElement.play().catch(e => console.log("Не вдалося програти звук:", e));
         }
         
         // Функція для показу сповіщень
