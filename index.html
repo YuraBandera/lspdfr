@@ -1,258 +1,1788 @@
 <!DOCTYPE html>
 <html lang="uk">
+
+<!-- Mirrored from ukraine-gta.github.io/DKVSU/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 11:21:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO | Українські поліцейські авто для GTA 5</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>ДКВСУ м.Дніпро - Сучасна служба правопорядку</title>
+    <link rel="icon" href="ipad-ug/img/logo.svg" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
-            --blue: #0057b7;
-            --yellow: #ffd700;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
+            --primary-blue: #0066FF;
+            --primary-blue-dark: #0052CC;
+            --secondary-orange: #FF6B35;
+            --accent-cyan: #00D4FF;
+            --accent-purple: #8B5CF6;
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            
+            --bg-primary: #0A0A0F;
+            --bg-secondary: #111118;
+            --bg-tertiary: #1A1A24;
+            --bg-card: #1E1E2E;
+            --bg-glass: rgba(30, 30, 46, 0.85);
+            
+            --text-primary: #FFFFFF;
+            --text-secondary: #B4B4C7;
+            --text-muted: #8B8BA7;
+            
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+            --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #8B5CF6 100%);
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
+            --shadow-glow-blue: 0 0 20px rgba(0, 102, 255, 0.3);
+            --shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
+            
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        body {
-            font-family: 'Segoe UI', sans-serif;
+
+        * {
             margin: 0;
-            background: var(--light);
-            color: var(--dark);
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        header {
-            background: rgba(0, 87, 183, 0.9);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s;
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
-        
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 var(--space-lg);
         }
-        
-        .hero {
-            height: 100vh;
-            background: url('police-bg.jpg') center/cover;
+
+        .glass-effect {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Header - FIXED */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 0;
+            transition: all var(--transition);
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all var(--transition);
+            position: relative;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            display: block;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: var(--bg-glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            backdrop-filter: blur(10px);
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-secondary);
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 30%;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px); 
+            }
+            50% { 
+                transform: translateY(-20px) translateX(10px); 
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 16px;
+            background: var(--bg-glass);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            margin-bottom: var(--space-xl);
+            backdrop-filter: blur(20px);
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { 
+                transform: translateX(-50%) translateY(0); 
+            }
+            40% { 
+                transform: translateX(-50%) translateY(-10px); 
+            }
+            60% { 
+                transform: translateX(-50%) translateY(-5px); 
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
             position: relative;
         }
-        
-        .hero::before {
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            margin-bottom: var(--space-lg);
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            line-height: 1.3;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 102, 255, 0.3);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* Leadership Grid */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .leader-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: auto;
+            transition: transform var(--transition);
+          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        .leader-card:hover .leader-image {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: var(--space-lg);
+        }
+
+        .leader-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .leader-position {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            font-size: 14px;
+        }
+
+        .leader-experience {
+            color: var(--text-secondary);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        /* Departments Grid */
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .department-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .department-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 3px;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: var(--gradient-primary);
+            transform: scaleY(0);
+            transition: transform var(--transition);
+            transform-origin: bottom;
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
+
+        .department-card:hover::before {
+            transform: scaleY(1);
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--yellow);
-            color: var(--dark);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s;
+
+        .department-card:hover {
+            transform: translateX(8px);
+            border-color: rgba(0, 102, 255, 0.3);
         }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        .department-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .models-grid {
+
+        .department-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .department-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .department-tasks {
+            background: var(--bg-tertiary);
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .department-head {
+            font-weight: 600;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 13px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
         }
-        
-        .model-card {
-            background: white;
-            border-radius: 10px;
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: all var(--transition);
+            background: var(--bg-card);
         }
-        
-        .model-card:hover {
-            transform: translateY(-10px);
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
         }
-        
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 50px 0;
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: 0;
+            transition: opacity var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-lg);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: var(--space-2xl) auto 0;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: var(--space-lg);
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--accent-cyan);
+        }
+
+        .faq-icon {
+            transition: transform var(--transition);
+            font-size: 16px;
+            color: var(--accent-cyan);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-content {
+            padding: 0 var(--space-lg) var(--space-lg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+        }
+
+        .faq-list i {
+            font-size: 14px;
+            width: 16px;
             text-align: center;
         }
-        
-        /* Анімації */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-2xl) 0;
+            text-align: center;
         }
-        
-        .animate-fade {
-            animation: fadeInUp 1s ease forwards;
+
+        .footer-content {
+            color: var(--text-secondary);
+            font-size: 14px;
         }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
+
+        .footer-highlight {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-top: var(--space-md);
+            font-size: 16px;
+        }
+
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: var(--space-xl);
+            right: var(--space-xl);
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 102, 255, 0.2);
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: var(--space-lg);
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive - FIXED */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-glass);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: var(--radius-lg);
+                margin: var(--space-md);
+                padding: var(--space-lg);
+                flex-direction: column;
+                gap: var(--space-md);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .stats-grid,
+            .leadership-grid,
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.25rem, 4vw, 2rem);
+            }
+
+            .nav {
+                height: 50px;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .logo-title {
+                font-size: 14px;
+            }
+
+            .logo-subtitle {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+
+            .card,
+            .stat-card,
+            .department-card {
+                padding: var(--space-lg);
+            }
+
+            .faq-question {
+                padding: var(--space-md);
+                font-size: 14px;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: var(--space-lg);
+                right: var(--space-lg);
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Хедер -->
-    <header class="animate-fade">
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Завантаження...</div>
+    </div>
+
+    <!-- Header -->
+    <div class="logo">
+    <img src="ipad-ug/img/logo.svg" alt="LSPDFR ELITE STUDIO SHOP Логотип">
+    <div class="logo-text">
+        <div class="logo-title">LSPDFR ELITE STUDIO SHOP</div>
+        <div class="logo-subtitle"><br>Офіційний магазин</div>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <h1 class="hero-title fade-in-up">
+    Магазин контенту для<br>
+    <span class="gradient-text">LSPDFR</span><br>
+    ELITE STUDIO
+</h1>
+
+<p class="hero-subtitle fade-in-up">
+    Продаж машин, скінів, плагінів та іншого контенту для LSPDFR. Якісні моделі з підтримкою автора.
+</p>
+
+    <!-- About Section -->
+    <h2 class="section-title fade-in-up">
+    Про наш <span class="gradient-text">магазин</span>
+</h2>
+<p class="section-description fade-in-up">
+    LSPDFR ELITE STUDIO SHOP – це офіційний магазин контенту для LSPDFR. Ми пропонуємо якісні моделі машин, скіни, плагіни та інші доповнення для вашого гри.
+</p>
+
+    <!-- Statistics Section -->
+   <div class="stat-card fade-in-up scale-in">
+    <div class="stat-icon">
+        <i class="fas fa-car"></i>
+    </div>
+    <div class="stat-number" data-target="150">0</div>
+    <div class="stat-label">Продано машин</div>
+</div>
+
+<div class="stat-card fade-in-up scale-in">
+    <div class="stat-icon">
+        <i class="fas fa-user-tie"></i>
+    </div>
+    <div class="stat-number" data-target="500">0</div>
+    <div class="stat-label">Задоволених клієнтів</div>
+</div>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section" style="background: var(--bg-secondary);">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center;">
-                    <img src="logo.png" alt="Logo" width="40" style="margin-right: 10px;">
-                    <h1 style="color: white; margin: 0;">LSPDFR ELITE STUDIO</h1>
-                </div>
-                <nav>
-                    <a href="#about" style="color: white; margin: 0 15px; text-decoration: none;">Про нас</a>
-                    <a href="#models" style="color: white; margin: 0 15px; text-decoration: none;">Моделі</a>
-                    <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Контакти</a>
-                </nav>
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Наша команда</div>
+                <h2 class="section-title fade-in-up">
+                    Керівництво <span class="gradient-text">ДКВС</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Досвідчені професіонали, що керують розвитком служби
+                </p>
             </div>
-        </div>
-    </header>
-
-    <!-- Герой -->
-    <section class="hero">
-        <div class="hero-content container animate-fade">
-            <h1 style="font-size: 3rem; margin-bottom: 20px;">Якісні моделі української поліції</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Створені з любов'ю до деталей та патріотизму</p>
-            <a href="#models" class="btn animate-fade delay-1">ПЕРЕГЛЯНУТИ МОДЕЛІ</a>
-        </div>
-    </section>
-
-    <!-- Про нас -->
-    <section id="about" style="padding: 100px 0;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; color: var(--blue);">Про нас</h2>
-            <div style="display: flex; align-items: center; margin-top: 50px; gap: 50px;">
-                <div style="flex: 1;">
-                    <p style="font-size: 1.1rem; line-height: 1.6;">Ми — команда розробників, які створюють високоякісні 3D-моделі українських поліцейських авто для GTA 5. Наші моделі відзначаються деталізацією, відповідністю реальним прототипам та високою оптимізацією.</p>
-                </div>
-                <div style="flex: 1;">
-                    <img src="team.jpg" alt="Наша команда" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Моделі -->
-    <section id="models" style="padding: 100px 0; background: #f1f1f1;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; color: var(--blue);">Наші моделі</h2>
-            <div class="models-grid">
-                <!-- Модель 1 -->
-                <div class="model-card animate-fade delay-1">
-                    <img src="duster.jpg" alt="Renault Duster" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px;">Renault Duster</h3>
-                        <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
+            
+            <div class="leadership-grid">
+                <div class="leader-card fade-in-up">
+                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/6758.webp" alt="Валерія Зеленюк" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Валерія Зеленюк</h3>
+                        <div class="leader-position">Генерал ДКВС</div>
+                        <div class="leader-experience">
+                            <i class="fas fa-star" style="color: var(--accent-cyan);"></i>
+                            Досвід роботи: 5+ років
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Модель 2 -->
-                <div class="model-card animate-fade delay-1">
-                    <img src="prius.jpg" alt="Toyota Prius" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px;">Toyota Prius</h3>
-                        <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
+                <div class="leader-card fade-in-up">
+                    <img src="../../img.freepik.com/free-vector/coming-soon-background-with-focus-light-effect-design_1017-27277.jpg" alt="Сергій Лемак" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Вакантно</h3>
+                        <div class="leader-position">Полковник ДКВС</div>
+                        <div class="leader-experience">
+                            <i class="fas fa-medal" style="color: var(--accent-cyan);"></i>
+                            Куратор: Оперативного Відділу
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Модель 3 -->
-                <div class="model-card animate-fade delay-1">
-                    <img src="corolla.jpg" alt="Toyota Corolla" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px;">Toyota Corolla</h3>
-                        <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
+                <div class="leader-card fade-in-up">
+                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/269.webp" alt="Назарій Коваль" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Назарій Коваль</h3>
+                        <div class="leader-position">Полковник ДКВС</div>
+                        <div class="leader-experience">
+                            <i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i>
+                            Куратор: Управління Перевезенням В'язнів
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leader-card fade-in-up">
+                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/269.webp" alt="Вакантна посада" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Микола Бондаренко</h3>
+                        <div class="leader-position">Полковник ДКВС</div>
+                        <div class="leader-experience">
+                            <i class="fas fa-user-plus" style="color: var(--secondary-orange);"></i>
+                            Куратор: Департаменту Професійної Підготовки
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Контакти -->
-    <section id="contact" style="padding: 100px 0; background: var(--blue); color: white;">
+    <!-- Departments Section -->
+    <section id="departments" class="section">
         <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem;">Контакти</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px;">
-                <div>
-                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@lspdfr-elite.com</p>
-                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +380 (XX) XXX XX XX</p>
-                    <div style="margin-top: 30px;">
-                        <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-discord"></i></a>
-                        <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-telegram"></i></a>
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Структура</div>
+                <h2 class="section-title fade-in-up">
+                    Відділи <span class="gradient-text">ДКВС</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Спеціалізовані підрозділи для ефективного виконання завдань
+                </p>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card fade-in-up">
+                    <div class="department-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="department-title">ДПП - Департамент професійної підготовки</h3>
+                    <p class="department-description">
+                        Організація навчання та підготовки персоналу для забезпечення високого рівня професіоналізму.
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Ключові завдання:</strong><br>
+                        Розробка програм, проведення тренінгів, оцінка ефективності
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-user"></i>
+                        Керівник: -
                     </div>
                 </div>
-                <div>
-                    <form style="display: grid; gap: 15px;">
-                        <input type="text" placeholder="Ваше ім'я" style="padding: 12px; border: none; border-radius: 5px;">
-                        <input type="email" placeholder="Ваш email" style="padding: 12px; border: none; border-radius: 5px;">
-                        <textarea placeholder="Ваше повідомлення" style="padding: 12px; border: none; border-radius: 5px; min-height: 100px;"></textarea>
-                        <button type="submit" class="btn" style="border: none; cursor: pointer;">НАДІСЛАТИ</button>
-                    </form>
+                
+                <div class="department-card fade-in-up">
+                    <div class="department-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="department-title">УПВ - Управління перевезенням в'язнів</h3>
+                    <p class="department-description">
+                        Організація та контроль перевезень осіб, позбавлених волі, з дотриманням всіх норм безпеки.
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Спеціалізація:</strong><br>
+                        Безпека при транспортуванні, координація з іншими органами
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-user"></i>
+                        Керівник: -
+                    </div>
+                </div>
+                
+                <div class="department-card fade-in-up">
+                    <div class="department-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="department-title">ОВ - Оперативний відділ</h3>
+                    <p class="department-description">
+                        Організація оперативних заходів та спеціальних операцій для підтримання порядку.
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Основний фокус:</strong><br>
+                        Виявлення загроз, моніторинг правопорушень, реагування на надзвичайні ситуації
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-user-plus" style="color: var(--secondary-orange);"></i>
+                        Керівник: -
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
-    <footer class="animate-fade delay-2">
+    <!-- Requirements Section -->
+    <section id="requirements" class="section" style="background: var(--bg-secondary);">
         <div class="container">
-            <p>&copy; 2023 LSPDFR ELITE STUDIO. Всі права захищені.</p>
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Вступ до служби</div>
+                <h2 class="section-title fade-in-up">
+                    Вимоги для <span class="gradient-text">кандидатів</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Основні критерії для вступу до лав ДКВСУ
+                </p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="card fade-in-up">
+                    <div style="display: grid; gap: var(--space-lg);">
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue);">
+                            <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-calendar-alt" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Вік: 18+ років</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Мінімальний вік для вступу до служби</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-cyan);">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Проживання в області: 2+ роки</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Постійне місце проживання в регіоні</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--secondary-orange);">
+                            <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-file-alt" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Повний пакет документів</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Паспорт, трудова книга, медична книга</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-purple), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-dumbbell" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Фізична підготовка</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Відповідність встановленим нормативам</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Психологічна стійкість</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Успішне проходження психологічного тестування</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranks Section -->
+    <section id="ranks" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Кар'єрний ріст</div>
+                <h2 class="section-title fade-in-up">
+                    Система <span class="gradient-text">звань</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Ієрархія звань у фракції ДКВСУ з можливостями кар'єрного росту
+                </p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="card fade-in-up">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-xl);">
+                        <div>
+                            <h4 style="color: var(--accent-cyan); margin-bottom: var(--space-lg); font-size: 16px; font-weight: 700; text-align: center; padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">Молодший склад</h4>
+                            <div style="display: grid; gap: var(--space-sm);">
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--primary-blue); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 1: Сержант</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--primary-blue); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 2: Старший сержант</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--primary-blue); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 3: Старшина</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 4: Прапорщик</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 5: Старший прапорщик</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 style="color: var(--secondary-orange); margin-bottom: var(--space-lg); font-size: 16px; font-weight: 700; text-align: center; padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">Офіцерський склад</h4>
+                            <div style="display: grid; gap: var(--space-sm);">
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--secondary-orange); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 6: Лейтенант</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--secondary-orange); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 7: Старший лейтенант</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--secondary-orange); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 8: Капітан</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--accent-purple); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 9: Майор</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                                    <div style="width: 8px; height: 8px; background: var(--accent-purple); border-radius: 50%;"></div>
+                                    <span style="font-size: 13px; font-weight: 500;">Ранг 10: Підполковник</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="grid-column: 1 / -1;">
+                            <h4 style="color: var(--accent-purple); margin-bottom: var(--space-lg); font-size: 16px; font-weight: 700; text-align: center; padding: var(--space-sm); background: var(--bg-tertiary); border-radius: var(--radius-sm);">Вищий склад</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
+                                <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: linear-gradient(135deg, var(--bg-tertiary), rgba(139, 92, 246, 0.1)); border-radius: var(--radius-sm); border: 1px solid rgba(139, 92, 246, 0.3);">
+                                    <div style="width: 10px; height: 10px; background: var(--accent-purple); border-radius: 50%;"></div>
+                                    <span style="font-weight: 600; font-size: 14px;">Ранг 11: Полковник</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: linear-gradient(135deg, var(--bg-tertiary), rgba(255, 107, 53, 0.1)); border-radius: var(--radius-sm); border: 1px solid rgba(255, 107, 53, 0.3);">
+                                    <div style="width: 10px; height: 10px; background: var(--secondary-orange); border-radius: 50%;"></div>
+                                    <span style="font-weight: 600; font-size: 14px;">Ранг 12: Генерал</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="department-card fade-in-up">
+    <div class="department-icon">
+        <i class="fas fa-car"></i>
+    </div>
+    <h3 class="department-title">Машини для LSPDFR</h3>
+    <p class="department-description">
+        Реалістичні моделі поліцейських машин з повним функціоналом для LSPDFR.
+    </p>
+</div>
+
+<div class="department-card fade-in-up">
+    <div class="department-icon">
+        <i class="fas fa-user"></i>
+    </div>
+    <h3 class="department-title">Скіни для персонажів</h3>
+    <p class="department-description">
+        Унікальні скіни поліцейських, медиків та інших персонажів.
+    </p>
+</div>
+
+    <!-- FAQ Section -->
+    <div class="faq-item fade-in-up">
+    <button class="faq-question">
+        <span>Як купити товар?</span>
+        <i class="fas fa-chevron-down faq-icon"></i>
+    </button>
+    <div class="faq-answer">
+        <div class="faq-content">
+            <p>1. Виберіть товар у магазині.<br>
+            2. Додайте його в кошик.<br>
+            3. Оплатіть через обраний спосіб.<br>
+            4. Отримайте файли на пошту або через особистий кабінет.</p>
+        </div>
+    </div>
+</div>
+                
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Які переваги роботи в ДКВС?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <ul class="faq-list">
+                                <li><i class="fas fa-check" style="color: var(--accent-green);"></i> Стабільна заробітна плата</li>
+                                <li><i class="fas fa-check" style="color: var(--accent-green);"></i> Можливість кар'єрного росту</li>
+                                <li><i class="fas fa-check" style="color: var(--accent-green);"></i> Соціальний пакет та пільги</li>
+                                <li><i class="fas fa-check" style="color: var(--accent-green);"></i> Навчання та підвищення кваліфікації</li>
+                                <li><i class="fas fa-check" style="color: var(--accent-green);"></i> Робота в команді професіоналів</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Як подати заявку на роботу в ДКВС?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <ul class="faq-list">
+                                <li><i class="fas fa-file-alt" style="color: var(--primary-blue);"></i> Заповніть анкету на офіційному сайті</li>
+                                <li><i class="fas fa-id-card" style="color: var(--primary-blue);"></i> Підготуйте необхідні документи</li>
+                                <li><i class="fas fa-user-tie" style="color: var(--primary-blue);"></i> Пройдіть співбесіду</li>
+                                <li><i class="fas fa-heartbeat" style="color: var(--primary-blue);"></i> Пройдіть медичний огляд</li>
+                                <li><i class="fas fa-graduation-cap" style="color: var(--primary-blue);"></i> Пройдіть базову підготовку</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p style="margin-bottom: var(--space-sm);">&copy; 2025 ДКВС м.Дніпро. Всі права захищені.</p>
+                <p class="footer-highlight">Слава Україні! Героям слава!</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Плавна прокрутка
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Firebase Configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+            authDomain: "dkvs-1ec88.firebaseapp.com",
+            databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com/",
+            projectId: "dkvs-1ec88",
+            storageBucket: "dkvs-1ec88.appspot.com",
+            messagingSenderId: "167430647129",
+            appId: "1:167430647129:web:ab209fec7735f20b597048",
+            measurementId: "G-H6LKMLYD10"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Loading Screen
+        setTimeout(() => {
+            document.getElementById('loading').classList.add('hidden');
+        }, 1500);
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        function updateScrollElements() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollToTopBtn.classList.remove('visible');
+            }
+
+            updateActiveNavLink();
+        }
+
+        window.addEventListener('scroll', updateScrollElements);
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            navMenu.classList.toggle('active');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (menuOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (menuOpen) {
+                    navMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                    menuOpen = false;
+                }
+            });
+        });
+
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active Navigation Link Update
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const headerHeight = header.offsetHeight;
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 50;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate counters for stat cards
+                    if (entry.target.classList.contains('stat-card')) {
+                        animateCounter(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        function animateCounter(statCard) {
+            const numberElement = statCard.querySelector('.stat-number');
+            const target = parseInt(numberElement.dataset.target);
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(target * easeOutQuart);
+                
+                numberElement.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    numberElement.textContent = target;
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                const answer = faqItem.querySelector('.faq-answer');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        otherAnswer.style.maxHeight = '0px';
+                    }
+                });
+
+                // Toggle clicked item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    faqItem.classList.remove('active');
+                    answer.style.maxHeight = '0px';
+                }
+            });
+        });
+
+        // Firebase Data Loading
+        const counterRef = ref(db, 'counter');
+        onValue(counterRef, (snapshot) => {
+            try {
+                const convoyCount = snapshot.val() || 0;
+                const convoyElement = document.getElementById('convoyCount');
+                if (convoyElement) {
+                    convoyElement.dataset.target = convoyCount;
+                }
+            } catch (error) {
+                console.error('Firebase error:', error);
+                const convoyElement = document.getElementById('convoyCount');
+                if (convoyElement) {
+                    convoyElement.dataset.target = '150';
+                }
+            }
+        });
+
+        // Gallery Lightbox
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('.gallery-image');
+                
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 12px;
+                `;
+                
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                closeBtn.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    backdrop-filter: blur(10px);
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                lightbox.appendChild(closeBtn);
+                document.body.appendChild(lightbox);
+                
+                setTimeout(() => {
+                    lightbox.style.opacity = '1';
+                }, 10);
+                
+                const closeLightbox = () => {
+                    lightbox.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(lightbox);
+                    }, 300);
+                };
+                
+                closeBtn.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                
+                document.addEventListener('keydown', function escHandler(e) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                        document.removeEventListener('keydown', escHandler);
+                    }
                 });
             });
         });
-        
-        // Анімація при скролі
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate-fade');
-            elements.forEach(el => {
-                const elementPosition = el.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if(elementPosition < screenPosition) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+
+        console.log('ДКВС Website - Loaded successfully!');
     </script>
 </body>
+
+<!-- Mirrored from ukraine-gta.github.io/DKVSU/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 11:21:04 GMT -->
 </html>
