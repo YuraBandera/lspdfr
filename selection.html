@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE - Вибір товарів</title>
+    <title>LSPDFR ELITE - Магазин авто</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Стилі з вашого другого коду, але адаптовані під магазин */
         :root {
             --primary-bg: #0a0a0f;
             --secondary-bg: #15151d;
@@ -28,15 +27,25 @@
             font-family: "Inter", sans-serif;
             background: var(--primary-bg);
             color: var(--text-primary);
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
         }
 
-        /* Стилі для карток товарів */
+        h1 {
+            margin-bottom: 10px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -88,31 +97,90 @@
             cursor: pointer;
             width: 100%;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        /* Стилі для кошика */
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Стилі для кошика - зміщено лівіше */
         .cart-sidebar {
             position: fixed;
-            right: -400px;
-            top: 0;
-            width: 400px;
-            height: 100vh;
+            right: 20px; /* Змінено з -400px на 20px - тепер видно зразу */
+            top: 20px;
+            width: 350px;
+            height: calc(100vh - 40px);
             background: var(--secondary-bg);
-            transition: right 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
             z-index: 1000;
             padding: 20px;
             overflow-y: auto;
+            transition: all 0.3s ease;
+            transform: translateX(calc(100% + 40px)); /* Ховаємо за межі екрану */
         }
 
         .cart-sidebar.active {
-            right: 0;
+            transform: translateX(0); /* Показуємо */
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
         }
 
         .cart-item {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        .remove-item {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .remove-item:hover {
+            transform: scale(1.1);
         }
 
         .checkout-btn {
@@ -124,12 +192,83 @@
             width: 100%;
             font-weight: 600;
             margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cart-icon {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background: var(--gradient-primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        #cartCount {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-red);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Анімації */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            border-radius: 6px;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .notification.success {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .notification.error {
+            background: var(--accent-red);
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Вибір поліцейських авто</h1>
+        <h1>Магазин поліцейських авто</h1>
         <p>Оберіть моделі для вашого LSPDFR</p>
 
         <div class="product-grid">
@@ -169,79 +308,127 @@
 
         <!-- Кошик -->
         <div class="cart-sidebar" id="cartSidebar">
-            <h2>Ваше замовлення</h2>
+            <div class="cart-header">
+                <h2>Ваше замовлення</h2>
+                <button class="close-cart" onclick="toggleCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
             <div id="cartItems"></div>
-            <div id="cartTotal" style="font-weight: bold; font-size: 18px;"></div>
+            <div id="cartTotal" style="font-weight: bold; font-size: 18px; margin-top: 20px;"></div>
             <button class="checkout-btn" onclick="proceedToCheckout()">Оформити замовлення</button>
         </div>
 
         <!-- Іконка кошика -->
-        <div style="position: fixed; right: 20px; bottom: 20px; background: var(--gradient-primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" onclick="toggleCart()">
+        <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
-            <span id="cartCount" style="position: absolute; top: -5px; right: -5px; background: var(--accent-red); color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px;">0</span>
+            <span id="cartCount">0</span>
         </div>
     </div>
 
     <script>
         let cart = [];
         
+        // Дані товарів
+        const products = {
+            1: { id: 1, name: "Dacia Sandero Patrol", price: 250 },
+            2: { id: 2, name: "Toyota Corolla Patrol", price: 300 },
+            3: { id: 3, name: "Renault Duster Patrol", price: 350 }
+        };
+        
+        // Додавання товару до кошика
         function addToCart(productId) {
-            const products = {
-                1: { name: "Dacia Sandero Patrol", price: 250 },
-                2: { name: "Toyota Corolla Patrol", price: 300 },
-                3: { name: "Renault Duster Patrol", price: 350 }
-            };
-            
-            cart.push(products[productId]);
+            cart.push({...products[productId]});
             updateCart();
-            alert('Товар додано до кошика!');
+            showNotification('Товар додано до кошика!', 'success');
         }
         
+        // Видалення товару з кошика
+        function removeFromCart(index) {
+            const removedItem = cart.splice(index, 1);
+            updateCart();
+            showNotification(`Видалили ${removedItem[0].name}`, 'error');
+        }
+        
+        // Оновлення відображення кошика
         function updateCart() {
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
             
             cartItems.innerHTML = '';
-            let total = 0;
             
-            cart.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
-                    <div style="flex: 1;">
-                        <div>${item.name}</div>
-                        <div style="color: var(--accent-green);">${item.price} грн</div>
-                    </div>
-                `;
-                cartItems.appendChild(itemElement);
-                total += item.price;
-            });
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Кошик порожній</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price} грн</div>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    `;
+                    cartItems.appendChild(itemElement);
+                });
+            }
             
+            // Оновлення лічильника та загальної суми
             cartCount.textContent = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
             cartTotal.textContent = `Всього: ${total} грн`;
         }
         
+        // Перемикання видимості кошика
         function toggleCart() {
             document.getElementById('cartSidebar').classList.toggle('active');
         }
         
+        // Оформлення замовлення
         function proceedToCheckout() {
             if(cart.length === 0) {
-                alert('Кошик порожній!');
+                showNotification('Кошик порожній!', 'error');
                 return;
             }
             
-            // Тут буде редирект на сторінку оплати
             const total = cart.reduce((sum, item) => sum + item.price, 0);
             const description = cart.map(item => item.name).join(', ');
             
-            // Приклад для Mono
-            window.location.href = `https://example.com/pay?amount=${total}&description=${encodeURIComponent(description)}`;
+            // Тут буде редирект на сторінку оплати
+            showNotification(`Готово до оплати: ${total} грн`, 'success');
+            console.log('Замовлення:', {
+                items: cart,
+                total: total,
+                description: description
+            });
             
-            // Або можна зробити форму для Fondy:
-            // document.getElementById('paymentForm').submit();
+            // Тимчасово: очистимо кошик після "оплати"
+            cart = [];
+            updateCart();
         }
+        
+        // Функція для показу сповіщень
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Ініціалізація кошика
+        updateCart();
     </script>
 </body>
 </html>
