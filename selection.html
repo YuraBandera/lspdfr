@@ -88,6 +88,10 @@
             margin: 10px 0;
         }
 
+        .product-price.free {
+            color: var(--accent-blue);
+        }
+
         .add-to-cart {
             background: var(--gradient-primary);
             color: white;
@@ -101,6 +105,23 @@
         }
 
         .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
             opacity: 0.9;
             transform: translateY(-2px);
         }
@@ -258,6 +279,11 @@
             color: white;
         }
 
+        .notification.info {
+            background: var(--accent-blue);
+            color: white;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -361,6 +387,23 @@
         <p>Оберіть моделі для вашого LSPDFR</p>
 
         <div class="product-grid">
+    <!-- Безкоштовний Renault Logan -->
+    <div class="product-card">
+        <img src="https://example.com/renault_logan_police.jpg" alt="Renault Logan Patrol" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Renault Logan Patrol (БЕЗКОШТОВНО)</h3>
+            <p>Базовий поліцейський автомобіль для початку</p>
+            <div class="product-price free">Безкоштовно</div>
+            <!-- Замість кнопки - посилання з download -->
+            <a href="https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing" 
+               download="renault_logan_police.zip" 
+               class="download-btn">
+               Завантажити
+            </a>
+        </div>
+    </div>
+</div>
+
             <div class="product-card">
                 <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="product-image">
                 <div class="product-info">
@@ -442,6 +485,29 @@
         </div>
     </div>
 
+    <!-- Модальне вікно для завантаження безкоштовного авто -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeDownloadModal()">&times;</span>
+            <h2>Завантаження Renault Logan</h2>
+            <div class="modal-body">
+                <p>Дякуємо, що обираєте наш магазин! Ваше завантаження почнеться автоматично.</p>
+                <div class="instruction-box">
+                    <h4>Інструкція з встановлення:</h4>
+                    <ol>
+                        <li>Завантажте архів з файлами</li>
+                        <li>Розпакуйте архів у відповідну папку GTA V</li>
+                        <li>Додайте авто у вашому менеджері модів</li>
+                        <li>Насолоджуйтесь новим поліцейським авто!</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="startDownload()">Почати завантаження</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let cart = [];
         const MONOBANK_JAR_URL = "https://send.monobank.ua/jar/G7ZB9qnNG";
@@ -452,6 +518,9 @@
             2: { id: 2, name: "Toyota Corolla Patrol", price: 50, file: "toyota_corolla.zip" },
             3: { id: 3, name: "Renault Duster Patrol", price: 50, file: "renault_duster.zip" }
         };
+
+        // URL для завантаження безкоштовного Renault Logan (замініть на ваш реальний URL)
+        const FREE_CAR_DOWNLOAD_URL = "https://example.com/renault_logan_police.zip";
         
         // Додавання товару до кошика
         function addToCart(productId) {
@@ -518,6 +587,30 @@
         function closeModal() {
             document.getElementById('paymentModal').style.display = 'none';
         }
+
+        // Показати модальне вікно завантаження безкоштовного авто
+        function downloadFreeCar() {
+            document.getElementById('downloadModal').style.display = 'block';
+        }
+
+        // Закрити модальне вікно завантаження
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+        }
+
+        // Почати завантаження безкоштовного авто
+        function startDownload() {
+            // Створюємо тимчасове посилання для завантаження
+            const link = document.createElement('a');
+            link.href = FREE_CAR_DOWNLOAD_URL;
+            link.download = 'renault_logan_police.zip';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showNotification('Завантаження Renault Logan розпочато!', 'info');
+            closeDownloadModal();
+        }
         
         // Обробка оплати
         function processPayment() {
@@ -535,7 +628,7 @@
             }
             
             const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*1}`;
+            const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*100}`;
             
             // Показати інструкцію
             alert(`Для завершення покупки:
