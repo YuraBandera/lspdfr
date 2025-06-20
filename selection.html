@@ -3,176 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE SHOP - Особистий кабінет</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>LSPDFR ELITE - Магазин авто</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-bg: #0a0a0f;
             --secondary-bg: #15151d;
             --card-bg: #1a1a23;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
+            --accent-bg: #252530;
+            --border-color: #2a2a3a;
             --text-primary: #ffffff;
             --text-secondary: #b0b0b0;
+            --text-muted: #6b6b7b;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
             background: var(--primary-bg);
             color: var(--text-primary);
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
         }
-        
-        /* Навігація */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--secondary-bg);
+
+        h1 {
+            margin-bottom: 10px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 20px;
-        }
-        
-        /* Особистий кабінет */
-        .account-section {
-            display: flex;
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 30px;
         }
-        
-        .sidebar {
-            width: 250px;
-            background: var(--secondary-bg);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        
-        .sidebar-menu a {
-            display: block;
-            color: var(--text-secondary);
-            padding: 10px 0;
-            text-decoration: none;
-        }
-        
-        .main-content {
-            flex: 1;
-            margin-left: 30px;
-        }
-        
-        /* Стилі для кошика та товарів */
+
         .product-card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
         }
-        
-        .btn {
-            background: var(--accent-blue);
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            background: var(--gradient-primary);
             color: white;
             border: none;
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 350px;
+            height: calc(100vh - 40px);
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            transform: translateX(calc(100% + 40px));
+        }
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        .remove-item {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .remove-item:hover {
+            transform: scale(1.1);
+        }
+
+        .checkout-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cart-icon {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background: var(--gradient-primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        #cartCount {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-red);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            border-radius: 6px;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .notification.success {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .notification.error {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav>
-            <div class="logo">LSPDFR SHOP</div>
-            <div class="nav-links">
-                <a href="#">Головна</a>
-                <a href="#">Магазин</a>
-                <a href="#" class="active">Особистий кабінет</a>
-                <a href="#">Вийти</a>
-            </div>
-        </nav>
-        
-        <div class="account-section">
-            <div class="sidebar">
-                <div class="user-info">
-                    <h3>Вітаємо, User123</h3>
-                    <p>Статус: Premium</p>
-                </div>
-                
-                <div class="sidebar-menu">
-                    <a href="#" class="active">Мої покупки</a>
-                    <a href="#">Налаштування</a>
-                    <a href="#">Історія платежів</a>
-                    <a href="#">Підтримка</a>
+        <h1>Магазин поліцейських авто</h1>
+        <p>Оберіть моделі для вашого LSPDFR</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Dacia Sandero Patrol</h3>
+                    <p>Повний комплект з текстурами та налаштуваннями</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(1)">Додати до кошика</button>
                 </div>
             </div>
-            
-            <div class="main-content">
-                <h2>Мої покупки</h2>
-                
-                <div class="purchases-list">
-                    <div class="product-card">
-                        <h3>Dacia Sandero Patrol</h3>
-                        <p>Куплено: 15.07.2023</p>
-                        <p>Ціна: 50 грн</p>
-                        <button class="btn">Завантажити</button>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>Toyota Corolla Patrol</h3>
-                        <p>Куплено: 10.07.2023</p>
-                        <p>Ціна: 50 грн</p>
-                        <button class="btn">Завантажити</button>
-                    </div>
-                </div>
-                
-                <h2>Кошик</h2>
-                <div class="cart">
-                    <div class="product-card">
-                        <h3>Renault Duster Patrol</h3>
-                        <p>Ціна: 50 грн</p>
-                        <button class="btn" onclick="payWithMono()">Оплатити через MonoBank</button>
-                    </div>
+
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Toyota Corolla Patrol</h3>
+                    <p>Включає спецсигнали та унікальні текстури</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(2)">Додати до кошика</button>
                 </div>
             </div>
+
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1380301694608474173/image.png?ex=68567f60&is=68552de0&hm=81a90e50286bc86265c675f363e067cb8cae0a137469f327ad0f5b443e45f0d3&" alt="Renault Duster" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Renault Duster Patrol</h3>
+                    <p>Модель з реалістичною фізикою</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(3)">Додати до кошика</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кошик -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Ваше замовлення</h2>
+                <button class="close-cart" onclick="toggleCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItems"></div>
+            <div id="cartTotal" style="font-weight: bold; font-size: 18px; margin-top: 20px;"></div>
+            <button class="checkout-btn" onclick="initiatePayment()">Оформити замовлення</button>
+        </div>
+
+        <!-- Іконка кошика -->
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
+            <span id="cartCount">0</span>
         </div>
     </div>
 
     <script>
-        function payWithMono() {
-            // Дані для оплати
-            const amount = 50; // Сума в гривнях
-            const email = "user@example.com"; // Email користувача
-            const product = "Renault Duster Patrol";
+        let cart = [];
+        
+        // Дані товарів
+        const products = {
+            1: { id: 1, name: "Dacia Sandero Patrol", price: 50, file: "dacia_sandero.zip" },
+            2: { id: 2, name: "Toyota Corolla Patrol", price: 50, file: "toyota_corolla.zip" },
+            3: { id: 3, name: "Renault Duster Patrol", price: 50, file: "renault_duster.zip" }
+        };
+        
+        // Додавання товару до кошика
+        function addToCart(productId) {
+            cart.push({...products[productId]});
+            updateCart();
+            showNotification('Товар додано до кошика!', 'success');
+        }
+        
+        // Видалення товару з кошика
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            showNotification('Товар видалено з кошика', 'error');
+        }
+        
+        // Оновлення відображення кошика
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
             
-            // Генеруємо посилання для MonoBank
-            const monoUrl = `https://pay.mono.bank/?amount=${amount*100}&ccy=980&redirect=${encodeURIComponent(window.location.href)}?payment=success&email=${encodeURIComponent(email)}&product=${encodeURIComponent(product)}`;
+            cartItems.innerHTML = '';
             
-            // Перенаправляємо на сторінку оплати
-            window.location.href = monoUrl;
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Кошик порожній</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price} грн</div>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    `;
+                    cartItems.appendChild(itemElement);
+                });
+            }
             
-            // Після повернення з оплати (імітація)
-            if(window.location.search.includes('payment=success')) {
-                alert('Оплата успішна! Файл буде відправлено на вашу пошту.');
-                window.history.replaceState({}, document.title, window.location.pathname);
+            cartCount.textContent = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = `Всього: ${total} грн`;
+        }
+        
+        // Перемикання видимості кошика
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+        
+        // Ініціалізація оплати
+        function initiatePayment() {
+            if (cart.length === 0) {
+                showNotification('Кошик порожній!', 'error');
+                return;
+            }
+            
+            // Запитуємо email користувача
+            const email = prompt("Введіть ваш email для отримання файлів:");
+            if (!email || !email.includes('@')) {
+                showNotification('Будь ласка, введіть коректний email', 'error');
+                return;
+            }
+            
+            // Для простоти беремо перший товар у кошику
+            const product = cart[0];
+            const amount = cart.reduce((sum, item) => sum + item.price, 0);
+            
+            // Перенаправляємо на сторінку оплати MonoBank
+            const paymentUrl = `https://pay.mono.bank/?amount=${amount*100}&ccy=980&redirect=${encodeURIComponent(window.location.href)}?payment=success&email=${encodeURIComponent(email)}&product=${product.id}`;
+            window.location.href = paymentUrl;
+            
+            // Після повернення з оплати (це імітація, в реальності буде webhook)
+            if (window.location.search.includes('payment=success')) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const email = urlParams.get('email');
+                const productId = urlParams.get('product');
+                
+                // Відправляємо файл на пошту (імітація)
+                setTimeout(() => {
+                    showNotification(`Файл ${products[productId].file} відправлено на ${email}`, 'success');
+                    cart = [];
+                    updateCart();
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 1500);
             }
         }
         
-        // Імітація завантаження файлу
-        document.querySelectorAll('.btn').forEach(btn => {
-            if(btn.textContent === 'Завантажити') {
-                btn.addEventListener('click', function() {
-                    alert('Файл завантажується...');
-                });
-            }
-        });
+        // Функція для показу сповіщень
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Ініціалізація кошика
+        updateCart();
     </script>
 </body>
 </html>
