@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSPDFR ELITE - Вибір товарів</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Стилі з вашого другого коду, але адаптовані під магазин */
+        :root {
+            --primary-bg: #0a0a0f;
+            --secondary-bg: #15151d;
+            --card-bg: #1a1a23;
+            --accent-bg: #252530;
+            --border-color: #2a2a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #6b6b7b;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Стилі для карток товарів */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        /* Стилі для кошика */
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: var(--secondary-bg);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .checkout-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Вибір поліцейських авто</h1>
+        <p>Оберіть моделі для вашого LSPDFR</p>
+
+        <div class="product-grid">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png" alt="Dacia Sandero" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Dacia Sandero Patrol</h3>
+                    <p>Повний комплект з текстурами та налаштуваннями</p>
+                    <div class="product-price">250 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(1)">Додати до кошика</button>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png" alt="Toyota Corolla" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Toyota Corolla Patrol</h3>
+                    <p>Включає спецсигнали та унікальні текстури</p>
+                    <div class="product-price">300 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(2)">Додати до кошика</button>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1380301694608474173/image.png" alt="Renault Duster" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Renault Duster Patrol</h3>
+                    <p>Модель з реалістичною фізикою</p>
+                    <div class="product-price">350 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(3)">Додати до кошика</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кошик -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <h2>Ваше замовлення</h2>
+            <div id="cartItems"></div>
+            <div id="cartTotal" style="font-weight: bold; font-size: 18px;"></div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Оформити замовлення</button>
+        </div>
+
+        <!-- Іконка кошика -->
+        <div style="position: fixed; right: 20px; bottom: 20px; background: var(--gradient-primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
+            <span id="cartCount" style="position: absolute; top: -5px; right: -5px; background: var(--accent-red); color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px;">0</span>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        
+        function addToCart(productId) {
+            const products = {
+                1: { name: "Dacia Sandero Patrol", price: 250 },
+                2: { name: "Toyota Corolla Patrol", price: 300 },
+                3: { name: "Renault Duster Patrol", price: 350 }
+            };
+            
+            cart.push(products[productId]);
+            updateCart();
+            alert('Товар додано до кошика!');
+        }
+        
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div style="flex: 1;">
+                        <div>${item.name}</div>
+                        <div style="color: var(--accent-green);">${item.price} грн</div>
+                    </div>
+                `;
+                cartItems.appendChild(itemElement);
+                total += item.price;
+            });
+            
+            cartCount.textContent = cart.length;
+            cartTotal.textContent = `Всього: ${total} грн`;
+        }
+        
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+        
+        function proceedToCheckout() {
+            if(cart.length === 0) {
+                alert('Кошик порожній!');
+                return;
+            }
+            
+            // Тут буде редирект на сторінку оплати
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const description = cart.map(item => item.name).join(', ');
+            
+            // Приклад для Mono
+            window.location.href = `https://example.com/pay?amount=${total}&description=${encodeURIComponent(description)}`;
+            
+            // Або можна зробити форму для Fondy:
+            // document.getElementById('paymentForm').submit();
+        }
+    </script>
+</body>
+</html>
