@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO | Преміум моди GTA5</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSPDFR ELITE STUDIO</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <!-- Навігація -->
-    <nav class="glass-nav">
-        <div class="logo">
-            <img src="images/logo.png" alt="LSPDFR ELITE STUDIO">
-        </div>
-        <ul>
-            <li><a href="#home">Головна</a></li>
-            <li><a href="#models">Автопарк</a></li>
-            <li><a href="#features">Переваги</a></li>
-            <li><a href="#contacts">Контакти</a></li>
-        </ul>
+  <header>
+    <div class="logo">LSPDFR ELITE STUDIO</div>
+    <nav>
+      <ul>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#models">Моделі</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li><button onclick="toggleLang()">EN</button></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Герой-банер -->
-    <section id="home" class="parallax-hero">
-        <div class="hero-text">
-            <h1>ЕЛІТНІ ПОЛІЦЕЙСЬКІ АВТО ДЛЯ LSPDFR</h1>
-            <p>Тактичні транспортні засоби з фізикою реального світу</p>
-            <a href="#models" class="cta-button">Дивитися каталог</a>
-        </div>
-    </section>
+  <section class="hero">
+    <h1>Якісні моделі української поліції для GTA 5</h1>
+    <p>Створені з любов’ю до деталей та патріотизму</p>
+    <a href="#models" class="cta">Переглянути моделі</a>
+  </section>
 
-    <!-- Автопарк -->
-    <section id="models" class="vehicle-showcase">
-        <h2>Наші моделі</h2>
-        <div class="vehicle-grid">
-            <!-- Приклад 1 авто -->
-            <div class="vehicle-card">
-                <div class="vehicle-image">
-                    <img src="images/vehicles/charger-police.jpg" alt="Dodge Charger Pursuit">
-                    <div class="vehicle-badge">NEW</div>
-                </div>
-                <div class="vehicle-info">
-                    <h3>Dodge Charger Pursuit 2023</h3>
-                    <div class="vehicle-price">₴299</div>
-                    <div class="vehicle-actions">
-                        <button class="details-btn">Деталі</button>
-                        <button class="buy-btn">Придбати</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Додавайте інші авто тут -->
-        </div>
-    </section>
+  <section id="about">
+    <h2>Про студію</h2>
+    <p>Ми — команда розробників, які займаються створенням високоякісних 3D-моделей українських поліцейських авто для GTA 5. Наші моделі відзначаються деталізацією, відповідністю реальним прототипам та високою оптимізацією. Ми працюємо над розвитком українського LSPDFR-контенту, щоб гравці могли відчути справжній патріотичний дух навіть у віртуальному просторі.</p>
+  </section>
+
+  <section id="models">
+    <h2>Наші моделі</h2>
+    <div class="model-grid">
+      <div class="model-card">
+        <img src="duster.jpg" alt="Renault Duster">
+        <h3>Renault Duster</h3>
+        <a href="#" class="buy-btn">Придбати</a>
+      </div>
+      <div class="model-card">
+        <img src="prius.jpg" alt="Toyota Prius">
+        <h3>Toyota Prius</h3>
+        <a href="#" class="buy-btn">Придбати</a>
+      </div>
+      <div class="model-card">
+        <img src="corolla.jpg" alt="Toyota Corolla">
+        <h3>Toyota Corolla</h3>
+        <a href="#" class="buy-btn">Придбати</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Контакти</h2>
+    <p>Приєднуйся до нас у Discord:</p>
+    <a href="https://discord.gg/TPQXBcdz" class="discord-link">Наш Discord</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LSPDFR ELITE STUDIO. Всі права захищені.</p>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      // Тут буде реалізація перемикача мов (далі додамо JS)
+      alert('Скоро буде англійська версія :)');
+    }
+  </script>
 </body>
 </html>
