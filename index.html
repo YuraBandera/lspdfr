@@ -4,171 +4,215 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LSPDFR ELITE STUDIO | Українські поліцейські авто для GTA 5</title>
-  <meta name="description" content="Високоякісні 3D-моделі української поліції для GTA 5">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+      --blue: #0057b7;
+      --yellow: #ffd700;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--light);
+      color: var(--dark);
+    }
+    
+    header {
+      background: rgba(0, 87, 183, 0.9);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero {
+      height: 100vh;
+      background: url('police-bg.jpg') center/cover;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--yellow);
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .model-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .model-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+    }
+    
+    /* Анімації */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade {
+      animation: fadeInUp 1s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+  </style>
 </head>
 <body>
   <!-- Хедер -->
-  <header class="sticky-header">
+  <header class="animate-fade">
     <div class="container">
-      <div class="logo">
-        <img src="img/logo.png" alt="LSPDFR ELITE STUDIO" width="40">
-        <span data-translate="logo">LSPDFR ELITE STUDIO</span>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about" data-translate="about">Про нас</a></li>
-          <li><a href="#models" data-translate="models">Моделі</a></li>
-          <li><a href="#testimonials" data-translate="testimonials">Відгуки</a></li>
-          <li><a href="#contact" data-translate="contact">Контакти</a></li>
-          <li><button class="lang-btn" onclick="toggleLang()">EN <i class="fas fa-globe"></i></button></li>
-        </ul>
-        <div class="burger-menu">
-          <i class="fas fa-bars"></i>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center;">
+          <img src="logo.png" alt="Logo" width="40" style="margin-right: 10px;">
+          <h1 style="color: white; margin: 0;">LSPDFR ELITE STUDIO</h1>
         </div>
-      </nav>
+        <nav>
+          <a href="#about" style="color: white; margin: 0 15px; text-decoration: none;">Про нас</a>
+          <a href="#models" style="color: white; margin: 0 15px; text-decoration: none;">Моделі</a>
+          <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Контакти</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <!-- Герой -->
   <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <h1 data-translate="heroTitle">Якісні моделі української поліції для GTA 5</h1>
-      <p data-translate="heroSubtitle">Створені з любов'ю до деталей та патріотизму</p>
-      <a href="#models" class="cta-btn" data-translate="viewModels">Переглянути моделі</a>
+    <div class="hero-content container animate-fade">
+      <h1 style="font-size: 3rem; margin-bottom: 20px;">Якісні моделі української поліції</h1>
+      <p style="font-size: 1.2rem; margin-bottom: 30px;">Створені з любов'ю до деталей та патріотизму</p>
+      <a href="#models" class="btn animate-fade delay-1">ПЕРЕГЛЯНУТИ МОДЕЛІ</a>
     </div>
   </section>
 
   <!-- Про нас -->
-  <section id="about" class="section">
+  <section id="about" style="padding: 100px 0;">
     <div class="container">
-      <h2 class="section-title" data-translate="aboutTitle">Про студію</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p data-translate="aboutText1">Ми - команда ентузіастів, які створюють реалістичні моделі української поліції для GTA 5.</p>
-          <ul class="features-list">
-            <li><i class="fas fa-check-circle"></i> <span data-translate="feature1">Деталізовані текстури</span></li>
-            <li><i class="fas fa-check-circle"></i> <span data-translate="feature2">Реальні звуки двигуна</span></li>
-            <li><i class="fas fa-check-circle"></i> <span data-translate="feature3">Оптимізована графіка</span></li>
-          </ul>
+      <h2 style="text-align: center; font-size: 2.5rem; color: var(--blue);">Про нас</h2>
+      <div style="display: flex; align-items: center; margin-top: 50px; gap: 50px;">
+        <div style="flex: 1;">
+          <p style="font-size: 1.1rem; line-height: 1.6;">Ми — команда розробників, які створюють високоякісні 3D-моделі українських поліцейських авто для GTA 5. Наші моделі відзначаються деталізацією, відповідністю реальним прототипам та високою оптимізацією.</p>
         </div>
-        <div class="about-image">
-          <img src="img/team.jpg" alt="Наша команда" class="rounded-img">
+        <div style="flex: 1;">
+          <img src="team.jpg" alt="Наша команда" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Моделі -->
-  <section id="models" class="section bg-light">
+  <section id="models" style="padding: 100px 0; background: #f1f1f1;">
     <div class="container">
-      <h2 class="section-title" data-translate="modelsTitle">Наші моделі</h2>
-      <div class="model-grid">
+      <h2 style="text-align: center; font-size: 2.5rem; color: var(--blue);">Наші моделі</h2>
+      <div class="models-grid">
         <!-- Модель 1 -->
-        <div class="model-card">
-          <div class="model-img-container">
-            <img src="img/duster.jpg" alt="Renault Duster" class="model-img">
-            <div class="model-badge" data-translate="newBadge">Новинка</div>
-          </div>
-          <div class="model-info">
-            <h3>Renault Duster</h3>
-            <p class="model-desc" data-translate="model1Desc">Патрульний автомобіль спецпідрозділу</p>
-            <a href="#" class="buy-btn" data-translate="buyBtn">Придбати</a>
+        <div class="model-card animate-fade delay-1">
+          <img src="duster.jpg" alt="Renault Duster" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 10px;">Renault Duster</h3>
+            <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
           </div>
         </div>
-
+        
         <!-- Модель 2 -->
-        <div class="model-card">
-          <div class="model-img-container">
-            <img src="img/prius.jpg" alt="Toyota Prius" class="model-img">
-          </div>
-          <div class="model-info">
-            <h3>Toyota Prius</h3>
-            <p class="model-desc" data-translate="model2Desc">Міський патрульний автомобіль</p>
-            <a href="#" class="buy-btn" data-translate="buyBtn">Придбати</a>
+        <div class="model-card animate-fade delay-1">
+          <img src="prius.jpg" alt="Toyota Prius" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 10px;">Toyota Prius</h3>
+            <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
           </div>
         </div>
-
+        
         <!-- Модель 3 -->
-        <div class="model-card">
-          <div class="model-img-container">
-            <img src="img/corolla.jpg" alt="Toyota Corolla" class="model-img">
-            <div class="model-badge" data-translate="popularBadge">Популярне</div>
+        <div class="model-card animate-fade delay-1">
+          <img src="corolla.jpg" alt="Toyota Corolla" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 20px;">
+            <h3 style="margin: 0 0 10px;">Toyota Corolla</h3>
+            <a href="#" class="btn" style="display: block; text-align: center; background: var(--blue); color: white;">ПРИДБАТИ</a>
           </div>
-          <div class="model-info">
-            <h3>Toyota Corolla</h3>
-            <p class="model-desc" data-translate="model3Desc">Швидкісний патруль</p>
-            <a href="#" class="buy-btn" data-translate="buyBtn">Придбати</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Відгуки -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2 class="section-title" data-translate="testimonialsTitle">Відгуки гравців</h2>
-      <div class="testimonials-grid">
-        <!-- Відгук 1 -->
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <img src="img/user1.jpg" alt="Гравець" class="user-avatar">
-            <div class="user-info">
-              <h4>Андрій</h4>
-              <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <p class="testimonial-text" data-translate="review1">"Найкращі моделі, які я бачив у грі. Працюють ідеально!"</p>
-        </div>
-
-        <!-- Відгук 2 -->
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <img src="img/user2.jpg" alt="Гравець" class="user-avatar">
-            <div class="user-info">
-              <h4>Марія</h4>
-              <div class="rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </div>
-          <p class="testimonial-text" data-translate="review2">"Дуже деталізовано. Раджу всім!"</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Контакти -->
-  <section id="contact" class="section bg-dark">
+  <section id="contact" style="padding: 100px 0; background: var(--blue); color: white;">
     <div class="container">
-      <h2 class="section-title light" data-translate="contactTitle">Зв'яжіться з нами</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p><i class="fas fa-envelope"></i> info@lspdfr-elite.com</p>
-          <p><i class="fas fa-phone"></i> +380 (XX) XXX XX XX</p>
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+      <h2 style="text-align: center; font-size: 2.5rem;">Контакти</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px;">
+        <div>
+          <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@lspdfr-elite.com</p>
+          <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +380 (XX) XXX XX XX</p>
+          <div style="margin-top: 30px;">
+            <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-discord"></i></a>
+            <a href="#" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-telegram"></i></a>
           </div>
         </div>
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <input type="text" placeholder="Ваше ім'я" required data-translate="namePlaceholder">
-            </div>
-            <div class="form-group">
-              <input type="email" placeholder="Ваш email" required data-translate="emailPlaceholder">
-            </div>
-            <div class="form-group">
-              <textarea placeholder="Ваше повідомлення" required data-translate="messagePlaceholder"></textarea>
-            </div>
-            <button type="submit" class="submit-btn" data-translate="sendBtn">Надіслати</button>
+        <div>
+          <form style="display: grid; gap: 15px;">
+            <input type="text" placeholder="Ваше ім'я" style="padding: 12px; border: none; border-radius: 5px;">
+            <input type="email" placeholder="Ваш email" style="padding: 12px; border: none; border-radius: 5px;">
+            <textarea placeholder="Ваше повідомлення" style="padding: 12px; border: none; border-radius: 5px; min-height: 100px;"></textarea>
+            <button type="submit" class="btn" style="border: none; cursor: pointer;">НАДІСЛАТИ</button>
           </form>
         </div>
       </div>
@@ -176,28 +220,39 @@
   </section>
 
   <!-- Футер -->
-  <footer>
+  <footer class="animate-fade delay-2">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="img/logo.png" alt="LSPDFR ELITE STUDIO" width="50">
-          <span data-translate="logo">LSPDFR ELITE STUDIO</span>
-        </div>
-        <div class="footer-links">
-          <h4 data-translate="linksTitle">Посилання</h4>
-          <ul>
-            <li><a href="#about" data-translate="about">Про нас</a></li>
-            <li><a href="#models" data-translate="models">Моделі</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 LSPDFR ELITE STUDIO. <span data-translate="rightsText">Всі права захищені</span>.</p>
-      </div>
+      <p>&copy; 2023 LSPDFR ELITE STUDIO. Всі права захищені.</p>
     </div>
   </footer>
 
-  <!-- Скрипти -->
-  <script src="js/script.js"></script>
+  <script>
+    // Плавна прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Анімація при скролі
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-fade');
+      elements.forEach(el => {
+        const elementPosition = el.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if(elementPosition < screenPosition) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
 </body>
 </html>
