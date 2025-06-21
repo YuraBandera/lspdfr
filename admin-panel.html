@@ -1,9 +1,59 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <!-- Тут повністю ваш CSS стиль з попереднього коду адмін-панелі -->
-  <!-- Додайте тільки цей стиль для кнопки виходу: -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://imgur.com/PRjTNqr" type="image/png">
+  <title>Адмін панель | LSPDFR ELITE STUDIO</title>
   <style>
+    :root {
+      --primary-bg: #0a0a0f;
+      --secondary-bg: #15151d;
+      --card-bg: #1a1a23;
+      --accent-bg: #252530;
+      --border-color: #2a2a3a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #6b6b7b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-yellow: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     .logout-btn {
       position: fixed;
       top: 20px;
@@ -19,6 +69,527 @@
       gap: 8px;
       z-index: 1000;
     }
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(26, 26, 35, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .title-section h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title-section p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .stats-section {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 12px 16px;
+      background: var(--accent-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Admin Panel */
+    .admin-panel {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .admin-panel {
+        flex-direction: column;
+      }
+    }
+
+    /* Sidebar */
+    .admin-sidebar {
+      width: 250px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .admin-sidebar {
+        width: 100%;
+      }
+    }
+
+    .admin-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .admin-menu-item {
+      margin-bottom: 8px;
+    }
+
+    .admin-menu-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .admin-menu-link:hover, .admin-menu-link.active {
+      background: var(--accent-bg);
+      color: var(--text-primary);
+    }
+
+    .admin-menu-link i {
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Main Content */
+    .admin-content {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .admin-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .admin-title i {
+      color: var(--accent-blue);
+    }
+
+    /* Ideas List */
+    .ideas-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .ideas-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--accent-bg);
+    }
+
+    .ideas-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .ideas-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      padding: 8px 12px;
+      background: var(--accent-blue);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .action-btn:hover {
+      background: #2563eb;
+    }
+
+    .action-btn.danger {
+      background: var(--accent-red);
+    }
+
+    .action-btn.danger:hover {
+      background: #dc2626;
+    }
+
+    .ideas-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .idea-item {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .idea-item:hover {
+      background: var(--accent-bg);
+    }
+
+    .idea-item:last-child {
+      border-bottom: none;
+    }
+
+    .idea-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .idea-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .idea-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .idea-category {
+      padding: 4px 8px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .idea-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .idea-content {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .idea-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .idea-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .author-name {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .idea-votes {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vote-count {
+      font-size: 14px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Admin Controls */
+    .admin-controls {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .status-select {
+      padding: 6px 12px;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .save-btn {
+      padding: 6px 12px;
+      background: var(--accent-green);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .save-btn:hover {
+      background: #059669;
+    }
+
+    .delete-btn {
+      padding: 6px 12px;
+      background: var(--accent-red);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .delete-btn:hover {
+      background: #dc2626;
+    }
+
+    /* Status badges */
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-pending {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-yellow);
+    }
+
+    .status-review {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+    }
+
+    .status-approved {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+    }
+
+    .status-rejected {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--accent-red);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 20px;
+      background: var(--accent-bg);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .pagination-btn {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+
+    .pagination-btn.active {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      margin: 0 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 12px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stats-section {
+        justify-content: center;
+      }
+
+      .idea-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .idea-meta {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body>
@@ -26,21 +597,454 @@
     <i class="fas fa-sign-out-alt"></i> Вийти
   </button>
 
-  <!-- Весь ваш HTML код адмін-панелі -->
+  <div class="container">
+    <!-- Header -->
+    <div class="header fade-in">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://imgur.com/PRjTNqr" alt="LSPDFR ELITE STUDIO Logo" class="logo">
+          <div class="title-section">
+            <h1>Адмін панель</h1>
+            <p>Керування ідеями для модифікацій</p>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stat-item">
+            <span class="stat-number" id="totalIdeas">0</span>
+            <span class="stat-label">Всього ідей</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="approvedIdeas">0</span>
+            <span class="stat-label">Схвалено</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="pendingIdeas">0</span>
+            <span class="stat-label">На розгляді</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <script>
+    <!-- Admin Content -->
+    <div class="admin-panel">
+      <!-- Sidebar -->
+      <div class="admin-sidebar fade-in">
+        <ul class="admin-menu">
+          <li class="admin-menu-item">
+            <a href="#" class="admin-menu-link active" onclick="showSection('ideas')">
+              <i class="fas fa-lightbulb"></i> Усі ідеї
+            </a>
+          </li>
+          <li class="admin-menu-item">
+            <a href="#" class="admin-menu-link" onclick="showSection('pending')">
+              <i class="fas fa-clock"></i> На розгляді
+            </a>
+          </li>
+          <li class="admin-menu-item">
+            <a href="#" class="admin-menu-link" onclick="showSection('review')">
+              <i class="fas fa-cog"></i> В роботі
+            </a>
+          </li>
+          <li class="admin-menu-item">
+            <a href="#" class="admin-menu-link" onclick="showSection('approved')">
+              <i class="fas fa-check"></i> Схвалено
+            </a>
+          </li>
+          <li class="admin-menu-item">
+            <a href="#" class="admin-menu-link" onclick="showSection('rejected')">
+              <i class="fas fa-times"></i> Відхилено
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="admin-content fade-in">
+        <h2 class="admin-title"><i class="fas fa-lightbulb"></i> Усі ідеї</h2>
+        
+        <!-- Ideas List -->
+        <div class="ideas-container">
+          <div class="ideas-header">
+            <h3 class="ideas-title">Список ідей</h3>
+            <div class="ideas-actions">
+              <button class="action-btn" onclick="refreshIdeas()">
+                <i class="fas fa-sync-alt"></i> Оновити
+              </button>
+            </div>
+          </div>
+          
+          <ul class="ideas-list" id="ideasList">
+            <li class="idea-item">
+              <div class="loading">
+                <div class="spinner"></div>
+                <span>Завантаження ідей...</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Pagination -->
+          <div class="pagination" id="pagination">
+            <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div id="pageNumbers"></div>
+            <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="pagination-info" id="paginationInfo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+      authDomain: "dkvs-1ec88.firebaseapp.com",
+      databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com",
+      projectId: "dkvs-1ec88",
+      storageBucket: "dkvs-1ec88.firebaseapp.com",
+      messagingSenderId: "167430647129",
+      appId: "1:167430647129:web:ab209fec7735f20b597048",
+      measurementId: "G-H6LKMLYD10"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
     // Перевірка авторизації
     if(localStorage.getItem('adminLoggedIn') !== 'true') {
       window.location.href = 'admin.html';
     }
 
     // Функція виходу
-    function logout() {
+    window.logout = function() {
       localStorage.removeItem('adminLoggedIn');
       window.location.href = 'admin.html';
+    };
+
+    // DOM elements
+    const ideasList = document.getElementById('ideasList');
+    const totalIdeas = document.getElementById('totalIdeas');
+    const approvedIdeas = document.getElementById('approvedIdeas');
+    const pendingIdeas = document.getElementById('pendingIdeas');
+
+    // Global variables
+    let allIdeas = [];
+    let filteredIdeas = [];
+    let currentPage = 1;
+    let itemsPerPage = 10;
+    let currentFilter = 'all';
+
+    // Category names
+    const categoryNames = {
+      vehicle: 'Транспорт',
+      skin: 'Скіни',
+      script: 'Скрипти',
+      map: 'Мапи',
+      other: 'Інше'
+    };
+
+    // Status names
+    const statusNames = {
+      pending: { class: 'status-pending', text: 'На розгляді' },
+      review: { class: 'status-review', text: 'В роботі' },
+      approved: { class: 'status-approved', text: 'Схвалено' },
+      rejected: { class: 'status-rejected', text: 'Відхилено' }
+    };
+
+    // Show different sections
+    window.showSection = function(section) {
+      // Update active menu item
+      document.querySelectorAll('.admin-menu-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update title
+      const title = document.querySelector('.admin-title');
+      const titleIcon = title.querySelector('i');
+      
+      switch(section) {
+        case 'ideas':
+          title.innerHTML = '<i class="fas fa-lightbulb"></i> Усі ідеї';
+          currentFilter = 'all';
+          break;
+        case 'pending':
+          title.innerHTML = '<i class="fas fa-clock"></i> Ідеї на розгляді';
+          currentFilter = 'pending';
+          break;
+        case 'review':
+          title.innerHTML = '<i class="fas fa-cog"></i> Ідеї в роботі';
+          currentFilter = 'review';
+          break;
+        case 'approved':
+          title.innerHTML = '<i class="fas fa-check"></i> Схвалені ідеї';
+          currentFilter = 'approved';
+          break;
+        case 'rejected':
+          title.innerHTML = '<i class="fas fa-times"></i> Відхилені ідеї';
+          currentFilter = 'rejected';
+          break;
+      }
+      
+      // Filter and render ideas
+      filterIdeas(currentFilter);
+    };
+
+    // Fetch ideas from Firebase
+    function fetchIdeas() {
+      const ideasRef = ref(database, 'ideas');
+      
+      onValue(ideasRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          allIdeas = Object.keys(data).map(key => ({
+            id: key,
+            ...data[key]
+          })).sort((a, b) => b.createdAt - a.createdAt);
+          
+          updateStats();
+          filterIdeas(currentFilter);
+        } else {
+          allIdeas = [];
+          showNoIdeas();
+          updateStats();
+        }
+      }, (error) => {
+        console.error("Помилка при отриманні ідей:", error);
+        showError();
+      });
     }
 
-    // Тут ваш JavaScript код для адмін-панелі
+    // Update statistics
+    function updateStats() {
+      totalIdeas.textContent = allIdeas.length;
+      approvedIdeas.textContent = allIdeas.filter(i => i.status === 'approved').length;
+      pendingIdeas.textContent = allIdeas.filter(i => i.status === 'pending').length;
+    }
+
+    // Filter ideas
+    window.filterIdeas = function(filter) {
+      currentFilter = filter;
+      currentPage = 1;
+      
+      if (filter === 'all') {
+        filteredIdeas = [...allIdeas];
+      } else {
+        filteredIdeas = allIdeas.filter(i => i.status === filter);
+      }
+      
+      renderIdeas();
+      renderPagination();
+    };
+
+    // Render ideas
+    function renderIdeas() {
+      if (filteredIdeas.length === 0) {
+        showNoIdeas();
+        return;
+      }
+      
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const pageIdeas = filteredIdeas.slice(startIndex, endIndex);
+      
+      ideasList.innerHTML = pageIdeas.map(idea => createIdeaItem(idea)).join('');
+      
+      // Add animation to items
+      setTimeout(() => {
+        document.querySelectorAll('.idea-item').forEach((item, index) => {
+          item.style.animationDelay = `${index * 50}ms`;
+          item.classList.add('slide-in');
+        });
+      }, 10);
+    }
+
+    // Create idea item HTML with admin controls
+    function createIdeaItem(idea) {
+      const date = new Date(idea.createdAt).toLocaleDateString('uk-UA');
+      const initials = idea.userName.split(' ').map(n => n[0]).join('').toUpperCase();
+      const status = statusNames[idea.status] || statusNames.pending;
+      
+      return `
+        <li class="idea-item">
+          <div class="idea-header">
+            <h4 class="idea-title">${idea.title}</h4>
+            <div class="idea-meta">
+              <span class="idea-category">${categoryNames[idea.category] || 'Інше'}</span>
+              <span class="status-badge ${status.class}">${status.text}</span>
+              <span class="idea-date">${date}</span>
+            </div>
+          </div>
+          <div class="idea-content">${idea.description}</div>
+          <div class="idea-footer">
+            <div class="idea-author">
+              <div class="author-avatar" title="${idea.userName}">${initials}</div>
+              <span class="author-name">${idea.userName}</span>
+            </div>
+            <div class="idea-votes">
+              <span class="vote-count">${idea.votes || 0}</span>
+            </div>
+          </div>
+          <div class="admin-controls">
+            <select class="status-select" id="status-${idea.id}">
+              <option value="pending" ${idea.status === 'pending' ? 'selected' : ''}>На розгляді</option>
+              <option value="review" ${idea.status === 'review' ? 'selected' : ''}>В роботі</option>
+              <option value="approved" ${idea.status === 'approved' ? 'selected' : ''}>Схвалено</option>
+              <option value="rejected" ${idea.status === 'rejected' ? 'selected' : ''}>Відхилено</option>
+            </select>
+            <button class="save-btn" onclick="saveIdeaStatus('${idea.id}')">
+              <i class="fas fa-save"></i> Зберегти
+            </button>
+            <button class="delete-btn" onclick="deleteIdea('${idea.id}')">
+              <i class="fas fa-trash"></i> Видалити
+            </button>
+          </div>
+        </li>
+      `;
+    }
+
+    // Show empty state
+    function showNoIdeas() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p>Ідей не знайдено</p>
+          </div>
+        </li>
+      `;
+    }
+
+    // Show error state
+    function showError() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon" style="color: var(--accent-red);">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>Помилка завантаження ідей</p>
+            <button class="action-btn" onclick="fetchIdeas()" style="margin-top: 12px;">
+              Спробувати знову
+            </button>
+          </div>
+        </li>
+      `;
+    }
+
+    // Save idea status
+    window.saveIdeaStatus = function(id) {
+      const statusSelect = document.getElementById(`status-${id}`);
+      const newStatus = statusSelect.value;
+      
+      const ideaRef = ref(database, `ideas/${id}`);
+      update(ideaRef, {
+        status: newStatus,
+        updatedAt: Date.now()
+      }).then(() => {
+        alert('Статус ідеї успішно оновлено!');
+        fetchIdeas(); // Refresh the list
+      }).catch((error) => {
+        console.error("Помилка при оновленні статусу:", error);
+        alert('Сталася помилка при оновленні статусу');
+      });
+    };
+
+    // Delete idea
+    window.deleteIdea = function(id) {
+      if (confirm('Ви впевнені, що хочете видалити цю ідею? Цю дію неможливо скасувати.')) {
+        const ideaRef = ref(database, `ideas/${id}`);
+        remove(ideaRef).then(() => {
+          alert('Ідею успішно видалено!');
+          fetchIdeas(); // Refresh the list
+        }).catch((error) => {
+          console.error("Помилка при видаленні ідеї:", error);
+          alert('Сталася помилка при видаленні ідеї');
+        });
+      }
+    };
+
+    // Refresh ideas
+    window.refreshIdeas = function() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Оновлення списку...</span>
+          </div>
+        </li>
+      `;
+      fetchIdeas();
+    };
+
+    // Pagination functions
+    window.changePage = function(direction) {
+      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const newPage = currentPage + direction;
+      
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderIdeas();
+        renderPagination();
+      }
+    };
+
+    function renderPagination() {
+      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const pageNumbers = document.getElementById('pageNumbers');
+      const paginationInfo = document.getElementById('paginationInfo');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // Update buttons
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+      // Update info
+      const startItem = (currentPage - 1) * itemsPerPage + 1;
+      const endItem = Math.min(currentPage * itemsPerPage, filteredIdeas.length);
+      paginationInfo.textContent = `${startItem}-${endItem} з ${filteredIdeas.length}`;
+
+      // Generate page numbers
+      let pages = [];
+      const maxVisiblePages = 5;
+      
+      if (totalPages <= maxVisiblePages) {
+        pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      } else {
+        const start = Math.max(1, currentPage - 2);
+        const end = Math.min(totalPages, start + maxVisiblePages - 1);
+        pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+      }
+
+      pageNumbers.innerHTML = pages.map(page => `
+        <button class="pagination-btn ${page === currentPage ? 'active' : ''}" onclick="goToPage(${page})">
+          ${page}
+        </button>
+      `).join('');
+    }
+
+    window.goToPage = function(page) {
+      currentPage = page;
+      renderIdeas();
+      renderPagination();
+    };
+
+    // Initialize
+    window.onload = () => {
+      fetchIdeas();
+      
+      // Auto-refresh every 30 seconds
+      setInterval(fetchIdeas, 30000);
+    };
   </script>
 </body>
 </html>
