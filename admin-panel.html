@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <!-- Тут повністю ваш CSS стиль з попереднього коду адмін-панелі -->
+  <!-- Додайте тільки цей стиль для кнопки виходу: -->
+  <style>
+    .logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-red);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button class="logout-btn" onclick="logout()">
+    <i class="fas fa-sign-out-alt"></i> Вийти
+  </button>
+
+  <!-- Весь ваш HTML код адмін-панелі -->
+
+  <script>
+    // Перевірка авторизації
+    if(localStorage.getItem('adminLoggedIn') !== 'true') {
+      window.location.href = 'admin.html';
+    }
+
+    // Функція виходу
+    function logout() {
+      localStorage.removeItem('adminLoggedIn');
+      window.location.href = 'admin.html';
+    }
+
+    // Тут ваш JavaScript код для адмін-панелі
+  </script>
+</body>
+</html>
