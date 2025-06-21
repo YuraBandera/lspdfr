@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://imgur.com/PRjTNqr" type="image/png">
+  <title>Ідеї для модифікацій | LSPDFR ELITE STUDIO</title>
+  <style>
+    :root {
+      --primary-bg: #0a0a0f;
+      --secondary-bg: #15151d;
+      --card-bg: #1a1a23;
+      --accent-bg: #252530;
+      --border-color: #2a2a3a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #6b6b7b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-yellow: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(26, 26, 35, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .title-section h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title-section p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .stats-section {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 12px 16px;
+      background: var(--accent-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Form Section */
+    .form-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-title i {
+      color: var(--accent-blue);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 16px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Ideas List */
+    .ideas-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .ideas-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--accent-bg);
+    }
+
+    .ideas-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .ideas-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      padding: 6px 12px;
+      background: var(--accent-blue);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .action-btn:hover {
+      background: #2563eb;
+    }
+
+    .ideas-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .idea-item {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .idea-item:hover {
+      background: var(--accent-bg);
+    }
+
+    .idea-item:last-child {
+      border-bottom: none;
+    }
+
+    .idea-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .idea-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .idea-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .idea-category {
+      padding: 4px 8px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .idea-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .idea-content {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .idea-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .idea-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .author-name {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .idea-votes {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vote-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 4px;
+    }
+
+    .vote-btn:hover {
+      color: var(--accent-blue);
+    }
+
+    .vote-count {
+      font-size: 14px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Status badges */
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-pending {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-yellow);
+    }
+
+    .status-review {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+    }
+
+    .status-approved {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+    }
+
+    .status-rejected {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--accent-red);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 20px;
+      background: var(--accent-bg);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .pagination-btn {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+
+    .pagination-btn.active {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      margin: 0 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 12px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stats-section {
+        justify-content: center;
+      }
+
+      .form-container {
+        padding: 24px 16px;
+      }
+
+      .idea-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .idea-meta {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header fade-in">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://imgur.com/PRjTNqr" alt="LSPDFR ELITE STUDIO Logo" class="logo">
+          <div class="title-section">
+            <h1>Ідеї для модифікацій</h1>
+            <p>Ваші пропозиції для нашого магазину</p>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stat-item">
+            <span class="stat-number" id="totalIdeas">0</span>
+            <span class="stat-label">Всього ідей</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="approvedIdeas">0</span>
+            <span class="stat-label">Схвалено</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="pendingIdeas">0</span>
+            <span class="stat-label">На розгляді</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container fade-in">
+      <h2 class="form-title"><i class="fas fa-lightbulb"></i> Запропонувати ідею</h2>
+      <form id="ideaForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="ideaTitle" class="form-label">Назва ідеї</label>
+            <input type="text" id="ideaTitle" class="form-input" placeholder="Наприклад: Поліцейський BMW X5" required>
+          </div>
+          <div class="form-group">
+            <label for="ideaCategory" class="form-label">Категорія</label>
+            <select id="ideaCategory" class="form-select" required>
+              <option value="">Оберіть категорію</option>
+              <option value="vehicle">Транспорт</option>
+              <option value="skin">Скіни</option>
+              <option value="script">Скрипти</option>
+              <option value="map">Мапи</option>
+              <option value="other">Інше</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ideaDescription" class="form-label">Опис ідеї</label>
+          <textarea id="ideaDescription" class="form-textarea" placeholder="Детально опишіть свою ідею..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="userName" class="form-label">Ваше ім'я (необов'язково)</label>
+          <input type="text" id="userName" class="form-input" placeholder="Як до вас звертатися">
+        </div>
+        <button type="submit" class="form-submit">
+          <i class="fas fa-paper-plane"></i> Надіслати ідею
+        </button>
+      </form>
+    </div>
+
+    <!-- Ideas List -->
+    <div class="ideas-container fade-in">
+      <div class="ideas-header">
+        <h3 class="ideas-title">Останні ідеї</h3>
+        <div class="ideas-actions">
+          <button class="action-btn" onclick="refreshIdeas()">
+            <i class="fas fa-sync-alt"></i> Оновити
+          </button>
+          <button class="action-btn" onclick="filterIdeas('all')">
+            <i class="fas fa-filter"></i> Всі
+          </button>
+        </div>
+      </div>
+      
+      <ul class="ideas-list" id="ideasList">
+        <li class="idea-item">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Завантаження ідей...</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div id="pageNumbers"></div>
+        <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="pagination-info" id="paginationInfo"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+      authDomain: "dkvs-1ec88.firebaseapp.com",
+      databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com",
+      projectId: "dkvs-1ec88",
+      storageBucket: "dkvs-1ec88.firebaseapp.com",
+      messagingSenderId: "167430647129",
+      appId: "1:167430647129:web:ab209fec7735f20b597048",
+      measurementId: "G-H6LKMLYD10"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // DOM elements
+    const ideaForm = document.getElementById('ideaForm');
+    const ideasList = document.getElementById('ideasList');
+    const totalIdeas = document.getElementById('totalIdeas');
+    const approvedIdeas = document.getElementById('approvedIdeas');
+    const pendingIdeas = document.getElementById('pendingIdeas');
+
+    // Global variables
+    let allIdeas = [];
+    let filteredIdeas = [];
+    let currentPage = 1;
+    let itemsPerPage = 10;
+    let currentFilter = 'all';
+
+    // Category names
+    const categoryNames = {
+      vehicle: 'Транспорт',
+      skin: 'Скіни',
+      script: 'Скрипти',
+      map: 'Мапи',
+      other: 'Інше'
+    };
+
+    // Status names
+    const statusNames = {
+      pending: { class: 'status-pending', text: 'На розгляді' },
+      review: { class: 'status-review', text: 'В роботі' },
+      approved: { class: 'status-approved', text: 'Схвалено' },
+      rejected: { class: 'status-rejected', text: 'Відхилено' }
+    };
+
+    // Form submission
+    ideaForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const title = document.getElementById('ideaTitle').value;
+      const category = document.getElementById('ideaCategory').value;
+      const description = document.getElementById('ideaDescription').value;
+      const userName = document.getElementById('userName').value || 'Анонім';
+      
+      try {
+        await push(ref(database, 'ideas'), {
+          title,
+          category,
+          description,
+          userName,
+          status: 'pending',
+          votes: 0,
+          createdAt: Date.now(),
+          updatedAt: Date.now()
+        });
+        
+        // Reset form
+        ideaForm.reset();
+        alert('Ваша ідея успішно відправлена! Дякуємо за пропозицію.');
+      } catch (error) {
+        console.error("Помилка при відправці ідеї:", error);
+        alert('Сталася помилка при відправці ідеї. Спробуйте ще раз.');
+      }
+    });
+
+    // Fetch ideas from Firebase
+    function fetchIdeas() {
+      const ideasRef = ref(database, 'ideas');
+      
+      onValue(ideasRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          allIdeas = Object.keys(data).map(key => ({
+            id: key,
+            ...data[key]
+          })).sort((a, b) => b.createdAt - a.createdAt);
+          
+          updateStats();
+          filterIdeas(currentFilter);
+        } else {
+          allIdeas = [];
+          showNoIdeas();
+          updateStats();
+        }
+      }, (error) => {
+        console.error("Помилка при отриманні ідей:", error);
+        showError();
+      });
+    }
+
+    // Update statistics
+    function updateStats() {
+      totalIdeas.textContent = allIdeas.length;
+      approvedIdeas.textContent = allIdeas.filter(i => i.status === 'approved').length;
+      pendingIdeas.textContent = allIdeas.filter(i => i.status === 'pending').length;
+    }
+
+    // Filter ideas
+    window.filterIdeas = function(filter) {
+      currentFilter = filter;
+      currentPage = 1;
+      
+      if (filter === 'all') {
+        filteredIdeas = [...allIdeas];
+      } else {
+        filteredIdeas = allIdeas.filter(i => i.status === filter);
+      }
+      
+      renderIdeas();
+      renderPagination();
+    };
+
+    // Render ideas
+    function renderIdeas() {
+      if (filteredIdeas.length === 0) {
+        showNoIdeas();
+        return;
+      }
+      
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const pageIdeas = filteredIdeas.slice(startIndex, endIndex);
+      
+      ideasList.innerHTML = pageIdeas.map(idea => createIdeaItem(idea)).join('');
+      
+      // Add animation to items
+      setTimeout(() => {
+        document.querySelectorAll('.idea-item').forEach((item, index) => {
+          item.style.animationDelay = `${index * 50}ms`;
+          item.classList.add('slide-in');
+        });
+      }, 10);
+    }
+
+    // Create idea item HTML
+    function createIdeaItem(idea) {
+      const date = new Date(idea.createdAt).toLocaleDateString('uk-UA');
+      const initials = idea.userName.split(' ').map(n => n[0]).join('').toUpperCase();
+      const status = statusNames[idea.status] || statusNames.pending;
+      
+      return `
+        <li class="idea-item">
+          <div class="idea-header">
+            <h4 class="idea-title">${idea.title}</h4>
+            <div class="idea-meta">
+              <span class="idea-category">${categoryNames[idea.category] || 'Інше'}</span>
+              <span class="status-badge ${status.class}">${status.text}</span>
+              <span class="idea-date">${date}</span>
+            </div>
+          </div>
+          <div class="idea-content">${idea.description}</div>
+          <div class="idea-footer">
+            <div class="idea-author">
+              <div class="author-avatar" title="${idea.userName}">${initials}</div>
+              <span class="author-name">${idea.userName}</span>
+            </div>
+            <div class="idea-votes">
+              <button class="vote-btn" onclick="voteIdea('${idea.id}', -1)">
+                <i class="fas fa-thumbs-down"></i>
+              </button>
+              <span class="vote-count">${idea.votes || 0}</span>
+              <button class="vote-btn" onclick="voteIdea('${idea.id}', 1)">
+                <i class="fas fa-thumbs-up"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      `;
+    }
+
+    // Show empty state
+    function showNoIdeas() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p>Ідей ще немає. Будьте першим!</p>
+          </div>
+        </li>
+      `;
+    }
+
+    // Show error state
+    function showError() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon" style="color: var(--accent-red);">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>Помилка завантаження ідей</p>
+            <button class="action-btn" onclick="fetchIdeas()" style="margin-top: 12px;">
+              Спробувати знову
+            </button>
+          </div>
+        </li>
+      `;
+    }
+
+    // Vote for idea
+    window.voteIdea = function(id, direction) {
+      // In a real app, you would update the vote count in Firebase here
+      alert('Функція голосування буде реалізована в майбутньому!');
+    };
+
+    // Refresh ideas
+    window.refreshIdeas = function() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Оновлення списку...</span>
+          </div>
+        </li>
+      `;
+      fetchIdeas();
+    };
+
+    // Pagination functions
+    window.changePage = function(direction) {
+      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const newPage = currentPage + direction;
+      
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderIdeas();
+        renderPagination();
+      }
+    };
+
+    function renderPagination() {
+      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const pageNumbers = document.getElementById('pageNumbers');
+      const paginationInfo = document.getElementById('paginationInfo');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // Update buttons
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+      // Update info
+      const startItem = (currentPage - 1) * itemsPerPage + 1;
+      const endItem = Math.min(currentPage * itemsPerPage, filteredIdeas.length);
+      paginationInfo.textContent = `${startItem}-${endItem} з ${filteredIdeas.length}`;
+
+      // Generate page numbers
+      let pages = [];
+      const maxVisiblePages = 5;
+      
+      if (totalPages <= maxVisiblePages) {
+        pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      } else {
+        const start = Math.max(1, currentPage - 2);
+        const end = Math.min(totalPages, start + maxVisiblePages - 1);
+        pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+      }
+
+      pageNumbers.innerHTML = pages.map(page => `
+        <button class="pagination-btn ${page === currentPage ? 'active' : ''}" onclick="goToPage(${page})">
+          ${page}
+        </button>
+      `).join('');
+    }
+
+    window.goToPage = function(page) {
+      currentPage = page;
+      renderIdeas();
+      renderPagination();
+    };
+
+    // Initialize
+    window.onload = () => {
+      fetchIdeas();
+      
+      // Auto-refresh every 30 seconds
+      setInterval(fetchIdeas, 30000);
+    };
+  </script>
+</body>
+</html>
