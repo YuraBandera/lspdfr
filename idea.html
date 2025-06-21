@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="https://imgur.com/PRjTNqr" type="image/png">
-  <title>Ідеї для модифікацій | LSPDFR ELITE STUDIO</title>
+  <title>Адмін панель | LSPDFR ELITE STUDIO</title>
   <style>
     :root {
       --primary-bg: #0a0a0f;
@@ -140,17 +140,77 @@
       letter-spacing: 0.5px;
     }
 
-    /* Form Section */
-    .form-container {
+    /* Admin Panel */
+    .admin-panel {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .admin-panel {
+        flex-direction: column;
+      }
+    }
+
+    /* Sidebar */
+    .admin-sidebar {
+      width: 250px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
-      padding: 32px;
-      margin-bottom: 24px;
+      padding: 20px;
       box-shadow: var(--shadow-md);
     }
 
-    .form-title {
+    @media (max-width: 768px) {
+      .admin-sidebar {
+        width: 100%;
+      }
+    }
+
+    .admin-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .admin-menu-item {
+      margin-bottom: 8px;
+    }
+
+    .admin-menu-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .admin-menu-link:hover, .admin-menu-link.active {
+      background: var(--accent-bg);
+      color: var(--text-primary);
+    }
+
+    .admin-menu-link i {
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Main Content */
+    .admin-content {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .admin-title {
       font-size: 22px;
       font-weight: 600;
       margin-bottom: 24px;
@@ -160,71 +220,8 @@
       gap: 12px;
     }
 
-    .form-title i {
+    .admin-title i {
       color: var(--accent-blue);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    @media (max-width: 768px) {
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .form-input, .form-textarea, .form-select {
-      width: 100%;
-      padding: 12px 16px;
-      background: var(--accent-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-size: 14px;
-      transition: var(--transition);
-    }
-
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    .form-textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      background: var(--gradient-primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 14px 24px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 16px;
-    }
-
-    .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
     }
 
     /* Ideas List */
@@ -257,7 +254,7 @@
     }
 
     .action-btn {
-      padding: 6px 12px;
+      padding: 8px 12px;
       background: var(--accent-blue);
       border: none;
       border-radius: 6px;
@@ -269,6 +266,14 @@
 
     .action-btn:hover {
       background: #2563eb;
+    }
+
+    .action-btn.danger {
+      background: var(--accent-red);
+    }
+
+    .action-btn.danger:hover {
+      background: #dc2626;
     }
 
     .ideas-list {
@@ -365,24 +370,58 @@
       gap: 8px;
     }
 
-    .vote-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: var(--transition);
-      padding: 4px;
-    }
-
-    .vote-btn:hover {
-      color: var(--accent-blue);
-    }
-
     .vote-count {
       font-size: 14px;
       font-weight: 600;
       min-width: 20px;
       text-align: center;
+    }
+
+    /* Admin Controls */
+    .admin-controls {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .status-select {
+      padding: 6px 12px;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .save-btn {
+      padding: 6px 12px;
+      background: var(--accent-green);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .save-btn:hover {
+      background: #059669;
+    }
+
+    .delete-btn {
+      padding: 6px 12px;
+      background: var(--accent-red);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .delete-btn:hover {
+      background: #dc2626;
     }
 
     /* Status badges */
@@ -470,6 +509,71 @@
       opacity: 0.5;
     }
 
+    /* Login Form */
+    .login-container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .login-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .login-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .login-form .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .login-form .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .login-form .form-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .login-submit {
+      width: 100%;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 16px;
+    }
+
+    .login-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* Animations */
     .fade-in {
       animation: fadeIn 0.5s ease-out;
@@ -516,10 +620,6 @@
         justify-content: center;
       }
 
-      .form-container {
-        padding: 24px 16px;
-      }
-
       .idea-header {
         flex-direction: column;
         align-items: flex-start;
@@ -539,108 +639,133 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
-    <div class="header fade-in">
-      <div class="header-content">
-        <div class="logo-section">
-          <img src="https://imgur.com/PRjTNqr" alt="LSPDFR ELITE STUDIO Logo" class="logo">
-          <div class="title-section">
-            <h1>Ідеї для модифікацій</h1>
-            <p>Ваші пропозиції для нашого магазину</p>
-          </div>
-        </div>
-        <div class="stats-section">
-          <div class="stat-item">
-            <span class="stat-number" id="totalIdeas">0</span>
-            <span class="stat-label">Всього ідей</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" id="approvedIdeas">0</span>
-            <span class="stat-label">Схвалено</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" id="pendingIdeas">0</span>
-            <span class="stat-label">На розгляді</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form Section -->
-    <div class="form-container fade-in">
-      <h2 class="form-title"><i class="fas fa-lightbulb"></i> Запропонувати ідею</h2>
-      <form id="ideaForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="ideaTitle" class="form-label">Назва ідеї</label>
-            <input type="text" id="ideaTitle" class="form-input" placeholder="Наприклад: Поліцейський BMW X5" required>
-          </div>
-          <div class="form-group">
-            <label for="ideaCategory" class="form-label">Категорія</label>
-            <select id="ideaCategory" class="form-select" required>
-              <option value="">Оберіть категорію</option>
-              <option value="vehicle">Транспорт</option>
-              <option value="skin">Скіни</option>
-              <option value="script">Скрипти</option>
-              <option value="map">Мапи</option>
-              <option value="other">Інше</option>
-            </select>
-          </div>
+    <!-- Admin Login (initially visible) -->
+    <div id="loginSection" class="login-container fade-in">
+      <h2 class="login-title"><i class="fas fa-lock"></i> Вхід для адміністратора</h2>
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="adminLogin" class="form-label">Логін</label>
+          <input type="text" id="adminLogin" class="form-input" placeholder="Введіть логін" required>
         </div>
         <div class="form-group">
-          <label for="ideaDescription" class="form-label">Опис ідеї</label>
-          <textarea id="ideaDescription" class="form-textarea" placeholder="Детально опишіть свою ідею..." required></textarea>
+          <label for="adminPassword" class="form-label">Пароль</label>
+          <input type="password" id="adminPassword" class="form-input" placeholder="Введіть пароль" required>
         </div>
-        <div class="form-group">
-          <label for="userName" class="form-label">Ваше ім'я (необов'язково)</label>
-          <input type="text" id="userName" class="form-input" placeholder="Як до вас звертатися">
-        </div>
-        <button type="submit" class="form-submit">
-          <i class="fas fa-paper-plane"></i> Надіслати ідею
+        <button type="submit" class="login-submit">
+          <i class="fas fa-sign-in-alt"></i> Увійти
         </button>
       </form>
     </div>
 
-    <!-- Ideas List -->
-    <div class="ideas-container fade-in">
-      <div class="ideas-header">
-        <h3 class="ideas-title">Останні ідеї</h3>
-        <div class="ideas-actions">
-          <button class="action-btn" onclick="refreshIdeas()">
-            <i class="fas fa-sync-alt"></i> Оновити
-          </button>
-          <button class="action-btn" onclick="filterIdeas('all')">
-            <i class="fas fa-filter"></i> Всі
-          </button>
+    <!-- Admin Panel (initially hidden) -->
+    <div id="adminPanel" style="display: none;">
+      <!-- Header -->
+      <div class="header fade-in">
+        <div class="header-content">
+          <div class="logo-section">
+            <img src="https://imgur.com/PRjTNqr" alt="LSPDFR ELITE STUDIO Logo" class="logo">
+            <div class="title-section">
+              <h1>Адмін панель</h1>
+              <p>Керування ідеями для модифікацій</p>
+            </div>
+          </div>
+          <div class="stats-section">
+            <div class="stat-item">
+              <span class="stat-number" id="totalIdeas">0</span>
+              <span class="stat-label">Всього ідей</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="approvedIdeas">0</span>
+              <span class="stat-label">Схвалено</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="pendingIdeas">0</span>
+              <span class="stat-label">На розгляді</span>
+            </div>
+            <button class="stat-item action-btn danger" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i> Вийти
+            </button>
+          </div>
         </div>
       </div>
-      
-      <ul class="ideas-list" id="ideasList">
-        <li class="idea-item">
-          <div class="loading">
-            <div class="spinner"></div>
-            <span>Завантаження ідей...</span>
-          </div>
-        </li>
-      </ul>
 
-      <!-- Pagination -->
-      <div class="pagination" id="pagination">
-        <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div id="pageNumbers"></div>
-        <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-        <div class="pagination-info" id="paginationInfo"></div>
+      <!-- Admin Content -->
+      <div class="admin-panel">
+        <!-- Sidebar -->
+        <div class="admin-sidebar fade-in">
+          <ul class="admin-menu">
+            <li class="admin-menu-item">
+              <a href="#" class="admin-menu-link active" onclick="showSection('ideas')">
+                <i class="fas fa-lightbulb"></i> Усі ідеї
+              </a>
+            </li>
+            <li class="admin-menu-item">
+              <a href="#" class="admin-menu-link" onclick="showSection('pending')">
+                <i class="fas fa-clock"></i> На розгляді
+              </a>
+            </li>
+            <li class="admin-menu-item">
+              <a href="#" class="admin-menu-link" onclick="showSection('review')">
+                <i class="fas fa-cog"></i> В роботі
+              </a>
+            </li>
+            <li class="admin-menu-item">
+              <a href="#" class="admin-menu-link" onclick="showSection('approved')">
+                <i class="fas fa-check"></i> Схвалено
+              </a>
+            </li>
+            <li class="admin-menu-item">
+              <a href="#" class="admin-menu-link" onclick="showSection('rejected')">
+                <i class="fas fa-times"></i> Відхилено
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-content fade-in">
+          <h2 class="admin-title"><i class="fas fa-lightbulb"></i> Усі ідеї</h2>
+          
+          <!-- Ideas List -->
+          <div class="ideas-container">
+            <div class="ideas-header">
+              <h3 class="ideas-title">Список ідей</h3>
+              <div class="ideas-actions">
+                <button class="action-btn" onclick="refreshIdeas()">
+                  <i class="fas fa-sync-alt"></i> Оновити
+                </button>
+              </div>
+            </div>
+            
+            <ul class="ideas-list" id="ideasList">
+              <li class="idea-item">
+                <div class="loading">
+                  <div class="spinner"></div>
+                  <span>Завантаження ідей...</span>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+              <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div id="pageNumbers"></div>
+              <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="pagination-info" id="paginationInfo"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+    import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
@@ -657,11 +782,19 @@
     const database = getDatabase(app);
 
     // DOM elements
-    const ideaForm = document.getElementById('ideaForm');
+    const loginSection = document.getElementById('loginSection');
+    const adminPanel = document.getElementById('adminPanel');
+    const loginForm = document.getElementById('loginForm');
     const ideasList = document.getElementById('ideasList');
     const totalIdeas = document.getElementById('totalIdeas');
     const approvedIdeas = document.getElementById('approvedIdeas');
     const pendingIdeas = document.getElementById('pendingIdeas');
+
+    // Admin credentials (in a real app, use proper authentication)
+    const ADMIN_CREDENTIALS = {
+      login: "admin",
+      password: "admin123" // In production, use Firebase Authentication
+    };
 
     // Global variables
     let allIdeas = [];
@@ -687,35 +820,70 @@
       rejected: { class: 'status-rejected', text: 'Відхилено' }
     };
 
-    // Form submission
-    ideaForm.addEventListener('submit', async (e) => {
+    // Login form submission
+    loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const title = document.getElementById('ideaTitle').value;
-      const category = document.getElementById('ideaCategory').value;
-      const description = document.getElementById('ideaDescription').value;
-      const userName = document.getElementById('userName').value || 'Анонім';
+      const login = document.getElementById('adminLogin').value;
+      const password = document.getElementById('adminPassword').value;
       
-      try {
-        await push(ref(database, 'ideas'), {
-          title,
-          category,
-          description,
-          userName,
-          status: 'pending',
-          votes: 0,
-          createdAt: Date.now(),
-          updatedAt: Date.now()
-        });
-        
-        // Reset form
-        ideaForm.reset();
-        alert('Ваша ідея успішно відправлена! Дякуємо за пропозицію.');
-      } catch (error) {
-        console.error("Помилка при відправці ідеї:", error);
-        alert('Сталася помилка при відправці ідеї. Спробуйте ще раз.');
+      if (login === ADMIN_CREDENTIALS.login && password === ADMIN_CREDENTIALS.password) {
+        // Successful login
+        loginSection.style.display = 'none';
+        adminPanel.style.display = 'block';
+        fetchIdeas();
+      } else {
+        alert('Невірний логін або пароль!');
       }
     });
+
+    // Logout function
+    window.logout = function() {
+      if (confirm('Ви впевнені, що хочете вийти?')) {
+        adminPanel.style.display = 'none';
+        loginSection.style.display = 'block';
+        loginForm.reset();
+      }
+    };
+
+    // Show different sections
+    window.showSection = function(section) {
+      // Update active menu item
+      document.querySelectorAll('.admin-menu-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update title
+      const title = document.querySelector('.admin-title');
+      const titleIcon = title.querySelector('i');
+      
+      switch(section) {
+        case 'ideas':
+          title.innerHTML = '<i class="fas fa-lightbulb"></i> Усі ідеї';
+          currentFilter = 'all';
+          break;
+        case 'pending':
+          title.innerHTML = '<i class="fas fa-clock"></i> Ідеї на розгляді';
+          currentFilter = 'pending';
+          break;
+        case 'review':
+          title.innerHTML = '<i class="fas fa-cog"></i> Ідеї в роботі';
+          currentFilter = 'review';
+          break;
+        case 'approved':
+          title.innerHTML = '<i class="fas fa-check"></i> Схвалені ідеї';
+          currentFilter = 'approved';
+          break;
+        case 'rejected':
+          title.innerHTML = '<i class="fas fa-times"></i> Відхилені ідеї';
+          currentFilter = 'rejected';
+          break;
+      }
+      
+      // Filter and render ideas
+      filterIdeas(currentFilter);
+    };
 
     // Fetch ideas from Firebase
     function fetchIdeas() {
@@ -786,7 +954,7 @@
       }, 10);
     }
 
-    // Create idea item HTML
+    // Create idea item HTML with admin controls
     function createIdeaItem(idea) {
       const date = new Date(idea.createdAt).toLocaleDateString('uk-UA');
       const initials = idea.userName.split(' ').map(n => n[0]).join('').toUpperCase();
@@ -809,14 +977,22 @@
               <span class="author-name">${idea.userName}</span>
             </div>
             <div class="idea-votes">
-              <button class="vote-btn" onclick="voteIdea('${idea.id}', -1)">
-                <i class="fas fa-thumbs-down"></i>
-              </button>
               <span class="vote-count">${idea.votes || 0}</span>
-              <button class="vote-btn" onclick="voteIdea('${idea.id}', 1)">
-                <i class="fas fa-thumbs-up"></i>
-              </button>
             </div>
+          </div>
+          <div class="admin-controls">
+            <select class="status-select" id="status-${idea.id}">
+              <option value="pending" ${idea.status === 'pending' ? 'selected' : ''}>На розгляді</option>
+              <option value="review" ${idea.status === 'review' ? 'selected' : ''}>В роботі</option>
+              <option value="approved" ${idea.status === 'approved' ? 'selected' : ''}>Схвалено</option>
+              <option value="rejected" ${idea.status === 'rejected' ? 'selected' : ''}>Відхилено</option>
+            </select>
+            <button class="save-btn" onclick="saveIdeaStatus('${idea.id}')">
+              <i class="fas fa-save"></i> Зберегти
+            </button>
+            <button class="delete-btn" onclick="deleteIdea('${idea.id}')">
+              <i class="fas fa-trash"></i> Видалити
+            </button>
           </div>
         </li>
       `;
@@ -830,7 +1006,7 @@
             <div class="empty-icon">
               <i class="fas fa-lightbulb"></i>
             </div>
-            <p>Ідей ще немає. Будьте першим!</p>
+            <p>Ідей не знайдено</p>
           </div>
         </li>
       `;
@@ -853,10 +1029,36 @@
       `;
     }
 
-    // Vote for idea
-    window.voteIdea = function(id, direction) {
-      // In a real app, you would update the vote count in Firebase here
-      alert('Функція голосування буде реалізована в майбутньому!');
+    // Save idea status
+    window.saveIdeaStatus = function(id) {
+      const statusSelect = document.getElementById(`status-${id}`);
+      const newStatus = statusSelect.value;
+      
+      const ideaRef = ref(database, `ideas/${id}`);
+      update(ideaRef, {
+        status: newStatus,
+        updatedAt: Date.now()
+      }).then(() => {
+        alert('Статус ідеї успішно оновлено!');
+        fetchIdeas(); // Refresh the list
+      }).catch((error) => {
+        console.error("Помилка при оновленні статусу:", error);
+        alert('Сталася помилка при оновленні статусу');
+      });
+    };
+
+    // Delete idea
+    window.deleteIdea = function(id) {
+      if (confirm('Ви впевнені, що хочете видалити цю ідею? Цю дію неможливо скасувати.')) {
+        const ideaRef = ref(database, `ideas/${id}`);
+        remove(ideaRef).then(() => {
+          alert('Ідею успішно видалено!');
+          fetchIdeas(); // Refresh the list
+        }).catch((error) => {
+          console.error("Помилка при видаленні ідеї:", error);
+          alert('Сталася помилка при видаленні ідеї');
+        });
+      }
     };
 
     // Refresh ideas
@@ -923,14 +1125,6 @@
       currentPage = page;
       renderIdeas();
       renderPagination();
-    };
-
-    // Initialize
-    window.onload = () => {
-      fetchIdeas();
-      
-      // Auto-refresh every 30 seconds
-      setInterval(fetchIdeas, 30000);
     };
   </script>
 </body>
