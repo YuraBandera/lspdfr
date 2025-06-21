@@ -1,97 +1,158 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <!-- Весь CSS стиль з вашого оригінального коду адмін-панелі -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://imgur.com/PRjTNqr" type="image/png">
+  <title>Адмін-панель | LSPDFR ELITE STUDIO</title>
   <style>
-    /* ... ваші стилі з попереднього коду адмінки ... */
+    :root {
+      --primary-bg: #0a0a0f;
+      --secondary-bg: #15151d;
+      --card-bg: #1a1a23;
+      --accent-bg: #252530;
+      --border-color: #2a2a3a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #6b6b7b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-yellow: #f59e0b;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .login-title {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .login-form .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 12px 15px;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 16px;
+    }
+
+    .login-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Форма входу для адміністратора -->
-    <div id="adminLoginContainer" class="login-container fade-in">
-      <h2 class="login-title"><i class="fas fa-lock"></i> Вхід для розробників</h2>
-      <form id="adminLoginForm">
-        <div class="form-group">
-          <label for="adminEmail">Логін</label>
-          <input type="text" id="adminEmail" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label for="adminPassword">Пароль</label>
-          <input type="password" id="adminPassword" class="form-input" required>
-        </div>
-        <button type="submit" class="form-submit">Увійти</button>
-      </form>
-      <p style="text-align: center; margin-top: 15px;">
-        <a href="idea.html" style="color: var(--accent-blue);">← Повернутися на сайт</a>
-      </p>
-    </div>
-
-    <!-- Адмін-панель (прихована до входу) -->
-    <div id="adminPanel" style="display: none;">
-      <!-- Весь вміст вашої адмін-панелі -->
-    </div>
+  <div class="login-container" id="loginContainer">
+    <h2 class="login-title">
+      <i class="fas fa-lock"></i> Вхід для адміна
+    </h2>
+    <form id="loginForm" class="login-form">
+      <div class="form-group">
+        <label for="username">Логін</label>
+        <input type="text" id="username" required placeholder="Введіть логін">
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" required placeholder="Введіть пароль">
+      </div>
+      <button type="submit" class="login-btn">Увійти</button>
+      <a href="idea.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> На головну сторінку
+      </a>
+    </form>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-    import { getDatabase, ref, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
-      authDomain: "dkvs-1ec88.firebaseapp.com",
-      databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com",
-      projectId: "dkvs-1ec88",
-      storageBucket: "dkvs-1ec88.firebaseapp.com",
-      messagingSenderId: "167430647129",
-      appId: "1:167430647129:web:ab209fec7735f20b597048",
-      measurementId: "G-H6LKMLYD10"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
-    // Адмінські credentials (в реальному додатку використовуйте Firebase Authentication)
-    const ADMIN_CREDENTIALS = {
-      login: "bandera",
-      password: "bandera" // Змініть на свій складний пароль!
-    };
-
-    // Перевірка авторизації
-    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const login = document.getElementById('adminEmail').value;
-      const password = document.getElementById('adminPassword').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
       
-      if (login === ADMIN_CREDENTIALS.login && password === ADMIN_CREDENTIALS.password) {
-        // Вхід успішний
-        localStorage.setItem('adminAuthenticated', 'true');
-        document.getElementById('adminLoginContainer').style.display = 'none';
-        document.getElementById('adminPanel').style.display = 'block';
-        initAdminPanel(); // Ініціалізуємо адмін-панель
+      // Перевірка логіна/пароля (за замовчуванням: admin/admin123)
+      if(username === 'admin' && password === 'admin123') {
+        // Зберігаємо факт входу в localStorage
+        localStorage.setItem('adminLoggedIn', 'true');
+        // Перенаправляємо на адмін-панель
+        window.location.href = 'admin-panel.html';
       } else {
-        alert('Невірний логін або пароль!');
+        alert('Невірний логін або пароль! Спробуйте ще раз.');
       }
     });
 
-    // Перевірка чи адмін вже авторизований
-    if (localStorage.getItem('adminAuthenticated') === 'true') {
-      document.getElementById('adminLoginContainer').style.display = 'none';
-      document.getElementById('adminPanel').style.display = 'block';
-      initAdminPanel();
+    // Якщо користувач вже входив, перенаправляємо одразу
+    if(localStorage.getItem('adminLoggedIn') === 'true') {
+      window.location.href = 'admin-panel.html';
     }
-
-    function initAdminPanel() {
-      // Тут ваш код для ініціалізації адмін-панелі
-      // (все що стосується відображення ідей, зміни статусів тощо)
-    }
-
-    // Функція виходу (додайте кнопку виходу в адмін-панелі)
-    window.logoutAdmin = function() {
-      localStorage.removeItem('adminAuthenticated');
-      location.reload();
-    };
   </script>
 </body>
 </html>
