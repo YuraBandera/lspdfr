@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <!-- Весь CSS стиль з вашого оригінального коду адмін-панелі -->
+  <style>
+    /* ... ваші стилі з попереднього коду адмінки ... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Форма входу для адміністратора -->
+    <div id="adminLoginContainer" class="login-container fade-in">
+      <h2 class="login-title"><i class="fas fa-lock"></i> Вхід для розробників</h2>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="adminEmail">Логін</label>
+          <input type="text" id="adminEmail" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="adminPassword">Пароль</label>
+          <input type="password" id="adminPassword" class="form-input" required>
+        </div>
+        <button type="submit" class="form-submit">Увійти</button>
+      </form>
+      <p style="text-align: center; margin-top: 15px;">
+        <a href="idea.html" style="color: var(--accent-blue);">← Повернутися на сайт</a>
+      </p>
+    </div>
+
+    <!-- Адмін-панель (прихована до входу) -->
+    <div id="adminPanel" style="display: none;">
+      <!-- Весь вміст вашої адмін-панелі -->
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+      authDomain: "dkvs-1ec88.firebaseapp.com",
+      databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com",
+      projectId: "dkvs-1ec88",
+      storageBucket: "dkvs-1ec88.firebaseapp.com",
+      messagingSenderId: "167430647129",
+      appId: "1:167430647129:web:ab209fec7735f20b597048",
+      measurementId: "G-H6LKMLYD10"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Адмінські credentials (в реальному додатку використовуйте Firebase Authentication)
+    const ADMIN_CREDENTIALS = {
+      login: "bandera",
+      password: "bandera" // Змініть на свій складний пароль!
+    };
+
+    // Перевірка авторизації
+    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const login = document.getElementById('adminEmail').value;
+      const password = document.getElementById('adminPassword').value;
+      
+      if (login === ADMIN_CREDENTIALS.login && password === ADMIN_CREDENTIALS.password) {
+        // Вхід успішний
+        localStorage.setItem('adminAuthenticated', 'true');
+        document.getElementById('adminLoginContainer').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        initAdminPanel(); // Ініціалізуємо адмін-панель
+      } else {
+        alert('Невірний логін або пароль!');
+      }
+    });
+
+    // Перевірка чи адмін вже авторизований
+    if (localStorage.getItem('adminAuthenticated') === 'true') {
+      document.getElementById('adminLoginContainer').style.display = 'none';
+      document.getElementById('adminPanel').style.display = 'block';
+      initAdminPanel();
+    }
+
+    function initAdminPanel() {
+      // Тут ваш код для ініціалізації адмін-панелі
+      // (все що стосується відображення ідей, зміни статусів тощо)
+    }
+
+    // Функція виходу (додайте кнопку виходу в адмін-панелі)
+    window.logoutAdmin = function() {
+      localStorage.removeItem('adminAuthenticated');
+      location.reload();
+    };
+  </script>
+</body>
+</html>
