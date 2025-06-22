@@ -439,6 +439,16 @@
             </div>
         </div>
 
+        <div class="product-card">
+    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Duster НГУ" class="product-image">
+    <div class="product-info">
+        <h3 class="product-title">Renault Duster НГУ</h3>
+        <p>Спеціальна версія для Національної гвардії України</p>
+        <div class="product-price">50 грн</div>
+        <button class="add-to-cart" onclick="addToCart(4)">Додати до кошика</button>
+    </div>
+</div>
+
         <!-- Кошик -->
         <div class="cart-sidebar" id="cartSidebar">
             <div class="cart-header">
@@ -520,8 +530,9 @@
         const products = {
             1: { id: 1, name: "Dacia Sandero Patrol", price: 50, file: "dacia_sandero.zip" },
             2: { id: 2, name: "Toyota Corolla Patrol", price: 50, file: "toyota_corolla.zip" },
-            3: { id: 3, name: "Renault Duster Patrol", price: 50, file: "renault_duster.zip" }
-        };
+            3: { id: 3, name: "Renault Duster Patrol", price: 50, file: "renault_duster.zip" },
+            4: { id: 4, name: "Renault Duster НГУ", price: 50, file: "renault_duster_ngu.zip" }
+            };
 
         // URL для завантаження безкоштовного Renault Logan (замініть на ваш реальний URL)
         const FREE_CAR_DOWNLOAD_URL = "https://example.com/renault_logan_police.zip";
