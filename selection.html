@@ -643,7 +643,7 @@
             }
             
             const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*100}`;
+            const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*1}`;
             
             // Показати інструкцію
             alert(`Для завершення покупки:
