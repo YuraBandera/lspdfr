@@ -11,9 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* Всі стилі залишаються без змін */
         :root {
             --primary-blue: #0066FF;
             --primary-blue-dark: #0052CC;
@@ -937,236 +938,6 @@
             transform: scale(1);
         }
 
-        /* Account Section */
-        .account-section {
-            padding: var(--space-2xl) 0;
-            background: var(--bg-secondary);
-        }
-
-        .account-tabs {
-            display: flex;
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .account-tab {
-            padding: var(--space-md) var(--space-lg);
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            font-weight: 600;
-            cursor: pointer;
-            position: relative;
-            transition: all var(--transition);
-        }
-
-        .account-tab.active {
-            color: var(--text-primary);
-        }
-
-        .account-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-primary);
-        }
-
-        .account-tab-content {
-            display: none;
-        }
-
-        .account-tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .account-info-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            margin-bottom: var(--space-xl);
-        }
-
-        .account-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .account-info-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        .account-info-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .purchase-history {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .purchase-history th,
-        .purchase-history td {
-            padding: var(--space-md);
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .purchase-history th {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .purchase-history tr:last-child td {
-            border-bottom: none;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .status-completed {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-green);
-        }
-
-        /* Review Form */
-        .review-form {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            margin-top: var(--space-xl);
-        }
-
-        .rating-stars {
-            display: flex;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-        }
-
-        .rating-star {
-            font-size: 24px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .rating-star.active,
-        .rating-star:hover {
-            color: #FFD700;
-        }
-
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .blog-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all var(--transition);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .blog-content {
-            padding: var(--space-lg);
-        }
-
-        .blog-date {
-            color: var(--accent-cyan);
-            font-size: 12px;
-            margin-bottom: var(--space-sm);
-        }
-
-        .blog-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            margin-bottom: var(--space-md);
-        }
-
-        .blog-excerpt {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: var(--space-md);
-        }
-
-        /* Filters Section */
-        .filters-section {
-            background: var(--bg-tertiary);
-            padding: var(--space-md);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-xl);
-        }
-
-        .filter-group {
-            margin-bottom: var(--space-md);
-        }
-
-        .filter-title {
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-        }
-
-        .filter-option {
-            padding: 6px 12px;
-            background: var(--bg-secondary);
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .filter-option:hover,
-        .filter-option.active {
-            background: var(--primary-blue);
-            color: white;
-        }
-
         /* Responsive - FIXED */
         @media (max-width: 768px) {
             .container {
@@ -1247,11 +1018,6 @@
             .logo-subtitle {
                 font-size: 10px;
             }
-
-            .account-tabs {
-                overflow-x: auto;
-                padding-bottom: var(--space-sm);
-            }
         }
 
         @media (max-width: 480px) {
@@ -1280,7 +1046,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
@@ -1302,9 +1067,12 @@
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link active">Головна</a></li>
+                    <li><a href="#about" class="nav-link">Про магазин</a></li>
+                    <li><a href="#statistics" class="nav-link">Статистика</a></li>
                     <li><a href="#products" class="nav-link">Товари</a></li>
-                    <li><a href="#blog" class="nav-link">Блог</a></li>
-                    <li><a href="#account" class="nav-link">Кабінет</a></li>
+                    <li><a href="#categories" class="nav-link">Категорії</a></li>
+                    <li><a href="#requirements" class="nav-link">Умови</a></li>
+                    <li><a href="#gallery" class="nav-link">Галерея</a></li>
                     <li><a href="#faq" class="nav-link">FAQ</a></li>
                 </ul>
                 
@@ -1356,43 +1124,137 @@
             </div>
         </div>
         
-        <div class="scroll-indicator" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
             <i class="fas fa-chevron-down" style="color: var(--accent-cyan);"></i>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section">
+    <!-- About Section -->
+    <section id="about" class="section" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in-up">Наші товари</h2>
-                <p class="section-description fade-in-up">Виберіть найкраще для вашого геймплею</p>
+                <div class="section-badge fade-in-up">Про нас</div>
+                <h2 class="section-title fade-in-up">
+                    Хто ми і що <span class="gradient-text">пропонуємо</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    LSPDFR ELITE STUDIO SHOP - це офіційний магазин якісного контенту для LSPDFR
+                </p>
             </div>
-
-            <div class="filters-section fade-in-up">
-                <div class="filter-group">
-                    <div class="filter-title">Категорії</div>
-                    <div class="filter-options">
-                        <div class="filter-option active">Всі</div>
-                        <div class="filter-option">Автомобілі</div>
-                        <div class="filter-option">Скіни</div>
-                        <div class="filter-option">Плагіни</div>
+            
+            <div class="card fade-in-up">
+                <p style="font-size: 16px; line-height: 1.7; margin-bottom: var(--space-lg); color: var(--text-secondary);">
+                    Ми спеціалізуємося на створенні та продажу високоякісних моделей поліцейських машин, скінів персонажів та унікальних плагінів для LSPDFR. Наші продукти відрізняються реалізмом, стабільністю та унікальним дизайном.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-car" style="color: white; font-size: 16px;"></i>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Поліцейські машини</h4>
+                            <p style="color: var(--text-secondary); font-size: 12px;">Реалістичні моделі з повним функціоналом</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                        <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="color: white; font-size: 16px;"></i>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Скіни персонажів</h4>
+                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні моделі поліцейських та спецагентів</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-code" style="color: white; font-size: 16px;"></i>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Плагіни</h4>
+                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні скрипти для покращення геймплею</p>
+                        </div>
                     </div>
                 </div>
-                <div class="filter-group">
-                    <div class="filter-title">Ціна</div>
-                    <div class="filter-options">
-                        <div class="filter-option active">Всі</div>
-                        <div class="filter-option">До 500₴</div>
-                        <div class="filter-option">500-1000₴</div>
-                        <div class="filter-option">Від 1000₴</div>
+                
+                <div style="text-align: center; padding: var(--space-lg); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-md); font-size: 18px; font-weight: 700;">Приєднуйтесь до нашої спільноти!</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); font-size: 14px;">Отримуйте ексклюзивні пропозиції та новинки першими</p>
+                    
+                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                        <a href="#products" class="btn btn-secondary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Перейти до товарів
+                        </a>
+                        <a href="#faq" class="btn btn-primary">
+                            <i class="fas fa-headset"></i>
+                            Техпідтримка
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- Statistics Section -->
+    <section id="statistics" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Наші досягнення</div>
+                <h2 class="section-title fade-in-up">
+                    Статистика <span class="gradient-text">магазину</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Цифри, що показують наш успіх та популярність серед гравців
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card fade-in-up scale-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Доступних товарів</div>
+                </div>
+                
+                <div class="stat-card fade-in-up scale-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Задоволених клієнтів</div>
+                </div>
+                
+                <div class="stat-card fade-in-up scale-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label">Середня оцінка товарів</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Наші продукти</div>
+                <h2 class="section-title fade-in-up">
+                    Популярні <span class="gradient-text">товари</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Кращі пропозиції від LSPDFR ELITE STUDIO
+                </p>
+            </div>
+            
             <div class="leadership-grid">
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="UkrainePatrol" class="leader-image">
                     <div class="leader-info">
                         <h3 class="leader-name">Dacia Sandero</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1400,15 +1262,11 @@
                             <i class="fas fa-star" style="color: var(--accent-cyan);"></i>
                             Рейтинг: 5.0/5 (0 відгуків)
                         </div>
-                        <div style="margin-top: var(--space-md);">
-                            <span style="font-weight: 600; color: var(--accent-green);">750₴</span>
-                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; float: right;">Купити</a>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="UkrainePatrol" class="leader-image">
                     <div class="leader-info">
                         <h3 class="leader-name">Toyota Corolla</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1416,15 +1274,11 @@
                             <i class="fas fa-medal" style="color: var(--accent-cyan);"></i>
                             Рейтинг: 5.0/5 (0 відгуки)
                         </div>
-                        <div style="margin-top: var(--space-md);">
-                            <span style="font-weight: 600; color: var(--accent-green);">850₴</span>
-                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; float: right;">Купити</a>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Daster" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="UkrainePatrol" class="leader-image">
                     <div class="leader-info">
                         <h3 class="leader-name">(ОБНОВЛЕНО) Renault Daster</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1432,15 +1286,11 @@
                             <i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i>
                             Рейтинг: 4.9/5 (0 відгуків)
                         </div>
-                        <div style="margin-top: var(--space-md);">
-                            <span style="font-weight: 600; color: var(--accent-green);">900₴</span>
-                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; float: right;">Купити</a>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Renault Daster НГУ" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="leader-image">
                     <div class="leader-info">
                         <h3 class="leader-name">Renault Daster</h3>
                         <div class="leader-position">У лівреї НГУ</div>
@@ -1448,9 +1298,138 @@
                             <i class="fas fa-user-plus" style="color: var(--secondary-orange);"></i>
                             Рейтинг: 5.0/5
                         </div>
-                        <div style="margin-top: var(--space-md);">
-                            <span style="font-weight: 600; color: var(--accent-green);">950₴</span>
-                            <a href="#" class="btn btn-primary" style="padding: 8px 16px; float: right;">Купити</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Категорії</div>
+                <h2 class="section-title fade-in-up">
+                    Основні <span class="gradient-text">напрямки</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Спеціалізовані категорії товарів для вашого геймплею
+                </p>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card fade-in-up">
+                    <div class="department-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="department-title">Dacia Sandero</h3>
+                    <p class="department-description">
+                        Високоякісна модель авто НП України,розроблена нашою студією
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
+                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-tags"></i>
+                        В наявності: 2 авто із різними сиренами
+                    </div>
+                </div>
+                
+                <div class="department-card fade-in-up">
+                    <div class="department-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="department-title">Toyota Corolla</h3>
+                    <p class="department-description">
+                        Високоякісна модель авто НП України,розроблена нашою студією
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
+                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-tags"></i>
+                        В наявності: 1 модель у одній лівреї патрульної поліції
+                    </div>
+                </div>
+                
+                <div class="department-card fade-in-up">
+    <div class="department-icon">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+    <h3 class="department-title">Renault Daster НГУ</h3>
+    <p class="department-description">
+        Спеціальна версія для Національної гвардії України
+    </p>
+    <div class="department-tasks">
+        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
+        Режим патрулювання (коли світить лише один синій маячок), обладнання та інше
+    </div>
+    <div class="department-head">
+        <i class="fas fa-tags"></i>
+        В наявності: 1 авто у лівреях НГУ
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section id="requirements" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge fade-in-up">Умови покупки</div>
+                <h2 class="section-title fade-in-up">
+                    Вимоги для <span class="gradient-text">користувачів</span>
+                </h2>
+                <p class="section-description fade-in-up">
+                    Основні критерії для успішної покупки та використання наших продуктів
+                </p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="card fade-in-up">
+                    <div style="display: grid; gap: var(--space-lg);">
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue);">
+                            <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-gamepad" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">GTA V + LSPDFR</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Обов'язкова наявність гри та модифікації</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-cyan);">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-desktop" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Системні вимоги</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Рекомендовані параметри ПК,які потянуть вашу GTA V + LSPDFR</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--secondary-orange);">
+                            <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-file-archive" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">OpenIV</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Необхідний для встановлення модів</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-purple), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-scroll" style="color: white; font-size: 16px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Ліцензійна угода</h4>
+                                <p style="color: var(--text-secondary); font-size: 13px;">Заборонено публічне поширення</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1458,201 +1437,60 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="section" style="background: var(--bg-secondary);">
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title fade-in-up">Останні новини</h2>
-                <p class="section-description fade-in-up">Оновлення, поради та корисна інформація</p>
+                <div class="section-badge fade-in-up">Наші роботи</div>
+                <h2 class="section-title fade-in-up">
+                    <span class="gradient-text">Галерея</span> продуктів
+                </h2>
+                <p class="section-description fade-in-up">
+                    Скріншоти наших продуктів в дії
+                </p>
             </div>
-
-            <div class="blog-grid">
-                <div class="blog-card fade-in-up">
-                    <img src="https://via.placeholder.com/600x400" alt="Новина 1" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">15 червня 2025</div>
-                        <h3 class="blog-title">Оновлення моделей поліції</h3>
-                        <p class="blog-excerpt">Дізнайтеся про нові моделі авто, які ми додали до нашого магазину...</p>
-                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">Читати далі</a>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Ukraine Patrol" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Dacia Sandero</span>
                     </div>
                 </div>
                 
-                <div class="blog-card fade-in-up">
-                    <img src="https://via.placeholder.com/600x400" alt="Новина 2" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">10 червня 2025</div>
-                        <h3 class="blog-title">Як правильно встановлювати моди</h3>
-                        <p class="blog-excerpt">Детальний гайд з встановлення наших продуктів для LSPDFR...</p>
-                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">Читати далі</a>
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Ukraine Patrol" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Toyota Corolla</span>
                     </div>
                 </div>
                 
-                <div class="blog-card fade-in-up">
-                    <img src="https://via.placeholder.com/600x400" alt="Новина 3" class="blog-image">
-                    <div class="blog-content">
-                        <div class="blog-date">5 червня 2025</div>
-                        <h3 class="blog-title">Оновлення системи відгуків</h3>
-                        <p class="blog-excerpt">Тепер ви можете залишати відгуки про наші товари прямо в особистому кабінеті...</p>
-                        <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">Читати далі</a>
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Ukraine Patrol" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Renault Daster</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Account Section -->
-    <section id="account" class="account-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in-up">Особистий кабінет</h2>
-                <p class="section-description fade-in-up">Керуйте своїми замовленнями та налаштуваннями</p>
-            </div>
-
-            <div class="account-tabs">
-                <button class="account-tab active" data-tab="profile">Профіль</button>
-                <button class="account-tab" data-tab="purchases">Мої покупки</button>
-                <button class="account-tab" data-tab="reviews">Мої відгуки</button>
-                <button class="account-tab" data-tab="settings">Налаштування</button>
-            </div>
-
-            <div class="account-tab-content active" id="profile-tab">
-                <div class="account-info-card fade-in-up">
-                    <h3 style="margin-bottom: var(--space-lg);">Інформація профілю</h3>
-                    <div class="account-info-grid">
-                        <div class="account-info-item">
-                            <div class="account-info-icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-secondary); font-size: 12px;">Ім'я</div>
-                                <div style="font-weight: 600;">Іван Петренко</div>
-                            </div>
-                        </div>
-                        <div class="account-info-item">
-                            <div class="account-info-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-secondary); font-size: 12px;">Email</div>
-                                <div style="font-weight: 600;">user@example.com</div>
-                            </div>
-                        </div>
-                        <div class="account-info-item">
-                            <div class="account-info-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-secondary); font-size: 12px;">Дата реєстрації</div>
-                                <div style="font-weight: 600;">12.05.2025</div>
-                            </div>
-                        </div>
-                        <div class="account-info-item">
-                            <div class="account-info-icon">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-secondary); font-size: 12px;">Покупок</div>
-                                <div style="font-weight: 600;">5</div>
-                            </div>
-                        </div>
+                
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Ukraine Patrol" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Renault Logan</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="account-tab-content" id="purchases-tab">
-                <div class="account-info-card fade-in-up">
-                    <h3 style="margin-bottom: var(--space-lg);">Історія покупок</h3>
-                    <div style="overflow-x: auto;">
-                        <table class="purchase-history">
-                            <thead>
-                                <tr>
-                                    <th>Замовлення</th>
-                                    <th>Дата</th>
-                                    <th>Сума</th>
-                                    <th>Статус</th>
-                                    <th>Дії</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#LSPD-2025-001</td>
-                                    <td>10.06.2025</td>
-                                    <td>750₴</td>
-                                    <td><span class="status-badge status-completed">Завершено</span></td>
-                                    <td><a href="#" style="color: var(--accent-cyan); font-size: 12px;">Деталі</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#LSPD-2025-002</td>
-                                    <td>05.06.2025</td>
-                                    <td>950₴</td>
-                                    <td><span class="status-badge status-completed">Завершено</span></td>
-                                    <td><a href="#" style="color: var(--accent-cyan); font-size: 12px;">Деталі</a></td>
-                                </tr>
-                                <tr>
-                                    <td>#LSPD-2025-003</td>
-                                    <td>01.06.2025</td>
-                                    <td>850₴</td>
-                                    <td><span class="status-badge status-completed">Завершено</span></td>
-                                    <td><a href="#" style="color: var(--accent-cyan); font-size: 12px;">Деталі</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Renault Daster</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="account-tab-content" id="reviews-tab">
-                <div class="account-info-card fade-in-up">
-                    <h3 style="margin-bottom: var(--space-lg);">Мої відгуки</h3>
-                    <div style="margin-bottom: var(--space-xl);">
-                        <div style="display: flex; gap: var(--space-md); margin-bottom: var(--space-md);">
-                            <div style="width: 60px; height: 60px; background: var(--bg-tertiary); border-radius: var(--radius-sm);"></div>
-                            <div>
-                                <div style="font-weight: 600; margin-bottom: 4px;">Dacia Sandero</div>
-                                <div style="color: var(--text-secondary); font-size: 12px;">Куплено 10.06.2025</div>
-                            </div>
-                        </div>
-                        <div style="color: var(--text-secondary); margin-bottom: var(--space-md);">
-                            Дуже якісна модель, все працює ідеально. Рекомендую!
-                        </div>
-                        <div style="display: flex; gap: var(--space-sm);">
-                            <i class="fas fa-star" style="color: #FFD700;"></i>
-                            <i class="fas fa-star" style="color: #FFD700;"></i>
-                            <i class="fas fa-star" style="color: #FFD700;"></i>
-                            <i class="fas fa-star" style="color: #FFD700;"></i>
-                            <i class="fas fa-star" style="color: #FFD700;"></i>
-                        </div>
+                
+                <div class="gallery-item fade-in-up scale-in">
+                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <span>Очікуйте нові фото</span>
                     </div>
-                </div>
-
-                <div class="review-form fade-in-up">
-                    <h3 style="margin-bottom: var(--space-lg);">Залишити відгук</h3>
-                    <div class="rating-stars">
-                        <i class="fas fa-star rating-star"></i>
-                        <i class="fas fa-star rating-star"></i>
-                        <i class="fas fa-star rating-star"></i>
-                        <i class="fas fa-star rating-star"></i>
-                        <i class="fas fa-star rating-star"></i>
-                    </div>
-                    <textarea style="width: 100%; padding: var(--space-md); background: var(--bg-tertiary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); color: var(--text-primary); margin-bottom: var(--space-md);" placeholder="Ваш відгук..."></textarea>
-                    <button class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Надіслати відгук</button>
-                </div>
-            </div>
-
-            <div class="account-tab-content" id="settings-tab">
-                <div class="account-info-card fade-in-up">
-                    <h3 style="margin-bottom: var(--space-lg);">Налаштування профілю</h3>
-                    <form>
-                        <div style="margin-bottom: var(--space-md);">
-                            <label style="display: block; margin-bottom: var(--space-sm); color: var(--text-secondary); font-size: 14px;">Ім'я</label>
-                            <input type="text" style="width: 100%; padding: 10px; background: var(--bg-tertiary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); color: var(--text-primary);" value="Іван Петренко">
-                        </div>
-                        <div style="margin-bottom: var(--space-md);">
-                            <label style="display: block; margin-bottom: var(--space-sm); color: var(--text-secondary); font-size: 14px;">Email</label>
-                            <input type="email" style="width: 100%; padding: 10px; background: var(--bg-tertiary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); color: var(--text-primary);" value="user@example.com">
-                        </div>
-                        <button class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Зберегти зміни</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -1742,202 +1580,302 @@
     </button>
 
     <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Loading Screen
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 1500);
+    <script type="module">
+        // Firebase Configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
-            // Header Scroll Effect
-            const header = document.getElementById('header');
-            const scrollToTopBtn = document.getElementById('scrollToTop');
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+            authDomain: "dkvs-1ec88.firebaseapp.com",
+            databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com/",
+            projectId: "dkvs-1ec88",
+            storageBucket: "dkvs-1ec88.appspot.com",
+            messagingSenderId: "167430647129",
+            appId: "1:167430647129:web:ab209fec7735f20b597048",
+            measurementId: "G-H6LKMLYD10"
+        };
 
-            function updateScrollElements() {
-                const scrollY = window.scrollY;
-                
-                if (scrollY > 100) {
-                    header.classList.add('scrolled');
-                    scrollToTopBtn.classList.add('visible');
-                } else {
-                    header.classList.remove('scrolled');
-                    scrollToTopBtn.classList.remove('visible');
-                }
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
 
-                updateActiveNavLink();
+        // Loading Screen
+        setTimeout(() => {
+            document.getElementById('loading').classList.add('hidden');
+        }, 1500);
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        function updateScrollElements() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollToTopBtn.classList.remove('visible');
             }
 
-            window.addEventListener('scroll', updateScrollElements);
+            updateActiveNavLink();
+        }
 
-            // Mobile Menu
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navMenu = document.getElementById('navMenu');
-            let menuOpen = false;
+        window.addEventListener('scroll', updateScrollElements);
 
-            mobileMenuBtn.addEventListener('click', () => {
-                menuOpen = !menuOpen;
-                navMenu.classList.toggle('active');
-                
-                const icon = mobileMenuBtn.querySelector('i');
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            navMenu.classList.toggle('active');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (menuOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
                 if (menuOpen) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
+                    navMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
                     icon.classList.add('fa-bars');
                     icon.classList.remove('fa-times');
+                    menuOpen = false;
+                }
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active Navigation Link Update
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const headerHeight = header.offsetHeight;
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 50;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
                 }
             });
 
-            // Close mobile menu when clicking on links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (menuOpen) {
-                        navMenu.classList.remove('active');
-                        const icon = mobileMenuBtn.querySelector('i');
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
-                        menuOpen = false;
-                    }
-                });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
             });
+        }
 
-            // Smooth Scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const headerHeight = header.offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight - 20;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            // Scroll to Top
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Active Navigation Link Update
-            function updateActiveNavLink() {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.nav-link');
-                const headerHeight = header.offsetHeight;
-
-                let currentSection = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight - 50;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSection = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSection}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            // Intersection Observer
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all animated elements
-            document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
-                observer.observe(el);
-            });
-
-            // FAQ Accordion
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.parentElement;
-                    const isActive = faqItem.classList.contains('active');
-                    const answer = faqItem.querySelector('.faq-answer');
-
-                    // Close all FAQ items
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                            const otherAnswer = item.querySelector('.faq-answer');
-                            otherAnswer.style.maxHeight = '0px';
-                        }
-                    });
-
-                    // Toggle clicked item
-                    if (!isActive) {
-                        faqItem.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                    } else {
-                        faqItem.classList.remove('active');
-                        answer.style.maxHeight = '0px';
-                    }
-                });
-            });
-
-            // Account Tabs
-            const tabs = document.querySelectorAll('.account-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                     
-                    const tabId = tab.getAttribute('data-tab');
-                    document.querySelectorAll('.account-tab-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    document.getElementById(`${tabId}-tab`).classList.add('active');
-                });
+                    // Animate counters for stat cards
+                    if (entry.target.classList.contains('stat-card')) {
+                        animateCounter(entry.target);
+                    }
+                }
             });
+        }, observerOptions);
 
-            // Rating Stars
-            const stars = document.querySelectorAll('.rating-star');
-            stars.forEach((star, index) => {
-                star.addEventListener('click', () => {
-                    stars.forEach((s, i) => {
-                        if (i <= index) {
-                            s.classList.add('active');
-                        } else {
-                            s.classList.remove('active');
-                        }
-                    });
-                });
-            });
-
-            // Filter Options
-            const filterOptions = document.querySelectorAll('.filter-option');
-            filterOptions.forEach(option => {
-                option.addEventListener('click', () => {
-                    option.parentElement.querySelectorAll('.filter-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    option.classList.add('active');
-                    // Тут можна додати логіку фільтрації товарів
-                });
-            });
-
-            console.log('LSPDFR ELITE STUDIO SHOP - Loaded successfully!');
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
+            observer.observe(el);
         });
+
+        // Counter Animation
+        function animateCounter(statCard) {
+            const numberElement = statCard.querySelector('.stat-number');
+            const target = parseInt(numberElement.dataset.target);
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(target * easeOutQuart);
+                
+                numberElement.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    numberElement.textContent = target;
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                const answer = faqItem.querySelector('.faq-answer');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        otherAnswer.style.maxHeight = '0px';
+                    }
+                });
+
+                // Toggle clicked item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    faqItem.classList.remove('active');
+                    answer.style.maxHeight = '0px';
+                }
+            });
+        });
+
+        // Firebase Data Loading
+        const counterRef = ref(db, 'counter');
+        onValue(counterRef, (snapshot) => {
+            try {
+                const productsCount = snapshot.val() || 0;
+                const productsElement = document.getElementById('productsCount');
+                if (productsElement) {
+                    productsElement.dataset.target = productsCount;
+                }
+            } catch (error) {
+                console.error('Firebase error:', error);
+                const productsElement = document.getElementById('productsCount');
+                if (productsElement) {
+                    productsElement.dataset.target = '127';
+                }
+            }
+        });
+
+        // Gallery Lightbox
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('.gallery-image');
+                
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 12px;
+                `;
+                
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                closeBtn.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    backdrop-filter: blur(10px);
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                lightbox.appendChild(closeBtn);
+                document.body.appendChild(lightbox);
+                
+                setTimeout(() => {
+                    lightbox.style.opacity = '1';
+                }, 10);
+                
+                const closeLightbox = () => {
+                    lightbox.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(lightbox);
+                    }, 300);
+                };
+                
+                closeBtn.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                
+                document.addEventListener('keydown', function escHandler(e) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                });
+            });
+        });
+
+        console.log('LSPDFR ELITE STUDIO SHOP - Loaded successfully!');
     </script>
 </body>
 </html>
