@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO SHOP - Магазин контенту для LSPDFR</title>
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" type="image/png">
+    <title>LSPDFR ELITE STUDIO | Професійні моделі авто для GTA 5</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" type="image/png">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* Всі стилі залишаються без змін */
         :root {
-            --primary-blue: #0066FF;
-            --primary-blue-dark: #0052CC;
-            --secondary-orange: #FF6B35;
-            --accent-cyan: #00D4FF;
-            --accent-purple: #8B5CF6;
-            --accent-green: #10B981;
-            --accent-red: #EF4444;
+            /* Українська кольорова схема */
+            --primary-blue: #0057B7;
+            --primary-yellow: #FFD700;
+            --accent-cyan: #00BFFF;
+            --accent-red: #FF0000;
             
             --bg-primary: #0A0A0F;
             --bg-secondary: #111118;
-            --bg-tertiary: #1A1A24;
             --bg-card: #1E1E2E;
             --bg-glass: rgba(30, 30, 46, 0.85);
             
             --text-primary: #FFFFFF;
             --text-secondary: #B4B4C7;
-            --text-muted: #8B8BA7;
             
-            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
-            --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #8B5CF6 100%);
+            --gradient-primary: linear-gradient(135deg, #0057B7 0%, #00BFFF 100%);
+            --gradient-ukraine: linear-gradient(to right, #0057B7, #FFD700);
             
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
             --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
-            --shadow-glow-blue: 0 0 20px rgba(0, 102, 255, 0.3);
-            --shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
-            
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
+            --shadow-glow-blue: 0 0 20px rgba(0, 87, 183, 0.3);
             
             --radius-sm: 6px;
             --radius-md: 12px;
             --radius-lg: 16px;
-            --radius-xl: 20px;
             
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -70,7 +52,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
@@ -79,7 +61,7 @@
         }
 
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -87,86 +69,24 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 3px;
+            background: var(--gradient-ukraine);
+            border-radius: 4px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: 0 20px;
         }
 
-        .glass-effect {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 12px 24px;
-            border: none;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all var(--transition);
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-secondary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-
-        /* Header - FIXED */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 12px 0;
+            padding: 15px 0;
             transition: all var(--transition);
             background: transparent;
         }
@@ -182,19 +102,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 60px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-family: 'Space Grotesk', sans-serif;
         }
 
         .logo img {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: var(--radius-sm);
         }
 
@@ -204,55 +123,41 @@
         }
 
         .logo-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-primary);
-            line-height: 1;
         }
 
         .logo-subtitle {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--accent-cyan);
             font-weight: 500;
-            line-height: 1;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 24px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-menu li {
-            margin: 0;
-            padding: 0;
+            gap: 20px;
         }
 
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 15px;
             transition: all var(--transition);
             position: relative;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
-            display: block;
         }
 
-        .nav-link::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
+            bottom: -5px;
+            left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient-primary);
+            background: var(--primary-blue);
             transition: all var(--transition);
-            transform: translateX(-50%);
         }
 
         .nav-link:hover,
@@ -260,25 +165,9 @@
             color: var(--text-primary);
         }
 
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            width: 80%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            font-size: 16px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            backdrop-filter: blur(10px);
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -289,60 +178,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
-
-        .hero-bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.1;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 200px;
-            height: 200px;
-            background: var(--gradient-primary);
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            width: 250px;
-            height: 250px;
-            background: var(--gradient-secondary);
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 30%;
-            left: 30%;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px); 
-            }
-            50% { 
-                transform: translateY(-20px) translateX(10px); 
-            }
+            padding-top: 80px;
         }
 
         .hero-content {
@@ -356,16 +192,14 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 10px;
             padding: 8px 16px;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-xl);
-            backdrop-filter: blur(20px);
+            background: var(--gradient-ukraine);
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
+            margin-bottom: 30px;
+            color: white;
         }
 
         .hero-title {
@@ -373,13 +207,13 @@
             font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 20px;
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             color: var(--text-secondary);
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -387,586 +221,435 @@
 
         .hero-buttons {
             display: flex;
-            gap: var(--space-lg);
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 40px;
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: var(--space-2xl);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 50%;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            width: 48px;
-            height: 48px;
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { 
-                transform: translateX(-50%) translateY(0); 
-            }
-            40% { 
-                transform: translateX(-50%) translateY(-10px); 
-            }
-            60% { 
-                transform: translateX(-50%) translateY(-5px); 
-            }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
         }
 
-        /* Section Styles */
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-ukraine);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Auto Gallery Section */
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
             position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: var(--space-2xl);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--bg-tertiary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-lg);
-            font-weight: 600;
+            margin-bottom: 40px;
         }
 
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 700;
-            margin-bottom: var(--space-lg);
-            line-height: 1.3;
+            margin-bottom: 15px;
         }
 
         .section-description {
             font-size: 16px;
             color: var(--text-secondary);
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.6;
         }
 
-        /* Cards */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
+        .gallery-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: var(--space-xl);
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow-cyan);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-weight: 500;
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(0, 87, 183, 0.2);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
             font-size: 14px;
         }
 
-        /* Leadership Grid */
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
+        .filter-btn.active {
+            background: var(--primary-blue);
+            font-weight: 600;
         }
 
-        .leader-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .auto-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .auto-card {
+            position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
+            background: var(--bg-card);
             transition: all var(--transition);
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .leader-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+        .auto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-blue);
         }
 
-        .leader-image {
+        .auto-card img {
             width: 100%;
-            height: auto;
-            transition: transform var(--transition);
-          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .leader-card:hover .leader-image {
-            transform: scale(1.05);
-        }
-
-        .leader-info {
-            padding: var(--space-lg);
-        }
-
-        .leader-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: var(--space-sm);
-            color: var(--text-primary);
-        }
-
-        .leader-position {
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            font-size: 14px;
-        }
-
-        .leader-experience {
-            color: var(--text-secondary);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        /* Departments Grid */
-        .departments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .department-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition);
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .department-card::before {
-            content: '';
+        .auto-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--gradient-primary);
-            transform: scaleY(0);
-            transition: transform var(--transition);
-            transform-origin: bottom;
-        }
-
-        .department-card:hover::before {
-            transform: scaleY(1);
-        }
-
-        .department-card:hover {
-            transform: translateX(8px);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        .department-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .department-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-
-        .department-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .department-tasks {
-            background: var(--bg-tertiary);
-            padding: var(--space-md);
-            border-radius: var(--radius-sm);
-            margin-bottom: var(--space-lg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .department-head {
+            top: 10px;
+            right: 10px;
+            background: var(--gradient-ukraine);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--accent-cyan);
+            color: #000;
+        }
+
+        .auto-info {
+            padding: 20px;
+        }
+
+        .auto-info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .auto-meta {
             display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-size: 13px;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text-secondary);
         }
 
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 16/9;
+        .btn-details {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid var(--primary-blue);
+            color: white;
+            border-radius: var(--radius-sm);
             cursor: pointer;
             transition: all var(--transition);
+            font-weight: 600;
+        }
+
+        .btn-details:hover {
+            background: var(--primary-blue);
+        }
+
+        /* Studio Info Section */
+        .studio-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
             background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            text-align: center;
+            transition: all var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
         }
 
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition);
+        .feature-card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.1);
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
         }
 
-        .gallery-overlay {
-            position: absolute;
+        /* Modal */
+        .auto-modal {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            transition: opacity var(--transition);
-            display: flex;
-            align-items: flex-end;
-            padding: var(--space-lg);
+            visibility: hidden;
+            transition: all 0.3s;
+            padding: 20px;
         }
 
-        .gallery-item:hover .gallery-overlay {
+        .auto-modal.active {
             opacity: 1;
+            visibility: visible;
         }
 
-        .gallery-overlay span {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: var(--space-2xl) auto 0;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .modal-content {
+            background: var(--bg-primary);
             border-radius: var(--radius-lg);
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .faq-item:hover {
-            border-color: rgba(0, 212, 255, 0.3);
-        }
-
-        .faq-question {
+            max-width: 900px;
             width: 100%;
-            padding: var(--space-lg);
-            background: none;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid var(--primary-blue);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
             border: none;
-            color: var(--text-primary);
-            font-size: 16px;
-            font-weight: 600;
-            text-align: left;
+            color: white;
+            font-size: 24px;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all var(--transition);
+            z-index: 2;
         }
 
-        .faq-question:hover {
-            color: var(--accent-cyan);
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 20px;
         }
 
-        .faq-icon {
-            transition: transform var(--transition);
-            font-size: 16px;
-            color: var(--accent-cyan);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-content {
-            padding: 0 var(--space-lg) var(--space-lg);
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .faq-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .faq-list li {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-sm);
-            padding: var(--space-sm);
-            background: var(--bg-tertiary);
+        .modal-gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
             border-radius: var(--radius-sm);
-            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .faq-list i {
-            font-size: 14px;
-            width: 16px;
-            text-align: center;
+        .modal-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        .modal-info {
+            padding: 20px;
+        }
+
+        .modal-info h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list i {
+            color: var(--primary-blue);
+        }
+
+        .modal-price {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--primary-yellow);
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient-ukraine);
+            border: none;
+            border-radius: var(--radius-md);
+            color: #000;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
         /* Footer */
         .footer {
             background: var(--bg-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: var(--space-2xl) 0;
+            padding: 50px 0 30px;
             text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .footer-content {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .footer-highlight {
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-top: var(--space-md);
-            font-size: 16px;
-        }
-
-        /* Scroll to Top */
-        .scroll-to-top {
-            position: fixed;
-            bottom: var(--space-xl);
-            right: var(--space-xl);
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition);
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
+        .footer-logo {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        /* Loading */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .spinner {
+        .footer-logo img {
             width: 40px;
             height: 40px;
-            border: 3px solid rgba(0, 102, 255, 0.2);
-            border-top: 3px solid var(--primary-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: var(--space-lg);
         }
 
-        .loading-text {
+        .footer-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            margin-top: 30px;
             color: var(--text-secondary);
             font-size: 14px;
-            font-weight: 500;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .ukraine-flag {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
+            border-radius: 2px;
+            margin: 0 5px;
+            vertical-align: middle;
         }
 
-        /* Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.6s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Responsive - FIXED */
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-
             .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: var(--bg-glass);
                 backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: var(--radius-lg);
-                margin: var(--space-md);
-                padding: var(--space-lg);
                 flex-direction: column;
-                gap: var(--space-md);
-                box-shadow: var(--shadow-lg);
+                align-items: center;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-150%);
+                transition: all 0.3s;
+                z-index: 999;
             }
 
             .nav-menu.active {
-                display: flex;
+                transform: translateY(0);
             }
 
             .mobile-menu-btn {
                 display: flex;
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
             }
 
             .hero-buttons {
@@ -977,103 +660,55 @@
             .btn {
                 width: 100%;
                 max-width: 280px;
-                justify-content: center;
             }
 
-            .stats-grid,
-            .leadership-grid,
-            .departments-grid {
+            .auto-gallery {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
             .section {
-                padding: 40px 0;
+                padding: 50px 0;
             }
+        }
 
-            .hero-title {
-                font-size: clamp(1.5rem, 5vw, 2.5rem);
-            }
-
-            .section-title {
-                font-size: clamp(1.25rem, 4vw, 2rem);
-            }
-
-            .nav {
-                height: 50px;
-            }
-
-            .logo img {
-                width: 32px;
-                height: 32px;
-            }
-
+        @media (max-width: 480px) {
             .logo-title {
-                font-size: 14px;
+                font-size: 16px;
             }
 
             .logo-subtitle {
                 font-size: 10px;
             }
-        }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-sm);
+            .hero-title {
+                font-size: 28px;
             }
 
-            .card,
-            .stat-card,
-            .department-card {
-                padding: var(--space-lg);
-            }
-
-            .faq-question {
-                padding: var(--space-md);
-                font-size: 14px;
-            }
-
-            .scroll-to-top {
-                width: 40px;
-                height: 40px;
-                bottom: var(--space-lg);
-                right: var(--space-lg);
-                font-size: 14px;
+            .modal-content {
+                max-height: 80vh;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Завантаження...</div>
-    </div>
-
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
             <nav class="nav">
                 <div class="logo">
-                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO SHOP Логотип">
+                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" alt="LSPDFR ELITE STUDIO Логотип">
                     <div class="logo-text">
                         <div class="logo-title">LSPDFR ELITE</div>
-                        <div class="logo-subtitle"><br>STUDIO SHOP</div>
+                        <div class="logo-subtitle">STUDIO SHOP</div>
                     </div>
                 </div>
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link active">Головна</a></li>
-                    <li><a href="#about" class="nav-link">Про магазин</a></li>
-                    <li><a href="#statistics" class="nav-link">Статистика</a></li>
-                    <li><a href="#products" class="nav-link">Товари</a></li>
-                    <li><a href="#categories" class="nav-link">Категорії</a></li>
-                    <li><a href="#requirements" class="nav-link">Умови</a></li>
-                    <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                    <li><a href="#gallery" class="nav-link">Галерея авто</a></li>
+                    <li><a href="#studio" class="nav-link">Про студію</a></li>
                     <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакти</a></li>
                 </ul>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1085,480 +720,221 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-bg-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
-        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge fade-in-up">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Офіційний магазин контенту</span>
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>ТОП студія моделей для GTA 5</span>
                 </div>
                 
-                <h1 class="hero-title fade-in-up">
-                    LSPDFR ELITE<br>
-                    <span class="gradient-text">STUDIO SHOP</span><br>
+                <h1 class="hero-title">
+                    Професійні моделі авто<br>
+                    <span style="background: var(--gradient-ukraine); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">для LSPDFR</span>
                 </h1>
                 
-                <p class="hero-subtitle fade-in-up">
-                    Найкращі моделі машин, скіни та плагіни для LSPDFR від професійних розробників
+                <p class="hero-subtitle">
+                    Високоякісні моделі поліцейських авто України з повним функціоналом для гри
                 </p>
                 
-                <div class="hero-buttons fade-in-up">
-                    <a href="selection.html" class="btn btn-primary">
-                        <i class="fas fa-shopping-bag"></i>
-                        Перейти до покупки
-                    </a>
-                    <a href="#faq" class="btn btn-outline">
-                        <i class="fas fa-question-circle"></i>
-                        Допомога
-                    </a>
-                    <a href="idea.html" class="btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; box-shadow: var(--shadow-sm);">
-                        <i class="fas fa-lightbulb"></i>
-                        Запропонувати ідею
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
-            <i class="fas fa-chevron-down" style="color: var(--accent-cyan);"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Про нас</div>
-                <h2 class="section-title fade-in-up">
-                    Хто ми і що <span class="gradient-text">пропонуємо</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    LSPDFR ELITE STUDIO SHOP - це офіційний магазин якісного контенту для LSPDFR
-                </p>
-            </div>
-            
-            <div class="card fade-in-up">
-                <p style="font-size: 16px; line-height: 1.7; margin-bottom: var(--space-lg); color: var(--text-secondary);">
-                    Ми спеціалізуємося на створенні та продажу високоякісних моделей поліцейських машин, скінів персонажів та унікальних плагінів для LSPDFR. Наші продукти відрізняються реалізмом, стабільністю та унікальним дизайном.
-                </p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-car" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Поліцейські машини</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Реалістичні моделі з повним функціоналом</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Скіни персонажів</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні моделі поліцейських та спецагентів</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-code" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Плагіни</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні скрипти для покращення геймплею</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; padding: var(--space-lg); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid rgba(0, 212, 255, 0.2);">
-                    <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-md); font-size: 18px; font-weight: 700;">Приєднуйтесь до нашої спільноти!</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); font-size: 14px;">Отримуйте ексклюзивні пропозиції та новинки першими</p>
-                    
-                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                        <a href="#products" class="btn btn-secondary">
-                            <i class="fas fa-shopping-cart"></i>
-                            Перейти до товарів
-                        </a>
-                        <a href="#faq" class="btn btn-primary">
-                            <i class="fas fa-headset"></i>
-                            Техпідтримка
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section id="statistics" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Наші досягнення</div>
-                <h2 class="section-title fade-in-up">
-                    Статистика <span class="gradient-text">магазину</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Цифри, що показують наш успіх та популярність серед гравців
-                </p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
+                <div class="hero-buttons">
+                    <a href="#gallery" class="btn btn-primary">
                         <i class="fas fa-car"></i>
-                    </div>
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Доступних товарів</div>
-                </div>
-                
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number" data-target="2">0</div>
-                    <div class="stat-label">Задоволених клієнтів</div>
-                </div>
-                
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="stat-number" data-target="4">0</div>
-                    <div class="stat-label">Середня оцінка товарів</div>
+                        Переглянути моделі
+                    </a>
+                    <a href="#contacts" class="btn btn-secondary">
+                        <i class="fas fa-headset"></i>
+                        Замовити індивідуально
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Наші продукти</div>
-                <h2 class="section-title fade-in-up">
-                    Популярні <span class="gradient-text">товари</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Кращі пропозиції від LSPDFR ELITE STUDIO
-                </p>
-            </div>
-            
-            <div class="leadership-grid">
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">Dacia Sandero</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-star" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 5.0/5 (0 відгуків)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">Toyota Corolla</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-medal" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 5.0/5 (0 відгуки)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">(ОБНОВЛЕНО) Renault Daster</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 4.9/5 (0 відгуків)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">Renault Daster</h3>
-                        <div class="leader-position">У лівреї НГУ</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-user-plus" style="color: var(--secondary-orange);"></i>
-                            Рейтинг: 5.0/5
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Категорії</div>
-                <h2 class="section-title fade-in-up">
-                    Основні <span class="gradient-text">напрямки</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Спеціалізовані категорії товарів для вашого геймплею
-                </p>
-            </div>
-            
-            <div class="departments-grid">
-                <div class="department-card fade-in-up">
-                    <div class="department-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 class="department-title">Dacia Sandero</h3>
-                    <p class="department-description">
-                        Високоякісна модель авто НП України,розроблена нашою студією
-                    </p>
-                    <div class="department-tasks">
-                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
-                    </div>
-                    <div class="department-head">
-                        <i class="fas fa-tags"></i>
-                        В наявності: 2 авто із різними сиренами
-                    </div>
-                </div>
-                
-                <div class="department-card fade-in-up">
-                    <div class="department-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="department-title">Toyota Corolla</h3>
-                    <p class="department-description">
-                        Високоякісна модель авто НП України,розроблена нашою студією
-                    </p>
-                    <div class="department-tasks">
-                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
-                    </div>
-                    <div class="department-head">
-                        <i class="fas fa-tags"></i>
-                        В наявності: 1 модель у одній лівреї патрульної поліції
-                    </div>
-                </div>
-                
-                <div class="department-card fade-in-up">
-    <div class="department-icon">
-        <i class="fas fa-shield-alt"></i>
-    </div>
-    <h3 class="department-title">Renault Daster НГУ</h3>
-    <p class="department-description">
-        Спеціальна версія для Національної гвардії України
-    </p>
-    <div class="department-tasks">
-        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-        Режим патрулювання (коли світить лише один синій маячок), обладнання та інше
-    </div>
-    <div class="department-head">
-        <i class="fas fa-tags"></i>
-        В наявності: 1 авто у лівреях НГУ
-    </div>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Requirements Section -->
-    <section id="requirements" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Умови покупки</div>
-                <h2 class="section-title fade-in-up">
-                    Вимоги для <span class="gradient-text">користувачів</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Основні критерії для успішної покупки та використання наших продуктів
-                </p>
-            </div>
-            
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div class="card fade-in-up">
-                    <div style="display: grid; gap: var(--space-lg);">
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue);">
-                            <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-gamepad" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">GTA V + LSPDFR</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Обов'язкова наявність гри та модифікації</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-cyan);">
-                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-desktop" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Системні вимоги</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Рекомендовані параметри ПК,які потянуть вашу GTA V + LSPDFR</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--secondary-orange);">
-                            <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-file-archive" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">OpenIV</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Необхідний для встановлення модів</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
-                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-purple), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-scroll" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Ліцензійна угода</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Заборонено публічне поширення</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
+    <!-- Auto Gallery Section -->
     <section id="gallery" class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge fade-in-up">Наші роботи</div>
-                <h2 class="section-title fade-in-up">
-                    <span class="gradient-text">Галерея</span> продуктів
-                </h2>
-                <p class="section-description fade-in-up">
-                    Скріншоти наших продуктів в дії
-                </p>
+                <h2 class="section-title">Наші <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">моделі авто</span></h2>
+                <p class="section-description">Всі моделі повністю готові до використання в LSPDFR з деталізованими текстурами та анімаціями</p>
+                
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Всі моделі</button>
+                    <button class="filter-btn" data-filter="patrol">Патрульні</button>
+                    <button class="filter-btn" data-filter="ngu">НГУ</button>
+                    <button class="filter-btn" data-filter="special">Спецтранспорт</button>
+                </div>
             </div>
             
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Dacia Sandero</span>
+            <div class="auto-gallery">
+                <!-- Dacia Sandero -->
+                <div class="auto-card" data-category="patrol">
+                    <div class="auto-badge">Новинка</div>
+                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png" alt="Dacia Sandero Patrol" loading="lazy">
+                    <div class="auto-info">
+                        <h3>Dacia Sandero</h3>
+                        <div class="auto-meta">
+                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                        <button class="btn-details" data-auto="dacia-sandero">Деталі</button>
                     </div>
                 </div>
                 
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Toyota Corolla</span>
+                <!-- Toyota Corolla -->
+                <div class="auto-card" data-category="patrol">
+                    <div class="auto-badge">Бестселер</div>
+                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png" alt="Toyota Corolla Patrol" loading="lazy">
+                    <div class="auto-info">
+                        <h3>Toyota Corolla</h3>
+                        <div class="auto-meta">
+                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                        <button class="btn-details" data-auto="toyota-corolla">Деталі</button>
                     </div>
                 </div>
                 
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Renault Daster</span>
+                <!-- Renault Daster НГУ -->
+                <div class="auto-card" data-category="ngu">
+                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png" alt="Renault Daster НГУ" loading="lazy">
+                    <div class="auto-info">
+                        <h3>Renault Daster НГУ</h3>
+                        <div class="auto-meta">
+                            <span><i class="fas fa-shield-alt"></i> Нацгвардія</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <button class="btn-details" data-auto="renault-daster-ngu">Деталі</button>
                     </div>
                 </div>
                 
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Renault Logan</span>
+                <!-- Renault Daster (Оновлений) -->
+                <div class="auto-card" data-category="patrol">
+                    <div class="auto-badge">Оновлено</div>
+                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png" alt="Renault Daster Patrol" loading="lazy">
+                    <div class="auto-info">
+                        <h3>Renault Daster (Оновлений)</h3>
+                        <div class="auto-meta">
+                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                        <button class="btn-details" data-auto="renault-daster">Деталі</button>
                     </div>
                 </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Renault Daster</span>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Info Section -->
+    <section id="studio" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наша <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">студія</span></h2>
+                <p class="section-description">Професійна команда зі створення якісного контенту для GTA 5</p>
+            </div>
+            
+            <div class="studio-features">
+                <div class="feature-card">
+                    <i class="fas fa-cubes"></i>
+                    <h3>3D Моделювання</h3>
+                    <p>Створюємо моделі з нуля з високою деталізацією та оптимізацією для гри</p>
                 </div>
                 
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Очікуйте нові фото</span>
-                    </div>
+                <div class="feature-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3>Реальні аналоги</h3>
+                    <p>Точні копії реальних авто українських служб з автентичними лівреями</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Повний функціонал</h3>
+                    <p>Робочі маяки, сирени, анімації дверей та інші особливості реальних авто</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section" style="background: var(--bg-secondary);">
+    <section id="faq" class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge fade-in-up">Питання та відповіді</div>
-                <h2 class="section-title fade-in-up">
-                    Часті <span class="gradient-text">запитання</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Відповіді на найпоширеніші питання про наш магазин
-                </p>
+                <h2 class="section-title">Часті <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">запитання</span></h2>
+                <p class="section-description">Відповіді на найпоширеніші питання наших клієнтів</p>
             </div>
             
             <div class="faq-container">
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Як купити товар у вашому магазині?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Як встановити куплену модель?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
                     <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fas fa-shopping-cart" style="color: var(--primary-blue);"></i> 1. Виберіть потрібний товар</li>
-                                <li><i class="fas fa-credit-card" style="color: var(--primary-blue);"></i> 2. Додайте його до кошика та оплатіть</li>
-                                <li><i class="fas fa-download" style="color: var(--primary-blue);"></i> 3. Отримайте файли на email або в особистому кабінеті</li>
-                                <li><i class="fas fa-book" style="color: var(--primary-blue);"></i> 4. Виконайте інструкції з встановлення</li>
-                            </ul>
-                        </div>
+                        <p>Кожна модель супроводжується детальною інструкцією у форматі PDF. В основному потрібно:</p>
+                        <ol>
+                            <li>Завантажити архів з файлами</li>
+                            <li>Розпакувати за допомогою WinRAR/7-Zip</li>
+                            <li>Скопіювати файли у відповідні папки GTA 5</li>
+                            <li>Активувати через OpenIV</li>
+                        </ol>
                     </div>
                 </div>
                 
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Які способи оплати ви приймаєте?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чи підтримується вашими моделями LSPDFR?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
                     <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fab fa-cc-visa" style="color: var(--accent-green);"></i> Кредитні/дебетові картки (Visa, Mastercard)</li>
-                                <li><i class="fab fa-paypal" style="color: var(--accent-green);"></i> PayPal</li>
-                                <li><i class="fas fa-money-bill-wave" style="color: var(--accent-green);"></i> Електронні валюти (WebMoney, Qiwi)</li>
-                                <li><i class="fab fa-bitcoin" style="color: var(--accent-green);"></i> Криптовалюти (Bitcoin, Ethereum)</li>
-                            </ul>
-                        </div>
+                        <p>Так, всі наші моделі повністю адаптовані для використання з LSPDFR. Вони включають:</p>
+                        <ul>
+                            <li>Правильні розміщення світлових сигналів</li>
+                            <li>Оптимальні налаштування для патрулювання</li>
+                            <li>Сумісність з популярними плагінами</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Як встановити куплений контент?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fas fa-download" style="color: var(--accent-cyan);"></i> 1. Завантажте архів з файлами</li>
-                                <li><i class="fas fa-folder-open" style="color: var(--accent-cyan);"></i> 2. Розпакуйте архів за допомогою WinRAR/7-Zip</li>
-                                <li><i class="fas fa-cogs" style="color: var(--accent-cyan);"></i> 3. Виконайте інструкцію з README файлу</li>
-                                <li><i class="fas fa-question-circle" style="color: var(--accent-cyan);"></i> 4. У разі проблем - звертайтесь до техпідтримки</li>
-                            </ul>
-                        </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чи можна замовити індивідуальну модель?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
+                    <div class="faq-answer">
+                        <p>Так, ми приймаємо індивідуальні замовлення на створення унікальних моделей. Для обговорення деталей зв'яжіться з нами через Discord або Telegram.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наші <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">контакти</span></h2>
+                <p class="section-description">Зв'яжіться з нами для замовлення або підтримки</p>
+            </div>
+            
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>LSPDFR_ELITE#1234</p>
+                    <a href="#" class="btn btn-primary">Приєднатися</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>@LSPDFR_ELITE</p>
+                    <a href="#" class="btn btn-primary">Написати</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>support@lspdfr-elite.com</p>
+                    <a href="#" class="btn btn-primary">Написати</a>
                 </div>
             </div>
         </div>
@@ -1567,315 +943,220 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p style="margin-bottom: var(--space-sm);">&copy; 2025 LSPDFR ELITE STUDIO SHOP. Всі права захищені.</p>
-                <p class="footer-highlight">Грайте з задоволенням!</p>
+            <div class="footer-logo">
+                <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" alt="LSPDFR ELITE STUDIO">
+                <div class="footer-logo-text">LSPDFR ELITE STUDIO</div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#home" class="footer-link">Головна</a>
+                <a href="#gallery" class="footer-link">Галерея</a>
+                <a href="#studio" class="footer-link">Студія</a>
+                <a href="#faq" class="footer-link">FAQ</a>
+                <a href="#contacts" class="footer-link">Контакти</a>
+            </div>
+            
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2024 LSPDFR ELITE STUDIO. Всі права захищені. <span class="ukraine-flag"></span></p>
+                <p style="margin-top: 10px;">Частина прибутку йде на підтримку ЗСУ</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- Auto Modal (will be inserted by JS) -->
+    <div id="autoModal" class="auto-modal"></div>
 
     <!-- Scripts -->
-    <script type="module">
-        // Firebase Configuration
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
-            authDomain: "dkvs-1ec88.firebaseapp.com",
-            databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com/",
-            projectId: "dkvs-1ec88",
-            storageBucket: "dkvs-1ec88.appspot.com",
-            messagingSenderId: "167430647129",
-            appId: "1:167430647129:web:ab209fec7735f20b597048",
-            measurementId: "G-H6LKMLYD10"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-        // Loading Screen
-        setTimeout(() => {
-            document.getElementById('loading').classList.add('hidden');
-        }, 1500);
-
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function updateScrollElements() {
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 100) {
-                header.classList.add('scrolled');
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                scrollToTopBtn.classList.remove('visible');
-            }
-
-            updateActiveNavLink();
-        }
-
-        window.addEventListener('scroll', updateScrollElements);
-
+    <script>
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
-        let menuOpen = false;
 
         mobileMenuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
             navMenu.classList.toggle('active');
-            
-            const icon = mobileMenuBtn.querySelector('i');
-            if (menuOpen) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            }
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (menuOpen) {
-                    navMenu.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                    menuOpen = false;
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Auto Gallery Filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.auto-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Auto Details Modal
+        const autoData = {
+            'dacia-sandero': {
+                title: 'Dacia Sandero Patrol',
+                description: 'Повністю адаптована модель Dacia Sandero для патрульної служби з робочими маяками та анімаціями дверей. Ідеальний варіант для міського патрулювання.',
+                features: [
+                    'Режим патрулювання (синій маячок)',
+                    '3 варіанти сирен',
+                    'Анімовані двері та багажник',
+                    'Деталізований салон',
+                    'Оптимізована для LSPDFR'
+                ],
+                price: '450 грн',
+                images: [
+                    'https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png',
+                    'https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png',
+                    'https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png'
+                ]
+            },
+            'toyota-corolla': {
+                title: 'Toyota Corolla Patrol',
+                description: 'Професійно змодельована Toyota Corolla для патрульної служби з високоякісними текстурами та повним функціоналом.',
+                features: [
+                    'Режим патрулювання',
+                    '4 варіанти сирен',
+                    'Деталізований двигун',
+                    'Кастомні номерні знаки',
+                    'Сумісність з ELS'
+                ],
+                price: '500 грн',
+                images: [
+                    'https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png',
+                    'https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png'
+                ]
+            },
+            'renault-daster-ngu': {
+                title: 'Renault Daster НГУ',
+                description: 'Спеціальна версія Renault Daster для Національної гвардії України з унікальною лівреєю та повним функціоналом.',
+                features: [
+                    'Автентична ліврея НГУ',
+                    'Спеціальне обладнання',
+                    'Анімовані двері',
+                    'Оптимізована продуктивність',
+                    'Сумісність з популярними модами'
+                ],
+                price: '550 грн',
+                images: [
+                    'https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png',
+                    'https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png'
+                ]
+            },
+            'renault-daster': {
+                title: 'Renault Daster Patrol (Оновлений)',
+                description: 'Оновлена версія популярної моделі Renault Daster з покращеними текстурами та додатковими функціями.',
+                features: [
+                    'Покращені текстури HD',
+                    'Нові анімації',
+                    'Додаткові варіанти розфарбування',
+                    'Оновлений салон',
+                    'Оптимізація продуктивності'
+                ],
+                price: '500 грн',
+                images: [
+                    'https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png',
+                    'https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png'
+                ]
+            }
+        };
+
+        document.querySelectorAll('.btn-details').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const autoId = btn.dataset.auto;
+                const auto = autoData[autoId];
+                const modal = document.getElementById('autoModal');
+                
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <button class="close-modal">&times;</button>
+                        <h2>${auto.title}</h2>
+                        <div class="modal-gallery">
+                            ${auto.images.map(img => `<img src="${img}" alt="${auto.title}" loading="lazy">`).join('')}
+                        </div>
+                        <div class="modal-info">
+                            <p>${auto.description}</p>
+                            <ul class="features-list">
+                                ${auto.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                            </ul>
+                            <div class="modal-price">${auto.price}</div>
+                            <button class="btn-buy">Придбати</button>
+                        </div>
+                    </div>
+                `;
+                
+                modal.classList.add('active');
+                
+                // Close modal
+                modal.querySelector('.close-modal').addEventListener('click', () => {
+                    modal.classList.remove('active');
+                });
+                
+                // Buy button
+                modal.querySelector('.btn-buy').addEventListener('click', () => {
+                    alert(`Дякуємо за інтерес до моделі ${auto.title}! Скоро з вами зв'яжеться наш менеджер.`);
+                    modal.classList.remove('active');
+                });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
         });
 
-        // Smooth Scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const headerHeight = header.offsetHeight;
+                    const headerHeight = document.getElementById('header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight - 20;
                     
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                }
-            });
-        });
-
-        // Scroll to Top
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Active Navigation Link Update
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const headerHeight = header.offsetHeight;
-
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 50;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Intersection Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
                     
-                    // Animate counters for stat cards
-                    if (entry.target.classList.contains('stat-card')) {
-                        animateCounter(entry.target);
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     }
                 }
             });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
-            observer.observe(el);
         });
 
-        // Counter Animation
-        function animateCounter(statCard) {
-            const numberElement = statCard.querySelector('.stat-number');
-            const target = parseInt(numberElement.dataset.target);
-            const duration = 2000;
-            const startTime = performance.now();
-
-            function updateCounter(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const current = Math.floor(target * easeOutQuart);
-                
-                numberElement.textContent = current;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    numberElement.textContent = target;
-                }
-            }
-            
-            requestAnimationFrame(updateCounter);
-        }
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                const answer = faqItem.querySelector('.faq-answer');
-
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        otherAnswer.style.maxHeight = '0px';
-                    }
-                });
-
-                // Toggle clicked item
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                } else {
-                    faqItem.classList.remove('active');
-                    answer.style.maxHeight = '0px';
-                }
-            });
-        });
-
-        // Firebase Data Loading
-        const counterRef = ref(db, 'counter');
-        onValue(counterRef, (snapshot) => {
-            try {
-                const productsCount = snapshot.val() || 0;
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = productsCount;
-                }
-            } catch (error) {
-                console.error('Firebase error:', error);
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = '127';
-                }
-            }
-        });
-
-        // Gallery Lightbox
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('.gallery-image');
-                
-                const lightbox = document.createElement('div');
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10000;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                `;
-                
-                const lightboxImg = document.createElement('img');
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightboxImg.style.cssText = `
-                    max-width: 90%;
-                    max-height: 90%;
-                    object-fit: contain;
-                    border-radius: 12px;
-                `;
-                
-                const closeBtn = document.createElement('button');
-                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                closeBtn.style.cssText = `
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    background: rgba(255, 255, 255, 0.1);
-                    border: none;
-                    color: white;
-                    font-size: 20px;
-                    padding: 10px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    backdrop-filter: blur(10px);
-                `;
-                
-                lightbox.appendChild(lightboxImg);
-                lightbox.appendChild(closeBtn);
-                document.body.appendChild(lightbox);
-                
-                setTimeout(() => {
-                    lightbox.style.opacity = '1';
-                }, 10);
-                
-                const closeLightbox = () => {
-                    lightbox.style.opacity = '0';
-                    setTimeout(() => {
-                        document.body.removeChild(lightbox);
-                    }, 300);
-                };
-                
-                closeBtn.addEventListener('click', closeLightbox);
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) closeLightbox();
-                });
-                
-                document.addEventListener('keydown', function escHandler(e) {
-                    if (e.key === 'Escape') {
-                        closeLightbox();
-                        document.removeEventListener('keydown', escHandler);
-                    }
-                });
-            });
-        });
-
-        console.log('LSPDFR ELITE STUDIO SHOP - Loaded successfully!');
+        console.log('LSPDFR ELITE STUDIO - Website loaded successfully!');
     </script>
 </body>
 </html>
