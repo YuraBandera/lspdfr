@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO | Premium авто-моделі для GTA V</title>
+    <title>LSPDFR ELITE STUDIO | Premium моделі для GTA 5</title>
     <link rel="icon" href="assets/img/logo.png" type="image/png">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
-    <link rel="preload" href="assets/css/main.css" as="style">
     
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,15 +12,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" href="assets/css/store.css">
-    <link rel="stylesheet" href="assets/css/install-guide.css">
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0A0A0F">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -66,7 +53,7 @@
                 
                 <div class="nav-main">
                     <ul class="nav-menu" id="navMenu">
-                        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Головна</a></li>
+                        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Головна</a></li>
                         <li><a href="store.html" class="nav-link"><i class="fas fa-store"></i> Магазин</a></li>
                         <li><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Галерея</a></li>
                         <li><a href="installation.html" class="nav-link"><i class="fas fa-book"></i> Інструкції</a></li>
@@ -137,10 +124,323 @@
         </div>
     </header>
 
-    <!-- Main Content (will be replaced by router) -->
-    <main id="mainContent">
-        <!-- Homepage content will be loaded here -->
-    </main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span>Преміум контент для LSPDFR</span>
+                    </div>
+                    <h1 class="hero-title">Професійні моделі авто для GTA V</h1>
+                    <p class="hero-description">Високоякісні моделі українських патрульних авто з повним функціоналом для вашого геймплею</p>
+                    <div class="hero-buttons">
+                        <a href="store.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-shopping-cart"></i> Перейти до магазину
+                        </a>
+                        <a href="#features" class="btn btn-outline btn-lg">
+                            <i class="fas fa-info-circle"></i> Дізнатись більше
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/img/hero-car.png" alt="Premium Police Car" class="hero-car">
+                    <div class="hero-bg-elements">
+                        <div class="bg-circle circle-1"></div>
+                        <div class="bg-circle circle-2"></div>
+                        <div class="bg-circle circle-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#features" class="scroll-down-btn">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Чому обирають наші моделі</h2>
+                <p class="section-subtitle">Переваги, які роблять наш контент унікальним</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="feature-title">Висока якість</h3>
+                    <p class="feature-description">Моделі створені з урахуванням всіх деталей реальних авто</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Оптимізація</h3>
+                    <p class="feature-description">Працює плавно навіть на слабких ПК</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="feature-title">Повний функціонал</h3>
+                    <p class="feature-description">Робочі маяки, сирени, анімації та інші особливості</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Підтримка ЗСУ</h3>
+                    <p class="feature-description">Частина прибутку йде на допомогу армії України</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Models Section -->
+    <section class="models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Популярні моделі</h2>
+                <p class="section-subtitle">Найкращі пропозиції цього місяця</p>
+                <a href="store.html" class="section-link">Дивитись всі моделі <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="models-slider" id="modelsSlider">
+                <div class="model-card">
+                    <div class="model-badge">Бестселер</div>
+                    <div class="model-image">
+                        <img src="assets/img/models/dacia-sandero.jpg" alt="Dacia Sandero Patrol">
+                        <div class="model-overlay">
+                            <button class="btn btn-outline quick-view-btn" data-model="dacia-sandero">Швидкий перегляд</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-title">Dacia Sandero Patrol</h3>
+                        <div class="model-meta">
+                            <span class="model-category">Патрульна поліція</span>
+                            <div class="model-rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                        </div>
+                        <div class="model-price">
+                            <span class="price">450 ₴</span>
+                            <button class="btn-icon add-to-cart" data-model="dacia-sandero">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-badge">Новинка</div>
+                    <div class="model-image">
+                        <img src="assets/img/models/renault-daster-ngu.jpg" alt="Renault Daster НГУ">
+                        <div class="model-overlay">
+                            <button class="btn btn-outline quick-view-btn" data-model="renault-daster-ngu">Швидкий перегляд</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-title">Renault Daster НГУ</h3>
+                        <div class="model-meta">
+                            <span class="model-category">Нацгвардія</span>
+                            <div class="model-rating">
+                                <i class="fas fa-star"></i> 5.0
+                            </div>
+                        </div>
+                        <div class="model-price">
+                            <span class="price">550 ₴</span>
+                            <button class="btn-icon add-to-cart" data-model="renault-daster-ngu">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-badge">Оновлено</div>
+                    <div class="model-image">
+                        <img src="assets/img/models/toyota-corolla.jpg" alt="Toyota Corolla Patrol">
+                        <div class="model-overlay">
+                            <button class="btn btn-outline quick-view-btn" data-model="toyota-corolla">Швидкий перегляд</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-title">Toyota Corolla Patrol</h3>
+                        <div class="model-meta">
+                            <span class="model-category">Патрульна поліція</span>
+                            <div class="model-rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                        </div>
+                        <div class="model-price">
+                            <span class="price">500 ₴</span>
+                            <button class="btn-icon add-to-cart" data-model="toyota-corolla">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Guide Section -->
+    <section class="guide-section">
+        <div class="container">
+            <div class="guide-content">
+                <div class="guide-text">
+                    <h2 class="section-title">Легке встановлення</h2>
+                    <p class="section-subtitle">Готові до використання моделі з детальними інструкціями</p>
+                    <ul class="guide-steps">
+                        <li>
+                            <i class="fas fa-download"></i>
+                            <span>Завантажте архів з моделлю</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-folder-open"></i>
+                            <span>Розпакуйте за допомогою WinRAR</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-car"></i>
+                            <span>Встановіть через OpenIV</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-gamepad"></i>
+                            <span>Насолоджуйтесь грою!</span>
+                        </li>
+                    </ul>
+                    <a href="installation.html" class="btn btn-primary">
+                        <i class="fas fa-book"></i> Детальний гайд
+                    </a>
+                </div>
+                <div class="guide-image">
+                    <img src="assets/img/installation-guide.png" alt="Installation Guide" class="guide-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Відгуки клієнтів</h2>
+                <p class="section-subtitle">Що говорять наші покупці</p>
+            </div>
+            
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">
+                            <img src="assets/img/avatars/user1.jpg" alt="Андрій">
+                        </div>
+                        <div class="user-info">
+                            <h4 class="user-name">Андрій</h4>
+                            <div class="user-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p>Dacia Sandero - просто бомба! Все працює ідеально, анімації плавні, текстури чіткі. Особливо сподобалась увага до деталей - навіть номерні знаки відповідають українським стандартам.</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="review-date">15 червня 2024</span>
+                        <span class="review-model">Dacia Sandero Patrol</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">
+                            <img src="assets/img/avatars/user2.jpg" alt="Максим">
+                        </div>
+                        <div class="user-info">
+                            <h4 class="user-name">Максим</h4>
+                            <div class="user-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p>Renault Daster виглядає дуже реалістично, особливо в лівреї НГУ. Була невелика проблема з встановленням, але техпідтримка допомогла протягом години. Раджу цю студію!</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="review-date">10 червня 2024</span>
+                        <span class="review-model">Renault Daster НГУ</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">
+                            <img src="assets/img/avatars/user3.jpg" alt="Олександр">
+                        </div>
+                        <div class="user-info">
+                            <h4 class="user-name">Олександр</h4>
+                            <div class="user-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p>Замовив індивідуальну модель по своїм кресленням - виконали ідеально! Професійний підхід, постійний зв'язок, врахували всі побажання. Тепер тільки сюди!</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <span class="review-date">5 червня 2024</span>
+                        <span class="review-model">Індивідуальна модель</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <a href="community.html" class="btn btn-outline">
+                    <i class="fas fa-comments"></i> Всі відгуки
+                </a>
+                <a href="add-review.html" class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Залишити відгук
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Готові покращити свій LSPDFR досвід?</h2>
+                <p class="cta-description">Приєднуйтесь до сотень задоволених клієнтів, які вже насолоджуються нашими моделями</p>
+                <div class="cta-buttons">
+                    <a href="store.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart"></i> Перейти до магазину
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-question-circle"></i> Задати питання
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -228,132 +528,8 @@
         </button>
     </div>
 
-    <!-- Auth Modals -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content auth-modal">
-            <button class="modal-close" id="closeLoginModal">&times;</button>
-            <div class="auth-header">
-                <h2>Увійти в акаунт</h2>
-                <p>Введіть ваші дані для входу</p>
-            </div>
-            <form class="auth-form" id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Пароль</label>
-                    <input type="password" id="loginPassword" required>
-                    <a href="forgot-password.html" class="forgot-password">Забули пароль?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Увійти</button>
-                <div class="auth-divider">
-                    <span>або</span>
-                </div>
-                <button type="button" class="btn btn-outline btn-block auth-social">
-                    <i class="fab fa-google"></i> Продовжити з Google
-                </button>
-                <button type="button" class="btn btn-outline btn-block auth-social">
-                    <i class="fab fa-discord"></i> Продовжити з Discord
-                </button>
-                <div class="auth-footer">
-                    Ще не маєте акаунту? <a href="#" id="switchToRegister">Зареєструватися</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal" id="registerModal">
-        <div class="modal-content auth-modal">
-            <button class="modal-close" id="closeRegisterModal">&times;</button>
-            <div class="auth-header">
-                <h2>Створити акаунт</h2>
-                <p>Заповніть форму для реєстрації</p>
-            </div>
-            <form class="auth-form" id="registerForm">
-                <div class="form-group">
-                    <label for="regUsername">Ім'я користувача</label>
-                    <input type="text" id="regUsername" required>
-                </div>
-                <div class="form-group">
-                    <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="regPassword">Пароль</label>
-                    <input type="password" id="regPassword" required>
-                    <div class="password-strength">
-                        <span class="strength-bar"></span>
-                        <span class="strength-bar"></span>
-                        <span class="strength-bar"></span>
-                        <span class="strength-text">Слабкий пароль</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="regConfirmPassword">Підтвердіть пароль</label>
-                    <input type="password" id="regConfirmPassword" required>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" id="regAgreement" required>
-                    <label for="regAgreement">Я погоджуюсь з <a href="terms.html">Умовами використання</a> та <a href="privacy.html">Політикою конфіденційності</a></label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Зареєструватися</button>
-                <div class="auth-footer">
-                    Вже маєте акаунт? <a href="#" id="switchToLogin">Увійти</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cartModal">
-        <div class="modal-content cart-modal">
-            <button class="modal-close" id="closeCartModal">&times;</button>
-            <div class="cart-header">
-                <h2>Ваш кошик</h2>
-                <span class="cart-items-count">0 товарів</span>
-            </div>
-            <div class="cart-body" id="cartBody">
-                <div class="cart-empty">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Ваш кошик порожній</p>
-                    <a href="store.html" class="btn btn-primary">Перейти до магазину</a>
-                </div>
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Разом:</span>
-                    <span class="total-price">0 ₴</span>
-                </div>
-                <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>Оформити замовлення</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification System -->
-    <div class="notification-container" id="notificationContainer"></div>
-
     <!-- JavaScript -->
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="assets/js/vendor/axios.min.js"></script>
-    <script src="assets/js/vendor/lazysizes.min.js"></script>
-    <script src="assets/js/vendor/gsap.min.js"></script>
-    <script src="assets/js/main.js" type="module"></script>
-    <script src="assets/js/auth.js" type="module"></script>
-    <script src="assets/js/cart.js" type="module"></script>
-    <script src="assets/js/router.js" type="module"></script>
-    
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful');
-                }, err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
 </body>
 </html>
