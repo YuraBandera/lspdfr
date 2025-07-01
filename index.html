@@ -1,1953 +1,359 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO | Професійні моделі авто для GTA 5</title>
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" type="image/png">
+    <title>LSPDFR ELITE STUDIO | Premium авто-моделі для GTA V</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
     
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
-    <style>
-        :root {
-            /* Українська кольорова схема */
-            --primary-blue: #0057B7;
-            --primary-yellow: #FFD700;
-            --accent-cyan: #00BFFF;
-            --accent-red: #FF0000;
-            
-            --bg-primary: #0A0A0F;
-            --bg-secondary: #111118;
-            --bg-card: #1E1E2E;
-            --bg-glass: rgba(30, 30, 46, 0.85);
-            
-            --text-primary: #FFFFFF;
-            --text-secondary: #B4B4C7;
-            
-            --gradient-primary: linear-gradient(135deg, #0057B7 0%, #00BFFF 100%);
-            --gradient-ukraine: linear-gradient(to right, #0057B7, #FFD700);
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-            --shadow-glow-blue: 0 0 20px rgba(0, 87, 183, 0.3);
-            
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-ukraine);
-            border-radius: 4px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 15px 0;
-            transition: all var(--transition);
-            background: transparent;
-        }
-
-        .header.scrolled {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .logo-subtitle {
-            font-size: 12px;
-            color: var(--accent-cyan);
-            font-weight: 500;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all var(--transition);
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: all var(--transition);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .auth-btn {
-            padding: 8px 16px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .login-btn {
-            background: transparent;
-            border: 1px solid var(--primary-blue);
-            color: var(--text-primary);
-        }
-
-        .login-btn:hover {
-            background: var(--primary-blue);
-        }
-
-        .register-btn {
-            background: var(--gradient-ukraine);
-            border: none;
-            color: #000;
-        }
-
-        .register-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .user-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-        .user-dropdown {
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background: var(--bg-card);
-            border-radius: var(--radius-md);
-            padding: 10px 0;
-            width: 200px;
-            box-shadow: var(--shadow-md);
-            z-index: 100;
-            display: none;
-        }
-
-        .user-dropdown.active {
-            display: block;
-        }
-
-        .user-dropdown a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all var(--transition);
-        }
-
-        .user-dropdown a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 16px;
-            background: var(--gradient-ukraine);
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            border: none;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-ukraine);
-            color: #000;
-            font-weight: 700;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Auto Gallery Section */
-        .section {
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            font-size: 16px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .gallery-filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            background: rgba(0, 87, 183, 0.2);
-            border: none;
-            border-radius: 20px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 14px;
-        }
-
-        .filter-btn.active {
-            background: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        .auto-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .auto-card {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            background: var(--bg-card);
-            transition: all var(--transition);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .auto-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-blue);
-        }
-
-        .auto-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .auto-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--gradient-ukraine);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #000;
-        }
-
-        .auto-info {
-            padding: 20px;
-        }
-
-        .auto-info h3 {
-            margin: 0 0 10px;
-            font-size: 18px;
-        }
-
-        .auto-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .btn-details {
-            width: 100%;
-            padding: 10px;
-            background: transparent;
-            border: 1px solid var(--primary-blue);
-            color: white;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all var(--transition);
-            font-weight: 600;
-        }
-
-        .btn-details:hover {
-            background: var(--primary-blue);
-        }
-
-        /* Installation Guide Section */
-        .guide-steps {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .step-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 700;
-            margin-right: 15px;
-        }
-
-        .step-title {
-            display: inline-block;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .step-content {
-            margin-left: 45px;
-        }
-
-        .step-content p {
-            margin-bottom: 10px;
-        }
-
-        .step-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        /* Reviews Section */
-        .reviews-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-            margin-right: 15px;
-        }
-
-        .review-user {
-            flex: 1;
-        }
-
-        .review-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .review-date {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .review-rating {
-            color: var(--primary-yellow);
-            font-size: 18px;
-        }
-
-        .review-text {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .review-model {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        .add-review-form {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-top: 40px;
-        }
-
-        .form-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .rating-select {
-            margin-bottom: 20px;
-        }
-
-        .rating-select label {
-            margin-right: 15px;
-        }
-
-        .rating-stars {
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .rating-stars input {
-            display: none;
-        }
-
-        .rating-stars label {
-            color: var(--text-secondary);
-            font-size: 24px;
-            padding: 0 5px;
-            cursor: pointer;
-        }
-
-        .rating-stars input:checked ~ label {
-            color: var(--primary-yellow);
-        }
-
-        .rating-stars label:hover,
-        .rating-stars label:hover ~ label {
-            color: var(--primary-yellow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-review {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .submit-review:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        /* User Dashboard */
-        .dashboard {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .dashboard-sidebar {
-            flex: 0 0 250px;
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-        }
-
-        .dashboard-menu {
-            list-style: none;
-        }
-
-        .dashboard-menu li {
-            margin-bottom: 10px;
-        }
-
-        .dashboard-menu a {
-            display: block;
-            padding: 10px 15px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            transition: all var(--transition);
-        }
-
-        .dashboard-menu a:hover,
-        .dashboard-menu a.active {
-            background: var(--primary-blue);
-        }
-
-        .dashboard-menu a i {
-            width: 20px;
-            text-align: center;
-            margin-right: 10px;
-        }
-
-        .dashboard-content {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .dashboard-section {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .dashboard-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .purchased-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .purchased-item {
-            background: var(--bg-secondary);
-            border-radius: var(--radius-md);
-            padding: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .purchased-item img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-            margin-bottom: 10px;
-        }
-
-        .purchased-item h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .purchase-date {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .download-btn {
-            display: block;
-            text-align: center;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        .user-info-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .user-info-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .user-info-form input {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-        }
-
-        .save-btn {
-            background: var(--gradient-ukraine);
-            color: #000;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-
-        .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Auth Modals */
-        .auth-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .auth-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .auth-content {
-            background: var(--bg-primary);
-            border-radius: var(--radius-lg);
-            width: 100%;
-            max-width: 450px;
-            padding: 30px;
-            position: relative;
-            border: 1px solid var(--primary-blue);
-        }
-
-        .close-auth {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .auth-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .auth-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .auth-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .auth-form input {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-        }
-
-        .auth-submit {
-            width: 100%;
-            padding: 14px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: all var(--transition);
-        }
-
-        .auth-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        .auth-switch {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--text-secondary);
-        }
-
-        .auth-switch a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            padding: 50px 0 30px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .footer-logo-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .footer-link:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .social-icon:hover {
-            background: var(--primary-blue);
-            transform: translateY(-3px);
-        }
-
-        .footer-copyright {
-            margin-top: 30px;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .ukraine-flag {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
-            border-radius: 2px;
-            margin: 0 5px;
-            vertical-align: middle;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .dashboard {
-                flex-direction: column;
-            }
-            
-            .dashboard-sidebar {
-                flex: 0 0 auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--bg-glass);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-                gap: 15px;
-                transform: translateY(-150%);
-                transition: all 0.3s;
-                z-index: 999;
-            }
-
-            .nav-menu.active {
-                transform: translateY(0);
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                background: transparent;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            .user-actions {
-                display: none;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .auto-gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-title {
-                font-size: 16px;
-            }
-
-            .logo-subtitle {
-                font-size: 10px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .auth-content {
-                padding: 20px;
-            }
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/store.css">
+    <link rel="stylesheet" href="assets/css/install-guide.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0A0A0F">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+            <div class="loading-text">Завантаження LSPDFR ELITE STUDIO...</div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
             <nav class="nav">
-                <div class="logo">
-                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" alt="LSPDFR ELITE STUDIO Логотип">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.png" alt="LSPDFR ELITE STUDIO" width="40" height="40">
                     <div class="logo-text">
-                        <div class="logo-title">LSPDFR ELITE</div>
-                        <div class="logo-subtitle">STUDIO SHOP</div>
+                        <span class="logo-title">LSPDFR ELITE</span>
+                        <span class="logo-subtitle">PREMIUM STUDIO</span>
+                    </div>
+                </a>
+                
+                <div class="nav-main">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Головна</a></li>
+                        <li><a href="store.html" class="nav-link"><i class="fas fa-store"></i> Магазин</a></li>
+                        <li><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Галерея</a></li>
+                        <li><a href="installation.html" class="nav-link"><i class="fas fa-book"></i> Інструкції</a></li>
+                        <li><a href="community.html" class="nav-link"><i class="fas fa-users"></i> Спільнота</a></li>
+                        <li><a href="support.html" class="nav-link"><i class="fas fa-headset"></i> Підтримка</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <button class="btn-icon search-btn" id="searchBtn" aria-label="Пошук">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="themeToggle">
+                            <label for="themeToggle" class="theme-toggle-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-toggle-ball"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Головна</a></li>
-                    <li><a href="#gallery" class="nav-link">Галерея авто</a></li>
-                    <li><a href="#installation" class="nav-link">Інструкції</a></li>
-                    <li><a href="#reviews" class="nav-link">Відгуки</a></li>
-                    <li><a href="#contacts" class="nav-link">Контакти</a></li>
-                </ul>
-                
                 <div class="user-actions" id="userActions">
-                    <button class="auth-btn login-btn" id="loginBtn">Увійти</button>
-                    <button class="auth-btn register-btn" id="registerBtn">Реєстрація</button>
+                    <a href="login.html" class="btn btn-outline">Увійти</a>
+                    <a href="register.html" class="btn btn-primary">Реєстрація</a>
                 </div>
                 
                 <div class="user-profile" id="userProfile" style="display: none;">
-                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="assets/img/default-avatar.jpg" alt="User Avatar" id="userAvatarImg">
+                    </div>
                     <div class="user-dropdown" id="userDropdown">
-                        <a href="#dashboard"><i class="fas fa-user-circle"></i> Особистий кабінет</a>
-                        <a href="#purchases"><i class="fas fa-shopping-bag"></i> Мої покупки</a>
-                        <a href="#settings"><i class="fas fa-cog"></i> Налаштування</a>
-                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Вийти</a>
+                        <div class="user-info-dropdown">
+                            <div class="user-name" id="dropdownUserName">Іван Коваленко</div>
+                            <div class="user-email" id="dropdownUserEmail">ivan@example.com</div>
+                        </div>
+                        <a href="dashboard.html" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Особистий кабінет</a>
+                        <a href="purchases.html" class="dropdown-item"><i class="fas fa-shopping-bag"></i> Мої покупки</a>
+                        <a href="downloads.html" class="dropdown-item"><i class="fas fa-download"></i> Завантаження</a>
+                        <a href="favorites.html" class="dropdown-item"><i class="fas fa-heart"></i> Обране</a>
+                        <a href="settings.html" class="dropdown-item"><i class="fas fa-cog"></i> Налаштування</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Вийти</a>
                     </div>
                 </div>
                 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
                 </button>
             </nav>
         </div>
+        
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="container">
+                <form class="search-form">
+                    <input type="text" placeholder="Пошук моделей, допомоги..." class="search-input">
+                    <button type="submit" class="search-submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button type="button" class="search-close" id="searchClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-star"></i>
-                    <span>ТОП студія моделей для GTA 5</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    Професійні моделі авто<br>
-                    <span style="background: var(--gradient-ukraine); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">для LSPDFR</span>
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Високоякісні моделі поліцейських авто України з повним функціоналом для гри
-                </p>
-                
-                <div class="hero-buttons">
-                    <a href="#gallery" class="btn btn-primary">
-                        <i class="fas fa-car"></i>
-                        Переглянути моделі
-                    </a>
-                    <a href="#contacts" class="btn btn-secondary">
-                        <i class="fas fa-headset"></i>
-                        Замовити індивідуально
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Auto Gallery Section -->
-    <section id="gallery" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Наші <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">моделі авто</span></h2>
-                <p class="section-description">Всі моделі повністю готові до використання в LSPDFR з деталізованими текстурами та анімаціями</p>
-                
-                <div class="gallery-filters">
-                    <button class="filter-btn active" data-filter="all">Всі моделі</button>
-                    <button class="filter-btn" data-filter="patrol">Патрульні</button>
-                    <button class="filter-btn" data-filter="ngu">НГУ</button>
-                    <button class="filter-btn" data-filter="special">Спецтранспорт</button>
-                </div>
-            </div>
-            
-            <div class="auto-gallery">
-                <!-- Dacia Sandero -->
-                <div class="auto-card" data-category="patrol">
-                    <div class="auto-badge">Новинка</div>
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png" alt="Dacia Sandero Patrol" loading="lazy">
-                    <div class="auto-info">
-                        <h3>Dacia Sandero</h3>
-                        <div class="auto-meta">
-                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
-                            <span><i class="fas fa-star"></i> 5.0</span>
-                        </div>
-                        <button class="btn-details" data-auto="dacia-sandero">Деталі</button>
-                    </div>
-                </div>
-                
-                <!-- Toyota Corolla -->
-                <div class="auto-card" data-category="patrol">
-                    <div class="auto-badge">Бестселер</div>
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png" alt="Toyota Corolla Patrol" loading="lazy">
-                    <div class="auto-info">
-                        <h3>Toyota Corolla</h3>
-                        <div class="auto-meta">
-                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
-                            <span><i class="fas fa-star"></i> 5.0</span>
-                        </div>
-                        <button class="btn-details" data-auto="toyota-corolla">Деталі</button>
-                    </div>
-                </div>
-                
-                <!-- Renault Daster НГУ -->
-                <div class="auto-card" data-category="ngu">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png" alt="Renault Daster НГУ" loading="lazy">
-                    <div class="auto-info">
-                        <h3>Renault Daster НГУ</h3>
-                        <div class="auto-meta">
-                            <span><i class="fas fa-shield-alt"></i> Нацгвардія</span>
-                            <span><i class="fas fa-star"></i> 4.9</span>
-                        </div>
-                        <button class="btn-details" data-auto="renault-daster-ngu">Деталі</button>
-                    </div>
-                </div>
-                
-                <!-- Renault Daster (Оновлений) -->
-                <div class="auto-card" data-category="patrol">
-                    <div class="auto-badge">Оновлено</div>
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png" alt="Renault Daster Patrol" loading="lazy">
-                    <div class="auto-info">
-                        <h3>Renault Daster (Оновлений)</h3>
-                        <div class="auto-meta">
-                            <span><i class="fas fa-car"></i> Патрульна поліція</span>
-                            <span><i class="fas fa-star"></i> 5.0</span>
-                        </div>
-                        <button class="btn-details" data-auto="renault-daster">Деталі</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Installation Guide Section -->
-    <section id="installation" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Інструкція з <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">встановлення</span></h2>
-                <p class="section-description">Детальний гайд з інсталяції наших моделей у вашу гру GTA 5</p>
-            </div>
-            
-            <div class="guide-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Підготовка</div>
-                    <div class="step-content">
-                        <p>Перш ніж почати, переконайтеся, що у вас є:</p>
-                        <ul>
-                            <li>Оригінальна версія GTA 5</li>
-                            <li>Встановлений LSPDFR мод</li>
-                            <li>Остання версія OpenIV</li>
-                            <li>Резервна копія оригінальних файлів гри</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Завантаження файлів</div>
-                    <div class="step-content">
-                        <p>Після покупки моделі:</p>
-                        <ul>
-                            <li>Завантажте архів з файлами з вашого особистого кабінету</li>
-                            <li>Розпакуйте архів за допомогою WinRAR або 7-Zip</li>
-                            <li>Переконайтеся, що всі файли на місці (модель, текстури, звуки)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Встановлення моделі</div>
-                    <div class="step-content">
-                        <p>Використовуйте OpenIV для встановлення:</p>
-                        <ol>
-                            <li>Відкрийте OpenIV у режимі Edit mode</li>
-                            <li>Перейдіть до папки з моделями авто (зазвичай update\x64\dlcpacks)</li>
-                            <li>Скопіюйте файли моделі у відповідні папки</li>
-                            <li>Активуйте модель у меню OpenIV</li>
-                        </ol>
-                        <p><strong>Увага:</strong> Не забудьте створити резервну копію оригінальних файлів!</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Налаштування у грі</div>
-                    <div class="step-content">
-                        <p>Після встановлення:</p>
-                        <ul>
-                            <li>Запустіть гру та перейдіть до налаштувань LSPDFR</li>
-                            <li>Оберіть ваше авто у списку доступних патрульних машин</li>
-                            <li>Налаштуйте кольори та особливості поведінки авто</li>
-                            <li>Збережіть зміни та насолоджуйтесь грою!</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Відгуки <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">клієнтів</span></h2>
-                <p class="section-description">Що говорять наші клієнти про якість наших моделей</p>
-            </div>
-            
-            <div class="reviews-container">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">А</div>
-                        <div class="review-user">
-                            <div class="review-name">Андрій</div>
-                            <div class="review-date">15.06.2024</div>
-                        </div>
-                        <div class="review-rating">★★★★★</div>
-                    </div>
-                    <div class="review-text">
-                        <p>Дуже якісна модель Dacia Sandero! Все працює ідеально, анімації плавні, текстури чіткі. Особливо сподобалась увага до деталей - навіть номерні знаки відповідають українським стандартам.</p>
-                    </div>
-                    <div class="review-model">
-                        <i class="fas fa-car"></i> Dacia Sandero Patrol
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">М</div>
-                        <div class="review-user">
-                            <div class="review-name">Максим</div>
-                            <div class="review-date">10.06.2024</div>
-                        </div>
-                        <div class="review-rating">★★★★☆</div>
-                    </div>
-                    <div class="review-text">
-                        <p>Renault Daster виглядає дуже реалістично, особливо в лівреї НГУ. Була невелика проблема з встановленням, але техпідтримка допомогла протягом години. Раджу цю студію!</p>
-                    </div>
-                    <div class="review-model">
-                        <i class="fas fa-shield-alt"></i> Renault Daster НГУ
-                    </div>
-                </div>
-                
-                <!-- Add Review Form (visible only for logged in users) -->
-                <div class="add-review-form" id="addReviewForm" style="display: none;">
-                    <div class="form-title">Залишити відгук</div>
-                    <form id="reviewForm">
-                        <div class="form-group">
-                            <label for="reviewModel">Модель авто:</label>
-                            <select id="reviewModel" required>
-                                <option value="">Оберіть модель</option>
-                                <option value="dacia-sandero">Dacia Sandero Patrol</option>
-                                <option value="toyota-corolla">Toyota Corolla Patrol</option>
-                                <option value="renault-daster">Renault Daster Patrol</option>
-                                <option value="renault-daster-ngu">Renault Daster НГУ</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group rating-select">
-                            <label>Оцінка:</label>
-                            <div class="rating-stars">
-                                <input type="radio" id="star5" name="rating" value="5">
-                                <label for="star5">★</label>
-                                <input type="radio" id="star4" name="rating" value="4">
-                                <label for="star4">★</label>
-                                <input type="radio" id="star3" name="rating" value="3">
-                                <label for="star3">★</label>
-                                <input type="radio" id="star2" name="rating" value="2">
-                                <label for="star2">★</label>
-                                <input type="radio" id="star1" name="rating" value="1">
-                                <label for="star1">★</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewText">Ваш відгук:</label>
-                            <textarea id="reviewText" required placeholder="Розкажіть про ваш досвід використання цієї моделі..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-review">Надіслати відгук</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- User Dashboard (visible only for logged in users) -->
-    <section id="dashboard" class="section" style="display: none; background: var(--bg-secondary);">
-        <div class="container">
-            <div class="dashboard">
-                <div class="dashboard-sidebar">
-                    <ul class="dashboard-menu">
-                        <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Огляд</a></li>
-                        <li><a href="#purchases"><i class="fas fa-shopping-bag"></i> Мої покупки</a></li>
-                        <li><a href="#settings"><i class="fas fa-cog"></i> Налаштування</a></li>
-                        <li><a href="#support"><i class="fas fa-headset"></i> Підтримка</a></li>
-                    </ul>
-                </div>
-                
-                <div class="dashboard-content">
-                    <div class="dashboard-section">
-                        <h2 class="dashboard-title">Огляд</h2>
-                        <p>Ласкаво просимо до вашого особистого кабінету, <span id="userGreeting">Користувач</span>!</p>
-                        <p>Тут ви можете керувати своїми покупками, змінювати налаштування профілю та отримувати підтримку.</p>
-                    </div>
-                    
-                    <div class="dashboard-section">
-                        <h2 class="dashboard-title">Останні покупки</h2>
-                        <div class="purchased-items">
-                            <div class="purchased-item">
-                                <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png" alt="Dacia Sandero">
-                                <h3>Dacia Sandero Patrol</h3>
-                                <div class="purchase-date">Куплено: 12.06.2024</div>
-                                <a href="#" class="download-btn"><i class="fas fa-download"></i> Завантажити</a>
-                            </div>
-                            
-                            <div class="purchased-item">
-                                <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png" alt="Renault Daster НГУ">
-                                <h3>Renault Daster НГУ</h3>
-                                <div class="purchase-date">Куплено: 05.06.2024</div>
-                                <a href="#" class="download-btn"><i class="fas fa-download"></i> Завантажити</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-section" id="settings">
-                        <h2 class="dashboard-title">Налаштування профілю</h2>
-                        <form class="user-info-form">
-                            <div class="form-group">
-                                <label for="userName">Ім'я:</label>
-                                <input type="text" id="userName" value="Андрій">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="userEmail">Email:</label>
-                                <input type="email" id="userEmail" value="andriy@example.com">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="userPassword">Новий пароль:</label>
-                                <input type="password" id="userPassword" placeholder="Введіть новий пароль">
-                            </div>
-                            
-                            <button type="submit" class="save-btn">Зберегти зміни</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacts Section -->
-    <section id="contacts" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Наші <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">контакти</span></h2>
-                <p class="section-description">Зв'яжіться з нами для замовлення або підтримки</p>
-            </div>
-            
-            <div class="contacts-grid">
-                <div class="contact-card">
-                    <i class="fab fa-discord"></i>
-                    <h3>Discord</h3>
-                    <p>LSPDFR_ELITE#1234</p>
-                    <a href="#" class="btn btn-primary">Приєднатися</a>
-                </div>
-                
-                <div class="contact-card">
-                    <i class="fab fa-telegram"></i>
-                    <h3>Telegram</h3>
-                    <p>@LSPDFR_ELITE</p>
-                    <a href="#" class="btn btn-primary">Написати</a>
-                </div>
-                
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>support@lspdfr-elite.com</p>
-                    <a href="#" class="btn btn-primary">Написати</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main Content (will be replaced by router) -->
+    <main id="mainContent">
+        <!-- Homepage content will be loaded here -->
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">
-                <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png" alt="LSPDFR ELITE STUDIO">
-                <div class="footer-logo-text">LSPDFR ELITE STUDIO</div>
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/img/logo-white.png" alt="LSPDFR ELITE STUDIO" width="40" height="40">
+                        <span>LSPDFR ELITE STUDIO</span>
+                    </div>
+                    <p class="footer-about-text">
+                        Професійна студія з розробки високоякісних моделей авто для GTA V/LSPDFR. 
+                        Українська якість для геймерів по всьому світу.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Меню</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="store.html">Магазин</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="installation.html">Інструкції</a></li>
+                        <li><a href="community.html">Спільнота</a></li>
+                        <li><a href="support.html">Підтримка</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Інформація</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Умови використання</a></li>
+                        <li><a href="privacy.html">Політика конфіденційності</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Підтримка ЗСУ</h3>
+                    <div class="ukraine-support">
+                        <div class="ua-flag">
+                            <div class="ua-blue"></div>
+                            <div class="ua-yellow"></div>
+                        </div>
+                        <p>5% від кожної покупки йде на підтримку Збройних Сил України</p>
+                        <a href="donate.html" class="btn-donate">Зробити внесок</a>
+                    </div>
+                </div>
             </div>
             
-            <div class="footer-links">
-                <a href="#home" class="footer-link">Головна</a>
-                <a href="#gallery" class="footer-link">Галерея</a>
-                <a href="#installation" class="footer-link">Інструкції</a>
-                <a href="#reviews" class="footer-link">Відгуки</a>
-                <a href="#contacts" class="footer-link">Контакти</a>
-            </div>
-            
-            <div class="footer-social">
-                <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            </div>
-            
-            <div class="footer-copyright">
-                <p>&copy; 2024 LSPDFR ELITE STUDIO. Всі права захищені. <span class="ukraine-flag"></span></p>
-                <p style="margin-top: 10px;">Частина прибутку йде на підтримку ЗСУ</p>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 LSPDFR ELITE STUDIO. Всі права захищені.
+                </div>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                    <i class="fab fa-bitcoin" title="Bitcoin"></i>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="quick-action" id="quickSupport" title="Підтримка">
+            <i class="fas fa-headset"></i>
+        </button>
+        <button class="quick-action" id="quickCart" title="Кошик (0)">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
+        <button class="quick-action" id="backToTop" title="Нагору">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
     <!-- Auth Modals -->
-    <div class="auth-modal" id="loginModal">
-        <div class="auth-content">
-            <button class="close-auth" id="closeLogin">&times;</button>
-            <h2 class="auth-title">Увійти в акаунт</h2>
+    <div class="modal" id="loginModal">
+        <div class="modal-content auth-modal">
+            <button class="modal-close" id="closeLoginModal">&times;</button>
+            <div class="auth-header">
+                <h2>Увійти в акаунт</h2>
+                <p>Введіть ваші дані для входу</p>
+            </div>
             <form class="auth-form" id="loginForm">
                 <div class="form-group">
-                    <label for="loginEmail">Email:</label>
+                    <label for="loginEmail">Email</label>
                     <input type="email" id="loginEmail" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="loginPassword">Пароль:</label>
+                    <label for="loginPassword">Пароль</label>
                     <input type="password" id="loginPassword" required>
+                    <a href="forgot-password.html" class="forgot-password">Забули пароль?</a>
                 </div>
-                
-                <button type="submit" class="auth-submit">Увійти</button>
-                
-                <div class="auth-switch">
+                <button type="submit" class="btn btn-primary btn-block">Увійти</button>
+                <div class="auth-divider">
+                    <span>або</span>
+                </div>
+                <button type="button" class="btn btn-outline btn-block auth-social">
+                    <i class="fab fa-google"></i> Продовжити з Google
+                </button>
+                <button type="button" class="btn btn-outline btn-block auth-social">
+                    <i class="fab fa-discord"></i> Продовжити з Discord
+                </button>
+                <div class="auth-footer">
                     Ще не маєте акаунту? <a href="#" id="switchToRegister">Зареєструватися</a>
                 </div>
             </form>
         </div>
     </div>
-    
-    <div class="auth-modal" id="registerModal">
-        <div class="auth-content">
-            <button class="close-auth" id="closeRegister">&times;</button>
-            <h2 class="auth-title">Створити акаунт</h2>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content auth-modal">
+            <button class="modal-close" id="closeRegisterModal">&times;</button>
+            <div class="auth-header">
+                <h2>Створити акаунт</h2>
+                <p>Заповніть форму для реєстрації</p>
+            </div>
             <form class="auth-form" id="registerForm">
                 <div class="form-group">
-                    <label for="regName">Ім'я:</label>
-                    <input type="text" id="regName" required>
+                    <label for="regUsername">Ім'я користувача</label>
+                    <input type="text" id="regUsername" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="regEmail">Email:</label>
+                    <label for="regEmail">Email</label>
                     <input type="email" id="regEmail" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="regPassword">Пароль:</label>
+                    <label for="regPassword">Пароль</label>
                     <input type="password" id="regPassword" required>
+                    <div class="password-strength">
+                        <span class="strength-bar"></span>
+                        <span class="strength-bar"></span>
+                        <span class="strength-bar"></span>
+                        <span class="strength-text">Слабкий пароль</span>
+                    </div>
                 </div>
-                
                 <div class="form-group">
-                    <label for="regConfirmPassword">Підтвердіть пароль:</label>
+                    <label for="regConfirmPassword">Підтвердіть пароль</label>
                     <input type="password" id="regConfirmPassword" required>
                 </div>
-                
-                <button type="submit" class="auth-submit">Зареєструватися</button>
-                
-                <div class="auth-switch">
+                <div class="form-group form-check">
+                    <input type="checkbox" id="regAgreement" required>
+                    <label for="regAgreement">Я погоджуюсь з <a href="terms.html">Умовами використання</a> та <a href="privacy.html">Політикою конфіденційності</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Зареєструватися</button>
+                <div class="auth-footer">
                     Вже маєте акаунт? <a href="#" id="switchToLogin">Увійти</a>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Auto Modal (will be inserted by JS) -->
-    <div id="autoModal" class="auto-modal"></div>
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <button class="modal-close" id="closeCartModal">&times;</button>
+            <div class="cart-header">
+                <h2>Ваш кошик</h2>
+                <span class="cart-items-count">0 товарів</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Ваш кошик порожній</p>
+                    <a href="store.html" class="btn btn-primary">Перейти до магазину</a>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Разом:</span>
+                    <span class="total-price">0 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>Оформити замовлення</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- Scripts -->
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/vendor/axios.min.js"></script>
+    <script src="assets/js/vendor/lazysizes.min.js"></script>
+    <script src="assets/js/vendor/gsap.min.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/auth.js" type="module"></script>
+    <script src="assets/js/cart.js" type="module"></script>
+    <script src="assets/js/router.js" type="module"></script>
+    
+    <!-- Service Worker Registration -->
     <script>
-        // User Authentication System
-        let currentUser = null;
-        const users = JSON.parse(localStorage.getItem('lspdfr_users')) || [];
-        
-        // DOM Elements
-        const loginBtn = document.getElementById('loginBtn');
-        const registerBtn = document.getElementById('registerBtn');
-        const userActions = document.getElementById('userActions');
-        const userProfile = document.getElementById('userProfile');
-        const userAvatar = document.getElementById('userAvatar');
-        const userDropdown = document.getElementById('userDropdown');
-        const logoutBtn = document.getElementById('logoutBtn');
-        
-        const loginModal = document.getElementById('loginModal');
-        const registerModal = document.getElementById('registerModal');
-        const closeLogin = document.getElementById('closeLogin');
-        const closeRegister = document.getElementById('closeRegister');
-        const switchToRegister = document.getElementById('switchToRegister');
-        const switchToLogin = document.getElementById('switchToLogin');
-        
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        
-        const dashboardSection = document.getElementById('dashboard');
-        const addReviewForm = document.getElementById('addReviewForm');
-        const reviewForm = document.getElementById('reviewForm');
-        
-        // Check if user is logged in
-        function checkAuth() {
-            const user = JSON.parse(localStorage.getItem('lspdfr_currentUser'));
-            if (user) {
-                currentUser = user;
-                updateUI();
-            }
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful');
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
         }
-        
-        // Update UI based on auth state
-        function updateUI() {
-            if (currentUser) {
-                userActions.style.display = 'none';
-                userProfile.style.display = 'flex';
-                userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
-                dashboardSection.style.display = 'block';
-                addReviewForm.style.display = 'block';
-                document.getElementById('userGreeting').textContent = currentUser.name;
-            } else {
-                userActions.style.display = 'flex';
-                userProfile.style.display = 'none';
-                dashboardSection.style.display = 'none';
-                addReviewForm.style.display = 'none';
-            }
-        }
-        
-        // Show login modal
-        loginBtn.addEventListener('click', () => {
-            loginModal.classList.add('active');
-        });
-        
-        // Show register modal
-        registerBtn.addEventListener('click', () => {
-            registerModal.classList.add('active');
-        });
-        
-        // Close modals
-        closeLogin.addEventListener('click', () => {
-            loginModal.classList.remove('active');
-        });
-        
-        closeRegister.addEventListener('click', () => {
-            registerModal.classList.remove('active');
-        });
-        
-        // Switch between login and register
-        switchToRegister.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.classList.remove('active');
-            registerModal.classList.add('active');
-        });
-        
-        switchToLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            registerModal.classList.remove('active');
-            loginModal.classList.add('active');
-        });
-        
-        // Login form submission
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if (user) {
-                currentUser = user;
-                localStorage.setItem('lspdfr_currentUser', JSON.stringify(user));
-                loginModal.classList.remove('active');
-                updateUI();
-                alert('Ви успішно увійшли!');
-            } else {
-                alert('Невірний email або пароль');
-            }
-        });
-        
-        // Register form submission
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Паролі не співпадають');
-                return;
-            }
-            
-            if (users.some(u => u.email === email)) {
-                alert('Користувач з таким email вже існує');
-                return;
-            }
-            
-            const newUser = {
-                id: Date.now(),
-                name,
-                email,
-                password,
-                purchases: []
-            };
-            
-            users.push(newUser);
-            localStorage.setItem('lspdfr_users', JSON.stringify(users));
-            
-            currentUser = newUser;
-            localStorage.setItem('lspdfr_currentUser', JSON.stringify(newUser));
-            
-            registerModal.classList.remove('active');
-            updateUI();
-            alert('Реєстрація успішна! Ласкаво просимо.');
-        });
-        
-        // Logout
-        logoutBtn.addEventListener('click', () => {
-            currentUser = null;
-            localStorage.removeItem('lspdfr_currentUser');
-            updateUI();
-            alert('Ви вийшли з акаунту');
-        });
-        
-        // Toggle user dropdown
-        userProfile.addEventListener('click', () => {
-            userDropdown.classList.toggle('active');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!userProfile.contains(e.target)) {
-                userDropdown.classList.remove('active');
-            }
-        });
-        
-        // Review form submission
-        reviewForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const model = document.getElementById('reviewModel').value;
-            const rating = document.querySelector('input[name="rating"]:checked').value;
-            const text = document.getElementById('reviewText').value;
-            
-            // Here you would typically send this data to a server
-            alert('Дякуємо за ваш відгук! Він буде опублікований після модерації.');
-            reviewForm.reset();
-        });
-        
-        // Initialize
-        checkAuth();
-        
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Auto Gallery Filter
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const filter = btn.dataset.filter;
-                document.querySelectorAll('.auto-card').forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Auto Details Modal
-        const autoData = {
-            'dacia-sandero': {
-                title: 'Dacia Sandero Patrol',
-                description: 'Повністю адаптована модель Dacia Sandero для патрульної служби з робочими маяками та анімаціями дверей. Ідеальний варіант для міського патрулювання.',
-                features: [
-                    'Режим патрулювання (синій маячок)',
-                    '3 варіанти сирен',
-                    'Анімовані двері та багажник',
-                    'Деталізований салон',
-                    'Оптимізована для LSPDFR'
-                ],
-                price: '450 грн',
-                images: [
-                    'https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png',
-                    'https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png',
-                    'https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png'
-                ]
-            },
-            'toyota-corolla': {
-                title: 'Toyota Corolla Patrol',
-                description: 'Професійно змодельована Toyota Corolla для патрульної служби з високоякісними текстурами та повним функціоналом.',
-                features: [
-                    'Режим патрулювання',
-                    '4 варіанти сирен',
-                    'Деталізований двигун',
-                    'Кастомні номерні знаки',
-                    'Сумісність з ELS'
-                ],
-                price: '500 грн',
-                images: [
-                    'https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png',
-                    'https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png'
-                ]
-            },
-            'renault-daster-ngu': {
-                title: 'Renault Daster НГУ',
-                description: 'Спеціальна версія Renault Daster для Національної гвардії України з унікальною лівреєю та повним функціоналом.',
-                features: [
-                    'Автентична ліврея НГУ',
-                    'Спеціальне обладнання',
-                    'Анімовані двері',
-                    'Оптимізована продуктивність',
-                    'Сумісність з популярними модами'
-                ],
-                price: '550 грн',
-                images: [
-                    'https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png',
-                    'https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png'
-                ]
-            },
-            'renault-daster': {
-                title: 'Renault Daster Patrol (Оновлений)',
-                description: 'Оновлена версія популярної моделі Renault Daster з покращеними текстурами та додатковими функціями.',
-                features: [
-                    'Покращені текстури HD',
-                    'Нові анімації',
-                    'Додаткові варіанти розфарбування',
-                    'Оновлений салон',
-                    'Оптимізація продуктивності'
-                ],
-                price: '500 грн',
-                images: [
-                    'https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png',
-                    'https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png'
-                ]
-            }
-        };
-
-        document.querySelectorAll('.btn-details').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const autoId = btn.dataset.auto;
-                const auto = autoData[autoId];
-                const modal = document.getElementById('autoModal');
-                
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <button class="close-modal">&times;</button>
-                        <h2>${auto.title}</h2>
-                        <div class="modal-gallery">
-                            ${auto.images.map(img => `<img src="${img}" alt="${auto.title}" loading="lazy">`).join('')}
-                        </div>
-                        <div class="modal-info">
-                            <p>${auto.description}</p>
-                            <ul class="features-list">
-                                ${auto.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
-                            </ul>
-                            <div class="modal-price">${auto.price}</div>
-                            <button class="btn-buy">Придбати</button>
-                        </div>
-                    </div>
-                `;
-                
-                modal.classList.add('active');
-                
-                // Close modal
-                modal.querySelector('.close-modal').addEventListener('click', () => {
-                    modal.classList.remove('active');
-                });
-                
-                // Buy button
-                modal.querySelector('.btn-buy').addEventListener('click', () => {
-                    if (currentUser) {
-                        alert(`Дякуємо за покупку ${auto.title}! Файли доступні у вашому особистому кабінеті.`);
-                        modal.classList.remove('active');
-                        
-                        // Add to user's purchases (simplified example)
-                        currentUser.purchases.push({
-                            id: Date.now(),
-                            name: auto.title,
-                            date: new Date().toLocaleDateString(),
-                            price: auto.price
-                        });
-                        
-                        // Update user in local storage
-                        const userIndex = users.findIndex(u => u.id === currentUser.id);
-                        if (userIndex !== -1) {
-                            users[userIndex] = currentUser;
-                            localStorage.setItem('lspdfr_users', JSON.stringify(users));
-                            localStorage.setItem('lspdfr_currentUser', JSON.stringify(currentUser));
-                        }
-                    } else {
-                        alert('Для покупки будь ласка увійдіть або зареєструйтесь');
-                        modal.classList.remove('active');
-                        loginModal.classList.add('active');
-                    }
-                });
-            });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-                
-                // Toggle current item
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.getElementById('header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                }
-            });
-        });
-
-        console.log('LSPDFR ELITE STUDIO - Website loaded successfully!');
     </script>
 </body>
 </html>
