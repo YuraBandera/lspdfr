@@ -170,6 +170,89 @@
             width: 100%;
         }
 
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-btn {
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .login-btn {
+            background: transparent;
+            border: 1px solid var(--primary-blue);
+            color: var(--text-primary);
+        }
+
+        .login-btn:hover {
+            background: var(--primary-blue);
+        }
+
+        .register-btn {
+            background: var(--gradient-ukraine);
+            border: none;
+            color: #000;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 10px 0;
+            width: 200px;
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+            display: none;
+        }
+
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .user-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -386,49 +469,352 @@
             background: var(--primary-blue);
         }
 
-        /* Studio Info Section */
-        .studio-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+        /* Installation Guide Section */
+        .guide-steps {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .feature-card {
+        .step-card {
             background: var(--bg-card);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
             text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .step-content {
+            margin-left: 45px;
+        }
+
+        .step-content p {
+            margin-bottom: 10px;
+        }
+
+        .step-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .review-user {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .review-date {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .review-rating {
+            color: var(--primary-yellow);
+            font-size: 18px;
+        }
+
+        .review-text {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .review-model {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .add-review-form {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .form-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .rating-select {
+            margin-bottom: 20px;
+        }
+
+        .rating-select label {
+            margin-right: 15px;
+        }
+
+        .rating-stars {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            color: var(--text-secondary);
+            font-size: 24px;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+
+        .rating-stars input:checked ~ label {
+            color: var(--primary-yellow);
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label {
+            color: var(--primary-yellow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-review {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
             transition: all var(--transition);
+        }
+
+        .submit-review:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        /* User Dashboard */
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dashboard-sidebar {
+            flex: 0 0 250px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+        }
+
+        .dashboard-menu {
+            list-style: none;
+        }
+
+        .dashboard-menu li {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition);
+        }
+
+        .dashboard-menu a:hover,
+        .dashboard-menu a.active {
+            background: var(--primary-blue);
+        }
+
+        .dashboard-menu a i {
+            width: 20px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .dashboard-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .dashboard-section {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .purchased-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .purchased-item {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 15px;
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
+        .purchased-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
         }
 
-        .feature-card i {
-            font-size: 40px;
-            margin-bottom: 20px;
+        .purchased-item h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .purchase-date {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .download-btn {
+            display: block;
+            text-align: center;
             background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
         }
 
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
+        .user-info-form .form-group {
+            margin-bottom: 20px;
         }
 
-        /* Modal */
-        .auto-modal {
+        .user-info-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .user-info-form input {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+        }
+
+        .save-btn {
+            background: var(--gradient-ukraine);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Auth Modals */
+        .auth-modal {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 10000;
             display: flex;
             align-items: center;
@@ -436,105 +822,88 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            padding: 20px;
         }
 
-        .auto-modal.active {
+        .auth-modal.active {
             opacity: 1;
             visibility: visible;
         }
 
-        .modal-content {
+        .auth-content {
             background: var(--bg-primary);
             border-radius: var(--radius-lg);
-            max-width: 900px;
             width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+            max-width: 450px;
+            padding: 30px;
             position: relative;
             border: 1px solid var(--primary-blue);
         }
 
-        .close-modal {
+        .close-auth {
             position: absolute;
             top: 15px;
             right: 15px;
             background: transparent;
             border: none;
-            color: white;
+            color: var(--text-primary);
             font-size: 24px;
             cursor: pointer;
-            z-index: 2;
         }
 
-        .modal-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            padding: 20px;
+        .auth-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .modal-gallery img {
+        .auth-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .auth-form input {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.3s;
+            color: var(--text-primary);
         }
 
-        .modal-gallery img:hover {
-            transform: scale(1.02);
-        }
-
-        .modal-info {
-            padding: 20px;
-        }
-
-        .modal-info h2 {
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .features-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .features-list i {
-            color: var(--primary-blue);
-        }
-
-        .modal-price {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 20px 0;
-            color: var(--primary-yellow);
-        }
-
-        .btn-buy {
+        .auth-submit {
             width: 100%;
-            padding: 15px;
-            background: var(--gradient-ukraine);
+            padding: 14px;
+            background: var(--gradient-primary);
+            color: white;
             border: none;
-            border-radius: var(--radius-md);
-            color: #000;
-            font-weight: 700;
-            font-size: 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            margin-top: 10px;
+            transition: all var(--transition);
         }
 
-        .btn-buy:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        .auth-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-secondary);
+        }
+
+        .auth-switch a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
         }
 
         /* Footer */
@@ -622,6 +991,16 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .dashboard {
+                flex-direction: column;
+            }
+            
+            .dashboard-sidebar {
+                flex: 0 0 auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
@@ -650,6 +1029,10 @@
                 color: white;
                 font-size: 24px;
                 cursor: pointer;
+            }
+
+            .user-actions {
+                display: none;
             }
 
             .hero-buttons {
@@ -684,8 +1067,8 @@
                 font-size: 28px;
             }
 
-            .modal-content {
-                max-height: 80vh;
+            .auth-content {
+                padding: 20px;
             }
         }
     </style>
@@ -706,10 +1089,25 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link active">Головна</a></li>
                     <li><a href="#gallery" class="nav-link">Галерея авто</a></li>
-                    <li><a href="#studio" class="nav-link">Про студію</a></li>
-                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#installation" class="nav-link">Інструкції</a></li>
+                    <li><a href="#reviews" class="nav-link">Відгуки</a></li>
                     <li><a href="#contacts" class="nav-link">Контакти</a></li>
                 </ul>
+                
+                <div class="user-actions" id="userActions">
+                    <button class="auth-btn login-btn" id="loginBtn">Увійти</button>
+                    <button class="auth-btn register-btn" id="registerBtn">Реєстрація</button>
+                </div>
+                
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#dashboard"><i class="fas fa-user-circle"></i> Особистий кабінет</a>
+                        <a href="#purchases"><i class="fas fa-shopping-bag"></i> Мої покупки</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Налаштування</a>
+                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Вийти</a>
+                    </div>
+                </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -824,83 +1222,219 @@
         </div>
     </section>
 
-    <!-- Studio Info Section -->
-    <section id="studio" class="section" style="background: var(--bg-secondary);">
+    <!-- Installation Guide Section -->
+    <section id="installation" class="section" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Наша <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">студія</span></h2>
-                <p class="section-description">Професійна команда зі створення якісного контенту для GTA 5</p>
+                <h2 class="section-title">Інструкція з <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">встановлення</span></h2>
+                <p class="section-description">Детальний гайд з інсталяції наших моделей у вашу гру GTA 5</p>
             </div>
             
-            <div class="studio-features">
-                <div class="feature-card">
-                    <i class="fas fa-cubes"></i>
-                    <h3>3D Моделювання</h3>
-                    <p>Створюємо моделі з нуля з високою деталізацією та оптимізацією для гри</p>
+            <div class="guide-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Підготовка</div>
+                    <div class="step-content">
+                        <p>Перш ніж почати, переконайтеся, що у вас є:</p>
+                        <ul>
+                            <li>Оригінальна версія GTA 5</li>
+                            <li>Встановлений LSPDFR мод</li>
+                            <li>Остання версія OpenIV</li>
+                            <li>Резервна копія оригінальних файлів гри</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <i class="fas fa-car-side"></i>
-                    <h3>Реальні аналоги</h3>
-                    <p>Точні копії реальних авто українських служб з автентичними лівреями</p>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Завантаження файлів</div>
+                    <div class="step-content">
+                        <p>Після покупки моделі:</p>
+                        <ul>
+                            <li>Завантажте архів з файлами з вашого особистого кабінету</li>
+                            <li>Розпакуйте архів за допомогою WinRAR або 7-Zip</li>
+                            <li>Переконайтеся, що всі файли на місці (модель, текстури, звуки)</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Повний функціонал</h3>
-                    <p>Робочі маяки, сирени, анімації дверей та інші особливості реальних авто</p>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Встановлення моделі</div>
+                    <div class="step-content">
+                        <p>Використовуйте OpenIV для встановлення:</p>
+                        <ol>
+                            <li>Відкрийте OpenIV у режимі Edit mode</li>
+                            <li>Перейдіть до папки з моделями авто (зазвичай update\x64\dlcpacks)</li>
+                            <li>Скопіюйте файли моделі у відповідні папки</li>
+                            <li>Активуйте модель у меню OpenIV</li>
+                        </ol>
+                        <p><strong>Увага:</strong> Не забудьте створити резервну копію оригінальних файлів!</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Налаштування у грі</div>
+                    <div class="step-content">
+                        <p>Після встановлення:</p>
+                        <ul>
+                            <li>Запустіть гру та перейдіть до налаштувань LSPDFR</li>
+                            <li>Оберіть ваше авто у списку доступних патрульних машин</li>
+                            <li>Налаштуйте кольори та особливості поведінки авто</li>
+                            <li>Збережіть зміни та насолоджуйтесь грою!</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
+    <!-- Reviews Section -->
+    <section id="reviews" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Часті <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">запитання</span></h2>
-                <p class="section-description">Відповіді на найпоширеніші питання наших клієнтів</p>
+                <h2 class="section-title">Відгуки <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">клієнтів</span></h2>
+                <p class="section-description">Що говорять наші клієнти про якість наших моделей</p>
             </div>
             
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Як встановити куплену модель?</span>
-                        <i class="fas fa-chevron-down"></i>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">А</div>
+                        <div class="review-user">
+                            <div class="review-name">Андрій</div>
+                            <div class="review-date">15.06.2024</div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Кожна модель супроводжується детальною інструкцією у форматі PDF. В основному потрібно:</p>
-                        <ol>
-                            <li>Завантажити архів з файлами</li>
-                            <li>Розпакувати за допомогою WinRAR/7-Zip</li>
-                            <li>Скопіювати файли у відповідні папки GTA 5</li>
-                            <li>Активувати через OpenIV</li>
-                        </ol>
+                    <div class="review-text">
+                        <p>Дуже якісна модель Dacia Sandero! Все працює ідеально, анімації плавні, текстури чіткі. Особливо сподобалась увага до деталей - навіть номерні знаки відповідають українським стандартам.</p>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Чи підтримується вашими моделями LSPDFR?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Так, всі наші моделі повністю адаптовані для використання з LSPDFR. Вони включають:</p>
-                        <ul>
-                            <li>Правильні розміщення світлових сигналів</li>
-                            <li>Оптимальні налаштування для патрулювання</li>
-                            <li>Сумісність з популярними плагінами</li>
-                        </ul>
+                    <div class="review-model">
+                        <i class="fas fa-car"></i> Dacia Sandero Patrol
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Чи можна замовити індивідуальну модель?</span>
-                        <i class="fas fa-chevron-down"></i>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">М</div>
+                        <div class="review-user">
+                            <div class="review-name">Максим</div>
+                            <div class="review-date">10.06.2024</div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Так, ми приймаємо індивідуальні замовлення на створення унікальних моделей. Для обговорення деталей зв'яжіться з нами через Discord або Telegram.</p>
+                    <div class="review-text">
+                        <p>Renault Daster виглядає дуже реалістично, особливо в лівреї НГУ. Була невелика проблема з встановленням, але техпідтримка допомогла протягом години. Раджу цю студію!</p>
+                    </div>
+                    <div class="review-model">
+                        <i class="fas fa-shield-alt"></i> Renault Daster НГУ
+                    </div>
+                </div>
+                
+                <!-- Add Review Form (visible only for logged in users) -->
+                <div class="add-review-form" id="addReviewForm" style="display: none;">
+                    <div class="form-title">Залишити відгук</div>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="reviewModel">Модель авто:</label>
+                            <select id="reviewModel" required>
+                                <option value="">Оберіть модель</option>
+                                <option value="dacia-sandero">Dacia Sandero Patrol</option>
+                                <option value="toyota-corolla">Toyota Corolla Patrol</option>
+                                <option value="renault-daster">Renault Daster Patrol</option>
+                                <option value="renault-daster-ngu">Renault Daster НГУ</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group rating-select">
+                            <label>Оцінка:</label>
+                            <div class="rating-stars">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewText">Ваш відгук:</label>
+                            <textarea id="reviewText" required placeholder="Розкажіть про ваш досвід використання цієї моделі..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-review">Надіслати відгук</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Dashboard (visible only for logged in users) -->
+    <section id="dashboard" class="section" style="display: none; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="dashboard">
+                <div class="dashboard-sidebar">
+                    <ul class="dashboard-menu">
+                        <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Огляд</a></li>
+                        <li><a href="#purchases"><i class="fas fa-shopping-bag"></i> Мої покупки</a></li>
+                        <li><a href="#settings"><i class="fas fa-cog"></i> Налаштування</a></li>
+                        <li><a href="#support"><i class="fas fa-headset"></i> Підтримка</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="dashboard-section">
+                        <h2 class="dashboard-title">Огляд</h2>
+                        <p>Ласкаво просимо до вашого особистого кабінету, <span id="userGreeting">Користувач</span>!</p>
+                        <p>Тут ви можете керувати своїми покупками, змінювати налаштування профілю та отримувати підтримку.</p>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h2 class="dashboard-title">Останні покупки</h2>
+                        <div class="purchased-items">
+                            <div class="purchased-item">
+                                <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png" alt="Dacia Sandero">
+                                <h3>Dacia Sandero Patrol</h3>
+                                <div class="purchase-date">Куплено: 12.06.2024</div>
+                                <a href="#" class="download-btn"><i class="fas fa-download"></i> Завантажити</a>
+                            </div>
+                            
+                            <div class="purchased-item">
+                                <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png" alt="Renault Daster НГУ">
+                                <h3>Renault Daster НГУ</h3>
+                                <div class="purchase-date">Куплено: 05.06.2024</div>
+                                <a href="#" class="download-btn"><i class="fas fa-download"></i> Завантажити</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section" id="settings">
+                        <h2 class="dashboard-title">Налаштування профілю</h2>
+                        <form class="user-info-form">
+                            <div class="form-group">
+                                <label for="userName">Ім'я:</label>
+                                <input type="text" id="userName" value="Андрій">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userEmail">Email:</label>
+                                <input type="email" id="userEmail" value="andriy@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userPassword">Новий пароль:</label>
+                                <input type="password" id="userPassword" placeholder="Введіть новий пароль">
+                            </div>
+                            
+                            <button type="submit" class="save-btn">Зберегти зміни</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -908,7 +1442,7 @@
     </section>
 
     <!-- Contacts Section -->
-    <section id="contacts" class="section" style="background: var(--bg-secondary);">
+    <section id="contacts" class="section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Наші <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">контакти</span></h2>
@@ -951,8 +1485,8 @@
             <div class="footer-links">
                 <a href="#home" class="footer-link">Головна</a>
                 <a href="#gallery" class="footer-link">Галерея</a>
-                <a href="#studio" class="footer-link">Студія</a>
-                <a href="#faq" class="footer-link">FAQ</a>
+                <a href="#installation" class="footer-link">Інструкції</a>
+                <a href="#reviews" class="footer-link">Відгуки</a>
                 <a href="#contacts" class="footer-link">Контакти</a>
             </div>
             
@@ -969,11 +1503,246 @@
         </div>
     </footer>
 
+    <!-- Auth Modals -->
+    <div class="auth-modal" id="loginModal">
+        <div class="auth-content">
+            <button class="close-auth" id="closeLogin">&times;</button>
+            <h2 class="auth-title">Увійти в акаунт</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Пароль:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                
+                <button type="submit" class="auth-submit">Увійти</button>
+                
+                <div class="auth-switch">
+                    Ще не маєте акаунту? <a href="#" id="switchToRegister">Зареєструватися</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="auth-modal" id="registerModal">
+        <div class="auth-content">
+            <button class="close-auth" id="closeRegister">&times;</button>
+            <h2 class="auth-title">Створити акаунт</h2>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="regName">Ім'я:</label>
+                    <input type="text" id="regName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regEmail">Email:</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPassword">Пароль:</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regConfirmPassword">Підтвердіть пароль:</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                
+                <button type="submit" class="auth-submit">Зареєструватися</button>
+                
+                <div class="auth-switch">
+                    Вже маєте акаунт? <a href="#" id="switchToLogin">Увійти</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Auto Modal (will be inserted by JS) -->
     <div id="autoModal" class="auto-modal"></div>
 
     <!-- Scripts -->
     <script>
+        // User Authentication System
+        let currentUser = null;
+        const users = JSON.parse(localStorage.getItem('lspdfr_users')) || [];
+        
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const userActions = document.getElementById('userActions');
+        const userProfile = document.getElementById('userProfile');
+        const userAvatar = document.getElementById('userAvatar');
+        const userDropdown = document.getElementById('userDropdown');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const closeLogin = document.getElementById('closeLogin');
+        const closeRegister = document.getElementById('closeRegister');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        
+        const dashboardSection = document.getElementById('dashboard');
+        const addReviewForm = document.getElementById('addReviewForm');
+        const reviewForm = document.getElementById('reviewForm');
+        
+        // Check if user is logged in
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('lspdfr_currentUser'));
+            if (user) {
+                currentUser = user;
+                updateUI();
+            }
+        }
+        
+        // Update UI based on auth state
+        function updateUI() {
+            if (currentUser) {
+                userActions.style.display = 'none';
+                userProfile.style.display = 'flex';
+                userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+                dashboardSection.style.display = 'block';
+                addReviewForm.style.display = 'block';
+                document.getElementById('userGreeting').textContent = currentUser.name;
+            } else {
+                userActions.style.display = 'flex';
+                userProfile.style.display = 'none';
+                dashboardSection.style.display = 'none';
+                addReviewForm.style.display = 'none';
+            }
+        }
+        
+        // Show login modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.add('active');
+        });
+        
+        // Show register modal
+        registerBtn.addEventListener('click', () => {
+            registerModal.classList.add('active');
+        });
+        
+        // Close modals
+        closeLogin.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+        });
+        
+        closeRegister.addEventListener('click', () => {
+            registerModal.classList.remove('active');
+        });
+        
+        // Switch between login and register
+        switchToRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.classList.remove('active');
+            registerModal.classList.add('active');
+        });
+        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerModal.classList.remove('active');
+            loginModal.classList.add('active');
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('lspdfr_currentUser', JSON.stringify(user));
+                loginModal.classList.remove('active');
+                updateUI();
+                alert('Ви успішно увійшли!');
+            } else {
+                alert('Невірний email або пароль');
+            }
+        });
+        
+        // Register form submission
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Паролі не співпадають');
+                return;
+            }
+            
+            if (users.some(u => u.email === email)) {
+                alert('Користувач з таким email вже існує');
+                return;
+            }
+            
+            const newUser = {
+                id: Date.now(),
+                name,
+                email,
+                password,
+                purchases: []
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('lspdfr_users', JSON.stringify(users));
+            
+            currentUser = newUser;
+            localStorage.setItem('lspdfr_currentUser', JSON.stringify(newUser));
+            
+            registerModal.classList.remove('active');
+            updateUI();
+            alert('Реєстрація успішна! Ласкаво просимо.');
+        });
+        
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            currentUser = null;
+            localStorage.removeItem('lspdfr_currentUser');
+            updateUI();
+            alert('Ви вийшли з акаунту');
+        });
+        
+        // Toggle user dropdown
+        userProfile.addEventListener('click', () => {
+            userDropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userProfile.contains(e.target)) {
+                userDropdown.classList.remove('active');
+            }
+        });
+        
+        // Review form submission
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const model = document.getElementById('reviewModel').value;
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            const text = document.getElementById('reviewText').value;
+            
+            // Here you would typically send this data to a server
+            alert('Дякуємо за ваш відгук! Він буде опублікований після модерації.');
+            reviewForm.reset();
+        });
+        
+        // Initialize
+        checkAuth();
+        
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
@@ -1109,8 +1878,30 @@
                 
                 // Buy button
                 modal.querySelector('.btn-buy').addEventListener('click', () => {
-                    alert(`Дякуємо за інтерес до моделі ${auto.title}! Скоро з вами зв'яжеться наш менеджер.`);
-                    modal.classList.remove('active');
+                    if (currentUser) {
+                        alert(`Дякуємо за покупку ${auto.title}! Файли доступні у вашому особистому кабінеті.`);
+                        modal.classList.remove('active');
+                        
+                        // Add to user's purchases (simplified example)
+                        currentUser.purchases.push({
+                            id: Date.now(),
+                            name: auto.title,
+                            date: new Date().toLocaleDateString(),
+                            price: auto.price
+                        });
+                        
+                        // Update user in local storage
+                        const userIndex = users.findIndex(u => u.id === currentUser.id);
+                        if (userIndex !== -1) {
+                            users[userIndex] = currentUser;
+                            localStorage.setItem('lspdfr_users', JSON.stringify(users));
+                            localStorage.setItem('lspdfr_currentUser', JSON.stringify(currentUser));
+                        }
+                    } else {
+                        alert('Для покупки будь ласка увійдіть або зареєструйтесь');
+                        modal.classList.remove('active');
+                        loginModal.classList.add('active');
+                    }
                 });
             });
         });
