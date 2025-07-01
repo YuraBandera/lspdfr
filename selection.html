@@ -1028,80 +1028,62 @@
                 reviews: 12,
                 category: "patrol",
                 features: ["Поліцейські текстури", "Світлова сигналізація", "Режим патрулювання", "Оптимізована модель"],
-                downloadLink: ""https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing",
-                details: "Ця модель включає в себе всі необхідні файли для встановлення. Після завантаження просто розпакуйте архів і дотримуйтесь інструкції README.txt"
+                downloadLink: "https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing"
             },
             {
                 id: 1,
                 name: "Dacia Sandero Patrol",
                 price: 50,
-                description: "Повний комплект з текстурами та налаштуваннями для патрульної версії Dacia Sandero.",
+                description: "Повний комплект з текстурами та налаштуваннями для Dacia Sandero. Ідеальний вибір для патрульної служби.",
                 image: "https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&",
                 rating: 4.8,
                 reviews: 8,
                 category: "patrol",
-                features: ["Високоякісні текстури", "Реалістичні світла", "Налаштована фізика", "Сумісність з LSPDFR"],
-                details: "Модель має оптимізовану полігонну сітку для кращої продуктивності в грі. Включає 4 варіанти розфарбування."
+                features: ["Реалістичні текстури", "Повний комплект сигналів", "Оптимізована фізика", "Деталізований салон"]
             },
             {
                 id: 2,
                 name: "Toyota Corolla Patrol",
                 price: 50,
-                description: "Патрульна версія Toyota Corolla з унікальними текстурами та спецсигналами.",
+                description: "Включає спецсигнали та унікальні текстури для Toyota Corolla. Висока деталізація та реалістичне управління.",
                 image: "https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&",
                 rating: 5.0,
                 reviews: 5,
                 category: "patrol",
-                features: ["Деталізований салон", "Робочі маячки", "Реалістичні звуки", "3 варіанти розфарбування"],
-                details: "Модель була спеціально адаптована для використання в LSPDFR. Включає всі необхідні файли для встановлення."
+                features: ["Унікальні текстури", "Спецсигнали", "Режим погоні", "Деталізований інтер'єр"]
             },
             {
                 id: 3,
                 name: "Renault Duster Patrol",
                 price: 50,
-                description: "Патрульний позашляховик з реалістичною фізикою та деталізованим екстер'єром.",
+                description: "Модель з реалістичною фізикою для Renault Duster. Відмінно підходить для служби в умовах бездоріжжя.",
                 image: "https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&",
                 rating: 4.7,
                 reviews: 7,
                 category: "patrol",
-                features: ["Покращена фізика", "Деталізований салон", "Робочі двері та багажник", "5 варіантів розфарбування"],
-                details: "Ця модель ідеально підходить для патрулювання сільської місцевості. Має високу продуктивність навіть на слабких ПК."
+                features: ["Реалістична фізика", "Підвищена прохідність", "Повний комплект сигналів", "Деталізований кузов"]
             },
             {
                 id: 4,
                 name: "Renault Duster НГУ",
                 price: 50,
-                description: "Спеціальна версія для Національної гвардії України з унікальними текстурами.",
+                description: "Спеціальна версія для Національної гвардії України. Унікальні текстури та спеціальне обладнання.",
                 image: "https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&",
                 rating: 4.9,
                 reviews: 3,
                 category: "other",
-                features: ["Текстури НГУ", "Спеціальне обладнання", "Реалістичні світла", "Унікальні звуки"],
-                details: "Модель створена за реальними зразками автомобілів Національної гвардії України. Включає деталізований інтер'єр."
+                features: ["Унікальні текстури НГУ", "Спеціальне обладнання", "Режим патрулювання", "Оптимізована модель"]
             }
         ];
 
-        // Кошик
-        let cart = [];
         const MONOBANK_JAR_URL = "https://send.monobank.ua/jar/G7ZB9qnNG";
-
-        // Ініціалізація магазину
-        document.addEventListener('DOMContentLoaded', function() {
-            // Відновлення кошика з localStorage
-            if (localStorage.getItem('cart')) {
-                cart = JSON.parse(localStorage.getItem('cart'));
-                updateCart();
-            }
-
-            // Пошук товарів
-            document.getElementById('searchInput').addEventListener('input', function() {
-                searchProducts(this.value);
-            });
-
-            // Застосування фільтрів за ціною
-            document.getElementById('priceMin').addEventListener('change', applyPriceFilter);
-            document.getElementById('priceMax').addEventListener('change', applyPriceFilter);
-        });
+        let cart = [];
+        
+        // Завантаження кошика з localStorage
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCart();
+        }
 
         // Функція фільтрації продуктів
         function filterProducts(category) {
@@ -1129,16 +1111,16 @@
                     }
                 }
             });
-
+            
             updateProductsCount();
         }
 
-        // Сортування продуктів
+        // Функція сортування продуктів
         function sortProducts(sortType) {
             const productGrid = document.getElementById('productGrid');
-            const products = Array.from(productGrid.children);
+            const productCards = Array.from(document.querySelectorAll('.product-card'));
             
-            products.sort((a, b) => {
+            productCards.sort((a, b) => {
                 switch(sortType) {
                     case 'price-asc':
                         return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
@@ -1155,19 +1137,19 @@
                 }
             });
             
-            products.forEach(product => productGrid.appendChild(product));
+            // Очистити і знову додати відсортовані картки
+            productGrid.innerHTML = '';
+            productCards.forEach(card => productGrid.appendChild(card));
         }
 
-        // Пошук продуктів
-        function searchProducts(query) {
+        // Функція пошуку продуктів
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const productCards = document.querySelectorAll('.product-card');
-            const lowerQuery = query.toLowerCase();
             
             productCards.forEach(card => {
-                const name = card.dataset.name.toLowerCase();
-                const description = card.querySelector('.product-description').textContent.toLowerCase();
-                
-                if (name.includes(lowerQuery) || description.includes(lowerQuery)) {
+                const productName = card.dataset.name.toLowerCase();
+                if (productName.includes(searchTerm)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
@@ -1177,7 +1159,7 @@
             updateProductsCount();
         }
 
-        // Фільтрація за ціною
+        // Функція фільтрації за ціною
         function applyPriceFilter() {
             const minPrice = parseFloat(document.getElementById('priceMin').value) || 0;
             const maxPrice = parseFloat(document.getElementById('priceMax').value) || Infinity;
@@ -1185,7 +1167,6 @@
             
             productCards.forEach(card => {
                 const price = parseFloat(card.dataset.price);
-                
                 if (price >= minPrice && price <= maxPrice) {
                     card.classList.remove('hidden');
                 } else {
@@ -1198,8 +1179,8 @@
 
         // Оновлення лічильника товарів
         function updateProductsCount() {
-            const visibleCount = document.querySelectorAll('.product-card:not(.hidden)').length;
-            document.getElementById('productsCount').textContent = `Знайдено ${visibleCount} товарів`;
+            const visibleProducts = document.querySelectorAll('.product-card:not(.hidden)').length;
+            document.getElementById('productsCount').textContent = `Знайдено ${visibleProducts} товарів`;
         }
 
         // Додавання товару до кошика
@@ -1208,7 +1189,6 @@
             if (!product) return;
             
             const existingItem = cart.find(item => item.id === productId);
-            
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -1258,7 +1238,7 @@
                         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                         <div class="cart-item-info">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">${item.price} грн × ${item.quantity} = ${item.price * item.quantity} грн</div>
+                            <div class="cart-item-price">${item.price * item.quantity} грн (${item.price} грн × ${item.quantity})</div>
                             <div class="cart-item-controls">
                                 <div class="quantity-controls">
                                     <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
@@ -1275,15 +1255,11 @@
                 });
             }
             
-            // Оновлення лічильника
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalCount;
-            
-            // Оновлення загальної суми
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             cartTotal.textContent = `${total} грн`;
             
-            // Збереження кошика в localStorage
+            // Зберегти кошик в localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
         }
 
@@ -1321,14 +1297,14 @@
             const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*100}`;
             
             // Формування списку товарів
-            const productsList = cart.map(item => `${item.name} (${item.quantity} шт.)`).join(', ');
+            const productList = cart.map(item => `${item.name} (${item.quantity} шт.)`).join(', ');
             
             // Показати інструкцію
             alert(`Для завершення покупки:
 1. Оплатіть ${total} грн за посиланням
 2. В коментарі до платежу вкажіть:
-"${email}, ${productsList}"
-3. Після оплати ми надішлемо файли на вказаний email`);
+"${email}, ${productList}, ${comment}"
+3. Після оплати ми надішлемо файли на вказаний email протягом 24 годин`);
             
             // Відкрити посилання на оплату
             window.open(paymentUrl, '_blank');
@@ -1338,47 +1314,47 @@
             cart = [];
             updateCart();
             localStorage.removeItem('cart');
-            
-            showNotification('Дякуємо за замовлення! Файли будуть надіслані після оплати.', 'success');
         }
 
-        // Швидкий перегляд товару
+        // Показати швидкий перегляд товару
         function showQuickView(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
+            const product = products[productId];
             const quickViewContent = document.getElementById('quickViewContent');
+            
             quickViewContent.innerHTML = `
-                <h2>${product.name}</h2>
-                <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 8px; margin: 15px 0;">
+                <h2 class="modal-title">${product.name}</h2>
+                <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
                 <p style="margin-bottom: 15px;">${product.description}</p>
                 
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                    <div>
-                        <div style="color: var(--accent-yellow); margin-bottom: 5px;">
-                            <i class="fas fa-star"></i> ${product.rating} (${product.reviews} відгуків)
-                        </div>
-                        <div style="font-size: 24px; font-weight: bold; color: ${product.price === 0 ? 'var(--accent-blue)' : 'var(--accent-green)'}">
-                            ${product.price === 0 ? 'Безкоштовно' : product.price + ' грн'}
-                        </div>
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                        <i class="fas fa-star" style="color: var(--accent-yellow);"></i>
+                        <span>Рейтинг: ${product.rating} (${product.reviews} відгуків)</span>
                     </div>
-                    ${product.price === 0 ? 
-                        `<a href="${product.downloadLink}" class="download-btn" style="display: inline-block; margin-top: 10px;">
-                            <i class="fas fa-download"></i> Завантажити
-                        </a>` : 
-                        `<button class="add-to-cart" onclick="addToCart(${product.id}); closeQuickView()" style="margin-top: 10px;">
-                            <i class="fas fa-cart-plus"></i> Додати до кошика
-                        </button>`
-                    }
+                    <div style="font-size: 24px; font-weight: bold; color: ${product.price === 0 ? 'var(--accent-blue)' : 'var(--accent-green)'}; margin-bottom: 15px;">
+                        ${product.price === 0 ? 'Безкоштовно' : product.price + ' грн'}
+                    </div>
                 </div>
                 
-                <h3 style="margin: 20px 0 10px;">Характеристики:</h3>
+                <h3 style="margin-bottom: 10px;">Особливості:</h3>
                 <ul style="margin-bottom: 20px; padding-left: 20px;">
-                    ${product.features.map(feature => `<li style="margin-bottom: 5px;">${feature}</li>`).join('')}
+                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
                 </ul>
                 
-                <h3 style="margin: 20px 0 10px;">Деталі:</h3>
-                <p style="margin-bottom: 20px;">${product.details}</p>
+                <div style="display: flex; gap: 10px;">
+                    ${product.price === 0 ? `
+                        <a href="${product.downloadLink}" class="btn btn-primary" style="flex: 1; text-align: center;">
+                            <i class="fas fa-download"></i> Завантажити
+                        </a>
+                    ` : `
+                        <button class="btn btn-primary" style="flex: 1;" onclick="addToCart(${product.id}); closeQuickView()">
+                            <i class="fas fa-cart-plus"></i> Додати до кошика
+                        </button>
+                    `}
+                    <button class="btn btn-secondary" onclick="closeQuickView()" style="flex: 1;">
+                        Закрити
+                    </button>
+                </div>
             `;
             
             document.getElementById('quickViewModal').style.display = 'block';
@@ -1389,13 +1365,13 @@
             document.getElementById('quickViewModal').style.display = 'none';
         }
 
-        // Показати сповіщення
+        // Функція для показу сповіщень
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
                 <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
+                ${message}
             `;
             
             document.body.appendChild(notification);
@@ -1408,11 +1384,19 @@
             }, 3000);
         }
 
-        // Зміна кількості товарів на сторінці
-        function changeItemsPerPage(count) {
-            // Тут можна реалізувати пагінацію, якщо товарів буде багато
-            console.log(`Показати ${count} товарів на сторінці`);
-        }
+        // Ініціалізація пошуку
+        document.getElementById('searchInput').addEventListener('input', searchProducts);
+        
+        // Ініціалізація кнопок фільтрації
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Оновлення лічильника товарів при завантаженні
+        updateProductsCount();
     </script>
 </body>
 </html>
