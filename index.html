@@ -1,140 +1,176 @@
 <!DOCTYPE html>
 <html lang="uk" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO SHOP - Сайт у розробці</title>
-    <meta name="description" content="Магазин контенту для LSPDFR у розробці. Найкращі моделі машин, скіни та плагіни для LSPDFR. Українські поліцейські машини, реалістичні моделі з повним функціоналом.">
-    <meta name="keywords" content="LSPDFR, моди, поліцейські машини, GTA V, українські моди, у розробці, скоро запуск">
+    <title>LSPDFR ELITE STUDIO SHOP 3.0 - Майбутнє Модів для LSPDFR</title>
+    <meta name="description" content="Ласкаво просимо до LSPDFR ELITE STUDIO SHOP 3.0! Найкращі моделі машин, скіни та плагіни для LSPDFR. Ексклюзивні українські поліцейські машини, реалістичні моделі з повним функціоналом. Дізнайтеся про наші послуги та майбутні оновлення.">
+    <meta name="keywords" content="LSPDFR, моди, поліцейські машини, GTA V, українські моди, оновлення 3.0, custom vehicles, police mods, gaming, textures, plugins, FiveM">
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" type="image/png">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
+
     <style>
         /* --- CSS Variables (Themes) --- */
         :root {
-            --color-primary: #0066FF; /* Blue */
-            --color-secondary: #FF6B35; /* Orange */
-            --color-accent: #00D4FF; /* Cyan */
+            --color-primary: #007bff; /* Bright Blue */
+            --color-secondary: #6c757d; /* Grey */
+            --color-accent-1: #28a745; /* Green */
+            --color-accent-2: #ffc107; /* Yellow */
+            --color-discord: #7289DA; /* Discord Blue */
 
+            /* Dark Theme */
             --bg-body-dark: #0A0A0F;
             --bg-card-dark: #1E1E2E;
+            --bg-header-dark: rgba(10, 10, 15, 0.8);
             --text-primary-dark: #FFFFFF;
             --text-secondary-dark: #B4B4C7;
             --border-dark: rgba(255, 255, 255, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.25);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+            --input-bg-dark: #2A2A3A;
+            --input-border-dark: #444455;
+            --footer-bg-dark: #111118;
 
-            --bg-body-light: #F0F2F5;
+            /* Light Theme */
+            --bg-body-light: #F8F9FA;
             --bg-card-light: #FFFFFF;
-            --text-primary-light: #2C3E50;
-            --text-secondary-light: #607D8B;
+            --bg-header-light: rgba(255, 255, 255, 0.9);
+            --text-primary-light: #212529;
+            --text-secondary-light: #495057;
             --border-light: rgba(0, 0, 0, 0.1);
-            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-light: rgba(0, 0, 0, 0.15);
+            --input-bg-light: #E9ECEF;
+            --input-border-light: #CED4DA;
+            --footer-bg-light: #E9ECEF;
 
-            --gradient-main: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            --gradient-main: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-1) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--color-accent-2) 0%, var(--color-secondary) 100%);
             
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
             --spacing-md: 1.5rem;
             --spacing-lg: 2.5rem;
             --spacing-xl: 4rem;
+            --spacing-2xl: 6rem;
 
+            --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
+            --radius-full: 50%;
 
-            --transition-speed: 0.3s ease-in-out;
+            --transition-speed: 0.4s ease-in-out;
         }
 
-        /* --- Dark Theme Defaults --- */
-        body {
-            background-color: var(--bg-body-dark);
-            color: var(--text-primary-dark);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        .card {
-            background-color: var(--bg-card-dark);
-            border: 1px solid var(--border-dark);
-            box-shadow: 0 10px 30px var(--shadow-dark);
-            transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .text-secondary {
-            color: var(--text-secondary-dark);
-        }
-
-        /* --- Light Theme Overrides --- */
-        html[data-theme="light"] body {
-            background-color: var(--bg-body-light);
-            color: var(--text-primary-light);
-        }
-
-        html[data-theme="light"] .card {
-            background-color: var(--bg-card-light);
-            border: 1px solid var(--border-light);
-            box-shadow: 0 5px 20px var(--shadow-light);
-        }
-
-        html[data-theme="light"] .text-secondary {
-            color: var(--text-secondary-light);
-        }
-
-        html[data-theme="light"] .theme-toggle {
-            background: #FFD700; /* Gold for sun */
-            color: #333;
-        }
-
-        /* --- Base Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* --- Theme Application --- */
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative; /* For floating elements */
-            overflow: hidden; /* Hide floating elements overflow */
+            background-color: var(--bg-body-dark);
+            color: var(--text-primary-dark);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Layout --- */
+        html[data-theme="light"] body {
+            background-color: var(--bg-body-light);
+            color: var(--text-primary-light);
+        }
+        html[data-theme="light"] .card, html[data-theme="light"] .feature-card {
+            background-color: var(--bg-card-light);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 5px 20px var(--shadow-light);
+        }
+        html[data-theme="light"] .text-secondary {
+            color: var(--text-secondary-light);
+        }
+        html[data-theme="light"] .header {
+            background: var(--bg-header-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+        html[data-theme="light"] .theme-toggle {
+            background: var(--color-accent-2);
+            color: var(--text-primary-light);
+        }
+        html[data-theme="light"] input, html[data-theme="light"] textarea {
+            background-color: var(--input-bg-light);
+            border: 1px solid var(--input-border-light);
+            color: var(--text-primary-light);
+        }
+        html[data-theme="light"] .footer {
+            background-color: var(--footer-bg-light);
+        }
+        html[data-theme="light"] .social-link, html[data-theme="light"] .scroll-to-top {
+            background-color: var(--bg-card-light);
+            border: 1px solid var(--border-light);
+        }
+
+
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+            transition: color var(--transition-speed);
+        }
+        a:hover {
+            color: var(--color-accent-1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: var(--spacing-md);
-            text-align: center;
-            z-index: 10; /* Ensure content is above background elements */
+            padding: 0 var(--spacing-md);
         }
 
-        .main-content {
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-lg);
+        .section {
+            padding: var(--spacing-xl) 0;
             position: relative;
-            z-index: 1; /* For shadow/glow effect */
-            animation: fadeInScale 0.8s ease-out forwards;
         }
-
-        /* --- Headings & Text --- */
-        h1 {
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+        .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 700;
             margin-bottom: var(--spacing-md);
             line-height: 1.2;
+            position: relative;
+            display: inline-block;
         }
-
-        p {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.7;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-main);
+            margin: var(--spacing-sm) auto 0;
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .gradient-text {
@@ -144,43 +180,135 @@
             background-clip: text;
         }
 
-        .highlight-date {
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+        /* --- Header --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background-color var(--transition-speed), border-bottom var(--transition-speed);
+            background: var(--bg-header-dark);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-dark);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+        }
+        .logo-text {
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--color-primary);
-            margin-top: var(--spacing-md);
-            animation: pulse 1.5s infinite ease-in-out;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            transition: width var(--transition-speed);
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
         }
 
-        /* --- Badges --- */
-        .badge {
+        /* --- Hero Section --- */
+        .hero {
+            padding-top: 150px; /* Adjust for fixed header */
+            padding-bottom: var(--spacing-xl);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--bg-body-dark) 0%, rgba(var(--color-primary-rgb, 0, 123, 255), 0.05) 100%);
+        }
+        .hero-content {
+            z-index: 10;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            padding: 8px 18px;
-            background: rgba(var(--color-accent-rgb, 0, 212, 255), 0.15); /* Dynamic opacity */
-            color: var(--color-accent);
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(var(--color-accent-1-rgb, 40, 167, 69), 0.15);
+            color: var(--color-accent-1);
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: var(--spacing-md);
             backdrop-filter: blur(5px);
         }
-
-        /* --- Buttons --- */
-        .btn-group {
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-buttons {
             display: flex;
             justify-content: center;
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
             flex-wrap: wrap;
         }
-
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            padding: 12px 28px;
+            gap: 10px;
+            padding: 14px 30px;
             border-radius: var(--radius-md);
             font-weight: 600;
             text-decoration: none;
@@ -188,221 +316,1029 @@
             transition: all var(--transition-speed);
             font-size: 1rem;
         }
-
         .btn-primary {
             background: var(--gradient-main);
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(var(--color-primary-rgb, 0, 123, 255), 0.4);
         }
-
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(var(--color-primary-rgb, 0, 123, 255), 0.6);
         }
-
         .btn-outline {
             background: transparent;
             color: var(--text-primary);
             border: 2px solid var(--color-primary);
-            transition: all var(--transition-speed);
         }
-
         .btn-outline:hover {
             background-color: var(--color-primary);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(var(--color-primary-rgb, 0, 123, 255), 0.2);
         }
 
-        /* --- Footer --- */
-        .footer {
-            margin-top: var(--spacing-xl);
-            padding: var(--spacing-md) 0;
+        /* --- Floating Background Elements (Hero) --- */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .floating-element {
+            position: absolute;
+            border-radius: var(--radius-full);
+            filter: blur(80px);
+            opacity: 0.1;
+            animation: float 15s ease-in-out infinite;
+        }
+        .floating-element:nth-child(1) { top: 10%; left: 5%; width: 200px; height: 200px; background: var(--color-primary); animation-delay: 0s; }
+        .floating-element:nth-child(2) { bottom: 20%; right: 10%; width: 250px; height: 250px; background: var(--color-accent-1); animation-delay: 5s; }
+        .floating-element:nth-child(3) { top: 50%; left: 30%; width: 150px; height: 150px; background: var(--color-accent-2); animation-delay: 10s; }
+        .floating-element:nth-child(4) { bottom: 5%; left: 60%; width: 300px; height: 300px; background: var(--color-secondary); animation-delay: 7s; }
+
+        /* --- Card Styles --- */
+        .card, .feature-card {
+            background-color: var(--bg-card-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: 0 5px 20px var(--shadow-dark);
+            transition: all var(--transition-speed);
+        }
+        .card:hover, .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-dark);
+            border-color: var(--color-primary);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        .about-text h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin-bottom: var(--spacing-md);
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        .about-image img {
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 30px var(--shadow-dark);
+        }
+
+        /* --- Products/Services Section --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .product-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-dark);
+            background-color: var(--bg-card-dark);
+            transition: all var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .product-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-accent-1);
+        }
+        .product-item i {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        .product-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        .product-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- Why Choose Us Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+        }
+        .feature-card .icon {
+            font-size: 2.5rem;
+            color: var(--color-accent-2);
+            flex-shrink: 0;
+            width: 50px;
+            text-align: center;
+        }
+        .feature-card .text h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        .feature-card .text p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            z-index: 10;
         }
 
-        /* --- Theme Toggle Button --- */
-        .theme-toggle {
-            position: fixed;
-            bottom: var(--spacing-md);
-            right: var(--spacing-md);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: var(--color-primary);
-            color: white;
-            font-size: 1.2rem;
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            position: relative;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed);
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(var(--color-primary-rgb, 0, 123, 255), 0.7);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 100;
-            transition: all var(--transition-speed);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+            font-size: 1.5rem;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            backdrop-filter: blur(10px);
         }
-
-        /* --- Background Floating Elements --- */
-        .floating-element {
+        .lightbox.visible {
+            opacity: 1;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox .close-btn {
             position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.1;
-            animation: float 10s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 15%;
-            left: 10%;
-            width: 250px;
-            height: 250px;
+            top: 20px;
+            right: 20px;
             background: var(--color-primary);
-            animation-delay: 0s;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            transition: transform 0.2s ease;
+        }
+        .lightbox .close-btn:hover {
+            transform: scale(1.1);
         }
 
-        .floating-element:nth-child(2) {
-            top: 70%;
-            right: 5%;
-            width: 300px;
-            height: 300px;
-            background: var(--color-secondary);
-            animation-delay: 3s;
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .testimonial-card {
+            padding: var(--spacing-lg);
+            text-align: left;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 2px solid var(--color-primary);
+        }
+        .author-info strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+        .author-info span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        .floating-element:nth-child(3) {
-            bottom: 20%;
-            left: 40%;
-            width: 180px;
-            height: 180px;
-            background: var(--color-accent);
-            animation-delay: 6s;
+        /* --- Future Plans Section --- */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
         }
-        
-        .floating-element:nth-child(4) {
-            top: 5%;
-            right: 30%;
-            width: 150px;
-            height: 150px;
-            background: var(--color-primary);
-            animation-delay: 8s;
+        .plan-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border: 1px dashed var(--color-primary);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-card-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-item i {
+            font-size: 3rem;
+            color: var(--color-accent-1);
+            margin-bottom: var(--spacing-md);
+        }
+        .plan-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+        .plan-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .plan-item::before {
+            content: '🔜';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
-        /* --- Animations --- */
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+
+        /* --- Contact Section --- */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+        .contact-form .form-group {
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--input-border-dark);
+            background-color: var(--input-bg-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb, 0, 123, 255), 0.2);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .contact-info p i {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+        }
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            justify-content: center; /* Center for mobile */
+        }
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            background-color: var(--bg-card-dark);
+            border: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            transition: all var(--transition-speed);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        .social-link.discord:hover { color: var(--color-discord); border-color: var(--color-discord); }
+        .social-link.facebook:hover { color: #1877F2; border-color: #1877F2; }
+        .social-link.twitter:hover { color: #1DA1F2; border-color: #1DA1F2; }
+        .social-link.instagram:hover { color: #E4405F; border-color: #E4405F; }
+
+
+        /* --- Footer --- */
+        .footer {
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+            background-color: var(--footer-bg-dark);
+            color: var(--text-secondary-dark);
+            text-align: center;
+            border-top: 1px solid var(--border-dark);
+        }
+        .footer-logo {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        .footer-links li a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .footer-links li a:hover {
+            color: var(--color-primary);
+        }
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        .footer-social-link {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-speed);
+        }
+        .footer-social-link:hover {
+            color: var(--color-primary);
+        }
+        .footer-bottom {
+            font-size: 0.9rem;
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-dark);
+        }
+        .footer-highlight {
+            color: var(--color-accent-1);
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.03);
-                opacity: 0.9;
-            }
+
+        /* --- Utility & Animations --- */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+
+        .visible { opacity: 1 !important; transform: none !important; }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(10px, -10px); }
-            50% { transform: translate(-10px, 10px); }
-            75% { transform: translate(10px, 10px); }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -10px) rotate(5deg); }
+            50% { transform: translate(-10px, 10px) rotate(-5deg); }
+            75% { transform: translate(10px, 10px) rotate(5deg); }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card-dark);
+            color: var(--text-primary);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-main);
+            width: 0%;
+            transition: width 0.1s linear;
         }
 
         /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: var(--spacing-lg) var(--spacing-sm);
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
             }
-            .btn-group {
+            .about-text, .about-image {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
                 flex-direction: column;
-                gap: var(--spacing-sm);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-header-dark);
+                backdrop-filter: blur(15px);
+                border-top: 1px solid var(--border-dark);
+                padding: var(--spacing-md) 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-link {
+                padding: 10px 0;
+                display: block;
+            }
+            .nav-link::after {
+                width: 50% !important; /* Adjust line for mobile */
+                left: 25% !important;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero {
+                padding-top: 100px;
+                min-height: auto;
+            }
+            .hero-title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.3rem);
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             .btn {
-                width: 100%;
-                max-width: 300px; /* Limit button width */
-                margin: 0 auto;
+                width: 90%;
+                max-width: 300px;
+            }
+            .section {
+                padding: var(--spacing-lg) 0;
+            }
+            .section-header {
+                margin-bottom: var(--spacing-lg);
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .scroll-to-top, .theme-toggle {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+            .product-item, .feature-card, .testimonial-card, .plan-item {
+                padding: var(--spacing-md);
+            }
+            .product-item i, .feature-card .icon, .plan-item i {
+                font-size: 2.5rem;
+            }
+            .product-item h4, .feature-card .text h4, .plan-item h4 {
+                font-size: 1.3rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-sm);
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-
-    <div class="container">
-        <div class="card main-content">
-            <span class="badge"><i class="fas fa-tools"></i> Сайт у розробці</span>
-            
-            <h1>
-                <span class="gradient-text">LSPDFR ELITE STUDIO SHOP</span>
-                <br>Скоро запуск!
-            </h1>
-            
-            <p class="text-secondary">
-                Ми наполегливо працюємо над створенням найкращого магазину контенту для LSPDFR. Тут ви знайдете найкрутіші моделі машин, скіни та плагіни, включаючи реалістичні українські поліцейські машини з повним функціоналом.
-            </p>
-            
-            <p class="highlight-date">
-                Запуск заплановано на: **20 липня 2025 року!**
-            </p>
-
-            <div class="btn-group">
-                <a href="https://discord.gg/YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-discord"></i> Приєднатись до Discord
-                </a>
-                <a href="mailto:info@lspdfrelitestudio.com" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Написати нам
-                </a>
-            </div>
-        </div>
-        
-        <footer class="footer">
-            &copy; 2025 LSPDFR ELITE STUDIO. Усі права захищені.
-        </footer>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
     <button class="theme-toggle" id="theme-toggle">
         <i class="fas fa-sun" id="theme-icon"></i>
     </button>
 
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#hero" class="logo">
+                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO Logo">
+                    <span class="logo-text gradient-text">LSPDFR ELITE STUDIO</span>
+                </a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Головна</a></li>
+                    <li><a href="#about" class="nav-link">Про нас</a></li>
+                    <li><a href="#products" class="nav-link">Продукти</a></li>
+                    <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                    <li><a href="#contact" class="nav-link">Контакти</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-bg-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+            <div class="container hero-content">
+                <span class="hero-badge fade-in-up"><i class="fas fa-rocket"></i> ОНОВЛЕННЯ 3.0</span>
+                <h1 class="hero-title fade-in-up">
+                    Відчуйте <span class="gradient-text">Майбутнє Модів</span><br>з LSPDFR ELITE STUDIO
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Ласкаво просимо до нової ери LSPDFR модифікацій! Ми докорінно переосмислили ваш досвід, представляючи найякісніші українські поліцейські машини, реалістичні скіни та інноваційні плагіни.
+                </p>
+                <div class="hero-buttons fade-in-up">
+                    <a href="https://discord.gg/YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-discord"></i> Приєднатися до Спільноти
+                    </a>
+                    <a href="#products" class="btn btn-outline">
+                        <i class="fas fa-gem"></i> Дивитись Продукти
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Про <span class="gradient-text">LSPDFR ELITE STUDIO</span></h2>
+                    <p class="section-subtitle">
+                        Ми - команда ентузіастів, присвячена створенню неперевершеного контенту для LSPDFR. Наша місія – вивести вашу гру на новий рівень реалізму та занурення.
+                    </p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text fade-in-up card">
+                        <h3>Наша Місія</h3>
+                        <p class="text-secondary">
+                            LSPDFR ELITE STUDIO SHOP заснована на пристрасті до деталізації та автентичності. Ми пишаємося тим, що пропонуємо не просто модифікації, а цілісні доповнення, які збагачують ігровий досвід кожного поліцейського у GTA V. Ми вкладаємо душу в кожну модель, щоб вона відповідала найвищим стандартам якості та функціональності.
+                        </p>
+                        <p class="text-secondary">
+                            З кожним оновленням ми прагнемо перевершити очікування, надаючи вам доступ до ексклюзивних розробок, які ви не знайдете ніде інде. Наша спільнота — це серце нашої роботи, і ми завжди відкриті до ваших ідей та відгуків.
+                        </p>
+                    </div>
+                    <div class="about-image fade-in-up">
+                        <img src="https://via.placeholder.com/600x400/1E1E2E/FFFFFF?text=LSPDFR+Studio+Vision" alt="LSPDFR Elite Studio Vision">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="products">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Наші <span class="gradient-text">Ексклюзивні Продукти</span></h2>
+                    <p class="section-subtitle">
+                        Відкрийте для себе високоякісний контент, ретельно розроблений для LSPDFR, щоб зробити вашу гру ще більш захоплюючою.
+                    </p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-item fade-in-up">
+                        <i class="fas fa-car-alt"></i>
+                        <h4>Українські Поліцейські Машини</h4>
+                        <p class="text-secondary">Надзвичайно деталізовані та реалістичні моделі українських поліцейських автомобілів з повним функціоналом та автентичними лівреями.</p>
+                    </div>
+                    <div class="product-item fade-in-up" style="animation-delay: 0.2s;">
+                        <i class="fas fa-paint-roller"></i>
+                        <h4>Преміум Скіни та Текстури</h4>
+                        <p class="text-secondary">Високоякісні скіни для персонажів та транспортних засобів, що забезпечують максимальну візуальну автентичність та занурення.</p>
+                    </div>
+                    <div class="product-item fade-in-up" style="animation-delay: 0.4s;">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h4>Інноваційні Плагіни</h4>
+                        <p class="text-secondary">Ексклюзивні плагіни, які розширюють геймплей LSPDFR, додаючи нові можливості та динамічні події.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="why-us">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Чому Обирають <span class="gradient-text">Саме Нас</span></h2>
+                    <p class="section-subtitle">
+                        Ми прагнемо до досконалості у всьому, що робимо, пропонуючи унікальні переваги для наших клієнтів.
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <div class="icon"><i class="fas fa-medal"></i></div>
+                        <div class="text">
+                            <h4>Виняткова Якість</h4>
+                            <p class="text-secondary">Кожен мод створюється з увагою до найменших деталей, забезпечуючи бездоганну якість та продуктивність.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <div class="text">
+                            <h4>Підтримка Спільноти</h4>
+                            <p class="text-secondary">Ми активно взаємодіємо з нашою спільнотою, надаючи підтримку та реагуючи на ваші пропозиції.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="icon"><i class="fas fa-globe"></i></div>
+                        <div class="text">
+                            <h4>Унікальний Український Контент</h4>
+                            <p class="text-secondary">Ми є лідерами у розробці автентичного українського контенту для LSPDFR.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="text">
+                            <h4>Безпека та Стабільність</h4>
+                            <p class="text-secondary">Наші моди тестуються для забезпечення максимальної сумісності та стабільності у вашій грі.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Наша <span class="gradient-text">Галерея Проектів</span></h2>
+                    <p class="section-subtitle">
+                        Погляньте на наші найкращі роботи, що демонструють якість та деталізацію, яку ми пропонуємо.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in-up">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=UA+Police+Car+1" alt="Український поліцейський автомобіль 1" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=UA+Police+Car+1+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="animation-delay: 0.1s;">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=UA+Police+Car+2" alt="Український поліцейський автомобіль 2" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=UA+Police+Car+2+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=UA+Police+Car+3" alt="Український поліцейський автомобіль 3" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=UA+Police+Car+3+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="animation-delay: 0.3s;">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=UA+Police+Skin" alt="Український поліцейський скін" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=UA+Police+Skin+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="animation-delay: 0.4s;">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=LSPDFR+Plugin+Concept" alt="Концепт плагіна LSPDFR" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=LSPDFR+Plugin+Concept+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="animation-delay: 0.5s;">
+                        <img src="https://via.placeholder.com/400x250/333344/FFFFFF?text=Custom+Vehicle" alt="Користувацький транспорт" data-full-src="https://via.placeholder.com/800x500/333344/FFFFFF?text=Custom+Vehicle+-+Full">
+                        <div class="gallery-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="testimonials">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Відгуки <span class="gradient-text">Наших Клієнтів</span></h2>
+                    <p class="section-subtitle">
+                        Ось що говорять про нас задоволені користувачі.
+                    </p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card card fade-in-up">
+                        <p>"Я ніколи не бачив такої уваги до деталей! Українські поліцейські машини від LSPDFR Elite Studio просто неймовірні. Це новий рівень занурення."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60/777788/FFFFFF?text=JD" alt="John Doe">
+                            <div class="author-info">
+                                <strong>Іван Петренко</strong>
+                                <span>Відданий гравець LSPDFR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card fade-in-up" style="animation-delay: 0.2s;">
+                        <p>"Якість скінів просто вражає. Мої поліцейські патрулі тепер виглядають абсолютно автентично. Дякую команді за чудову роботу!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60/777788/FFFFFF?text=AS" alt="Anna Smith">
+                            <div class="author-info">
+                                <strong>Олена Коваль</strong>
+                                <span>Стрімер та Моддер</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card fade-in-up" style="animation-delay: 0.4s;">
+                        <p>"Плагіни від LSPDFR Elite Studio змінили мій ігровий процес. Вони додають стільки динаміки та реалізму. Дуже рекомендую!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60/777788/FFFFFF?text=MK" alt="Mike K">
+                            <div class="author-info">
+                                <strong>Максим Кравець</strong>
+                                <span>Аматор LSPDFR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="future-plans">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Наші <span class="gradient-text">Майбутні Плани</span></h2>
+                    <p class="section-subtitle">
+                        Ми не зупиняємося на досягнутому. Ось що чекає на вас в найближчих оновленнях.
+                    </p>
+                </div>
+                <div class="plans-grid">
+                    <div class="plan-item card fade-in-up">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>Особистий Кабінет</h4>
+                        <p class="text-secondary">Повноцінний особистий кабінет для керування вашими покупками, завантаженнями та унікальними пропозиціями.</p>
+                    </div>
+                    <div class="plan-item card fade-in-up" style="animation-delay: 0.2s;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Розширений Магазин</h4>
+                        <p class="text-secondary">Ще більше ексклюзивного контенту, нові категорії товарів та покращені фільтри пошуку.</p>
+                    </div>
+                    <div class="plan-item card fade-in-up" style="animation-delay: 0.4s;">
+                        <i class="fas fa-headset"></i>
+                        <h4>Покращена Підтримка</h4>
+                        <p class="text-secondary">Система тікетів та база знань для швидкої та ефективної допомоги у будь-яких питаннях.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Зв'яжіться <span class="gradient-text">З Нами</span></h2>
+                    <p class="section-subtitle">
+                        Маєте запитання або пропозиції? Будемо раді поспілкуватися!
+                    </p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-form card fade-in-up">
+                        <h3>Надішліть нам повідомлення</h3>
+                        <form action="#" method="POST"> <div class="form-group">
+                                <label for="name">Ваше Ім'я</label>
+                                <input type="text" id="name" name="name" required placeholder="Іван">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Ваш Email</label>
+                                <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Повідомлення</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Ваше повідомлення..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Надіслати
+                            </button>
+                        </form>
+                    </div>
+                    <div class="contact-info card fade-in-up">
+                        <h3>Наші Контакти</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Україна, Львівська область</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                        <p><i class="fas fa-phone"></i> +380 (XX) XXX-XX-XX (за запитом)</p>
+                        
+                        <h3>Слідкуйте за нами</h3>
+                        <div class="social-links">
+                            <a href="https://discord.gg/YOUR_DISCORD_INVITE_LINK" target="_blank" class="social-link discord"><i class="fab fa-discord"></i></a>
+                            <a href="https://www.facebook.com/yourpage" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/yourhandle" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/youraccount" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <span class="gradient-text">LSPDFR ELITE STUDIO</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#products">Продукти</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#testimonials">Відгуки</a></li>
+                <li><a href="#future-plans">Плани</a></li>
+            </ul>
+            <div class="footer-social-links">
+                <a href="https://discord.gg/YOUR_DISCORD_INVITE_LINK" target="_blank" class="footer-social-link"><i class="fab fa-discord"></i></a>
+                <a href="https://www.facebook.com/yourpage" target="_blank" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourhandle" target="_blank" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/youraccount" target="_blank" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 LSPDFR ELITE STUDIO. Усі права захищені.
+                <p class="footer-highlight">Ми створюємо майбутнє модифікацій для LSPDFR.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Smooth scrolling for anchor links (if any were present) - kept for robustness
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Close mobile menu if open
+                if (document.getElementById('nav-menu').classList.contains('active')) {
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
             });
         });
 
-        // Theme toggle functionality
+        // Header scroll effect & Active Nav Link
+        const header = document.getElementById('header');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const updateHeaderAndNav = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - header.offsetHeight - 20; // Adjust for header height
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateHeaderAndNav);
+        window.addEventListener('load', updateHeaderAndNav); // Call on load for initial active state
+
+        // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
 
         // Set initial theme based on user preference or default to dark
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
         html.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'light') {
             themeIcon.classList.remove('fa-sun');
@@ -425,6 +1361,110 @@
                 localStorage.setItem('theme', 'dark');
             }
         });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) { // Show button after scrolling 400px
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Progress bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Change icon
+            if (navMenu.classList.contains('active')) {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.add('fa-times');
+            } else {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // Intersection Observer for animations (fade-in-up, scale-in)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Gallery Lightbox functionality
+        document.querySelectorAll('.gallery-item img').forEach(image => {
+            image.addEventListener('click', () => {
+                const fullSrc = image.getAttribute('data-full-src') || image.src;
+                const lightbox = document.createElement('div');
+                lightbox.classList.add('lightbox');
+                lightbox.classList.add('visible'); // Add visible class immediately
+
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = fullSrc;
+
+                const closeBtn = document.createElement('button');
+                closeBtn.classList.add('close-btn');
+                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                
+                lightbox.appendChild(lightboxImg);
+                lightbox.appendChild(closeBtn);
+                document.body.appendChild(lightbox);
+                
+                const closeLightbox = () => {
+                    lightbox.classList.remove('visible');
+                    setTimeout(() => {
+                        document.body.removeChild(lightbox);
+                    }, 300);
+                };
+                
+                closeBtn.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                
+                document.addEventListener('keydown', function escHandler(e) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                });
+            });
+        });
+
+        console.log('LSPDFR ELITE STUDIO SHOP 3.0 - Loaded successfully!');
     </script>
 </body>
+
 </html>
