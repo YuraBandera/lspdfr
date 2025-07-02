@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LSPDFR ELITE STUDIO SHOP - Магазин контенту для LSPDFR</title>
+    <meta name="description" content="Найкращі моделі машин, скіни та плагіни для LSPDFR. Українські поліцейські машини, реалістичні моделі з повним функціоналом.">
+    <meta name="keywords" content="LSPDFR, моди, поліцейські машини, GTA V, українські моди">
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" type="image/png">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* Всі стилі залишаються без змін */
         :root {
             --primary-blue: #0066FF;
             --primary-blue-dark: #0052CC;
@@ -58,6 +59,23 @@
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Light theme variables */
+        [data-theme="light"] {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #e9ecef;
+            --bg-tertiary: #dee2e6;
+            --bg-card: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -76,6 +94,25 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 0.1s ease;
         }
 
         ::-webkit-scrollbar {
@@ -108,6 +145,32 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-blue);
         }
 
         /* Button Styles */
@@ -555,8 +618,8 @@
             width: 100%;
             height: auto;
             transition: transform var(--transition);
-          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
 
         .leader-card:hover .leader-image {
@@ -820,6 +883,76 @@
             text-align: center;
         }
 
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 24px;
+            color: var(--accent-cyan);
+            opacity: 0.5;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .testimonial-rating {
+            margin-left: auto;
+            color: var(--secondary-orange);
+        }
+
         /* Footer */
         .footer {
             background: var(--bg-secondary);
@@ -938,6 +1071,31 @@
             transform: scale(1);
         }
 
+        /* Breadcrumbs */
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            font-size: 14px;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumbs a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs span {
+            color: var(--text-muted);
+        }
+
         /* Responsive - FIXED */
         @media (max-width: 768px) {
             .container {
@@ -982,7 +1140,8 @@
 
             .stats-grid,
             .leadership-grid,
-            .departments-grid {
+            .departments-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1018,6 +1177,14 @@
             .logo-subtitle {
                 font-size: 10px;
             }
+
+            .theme-toggle {
+                bottom: 80px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1027,7 +1194,8 @@
 
             .card,
             .stat-card,
-            .department-card {
+            .department-card,
+            .testimonial-card {
                 padding: var(--space-lg);
             }
 
@@ -1047,11 +1215,21 @@
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
         <div class="loading-text">Завантаження...</div>
     </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -1132,6 +1310,12 @@
     <!-- About Section -->
     <section id="about" class="section" style="background: var(--bg-secondary);">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Про магазин</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Про нас</div>
                 <h2 class="section-title fade-in-up">
@@ -1148,33 +1332,33 @@
                 </p>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue);">
+                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-car" style="color: white; font-size: 16px;"></i>
                         </div>
                         <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Поліцейські машини</h4>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Поліцейські машини</h4>
                             <p style="color: var(--text-secondary); font-size: 12px;">Реалістичні моделі з повним функціоналом</p>
                         </div>
                     </div>
                     
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="color: white; font-size: 16px;"></i>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-cyan);">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-desktop" style="color: white; font-size: 16px;"></i>
                         </div>
                         <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Скіни персонажів</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні моделі поліцейських та спецагентів</p>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Висока якість</h4>
+                            <p style="color: var(--text-secondary); font-size: 12px;">Деталізовані моделі з високою полігонною сіткою</p>
                         </div>
                     </div>
                     
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-code" style="color: white; font-size: 16px;"></i>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--secondary-orange);">
+                        <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-archive" style="color: white; font-size: 16px;"></i>
                         </div>
                         <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Плагіни</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні скрипти для покращення геймплею</p>
+                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Готові до встановлення</h4>
+                            <p style="color: var(--text-secondary); font-size: 12px;">Просто розпакуйте архів за інструкцією</p>
                         </div>
                     </div>
                 </div>
@@ -1201,6 +1385,12 @@
     <!-- Statistics Section -->
     <section id="statistics" class="section">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Статистика</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Наші досягнення</div>
                 <h2 class="section-title fade-in-up">
@@ -1242,6 +1432,12 @@
     <!-- Products Section -->
     <section id="products" class="section" style="background: var(--bg-secondary);">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Товари</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Наші продукти</div>
                 <h2 class="section-title fade-in-up">
@@ -1254,7 +1450,7 @@
             
             <div class="leadership-grid">
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="UkrainePatrol" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="leader-image" loading="lazy">
                     <div class="leader-info">
                         <h3 class="leader-name">Dacia Sandero</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1266,7 +1462,7 @@
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="UkrainePatrol" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla" class="leader-image" loading="lazy">
                     <div class="leader-info">
                         <h3 class="leader-name">Toyota Corolla</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1278,7 +1474,7 @@
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="UkrainePatrol" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Daster" class="leader-image" loading="lazy">
                     <div class="leader-info">
                         <h3 class="leader-name">(ОБНОВЛЕНО) Renault Daster</h3>
                         <div class="leader-position">Із режимом патрулювання</div>
@@ -1290,7 +1486,7 @@
                 </div>
                 
                 <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="leader-image">
+                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Renault Daster НГУ" class="leader-image" loading="lazy">
                     <div class="leader-info">
                         <h3 class="leader-name">Renault Daster</h3>
                         <div class="leader-position">У лівреї НГУ</div>
@@ -1307,6 +1503,12 @@
     <!-- Categories Section -->
     <section id="categories" class="section">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Категорії</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Категорії</div>
                 <h2 class="section-title fade-in-up">
@@ -1355,22 +1557,21 @@
                 </div>
                 
                 <div class="department-card fade-in-up">
-    <div class="department-icon">
-        <i class="fas fa-shield-alt"></i>
-    </div>
-    <h3 class="department-title">Renault Daster НГУ</h3>
-    <p class="department-description">
-        Спеціальна версія для Національної гвардії України
-    </p>
-    <div class="department-tasks">
-        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-        Режим патрулювання (коли світить лише один синій маячок), обладнання та інше
-    </div>
-    <div class="department-head">
-        <i class="fas fa-tags"></i>
-        В наявності: 1 авто у лівреях НГУ
-    </div>
-</div>
+                    <div class="department-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="department-title">Renault Daster НГУ</h3>
+                    <p class="department-description">
+                        Спеціальна версія для Національної гвардії України
+                    </p>
+                    <div class="department-tasks">
+                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
+                        Режим патрулювання (коли світить лише один синій маячок), обладнання та інше
+                    </div>
+                    <div class="department-head">
+                        <i class="fas fa-tags"></i>
+                        В наявності: 1 авто у лівреях НГУ
+                    </div>
                 </div>
             </div>
         </div>
@@ -1379,6 +1580,12 @@
     <!-- Requirements Section -->
     <section id="requirements" class="section" style="background: var(--bg-secondary);">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Умови</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Умови покупки</div>
                 <h2 class="section-title fade-in-up">
@@ -1440,6 +1647,12 @@
     <!-- Gallery Section -->
     <section id="gallery" class="section">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>Галерея</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Наші роботи</div>
                 <h2 class="section-title fade-in-up">
@@ -1452,42 +1665,42 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Ukraine Patrol" class="gallery-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Dacia Sandero</span>
                     </div>
                 </div>
                 
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Ukraine Patrol" class="gallery-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Toyota Corolla</span>
                     </div>
                 </div>
                 
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Ukraine Patrol" class="gallery-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Daster" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Renault Daster</span>
                     </div>
                 </div>
                 
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Ukraine Patrol" class="gallery-image">
+                    <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Renault Logan" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Renault Logan</span>
                     </div>
                 </div>
                 
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Ukraine Guard" class="gallery-image">
+                    <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Renault Daster НГУ" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Renault Daster</span>
                     </div>
                 </div>
                 
                 <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image">
+                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Очікуйте нові фото</span>
                     </div>
@@ -1499,6 +1712,12 @@
     <!-- FAQ Section -->
     <section id="faq" class="section" style="background: var(--bg-secondary);">
         <div class="container">
+            <div class="breadcrumbs fade-in-up">
+                <a href="#home">Головна</a>
+                <span>/</span>
+                <span>FAQ</span>
+            </div>
+            
             <div class="section-header">
                 <div class="section-badge fade-in-up">Питання та відповіді</div>
                 <h2 class="section-title fade-in-up">
@@ -1580,29 +1799,21 @@
     </button>
 
     <!-- Scripts -->
-    <script type="module">
-        // Firebase Configuration
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
-            authDomain: "dkvs-1ec88.firebaseapp.com",
-            databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com/",
-            projectId: "dkvs-1ec88",
-            storageBucket: "dkvs-1ec88.appspot.com",
-            messagingSenderId: "167430647129",
-            appId: "1:167430647129:web:ab209fec7735f20b597048",
-            measurementId: "G-H6LKMLYD10"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
+    <script>
         // Loading Screen
-        setTimeout(() => {
-            document.getElementById('loading').classList.add('hidden');
-        }, 1500);
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollProgress + '%';
+        });
 
         // Header Scroll Effect
         const header = document.getElementById('header');
@@ -1704,6 +1915,36 @@
             });
         }
 
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        }
+
         // Intersection Observer
         const observerOptions = {
             threshold: 0.1,
@@ -1732,6 +1973,8 @@
         function animateCounter(statCard) {
             const numberElement = statCard.querySelector('.stat-number');
             const target = parseInt(numberElement.dataset.target);
+            if (!target) return;
+            
             const duration = 2000;
             const startTime = performance.now();
 
@@ -1779,24 +2022,6 @@
                     answer.style.maxHeight = '0px';
                 }
             });
-        });
-
-        // Firebase Data Loading
-        const counterRef = ref(db, 'counter');
-        onValue(counterRef, (snapshot) => {
-            try {
-                const productsCount = snapshot.val() || 0;
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = productsCount;
-                }
-            } catch (error) {
-                console.error('Firebase error:', error);
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = '127';
-                }
-            }
         });
 
         // Gallery Lightbox
@@ -1874,6 +2099,10 @@
                 });
             });
         });
+
+        // Initialize animations on page load
+        updateScrollElements();
+        updateActiveNavLink();
 
         console.log('LSPDFR ELITE STUDIO SHOP - Loaded successfully!');
     </script>
