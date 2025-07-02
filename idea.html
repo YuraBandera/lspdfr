@@ -1013,16 +1013,16 @@
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
     import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDMG8Z9F17keeBrUMhM5MVZE44NSLHApDE", // REPLACE WITH YOUR ACTUAL API KEY
-      authDomain: "lspdfr-elite.firebaseapp.com",
-      databaseURL: "YOUR_DATABASE_URL",
-      projectId: "lspdfr-elite",
-      storageBucket: "lspdfr-elite.firebasestorage.app",
-      messagingSenderId: "1037914221216",
-      appId: "1:1037914221216:web:7242e0a34d7819d32c37c5"
-    };
+    //  Firebase Configuration (ОБОВ'ЯЗКОВО ЗАМІНІТЬ ЦЕ ВАШИМИ ДАНИМИ З FIREBASE CONSOLE!)
+const firebaseConfig = {
+  apiKey: "AIzaSyDMG8Z9F17keeBrUMhM5MVZE44NSLHApDE",
+  authDomain: "lspdfr-elite.firebaseapp.com",
+  projectId: "lspdfr-elite",
+  storageBucket: "lspdfr-elite.firebasestorage.app",
+  messagingSenderId: "1037914221216",
+  appId: "1:1037914221216:web:7242e0a34d7819d32c37c5",
+  measurementId: "G-VZ5GMBZPG7"
+};
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
