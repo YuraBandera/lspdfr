@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="uk" data-theme="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,662 +13,380 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* --- CSS Variables (Themes) --- */
         :root {
-            --primary-blue: #0066FF;
-            --primary-blue-dark: #0052CC;
-            --secondary-orange: #FF6B35;
-            --accent-cyan: #00D4FF;
-            --accent-purple: #8B5CF6;
-            --accent-green: #10B981;
-            --accent-red: #EF4444;
+            --color-primary: #0066FF; /* Blue */
+            --color-secondary: #FF6B35; /* Orange */
+            --color-accent: #00D4FF; /* Cyan */
+
+            --bg-body-dark: #0A0A0F;
+            --bg-card-dark: #1E1E2E;
+            --text-primary-dark: #FFFFFF;
+            --text-secondary-dark: #B4B4C7;
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.25);
+
+            --bg-body-light: #F0F2F5;
+            --bg-card-light: #FFFFFF;
+            --text-primary-light: #2C3E50;
+            --text-secondary-light: #607D8B;
+            --border-light: rgba(0, 0, 0, 0.1);
+            --shadow-light: rgba(0, 0, 0, 0.1);
+
+            --gradient-main: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
             
-            --bg-primary: #0A0A0F;
-            --bg-secondary: #111118;
-            --bg-tertiary: #1A1A24;
-            --bg-card: #1E1E2E;
-            --bg-glass: rgba(30, 30, 46, 0.85);
-            
-            --text-primary: #FFFFFF;
-            --text-secondary: #B4B4C7;
-            --text-muted: #8B8BA7;
-            
-            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
-            --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #8B5CF6 100%);
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
-            --shadow-glow-blue: 0 0 20px rgba(0, 102, 255, 0.3);
-            --shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
-            
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            
-            --radius-sm: 6px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+
             --radius-md: 12px;
             --radius-lg: 16px;
-            --radius-xl: 20px;
-            
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --transition-speed: 0.3s ease-in-out;
         }
 
-        /* Light theme variables */
-        [data-theme="light"] {
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #e9ecef;
-            --bg-tertiary: #dee2e6;
-            --bg-card: #ffffff;
-            --bg-glass: rgba(255, 255, 255, 0.85);
-            
-            --text-primary: #212529;
-            --text-secondary: #495057;
-            --text-muted: #6c757d;
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+        /* --- Dark Theme Defaults --- */
+        body {
+            background-color: var(--bg-body-dark);
+            color: var(--text-primary-dark);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
+        .card {
+            background-color: var(--bg-card-dark);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+
+        /* --- Light Theme Overrides --- */
+        html[data-theme="light"] body {
+            background-color: var(--bg-body-light);
+            color: var(--text-primary-light);
+        }
+
+        html[data-theme="light"] .card {
+            background-color: var(--bg-card-light);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 5px 20px var(--shadow-light);
+        }
+
+        html[data-theme="light"] .text-secondary {
+            color: var(--text-secondary-light);
+        }
+
+        html[data-theme="light"] .theme-toggle {
+            background: #FFD700; /* Gold for sun */
+            color: #333;
+        }
+
+        /* --- Base Styles --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            transition: background-color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* For floating elements */
+            overflow: hidden; /* Hide floating elements overflow */
         }
 
-        /* Progress bar */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: transparent;
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--gradient-primary);
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 3px;
-        }
-
+        /* --- Layout --- */
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: var(--spacing-md);
+            text-align: center;
+            z-index: 10; /* Ensure content is above background elements */
         }
 
-        .glass-effect {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .main-content {
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            position: relative;
+            z-index: 1; /* For shadow/glow effect */
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        /* --- Headings & Text --- */
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
         }
 
         .gradient-text {
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* Theme toggle button */
-        .theme-toggle {
-            position: fixed;
-            bottom: var(--space-xl);
-            left: var(--space-xl);
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            display: flex;
+        .highlight-date {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-top: var(--spacing-md);
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        /* --- Badges --- */
+        .badge {
+            display: inline-flex;
             align-items: center;
+            gap: var(--spacing-xs);
+            padding: 8px 18px;
+            background: rgba(var(--color-accent-rgb, 0, 212, 255), 0.15); /* Dynamic opacity */
+            color: var(--color-accent);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- Buttons --- */
+        .btn-group {
+            display: flex;
             justify-content: center;
-            transition: all var(--transition);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            flex-wrap: wrap;
         }
 
-        .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        /* Button Styles */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: 12px 24px;
-            border: none;
+            gap: var(--spacing-xs);
+            padding: 12px 28px;
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 14px;
             text-decoration: none;
             cursor: pointer;
-            transition: all var(--transition);
-            white-space: nowrap;
+            transition: all var(--transition-speed);
+            font-size: 1rem;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             color: white;
-            box-shadow: var(--shadow-sm);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-secondary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--text-primary);
-            border: 2px solid var(--primary-blue);
+            border: 2px solid var(--color-primary);
+            transition: all var(--transition-speed);
         }
 
         .btn-outline:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
+            background-color: var(--color-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2);
         }
 
-        /* Header - FIXED */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 12px 0;
-            transition: all var(--transition);
-            background: transparent;
-        }
-
-        .header.scrolled {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-sm);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-
-        .logo-subtitle {
-            font-size: 11px;
-            color: var(--accent-cyan);
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-menu li {
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
+        /* --- Footer --- */
+        .footer {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-md) 0;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all var(--transition);
-            position: relative;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
-            display: block;
+            z-index: 10;
         }
 
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: all var(--transition);
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            width: 80%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            font-size: 16px;
+        /* --- Theme Toggle Button --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-primary);
+            color: white;
+            font-size: 1.2rem;
             cursor: pointer;
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            backdrop-filter: blur(10px);
-            width: 40px;
-            height: 40px;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 100;
+            transition: all var(--transition-speed);
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        .theme-toggle:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
         }
 
-        .hero-bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
+        /* --- Background Floating Elements --- */
         .floating-element {
             position: absolute;
             border-radius: 50%;
-            filter: blur(40px);
-            animation: float 6s ease-in-out infinite;
+            filter: blur(60px);
             opacity: 0.1;
+            animation: float 10s ease-in-out infinite;
+            z-index: 0;
         }
 
         .floating-element:nth-child(1) {
-            top: 20%;
+            top: 15%;
             left: 10%;
-            width: 200px;
-            height: 200px;
-            background: var(--gradient-primary);
+            width: 250px;
+            height: 250px;
+            background: var(--color-primary);
             animation-delay: 0s;
         }
 
         .floating-element:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            width: 250px;
-            height: 250px;
-            background: var(--gradient-secondary);
-            animation-delay: 2s;
+            top: 70%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: var(--color-secondary);
+            animation-delay: 3s;
         }
 
         .floating-element:nth-child(3) {
-            bottom: 30%;
-            left: 30%;
+            bottom: 20%;
+            left: 40%;
+            width: 180px;
+            height: 180px;
+            background: var(--color-accent);
+            animation-delay: 6s;
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 5%;
+            right: 30%;
             width: 150px;
             height: 150px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-            animation-delay: 4s;
+            background: var(--color-primary);
+            animation-delay: 8s;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.03);
+                opacity: 0.9;
+            }
         }
 
         @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px); 
-            }
-            50% { 
-                transform: translateY(-20px) translateX(10px); 
-            }
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -10px); }
+            50% { transform: translate(-10px, 10px); }
+            75% { transform: translate(10px, 10px); }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 8px 16px;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-xl);
-            backdrop-filter: blur(20px);
-            font-weight: 600;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-2xl);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: var(--space-2xl);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 50%;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { 
-                transform: translateX(-50%) translateY(0); 
-            }
-            40% { 
-                transform: translateX(-50%) translateY(-10px); 
-            }
-            60% { 
-                transform: translateX(-50%) translateY(-5px); 
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 60px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--bg-tertiary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-lg);
-            font-weight: 600;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-            line-height: 1.3;
-        }
-
-        .section-description {
-            font-size: 16px;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        /* Responsive - FIXED */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 var(--space-md);
+            .main-content {
+                padding: var(--spacing-lg) var(--spacing-sm);
             }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-glass);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: var(--radius-lg);
-                margin: var(--space-md);
-                padding: var(--space-lg);
+            .btn-group {
                 flex-direction: column;
-                gap: var(--space-md);
-                box-shadow: var(--shadow-lg);
+                gap: var(--spacing-sm);
             }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .btn {
                 width: 100%;
-                max-width: 280px;
-                justify-content: center;
+                max-width: 300px; /* Limit button width */
+                margin: 0 auto;
             }
-
-            /* No need for other grids, as only hero section is used now */
         }
     </style>
 </head>
-
 <body>
-    <div class="loading" id="loading-screen">
-        <div class="spinner"></div>
-        <div class="loading-text">Завантаження...</div>
-    </div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
+    <div class="container">
+        <div class="card main-content">
+            <span class="badge"><i class="fas fa-tools"></i> Сайт у розробці</span>
+            
+            <h1>
+                <span class="gradient-text">LSPDFR ELITE STUDIO SHOP</span>
+                <br>Скоро запуск!
+            </h1>
+            
+            <p class="text-secondary">
+                Ми наполегливо працюємо над створенням найкращого магазину контенту для LSPDFR. Тут ви знайдете найкрутіші моделі машин, скіни та плагіни, включаючи реалістичні українські поліцейські машини з повним функціоналом.
+            </p>
+            
+            <p class="highlight-date">
+                Запуск заплановано на: **20 липня 2025 року!**
+            </p>
+
+            <div class="btn-group">
+                <a href="https://discord.gg/YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-discord"></i> Приєднатись до Discord
+                </a>
+                <a href="mailto:info@lspdfrelitestudio.com" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Написати нам
+                </a>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            &copy; 2025 LSPDFR ELITE STUDIO. Усі права захищені.
+        </footer>
     </div>
 
     <button class="theme-toggle" id="theme-toggle">
         <i class="fas fa-sun" id="theme-icon"></i>
     </button>
 
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO Logo">
-                    <div class="logo-text">
-                        <span class="logo-title">LSPDFR ELITE STUDIO</span>
-                        <span class="logo-subtitle">SHOP</span>
-                    </div>
-                </a>
-
-                <div class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero fade-in-up">
-        <div class="hero-bg-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
-        <div class="container hero-content">
-            <span class="hero-badge"><i class="fas fa-tools"></i> Ведеться розробка</span>
-            <h1 class="hero-title">
-                <span class="gradient-text">LSPDFR ELITE STUDIO SHOP</span>
-                <br>Скоро запуск!
-            </h1>
-            <p class="hero-subtitle">
-                Ми наполегливо працюємо над створенням найкращого магазину контенту для LSPDFR. Очікуйте неймовірні українські поліцейські машини, реалістичні скіни та багато іншого.
-            </p>
-            <p class="hero-subtitle">
-                Офіційний запуск заплановано на **20 липня 2025 року!**
-            </p>
-            <div class="hero-buttons">
-                <a href="https://discord.gg/zMtvp7Db" target="_blank" class="btn btn-primary scale-in">
-                    <i class="fab fa-discord"></i> Приєднатись до Discord
-                </a>
-                <a href="Vberbeka835@gmail.com" class="btn btn-outline scale-in">
-                    <i class="fas fa-envelope"></i> Написати нам
-                </a>
-            </div>
-            <a href="#footer" class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div class="footer-content">
-                &copy; 2025 LSPDFR ELITE STUDIO. Усі права захищені.
-                <div class="footer-highlight">Ми створюємо майбутнє модифікацій для LSPDFR.</div>
-            </div>
-        </div>
-    </footer>
-
-    <button class="scroll-to-top" id="scrollToTopBtn">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script>
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links (if any were present) - kept for robustness
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -679,92 +396,35 @@
             });
         });
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Theme toggle
+        // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
+
+        // Set initial theme based on user preference or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'light') {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
 
         themeToggle.addEventListener('click', () => {
             if (html.getAttribute('data-theme') === 'dark') {
                 html.setAttribute('data-theme', 'light');
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             } else {
                 html.setAttribute('data-theme', 'dark');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
             }
         });
-
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Loading screen
-        window.addEventListener('load', () => {
-            const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrollbar
-        });
-
-        // Progress bar
-        window.onscroll = function() { updateProgressBar() };
-
-        function updateProgressBar() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up, .scale-in').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Hide mobile menu button for this simple page as there's no menu to toggle
-        document.getElementById('mobile-menu-btn').style.display = 'none';
-
-        // Hide theme toggle button for this page if preferred, or keep it. I've left it.
     </script>
 </body>
-
 </html>
