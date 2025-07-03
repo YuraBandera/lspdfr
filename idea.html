@@ -1166,18 +1166,33 @@ const firebaseConfig = {
     // Form submission
     ideaForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      console.log("1. Подія 'submit' форми ідеї спрацювала."); // Новий console.log
+
       const user = auth.currentUser;
       if (!user) {
+        console.log("2. Користувач не авторизований для подачі ідеї."); // Новий console.log
         alert('Будь ласка, увійдіть або зареєструйтесь, щоб подати ідею');
         return;
       }
+      console.log("3. Користувач авторизований:", user.email); // Новий console.log
 
-      const title = document.getElementById('ideaTitle').value;
+
+      const title = document.getElementById('ideaTitle').value.trim(); // Додано .trim()
       const category = document.getElementById('ideaCategory').value;
-      const description = document.getElementById('ideaDescription').value;
+      const description = document.getElementById('ideaDescription').value.trim(); // Додано .trim()
       const userName = user.displayName || user.email.split('@')[0];
 
+      // Додаткова перевірка, якщо поля пусті
+      if (!title || !description) {
+          alert('Будь ласка, заповніть заголовок та опис ідеї.');
+          console.log("4. Заголовок або опис ідеї порожні."); // Новий console.log
+          return;
+      }
+      console.log("5. Дані форми зібрано: Заголовок -", title, ", Опис -", description, ", Категорія -", category); // Новий console.log
+
+
       try {
+        console.log("6. Спроба зберегти ідею в Firebase..."); // Новий console.log
         await push(ref(database, 'ideas'), {
           title,
           category,
@@ -1190,11 +1205,13 @@ const firebaseConfig = {
           createdAt: Date.now(),
           updatedAt: Date.now()
         });
+        console.log("7. Ідея успішно збережена в Firebase!"); // Новий console.log
         // Reset form
         ideaForm.reset();
         alert('Ваша ідея успішно відправлена! Дякуємо за пропозицію.');
       } catch (error) {
-        console.error("Помилка при відправці ідеї:", error);
+        // Оригінальний console.error, який тепер має спрацювати, якщо є помилка
+        console.error("ПОМИЛКА при відправці ідеї (в блоці catch):", error);
         alert('Сталася помилка при відправці ідеї. Спробуйте ще раз.');
       }
     });
