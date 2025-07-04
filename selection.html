@@ -4,32 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LSPDFR ELITE STUDIO SHOP - Магазин авто</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" type="image/png">
     <style>
         :root {
-            --primary-bg: #0a0a0f;
-            --secondary-bg: #15151d;
-            --card-bg: #1a1a23;
-            --accent-bg: #252530;
-            --border-color: #2a2a3a;
+            --primary-bg: #0f0f15;
+            --secondary-bg: #1a1a24;
+            --card-bg: #21212e;
+            --accent-bg: #2d2d3a;
+            --border-color: #3a3a4a;
             --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --text-muted: #6b6b7b;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --accent-yellow: #f59e0b;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            --border-radius: 12px;
-            --transition-speed: 0.3s;
+            --text-secondary: #c0c0c0;
+            --text-muted: #7b7b8b;
+            --accent-blue: #4a8cff;
+            --accent-green: #10c981;
+            --accent-red: #ff4d4d;
+            --accent-yellow: #ffb74d;
+            --accent-purple: #9c6bff;
+            --gradient-primary: linear-gradient(135deg, #6b7aff 0%, #8e5bff 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b7a 0%, #ff8e5b 100%);
         }
 
-        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -37,26 +32,20 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
+            font-family: "Poppins", sans-serif;
             background: var(--primary-bg);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
-            flex-grow: 1;
         }
 
-        /* Animations */
+        /* Анімації */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -73,34 +62,33 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Header */
+        /* Хедер */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
             margin-bottom: 30px;
-            animation: fadeIn var(--transition-speed) ease-out;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeIn 0.8s ease-out;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
         }
 
         .logo img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            transition: transform var(--transition-speed) ease;
-            box-shadow: var(--shadow-sm);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
         }
 
         .logo:hover img {
-            transform: rotate(15deg) scale(1.05);
+            transform: rotate(15deg) scale(1.1);
         }
 
         .logo-text h1 {
@@ -113,205 +101,240 @@
             font-weight: 700;
         }
 
-        .header-actions {
+        .logo-text span {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Навігація */
+        .nav-links {
             display: flex;
-            align-items: center;
             gap: 20px;
         }
 
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Пошук */
         .search-container {
             display: flex;
+            gap: 12px;
+            width: 350px;
             position: relative;
-            width: 300px;
         }
 
         #searchInput {
             flex: 1;
-            padding: 10px 15px;
-            border-radius: 25px;
-            border: 1px solid var(--border-color);
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
             background: var(--secondary-bg);
             color: var(--text-primary);
             font-size: 14px;
-            transition: all var(--transition-speed) ease;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
 
         #searchInput:focus {
             outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), var(--shadow-md);
+            box-shadow: 0 0 0 3px rgba(107, 122, 255, 0.3);
         }
 
         .search-btn {
             background: var(--gradient-primary);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: -40px; /* Overlay on input */
-            z-index: 1;
+            box-shadow: 0 4px 15px rgba(107, 122, 255, 0.3);
         }
 
         .search-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 122, 255, 0.4);
         }
 
-        .cart-icon-container {
-            position: relative;
-        }
-
-        .cart-icon {
-            font-size: 24px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-        }
-
-        .cart-icon:hover {
-            color: var(--accent-blue);
-            transform: scale(1.1);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--accent-red);
-            color: white;
-            font-size: 12px;
-            border-radius: 50%;
-            padding: 4px 7px;
-            min-width: 24px;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Main content layout */
+        /* Головний контент */
         .main-content {
             display: flex;
             gap: 30px;
-            animation: fadeIn var(--transition-speed) ease-out 0.2s both;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            animation: fadeIn 0.8s ease-out 0.2s both;
         }
 
-        /* Sidebar */
+        /* Бокова панель */
         .sidebar {
             width: 280px;
             flex-shrink: 0;
-            animation: fadeIn var(--transition-speed) ease-out 0.3s both;
         }
 
         .filter-section {
             background: var(--secondary-bg);
-            padding: 25px;
-            border-radius: var(--border-radius);
+            padding: 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .filter-section h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+        }
+
+        .filter-section h3 i {
+            color: var(--accent-purple);
         }
 
         .filter-group {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .filter-group label {
             display: block;
-            margin-bottom: 10px;
-            font-size: 15px;
+            margin-bottom: 8px;
+            font-size: 14px;
             color: var(--text-secondary);
-            font-weight: 500;
         }
 
         .filter-group select, .filter-group input {
             width: 100%;
             padding: 12px 15px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
+            border: none;
             background: var(--card-bg);
             color: var(--text-primary);
-            font-size: 15px;
-            transition: all var(--transition-speed) ease;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .filter-group select:focus, .filter-group input:focus {
             outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 3px rgba(107, 122, 255, 0.3);
         }
 
         .filter-btn {
             display: block;
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             margin-bottom: 10px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: none;
             color: var(--text-primary);
             border-radius: 8px;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
             text-align: left;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .filter-btn:hover {
             background: var(--accent-bg);
             transform: translateX(5px);
-            color: var(--accent-blue);
         }
 
         .filter-btn.active {
             background: var(--gradient-primary);
             color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            transform: translateX(0);
+            box-shadow: 0 4px 15px rgba(107, 122, 255, 0.4);
+        }
+
+        .filter-btn i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Кнопки */
+        .btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(107, 122, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 122, 255, 0.4);
         }
 
         .btn-secondary {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: var(--accent-bg);
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
             color: var(--text-primary);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            font-size: 15px;
-            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .btn-secondary:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-            color: white;
-            box-shadow: var(--shadow-md);
+            background: var(--accent-bg);
         }
 
-        /* Products container */
+        .btn-danger {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 122, 0.3);
+        }
+
+        .btn-danger:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 122, 0.4);
+        }
+
+        /* Продукти */
         .products-container {
             flex: 1;
         }
@@ -320,33 +343,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding: 18px 25px;
+            margin-bottom: 20px;
+            padding: 20px;
             background: var(--secondary-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-        }
-
-        #productsCount {
-            font-size: 16px;
-            color: var(--text-secondary);
-            font-weight: 500;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .sort-select {
             padding: 10px 15px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
+            border: none;
             background: var(--card-bg);
             color: var(--text-primary);
-            font-size: 15px;
-            transition: all var(--transition-speed) ease;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .sort-select:focus {
             outline: none;
-            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(107, 122, 255, 0.3);
         }
 
         .product-grid {
@@ -355,22 +372,21 @@
             gap: 25px;
         }
 
-        /* Product card */
+        /* Картка товару */
         .product-card {
             background: var(--card-bg);
-            border-radius: var(--border-radius);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid transparent;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border-color: rgba(102, 126, 234, 0.7);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: rgba(107, 122, 255, 0.5);
         }
 
         .product-badge {
@@ -381,11 +397,11 @@
             color: white;
             padding: 6px 12px;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             z-index: 2;
             animation: pulse 2s infinite;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .product-badge.free {
@@ -396,11 +412,14 @@
             background: var(--accent-blue);
         }
 
+        .product-badge.hot {
+            background: var(--accent-purple);
+        }
+
         .product-image-container {
             height: 200px;
             overflow: hidden;
             position: relative;
-            background: var(--accent-bg); /* Placeholder background */
         }
 
         .product-image {
@@ -411,24 +430,22 @@
         }
 
         .product-card:hover .product-image {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
 
         .quick-view {
             position: absolute;
-            bottom: 0;
+            bottom: -50px;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             text-align: center;
             padding: 15px;
-            transform: translateY(100%);
-            transition: all 0.3s ease-out;
+            transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 14px;
             z-index: 1;
-            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -436,22 +453,18 @@
         }
 
         .product-card:hover .quick-view {
-            transform: translateY(0);
+            bottom: 0;
         }
 
         .product-info {
             padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         .product-title {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 10px;
             font-weight: 600;
-            transition: color var(--transition-speed) ease;
-            line-height: 1.3;
+            transition: color 0.3s ease;
         }
 
         .product-card:hover .product-title {
@@ -462,8 +475,7 @@
             color: var(--text-secondary);
             font-size: 14px;
             margin-bottom: 15px;
-            line-height: 1.6;
-            flex-grow: 1; /* Pushes price/actions to bottom */
+            line-height: 1.5;
         }
 
         .product-rating {
@@ -478,8 +490,8 @@
         .product-price-container {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 18px;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         .product-price {
@@ -495,14 +507,12 @@
         .product-old-price {
             text-decoration: line-through;
             color: var(--text-muted);
-            font-size: 15px;
-            margin-left: 10px;
+            font-size: 14px;
         }
 
         .product-actions {
             display: flex;
-            gap: 10px;
-            margin-top: auto; /* Ensures actions are at the bottom */
+            gap: 12px;
         }
 
         .add-to-cart, .download-btn {
@@ -511,63 +521,63 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 15px;
-            white-space: nowrap; /* Prevent text wrapping */
+            font-size: 14px;
+            border: none;
         }
 
         .add-to-cart {
             background: var(--gradient-primary);
             color: white;
-            border: none;
+            box-shadow: 0 4px 15px rgba(107, 122, 255, 0.3);
         }
 
         .add-to-cart:hover {
-            opacity: 0.95;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 122, 255, 0.4);
         }
 
         .add-to-cart:active {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         .download-btn {
             background: var(--accent-blue);
             color: white;
-            border: none;
+            box-shadow: 0 4px 15px rgba(74, 140, 255, 0.3);
         }
 
         .download-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 140, 255, 0.4);
         }
 
-        /* Cart Sidebar */
+        /* Кошик */
         .cart-sidebar {
             position: fixed;
-            right: 0;
-            top: 0;
+            right: 20px;
+            top: 20px;
             width: 400px;
-            height: 100vh;
+            height: calc(100vh - 40px);
             background: var(--secondary-bg);
-            box-shadow: -10px 0 30px rgba(0,0,0,0.6);
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.7);
             z-index: 1000;
-            padding: 30px;
+            padding: 25px;
             overflow-y: auto;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform: translateX(100%);
-            display: flex;
-            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(calc(100% + 40px));
         }
 
         .cart-sidebar.active {
             transform: translateX(0);
+            animation: slideInRight 0.4s ease-out;
         }
 
         .cart-header {
@@ -580,60 +590,58 @@
         }
 
         .cart-header h2 {
-            font-size: 24px;
-            color: var(--accent-blue);
+            font-size: 22px;
+            color: var(--text-primary);
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .cart-header h2 i {
+            color: var(--accent-purple);
         }
 
         .close-cart {
             background: none;
             border: none;
             color: var(--text-secondary);
-            font-size: 30px;
+            font-size: 24px;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .close-cart:hover {
             color: var(--accent-red);
-            transform: rotate(90deg) scale(1.1);
-        }
-
-        .cart-items-container {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding-right: 10px; /* For scrollbar */
+            transform: rotate(90deg);
+            background: rgba(255, 77, 77, 0.1);
         }
 
         .cart-item {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
             animation: fadeIn 0.4s ease-out;
-            align-items: center;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
 
         .cart-item-image {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             object-fit: cover;
             border-radius: 8px;
-            transition: transform var(--transition-speed) ease;
-            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
         }
 
         .cart-item:hover .cart-item-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .cart-item-info {
@@ -641,10 +649,9 @@
         }
 
         .cart-item-name {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 8px;
-            transition: color var(--transition-speed) ease;
+            font-weight: 500;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
         }
 
         .cart-item:hover .cart-item-name {
@@ -653,15 +660,14 @@
 
         .cart-item-price {
             color: var(--accent-green);
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 8px;
         }
 
         .cart-item-controls {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .quantity-controls {
@@ -671,56 +677,53 @@
         }
 
         .quantity-btn {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 6px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: none;
             color: var(--text-primary);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all var(--transition-speed) ease;
-            font-size: 18px;
-            font-weight: bold;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .quantity-btn:hover {
             background: var(--accent-bg);
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
         }
 
         .remove-item {
             background: var(--accent-red);
             color: white;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all var(--transition-speed) ease;
-            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(255, 77, 77, 0.2);
         }
 
         .remove-item:hover {
             transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
         }
 
         .cart-summary {
-            margin-top: 30px;
+            margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid var(--border-color);
         }
 
         .promo-code-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
@@ -728,97 +731,192 @@
             flex: 1;
             padding: 12px 15px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
+            border: none;
             background: var(--card-bg);
             color: var(--text-primary);
-            font-size: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #promoCode:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(107, 122, 255, 0.3);
         }
 
         .apply-promo {
             background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 0 20px;
             border-radius: 8px;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 122, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .apply-promo:hover {
-            opacity: 0.95;
+            opacity: 0.9;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(107, 122, 255, 0.4);
         }
 
         .discount-info {
             color: var(--accent-green);
             font-size: 14px;
             margin-bottom: 15px;
-            text-align: center;
-            font-weight: 500;
+            display: none;
+            padding: 10px;
+            background: rgba(16, 201, 129, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .discount-info.error {
+            color: var(--accent-red);
+            background: rgba(255, 77, 77, 0.1);
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 20px;
             font-weight: bold;
+            font-size: 20px;
             margin-bottom: 25px;
-            color: var(--accent-blue);
         }
 
         .checkout-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--gradient-primary);
+            background: var(--accent-green);
             color: white;
             border: none;
+            padding: 15px;
             border-radius: 8px;
-            font-size: 18px;
-            font-weight: 700;
+            width: 100%;
+            font-weight: 600;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 15px rgba(16, 201, 129, 0.3);
         }
 
         .checkout-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 201, 129, 0.4);
         }
 
-        /* Modals (Quick View, Payment) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 2000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-            backdrop-filter: blur(8px);
-            animation: fadeIn 0.3s ease-out;
+        .checkout-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Іконка кошика */
+        .cart-icon {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background: var(--gradient-primary);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(107, 122, 255, 0.6);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(107, 122, 255, 0.7);
+        }
+
+        #cartCount {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-red);
+            color: white;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Сповіщення */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 16px 28px;
+            border-radius: 10px;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 90%;
+            backdrop-filter: blur(10px);
+            background-color: rgba(33, 33, 46, 0.9);
+            border: 1px solid var(--border-color);
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .notification.error {
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .notification.info {
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .notification i {
+            font-size: 20px;
+        }
+
+        /* Модальне вікно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease-out;
         }
 
         .modal-content {
             background-color: var(--secondary-bg);
-            margin: auto;
+            margin: 10% auto;
             padding: 30px;
-            border-radius: var(--border-radius);
+            border-radius: 16px;
             width: 90%;
             max-width: 600px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
             position: relative;
             animation: slideInRight 0.4s ease-out;
             border: 1px solid var(--border-color);
@@ -826,60 +924,68 @@
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            color: var(--text-muted);
-            font-size: 36px;
+            top: 20px;
+            right: 20px;
+            color: var(--text-secondary);
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            transition: all var(--transition-speed) ease;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .close-modal:hover {
-            color: var(--accent-red);
-            transform: rotate(90deg) scale(1.1);
+            color: var(--text-primary);
+            transform: rotate(90deg);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .modal-title {
             margin-bottom: 25px;
-            font-size: 28px;
-            color: var(--accent-blue);
-            text-align: center;
-            font-weight: 700;
+            font-size: 24px;
+            color: var(--text-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .modal-body {
-            padding-bottom: 20px;
+        .modal-title i {
+            color: var(--accent-purple);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 10px;
             color: var(--text-secondary);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 18px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
+            border: none;
             background-color: var(--card-bg);
             color: var(--text-primary);
-            font-family: "Inter", sans-serif;
-            font-size: 15px;
-            transition: all var(--transition-speed) ease;
+            font-family: "Poppins", sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 3px rgba(107, 122, 255, 0.3);
         }
 
         .form-group textarea {
@@ -892,243 +998,151 @@
             padding: 20px;
             border-radius: 10px;
             margin-top: 25px;
-            border-left: 5px solid var(--accent-blue);
-            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .instruction-box h4 {
             margin-bottom: 12px;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--accent-blue);
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .instruction-box ol {
-            list-style-type: decimal;
-            margin-left: 20px;
-            color: var(--text-secondary);
-            font-size: 15px;
+            padding-left: 25px;
         }
 
-        .instruction-box ol li {
-            margin-bottom: 8px;
+        .instruction-box li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .modal-footer {
+            margin-top: 30px;
             display: flex;
             justify-content: flex-end;
             gap: 15px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 20px;
         }
 
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
+        /* Хлібні крихти */
+        .breadcrumbs {
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Quick View Modal specific */
-        #quickViewContent h3 {
-            font-size: 24px;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-        }
-        #quickViewContent p {
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        #quickViewContent .quick-view-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-        }
-        #quickViewContent .quick-view-features ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-        }
-        #quickViewContent .quick-view-features li {
-            background: var(--accent-bg);
-            padding: 8px 12px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
             font-size: 14px;
-            border: 1px solid var(--border-color);
-        }
-        #quickViewContent .quick-view-features li i {
-            color: var(--accent-green);
-        }
-        #quickViewContent .quick-view-price {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--accent-green);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        #quickViewContent .quick-view-price.free {
-            color: var(--accent-blue);
-        }
-        #quickViewContent .quick-view-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Notifications */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--secondary-bg);
-            color: var(--text-primary);
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-lg);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .notification.success {
-            border-left: 5px solid var(--accent-green);
-        }
-        .notification.error {
-            border-left: 5px solid var(--accent-red);
-        }
-        .notification.info {
-            border-left: 5px solid var(--accent-blue);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            text-align: center;
             color: var(--text-muted);
-            font-size: 14px;
-            border-top: 1px solid var(--border-color);
-            background: var(--secondary-bg);
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent-blue);
+        }
+
+        .breadcrumbs .separator {
+            opacity: 0.5;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
             .main-content {
                 flex-direction: column;
-                gap: 20px;
             }
+            
             .sidebar {
                 width: 100%;
-                order: 2; /* Move sidebar below products on small screens */
             }
-            .products-container {
-                order: 1;
+            
+            .cart-sidebar {
+                width: 90%;
+                right: 5%;
             }
-            .filter-section {
-                padding: 20px;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
+            
+            .search-container {
+                width: 300px;
             }
         }
 
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                align-items: flex-start;
                 gap: 20px;
+                text-align: center;
             }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
             .search-container {
                 width: 100%;
-                margin-top: 10px;
             }
-            .header-actions {
-                width: 100%;
-                justify-content: flex-end;
-                margin-top: -50px; /* Adjust if header grows too much */
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             }
-            .cart-sidebar {
-                width: 100%;
-                right: 0;
-                top: 0;
-                border-radius: 0;
-            }
+            
             .modal-content {
-                width: 95%;
+                margin: 15% auto;
                 padding: 20px;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 576px) {
+            .product-actions {
+                flex-direction: column;
             }
-            .logo-text h1 {
-                font-size: 22px;
-            }
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-info {
+            
+            .modal-content {
+                margin: 20px auto;
+                width: 95%;
                 padding: 15px;
             }
-            .product-title {
-                font-size: 18px;
+            
+            .modal-footer {
+                flex-direction: column;
             }
-            .product-price {
-                font-size: 20px;
+            
+            .btn {
+                width: 100%;
             }
-            .add-to-cart, .download-btn {
-                font-size: 14px;
-                padding: 10px;
-            }
+            
             .cart-item {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 12px;
             }
+            
             .cart-item-image {
                 width: 100%;
-                height: 150px;
-                margin-bottom: 10px;
+                height: 120px;
             }
-            .cart-item-controls {
-                width: 100%;
-                justify-content: space-between;
-                margin-top: 10px;
+            
+            .cart-icon {
+                width: 56px;
+                height: 56px;
+                right: 20px;
+                bottom: 20px;
             }
         }
     </style>
@@ -1136,36 +1150,54 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="logo">
-                <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR Elite Studio Logo">
+            <a href="#" class="logo">
+                <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="Лого">
                 <div class="logo-text">
-                    <h1>LSPDFR ELITE STUDIO</h1>
+                    <h1>LSPDFR ELITE SHOP</h1>
+                    <span>Офіційний магазин модифікацій</span>
                 </div>
             </a>
-            <div class="header-actions">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Пошук авто..." oninput="searchProducts()">
-                    <button class="search-btn" aria-label="Пошук">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <div class="cart-icon-container" onclick="toggleCart()">
-                    <i class="fas fa-shopping-cart cart-icon"></i>
-                    <span id="cartCount" class="cart-count">0</span>
-                </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-link"><i class="fas fa-home"></i> Головна</a>
+                <a href="#" class="nav-link"><i class="fas fa-car"></i> Автомобілі</a>
+                <a href="#" class="nav-link"><i class="fas fa-percent"></i> Акції</a>
+                <a href="#" class="nav-link"><i class="fas fa-question-circle"></i> Допомога</a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Пошук авто..." oninput="searchProducts()">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         </header>
 
-        <main class="main-content">
+        <div class="breadcrumbs">
+            <a href="#">Головна</a>
+            <span class="separator">/</span>
+            <a href="#">Магазин</a>
+            <span class="separator">/</span>
+            <span>Автомобілі</span>
+        </div>
+
+        <div class="main-content">
             <aside class="sidebar">
                 <div class="filter-section">
-                    <h3><i class="fas fa-tags"></i> Категорії</h3>
-                    <button class="filter-btn active" onclick="filterProducts('all')"><i class="fas fa-car-alt"></i> Всі авто</button>
-                    <button class="filter-btn" onclick="filterProducts('patrol')"><i class="fas fa-police-car"></i> Патрульні</button>
-                    <button class="filter-btn" onclick="filterProducts('other')"><i class="fas fa-truck-pickup"></i> Інші</button>
+                    <h3><i class="fas fa-list"></i> Категорії</h3>
+                    <button class="filter-btn active" onclick="filterProducts('all')">
+                        <i class="fas fa-car"></i> Всі авто
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('patrol')">
+                        <i class="fas fa-shield-alt"></i> Патрульні
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('other')">
+                        <i class="fas fa-ellipsis-h"></i> Інші
+                    </button>
                 </div>
+                
                 <div class="filter-section">
-                    <h3><i class="fas fa-sort-amount-down"></i> Сортування</h3>
+                    <h3><i class="fas fa-sort"></i> Сортування</h3>
                     <div class="filter-group">
                         <select id="sortSelect" onchange="sortProducts(this.value)">
                             <option value="default">За замовчуванням</option>
@@ -1177,70 +1209,285 @@
                         </select>
                     </div>
                 </div>
+                
                 <div class="filter-section">
-                    <h3><i class="fas fa-money-bill-wave"></i> Ціновий діапазон</h3>
+                    <h3><i class="fas fa-filter"></i> Фільтри</h3>
                     <div class="filter-group">
-                        <label for="priceMin">Від (грн)</label>
+                        <label for="priceMin"><i class="fas fa-dollar-sign"></i> Від (грн)</label>
                         <input type="number" id="priceMin" placeholder="0" min="0">
                     </div>
                     <div class="filter-group">
-                        <label for="priceMax">До (грн)</label>
+                        <label for="priceMax"><i class="fas fa-dollar-sign"></i> До (грн)</label>
                         <input type="number" id="priceMax" placeholder="1000" min="0">
                     </div>
-                    <button class="btn-secondary" onclick="applyPriceFilter()">Застосувати</button>
+                    <button class="btn btn-secondary" onclick="applyPriceFilter()">
+                        <i class="fas fa-check"></i> Застосувати
+                    </button>
+                </div>
+                
+                <div class="filter-section">
+                    <h3><i class="fas fa-tag"></i> Промокоди</h3>
+                    <div class="filter-group">
+                        <label for="promoCodeSidebar">Введіть промокод:</label>
+                        <input type="text" id="promoCodeSidebar" placeholder="Наприклад: WELCOME15">
+                    </div>
+                    <button class="btn btn-primary" onclick="applyPromoCodeFromSidebar()">
+                        <i class="fas fa-percent"></i> Застосувати знижку
+                    </button>
+                    <div class="discount-info" style="margin-top: 15px; display: none;">
+                        <i class="fas fa-info-circle"></i> Активні промокоди: WELCOME15 (-15%), ELITE20 (-20%)
+                    </div>
                 </div>
             </aside>
 
-            <section class="products-container">
+            <main class="products-container">
                 <div class="sort-container">
-                    <div id="productsCount">Знайдено 0 товарів</div>
+                    <div id="productsCount">Знайдено 7 товарів</div>
                     <select class="sort-select" onchange="changeItemsPerPage(this.value)">
                         <option value="12">12 на сторінці</option>
                         <option value="24">24 на сторінці</option>
                         <option value="48">48 на сторінці</option>
                     </select>
                 </div>
+                
                 <div class="product-grid" id="productGrid">
+                    <!-- Renault Logan -->
+                    <div class="product-card" data-category="patrol" data-price="0" data-rating="4.9" data-name="Renault Logan Patrol">
+                        <div class="product-badge free">Безкоштовно</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Renault Logan Patrol" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(0)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Renault Logan Patrol</h3>
+                            <p class="product-description">Повний комплект поліцейських текстур</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (12 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price free">Безкоштовно</div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing" class="download-btn">
+                                    <i class="fas fa-download"></i> Завантажити
+                                </a>
+                            </div>
+                        </div>
                     </div>
-            </section>
-        </main>
+
+                    <!-- Dacia Sandero -->
+                    <div class="product-card" data-category="patrol" data-price="0" data-rating="4.8" data-name="Dacia Sandero Patrol">
+                        <div class="product-badge free">Безкоштовно</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero Patrol" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(1)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dacia Sandero Patrol</h3>
+                            <p class="product-description">Повний комплект з текстурами та налаштуваннями</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (8 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price free">Безкоштовно</div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing" class="download-btn">
+                                    <i class="fas fa-download"></i> Завантажити
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toyota Corolla -->
+                    <div class="product-card" data-category="patrol" data-price="50" data-rating="5.0" data-name="Toyota Corolla Patrol">
+                        <div class="product-badge hot">Хіт продажів</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla Patrol" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(2)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Toyota Corolla Patrol</h3>
+                            <p class="product-description">Включає спецсигнали та унікальні текстури</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0 (5 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price">50 грн</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(2)">
+                                    <i class="fas fa-cart-plus"></i> В кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Renault Duster -->
+                    <div class="product-card" data-category="patrol" data-price="50" data-rating="4.7" data-name="Renault Duster Patrol">
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Duster Patrol" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(3)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Renault Duster Patrol</h3>
+                            <p class="product-description">Модель з реалістичною фізикою</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7 (7 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price">50 грн</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(3)">
+                                    <i class="fas fa-cart-plus"></i> В кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Renault Duster НГУ -->
+                    <div class="product-card" data-category="other" data-price="50" data-rating="4.9" data-name="Renault Duster НГУ">
+                        <div class="product-badge new">Новинка</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Renault Duster НГУ" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(4)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Renault Duster НГУ</h3>
+                            <p class="product-description">Спеціальна версія для Національної гвардії України</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (3 відгуки)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price">50 грн</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(4)">
+                                    <i class="fas fa-cart-plus"></i> В кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Renault Duster Охорона -->
+                    <div class="product-card" data-category="other" data-price="50" data-rating="4.8" data-name="Renault Duster Охорона">
+                        <div class="product-badge new">Новинка</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&" alt="Renault Duster Охорона" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(5)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Renault Duster Охорона</h3>
+                            <p class="product-description">Спеціальна версія для охоронних служб</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (6 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price">50 грн</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(5)">
+                                    <i class="fas fa-cart-plus"></i> В кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skoda Octavia НПУ 2021 -->
+                    <div class="product-card" data-category="patrol" data-price="50" data-rating="5.0" data-name="Skoda Octavia НПУ 2021">
+                        <div class="product-badge hot">Хіт продажів</div>
+                        <div class="product-image-container">
+                            <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Skoda Octavia НПУ 2021" class="product-image" loading="lazy">
+                            <div class="quick-view" onclick="showQuickView(6)">
+                                <i class="fas fa-eye"></i> Швидкий перегляд
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Skoda Octavia НПУ 2021</h3>
+                            <p class="product-description">Новітня модель для Національної поліції України</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0 (10 відгуків)</span>
+                            </div>
+                            <div class="product-price-container">
+                                <div class="product-price">50 грн</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(6)">
+                                    <i class="fas fa-cart-plus"></i> В кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
 
-    <div id="cartSidebar" class="cart-sidebar">
+    <!-- Кошик -->
+    <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h2><i class="fas fa-shopping-cart"></i> Ваш кошик</h2>
-            <button class="close-cart" onclick="toggleCart()" aria-label="Закрити кошик">&times;</button>
+            <h2><i class="fas fa-shopping-cart"></i> Ваше замовлення</h2>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div id="cartItems" class="cart-items-container">
-            <p style="color: var(--text-muted); text-align: center;">Кошик порожній</p>
-        </div>
+        <div id="cartItems"></div>
         <div class="cart-summary">
             <div class="promo-code-container">
                 <input type="text" id="promoCode" placeholder="Введіть промокод">
-                <button class="apply-promo" onclick="applyPromoCode()">Застосувати</button>
+                <button class="apply-promo" onclick="applyPromoCode()">
+                    <i class="fas fa-tag"></i> Застосувати
+                </button>
             </div>
-            <p id="discountInfo" class="discount-info" style="display: none;"></p>
+            <div id="discountInfo" class="discount-info"></div>
             <div class="cart-total">
-                <span>Загалом:</span>
-                <span id="cartTotal">0.00 грн</span>
+                <span>Всього:</span>
+                <span id="cartTotal">0 грн</span>
             </div>
-            <button class="checkout-btn" onclick="openPaymentModal()">
-                <i class="fas fa-cash-register"></i> Оформити замовлення
+            <button class="checkout-btn" onclick="showPaymentModal()">
+                <i class="fas fa-credit-card"></i> Оформити замовлення
             </button>
         </div>
     </div>
 
+    <!-- Іконка кошика -->
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount">0</span>
+    </div>
+
+    <!-- Модальне вікно для оформлення замовлення -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title">Оформлення замовлення</h2>
+            <h2 class="modal-title"><i class="fas fa-credit-card"></i> Оформлення замовлення</h2>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="userEmail">Ваш email:</label>
+                    <label for="userEmail"><i class="fas fa-envelope"></i> Ваш email:</label>
                     <input type="email" id="userEmail" placeholder="Введіть email для отримання файлів" required>
                 </div>
                 <div class="form-group">
-                    <label for="userComment">Коментар до замовлення (необов'язково):</label>
+                    <label for="userComment"><i class="fas fa-comment"></i> Коментар до замовлення:</label>
                     <textarea id="userComment" placeholder="Напишіть назви авто, які купуєте, та будь-які додаткові побажання"></textarea>
                 </div>
                 <div class="instruction-box">
@@ -1248,31 +1495,29 @@
                     <ol>
                         <li>Натисніть кнопку "Перейти до оплати"</li>
                         <li>Оплатіть вказану суму</li>
-                        <li>В коментарі до платежу **обов'язково** вкажіть ваш email та назви авто</li>
+                        <li>В коментарі до платежу вкажіть ваш email та назви авто</li>
                         <li>Після оплати ми надішлемо файли на ваш email протягом 24 годин</li>
                     </ol>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal()">Скасувати</button>
-                <button class="btn-primary" onclick="processPayment()">
+                <button class="btn btn-secondary" onclick="closeModal()">
+                    <i class="fas fa-times"></i> Скасувати
+                </button>
+                <button class="btn btn-primary" onclick="processPayment()">
                     <i class="fas fa-credit-card"></i> Перейти до оплати
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- Модальне вікно швидкого перегляду -->
     <div id="quickViewModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeQuickView()">&times;</span>
-            <div id="quickViewContent">
-                </div>
+            <div id="quickViewContent"></div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2025 LSPDFR ELITE STUDIO SHOP. Усі права захищено.</p>
-    </footer>
 
     <script>
         // Дані товарів
@@ -1281,340 +1526,289 @@
                 id: 0,
                 name: "Renault Logan Patrol",
                 price: 0,
-                description: "Повний комплект поліцейських текстур для Renault Logan. Модель ідеально підходить для патрулювання міста.",
-                image: "https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c31d5b3060c238b6932a392159045b842&",
+                description: "Повний комплект поліцейських текстур для Renault Logan. Модель ідеально підходить для патрулювання міста. Включає всі необхідні файли для встановлення та детальну інструкцію.",
+                image: "https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&",
                 rating: 4.9,
                 reviews: 12,
                 category: "patrol",
-                features: ["Українські номери", "Повний комплект сирен", "Висока деталізація", "Оптимізована модель"],
-                badge: "free"
+                features: ["Поліцейські текстури високої якості", "Світлова сигналізація з різними режимами", "Режим патрулювання з особливими налаштуваннями", "Оптимізована модель для плавної роботи", "Деталізований інтер'єр з поліцейським обладнанням"],
+                downloadLink: "https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing"
             },
             {
                 id: 1,
-                name: "BMW M5 F90 Patrol",
-                price: 75,
-                description: "Потужна поліцейська модель BMW M5 F90 з ексклюзивними текстурами та реалістичною фізикою.",
-                image: "https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c31d5b3060c238b6932a392159045b842&", // Placeholder, ideally specific to BMW
+                name: "Dacia Sandero Patrol",
+                price: 0,
+                description: "Повний комплект з текстурами та налаштуваннями для Dacia Sandero. Ідеальний вибір для патрульної служби. Модель має високу деталізацію та реалістичну фізику руху.",
+                image: "https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&",
                 rating: 4.8,
                 reviews: 8,
                 category: "patrol",
-                features: ["Ексклюзивні текстури", "Висока швидкість", "Деталізований інтер'єр", "Повний комплект поліцейського обладнання"],
-                badge: "hot"
+                features: ["Реалістичні текстури високої роздільної здатності", "Повний комплект сигналів та світлових ефектів", "Оптимізована фізика для реалістичного керування", "Деталізований салон з поліцейським обладнанням", "Проста інсталяція з детальною інструкцією"],
+                downloadLink: "https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing"
             },
             {
                 id: 2,
-                name: "Mercedes-Benz Sprinter ДСНС",
-                price: 120,
-                description: "Деталізована модель Mercedes-Benz Sprinter для Державної служби України з надзвичайних ситуацій. Повністю функціональна.",
-                image: "https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c31d5b3060c238b6932a392159045b842&", // Placeholder, ideally specific to Sprinter
-                rating: 4.5,
+                name: "Toyota Corolla Patrol",
+                price: 50,
+                description: "Включає спецсигнали та унікальні текстури для Toyota Corolla. Висока деталізація та реалістичне управління. Модель спеціально розроблена для патрульної служби в міських умовах.",
+                image: "https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&",
+                rating: 5.0,
                 reviews: 5,
-                category: "other",
-                features: ["Спеціальні маячки", "Реалістичні звуки сирен", "Внутрішнє обладнання", "Висока оптимізація"],
-                badge: "new"
+                category: "patrol",
+                features: ["Унікальні текстури високої якості", "Спецсигнали з різними режимами роботи", "Режим погоні з особливими налаштуваннями", "Деталізований інтер'єр з поліцейським обладнанням", "Реалістична фізика руху та зіткнень"]
             },
             {
                 id: 3,
                 name: "Renault Duster Patrol",
                 price: 50,
-                description: "Модель з реалістичною фізикою та якісними текстурами для патрулювання. Ідеально підходить для міських та сільських доріг.",
-                image: "https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c31d5b3060c238b6932a392159045b842&", // Placeholder
+                description: "Модель з реалістичною фізикою для Renault Duster. Відмінно підходить для служби в умовах бездоріжжя. Має підвищену прохідність та спеціальні налаштування для патрулювання.",
+                image: "https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&",
                 rating: 4.7,
                 reviews: 7,
                 category: "patrol",
-                features: ["Адаптована під LSPDFR", "Реалістична поведінка", "Звукові ефекти", "Всі LODи"],
-                badge: ""
+                features: ["Реалістична фізика для умов бездоріжжя", "Підвищена прохідність з особливими налаштуваннями", "Повний комплект сигналів та світлових ефектів", "Деталізований кузов з поліцейською атрибутикою", "Проста інсталяція з детальною інструкцією"]
             },
             {
                 id: 4,
                 name: "Renault Duster НГУ",
                 price: 50,
-                description: "Спеціальна версія для Національної гвардії України. Включає унікальні текстури та обладнання для спецслужб.",
+                description: "Спеціальна версія для Національної гвардії України. Унікальні текстури та спеціальне обладнання. Модель оптимізована для роботи в складних умовах.",
                 image: "https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&",
                 rating: 4.9,
                 reviews: 3,
                 category: "other",
-                features: ["Спеціальні текстури", "Додаткове обладнання", "Режим охорони", "Оптимізована модель"],
-                badge: "new"
+                features: ["Унікальні текстури НГУ високої якості", "Спеціальне обладнання для служби в складних умовах", "Режим патрулювання з особливими налаштуваннями", "Оптимізована модель для стабільної роботи", "Деталізований інтер'єр з військовим обладнанням"]
             },
             {
                 id: 5,
                 name: "Renault Duster Охорона",
                 price: 50,
-                description: "Версія Renault Duster для приватних охоронних структур. Оптимізована для використання в міських умовах.",
-                image: "https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&", // Placeholder
+                description: "Спеціальна версія для охоронних служб. Оптимізована для використання в міських умовах. Має унікальні текстури та спеціальні налаштування.",
+                image: "https://cdn.discordapp.com/attachments/1386284445308551189/1386285849812926484/image.png?ex=685926ce&is=6857d54e&hm=059f1c9c40e88fab1ef8d9306139918248f1cfa8d83a17aa2fb54e73d64fcf3b&",
                 rating: 4.8,
                 reviews: 6,
                 category: "other",
-                features: ["Приватні текстури", "Легко встановити", "Сумісність з ELS", "Низький розмір файлу"],
-                badge: ""
+                features: ["Спеціальні текстури для охоронних служб", "Додаткове обладнання для служби в міських умовах", "Режим охорони з особливими налаштуваннями", "Оптимізована модель для стабільної роботи", "Деталізований інтер'єр з охоронним обладнанням"]
             },
             {
                 id: 6,
                 name: "Skoda Octavia НПУ 2021",
                 price: 50,
-                description: "Новітня модель для Національної поліції України. Високоякісна модель з усіма необхідними функціями.",
+                description: "Новітня модель для Національної поліції України. Високоякісна модель з усіма необхідними функціями. Ідеально підходить для патрулювання міських вулиць.",
                 image: "https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&",
                 rating: 5.0,
                 reviews: 10,
                 category: "patrol",
-                features: ["Сучасний дизайн", "Повний комплект сигналів", "Режим патрулювання", "Висока деталізація"],
-                badge: ""
+                features: ["Сучасний дизайн з поліцейською атрибутикою", "Повний комплект сигналів з різними режимами роботи", "Режим патрулювання з особливими налаштуваннями", "Висока деталізація зовнішнього вигляду та інтер'єру", "Реалістична фізика руху та зіткнень"]
             }
         ];
 
         const MONOBANK_JAR_URL = "https://send.monobank.ua/jar/G7ZB9qnNG";
-
         let cart = [];
         let discount = 0;
         const PROMO_CODES = {
-            "WELCOME10": 10,
-            "LSPDFR20": 20,
-            "ELITE30": 30
+            "WELCOME15": 15,
+            "ELITE20": 20,
+            "VIP25": 25
         };
+        
+        // Завантаження кошика з localStorage
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCart();
+        }
 
-        let currentProducts = [...products]; // To store currently filtered/sorted products
-        let itemsPerPage = 12; // Default items per page
-        let currentPage = 1;
-
-        // Functions for product display and filtering
-        function renderProducts() {
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = ''; // Clear existing products
-
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const paginatedProducts = currentProducts.slice(startIndex, endIndex);
-
-            if (paginatedProducts.length === 0) {
-                productGrid.innerHTML = '<p style="color: var(--text-muted); text-align: center; grid-column: 1 / -1;">На жаль, за вашим запитом нічого не знайдено.</p>';
-                updateProductsCount();
-                return;
-            }
-
-            paginatedProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.setAttribute('data-category', product.category);
-                productCard.setAttribute('data-price', product.price);
-                productCard.setAttribute('data-rating', product.rating);
-                productCard.setAttribute('data-name', product.name);
-
-                let badgeHtml = '';
-                if (product.badge === 'free') {
-                    badgeHtml = '<div class="product-badge free">Безкоштовно</div>';
-                } else if (product.badge === 'new') {
-                    badgeHtml = '<div class="product-badge new">Новинка</div>';
-                } else if (product.badge === 'hot') {
-                    badgeHtml = '<div class="product-badge">Хіт</div>';
+        // Функція фільтрації продуктів
+        function filterProducts(category) {
+            const productCards = document.querySelectorAll('.product-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Оновити активну кнопку
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(category === 'all' ? 'Всі' : 
+                                            category === 'patrol' ? 'Патрульні' : 'Інші')) {
+                    btn.classList.add('active');
                 }
-
-                productCard.innerHTML = `
-                    ${badgeHtml}
-                    <div class="product-image-container">
-                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
-                        <div class="quick-view" onclick="showQuickView(${product.id})">
-                            <i class="fas fa-eye"></i> Швидкий перегляд
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-rating">
-                            ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}
-                            ${product.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
-                            <span>${product.rating} (${product.reviews} відгуків)</span>
-                        </div>
-                        <div class="product-price-container">
-                            <div class="product-price ${product.price === 0 ? 'free' : ''}">${product.price === 0 ? 'Безкоштовно' : `${product.price} грн`}</div>
-                            ${product.oldPrice ? `<div class="product-old-price">${product.oldPrice} грн</div>` : ''}
-                        </div>
-                        <div class="product-actions">
-                            ${product.price === 0 ?
-                                `<button class="download-btn" onclick="downloadProduct(${product.id})">
-                                    <i class="fas fa-download"></i> Завантажити
-                                </button>` :
-                                `<button class="add-to-cart" onclick="addToCart(${product.id})">
-                                    <i class="fas fa-cart-plus"></i> В кошик
-                                </button>`
-                            }
-                        </div>
-                    </div>
-                `;
-                productGrid.appendChild(productCard);
             });
+            
+            // Фільтрація продуктів
+            productCards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+            
             updateProductsCount();
         }
 
-        function updateProductsCount() {
-            document.getElementById('productsCount').textContent = `Знайдено ${currentProducts.length} товарів`;
-        }
-
-        function filterProducts(category) {
-            currentProducts = products.filter(product => {
-                const matchesCategory = (category === 'all' || product.category === category);
-                const searchInput = document.getElementById('searchInput').value.toLowerCase();
-                const matchesSearch = product.name.toLowerCase().includes(searchInput) ||
-                                      product.description.toLowerCase().includes(searchInput);
-
-                const priceMin = parseFloat(document.getElementById('priceMin').value) || 0;
-                const priceMax = parseFloat(document.getElementById('priceMax').value) || Infinity;
-                const matchesPrice = (product.price >= priceMin && product.price <= priceMax);
-
-                return matchesCategory && matchesSearch && matchesPrice;
-            });
-            currentPage = 1; // Reset to first page on filter change
-            sortProducts(document.getElementById('sortSelect').value); // Re-sort after filtering
-            updateFilterButtons(category);
-        }
-
-        function updateFilterButtons(activeCategory) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.onclick.toString().includes(`filterProducts('${activeCategory}')`)) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-
-        function searchProducts() {
-            filterProducts(document.querySelector('.filter-btn.active').onclick.toString().match(/'(.*)'/)[1]);
-        }
-
-        function sortProducts(sortBy) {
-            currentProducts.sort((a, b) => {
-                switch (sortBy) {
+        // Функція сортування продуктів
+        function sortProducts(sortType) {
+            const productGrid = document.getElementById('productGrid');
+            const productCards = Array.from(document.querySelectorAll('.product-card'));
+            
+            productCards.sort((a, b) => {
+                switch(sortType) {
                     case 'price-asc':
-                        return a.price - b.price;
+                        return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
                     case 'price-desc':
-                        return b.price - a.price;
+                        return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
                     case 'name-asc':
-                        return a.name.localeCompare(b.name);
+                        return a.dataset.name.localeCompare(b.dataset.name);
                     case 'name-desc':
-                        return b.name.localeCompare(a.name);
+                        return b.dataset.name.localeCompare(a.dataset.name);
                     case 'rating':
-                        return b.rating - a.rating;
+                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
                     default:
-                        return 0; // No specific sort
+                        return 0;
                 }
             });
-            renderProducts();
+            
+            // Очистити і знову додати відсортовані картки
+            productGrid.innerHTML = '';
+            productCards.forEach(card => productGrid.appendChild(card));
         }
 
+        // Функція пошуку продуктів
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const productName = card.dataset.name.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            updateProductsCount();
+        }
+
+        // Функція фільтрації за ціною
         function applyPriceFilter() {
-            filterProducts(document.querySelector('.filter-btn.active').onclick.toString().match(/'(.*)'/)[1]);
+            const minPrice = parseFloat(document.getElementById('priceMin').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('priceMax').value) || Infinity;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const price = parseFloat(card.dataset.price);
+                if (price >= minPrice && price <= maxPrice) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            updateProductsCount();
         }
 
-        function changeItemsPerPage(value) {
-            itemsPerPage = parseInt(value);
-            currentPage = 1; // Reset to first page
-            renderProducts();
+        // Оновлення лічильника товарів
+        function updateProductsCount() {
+            const visibleProducts = document.querySelectorAll('.product-card:not(.hidden)').length;
+            document.getElementById('productsCount').textContent = `Знайдено ${visibleProducts} товарів`;
         }
 
-        // Quick View functions
-        function showQuickView(productId) {
-            const product = products.find(p => p.id === productId);
-            const quickViewContent = document.getElementById('quickViewContent');
-            if (product) {
-                quickViewContent.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="quick-view-image">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <div class="product-rating">
-                        ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}
-                        ${product.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
-                        <span>${product.rating} (${product.reviews} відгуків)</span>
-                    </div>
-                    <div class="quick-view-features">
-                        <h4><i class="fas fa-list-check"></i> Особливості:</h4>
-                        <ul>
-                            ${product.features.map(feature => `<li><i class="fas fa-check-circle"></i> ${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="quick-view-price ${product.price === 0 ? 'free' : ''}">${product.price === 0 ? 'Безкоштовно' : `${product.price} грн`}</div>
-                    <div class="quick-view-actions">
-                        ${product.price === 0 ?
-                            `<button class="download-btn btn-primary" onclick="downloadProduct(${product.id}); closeQuickView();">
-                                <i class="fas fa-download"></i> Завантажити
-                            </button>` :
-                            `<button class="add-to-cart btn-primary" onclick="addToCart(${product.id}); closeQuickView();">
-                                <i class="fas fa-cart-plus"></i> Додати в кошик
-                            </button>`
-                        }
-                        <button class="btn-secondary" onclick="closeQuickView()">Закрити</button>
-                    </div>
-                `;
-                document.getElementById('quickViewModal').style.display = 'flex';
-            }
-        }
-
-        function closeQuickView() {
-            document.getElementById('quickViewModal').style.display = 'none';
-        }
-
-        // Cart functions
-        function toggleCart() {
-            document.getElementById('cartSidebar').classList.toggle('active');
-        }
-
+        // Додавання товару до кошика
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
-            if (product && product.price > 0) { // Only add paid products to cart
-                const existingItem = cart.find(item => item.id === productId);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({ ...product, quantity: 1 });
-                }
-                updateCart();
-                showNotification('Товар додано до кошика!', 'success');
-            } else if (product && product.price === 0) {
-                 showNotification('Цей товар безкоштовний, завантажте його безпосередньо!', 'info');
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
             }
+            
+            updateCart();
+            showNotification('Товар додано до кошика!', 'success');
+            toggleCart();
         }
 
+        // Видалення товару з кошика
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
             showNotification('Товар видалено з кошика', 'error');
         }
 
+        // Зміна кількості товару
         function changeQuantity(index, delta) {
             cart[index].quantity += delta;
+            
             if (cart[index].quantity < 1) {
                 cart.splice(index, 1);
             }
+            
             updateCart();
         }
 
+        // Застосування промокоду
         function applyPromoCode() {
             const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
             const discountInfo = document.getElementById('discountInfo');
-
+            
             if (PROMO_CODES[promoCode]) {
                 discount = PROMO_CODES[promoCode];
-                discountInfo.textContent = `Знижка ${discount}% застосована!`;
-                discountInfo.style.display = 'block';
+                discountInfo.innerHTML = `<i class="fas fa-check-circle"></i> Знижка ${discount}% застосована!`;
+                discountInfo.className = 'discount-info';
+                discountInfo.style.display = 'flex';
                 updateCart();
                 showNotification(`Промокод на ${discount}% успішно застосовано!`, 'success');
             } else {
                 discount = 0;
-                discountInfo.textContent = 'Невірний промокод';
-                discountInfo.style.display = 'block';
+                discountInfo.innerHTML = `<i class="fas fa-exclamation-circle"></i> Невірний промокод`;
+                discountInfo.className = 'discount-info error';
+                discountInfo.style.display = 'flex';
                 updateCart();
                 showNotification('Невірний промокод', 'error');
             }
         }
 
+        // Застосування промокоду з бічної панелі
+        function applyPromoCodeFromSidebar() {
+            const promoCode = document.getElementById('promoCodeSidebar').value.trim().toUpperCase();
+            const discountInfo = document.getElementById('discountInfo');
+            
+            if (PROMO_CODES[promoCode]) {
+                discount = PROMO_CODES[promoCode];
+                document.getElementById('promoCode').value = promoCode;
+                discountInfo.innerHTML = `<i class="fas fa-check-circle"></i> Знижка ${discount}% застосована!`;
+                discountInfo.className = 'discount-info';
+                discountInfo.style.display = 'flex';
+                updateCart();
+                showNotification(`Промокод на ${discount}% успішно застосовано!`, 'success');
+            } else {
+                discount = 0;
+                discountInfo.innerHTML = `<i class="fas fa-exclamation-circle"></i> Невірний промокод`;
+                discountInfo.className = 'discount-info error';
+                discountInfo.style.display = 'flex';
+                updateCart();
+                showNotification('Невірний промокод', 'error');
+            }
+        }
+
+        // Оновлення відображення кошика
         function updateCart() {
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
-            cartItems.innerHTML = ''; // Clear existing cart items
-
+            
+            cartItems.innerHTML = '';
+            
             if (cart.length === 0) {
-                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 20px;">Кошик порожній</p>';
+                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 20px 0;">Кошик порожній</p>';
                 document.getElementById('discountInfo').style.display = 'none';
             } else {
                 cart.forEach((item, index) => {
@@ -1623,8 +1817,8 @@
                     itemElement.innerHTML = `
                         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                         <div class="cart-item-info">
-                            <h4 class="cart-item-name">${item.name}</h4>
-                            <div class="cart-item-price">${(item.price * item.quantity).toFixed(2)} грн</div>
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${(item.price * item.quantity).toFixed(2)} грн (${item.price.toFixed(2)} грн × ${item.quantity})</div>
                             <div class="cart-item-controls">
                                 <div class="quantity-controls">
                                     <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
@@ -1640,80 +1834,131 @@
                     cartItems.appendChild(itemElement);
                 });
             }
-
+            
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const total = subtotal * (1 - discount / 100);
-
-            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartTotal.textContent = `${total.toFixed(2)} грн`;
-
+            
+            if (discount > 0) {
+                cartTotal.innerHTML = `
+                    <span style="text-decoration: line-through; color: var(--text-muted); margin-right: 5px;">${subtotal.toFixed(2)} грн</span>
+                    ${total.toFixed(2)} грн
+                `;
+            } else {
+                cartTotal.textContent = `${total.toFixed(2)} грн`;
+            }
+            
+            // Зберегти кошик в localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-            localStorage.setItem('discount', discount);
         }
 
-        // Payment functions
-        function openPaymentModal() {
+        // Перемикання видимості кошика
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+
+        // Показати модальне вікно оплати
+        function showPaymentModal() {
             if (cart.length === 0) {
-                showNotification('Ваш кошик порожній!', 'error');
+                showNotification('Кошик порожній!', 'error');
                 return;
             }
-            document.getElementById('paymentModal').style.display = 'flex';
+            
+            document.getElementById('paymentModal').style.display = 'block';
         }
 
+        // Закрити модальне вікно
         function closeModal() {
             document.getElementById('paymentModal').style.display = 'none';
         }
 
+        // Обробка оплати
         function processPayment() {
             const email = document.getElementById('userEmail').value;
             const comment = document.getElementById('userComment').value;
-
-            if (!email) {
-                showNotification('Будь ласка, введіть ваш email!', 'error');
+            
+            if (!email || !email.includes('@')) {
+                showNotification('Будь ласка, введіть коректний email', 'error');
                 return;
             }
-
-            if (!/\S+@\S+\.\S+/.test(email)) {
-                showNotification('Будь ласка, введіть дійсний email!', 'error');
-                return;
-            }
-
+            
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const total = subtotal * (1 - discount / 100);
-
+            
+            // Формування списку товарів
             const productList = cart.map(item => `${item.name} (${item.quantity} шт.)`).join(', ');
-
+            
+            // Показати інструкцію
             alert(`Для завершення покупки:
-1. Оплатіть ${total.toFixed(2)} грн за посиланням: ${MONOBANK_JAR_URL}?amount=${Math.round(total * 100)}
-2. В коментарі до платежу ОБОВ'ЯЗКОВО вкажіть ваш email: "${email}", назви авто: "${productList}", та будь-який коментар: "${comment || 'Без коментаря'}"
-3. Після оплати ми надішлемо файли на вказаний email протягом 24 годин.
-`);
-
+1. Оплатіть ${total.toFixed(2)} грн за посиланням
+2. В коментарі до платежу вкажіть:
+"${email}, ${productList}, ${comment || 'Без коментаря'}"
+3. Після оплати ми надішлемо файли на вказаний email протягом 24 годин`);
+            
+            // Відкрити посилання на оплату
             window.open(`${MONOBANK_JAR_URL}?amount=${Math.round(total * 100)}`, '_blank');
-
+            
+            // Закрити модальне вікно та очистити кошик
             closeModal();
             cart = [];
             discount = 0;
             updateCart();
             localStorage.removeItem('cart');
-            localStorage.removeItem('discount');
-            showNotification('Замовлення успішно оформлено! Перевірте інструкції для оплати.', 'success');
+            document.getElementById('discountInfo').style.display = 'none';
+            document.getElementById('promoCode').value = '';
+            document.getElementById('promoCodeSidebar').value = '';
         }
 
-        function downloadProduct(productId) {
-            const product = products.find(p => p.id === productId);
-            if (product && product.price === 0) {
-                // In a real scenario, you'd trigger a file download here.
-                // For demonstration, we'll just show a notification.
-                showNotification(`Завантаження "${product.name}" розпочато!`, 'success');
-                // Example: window.location.href = 'path/to/your/free/product.zip';
-            } else {
-                showNotification('Цей товар платний, додайте його в кошик для покупки.', 'error');
-            }
+        // Показати швидкий перегляд товару
+        function showQuickView(productId) {
+            const product = products[productId];
+            const quickViewContent = document.getElementById('quickViewContent');
+            
+            quickViewContent.innerHTML = `
+                <h2 class="modal-title"><i class="fas fa-car"></i> ${product.name}</h2>
+                <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                <p style="margin-bottom: 20px; color: var(--text-secondary); line-height: 1.6;">${product.description}</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <i class="fas fa-star" style="color: var(--accent-yellow);"></i>
+                        <span>Рейтинг: ${product.rating} (${product.reviews} відгуків)</span>
+                    </div>
+                    <div style="font-size: 28px; font-weight: bold; color: ${product.price === 0 ? 'var(--accent-blue)' : 'var(--accent-green)'}; margin-bottom: 20px;">
+                        ${product.price === 0 ? 'Безкоштовно' : product.price + ' грн'}
+                    </div>
+                </div>
+                
+                <h3 style="margin-bottom: 12px; font-size: 18px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-list"></i> Особливості:</h3>
+                <ul style="margin-bottom: 25px; padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                
+                <div style="display: flex; gap: 15px;">
+                    ${product.price === 0 ? `
+                        <a href="${product.downloadLink}" class="btn btn-primary" style="flex: 1; text-align: center;">
+                            <i class="fas fa-download"></i> Завантажити
+                        </a>
+                    ` : `
+                        <button class="btn btn-primary" style="flex: 1;" onclick="addToCart(${product.id}); closeQuickView()">
+                            <i class="fas fa-cart-plus"></i> Додати до кошика
+                        </button>
+                    `}
+                    <button class="btn btn-secondary" onclick="closeQuickView()" style="flex: 1;">
+                        <i class="fas fa-times"></i> Закрити
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('quickViewModal').style.display = 'block';
         }
 
+        // Закрити швидкий перегляд
+        function closeQuickView() {
+            document.getElementById('quickViewModal').style.display = 'none';
+        }
 
-        // Notification function
+        // Функція для показу сповіщень
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
@@ -1721,41 +1966,33 @@
                 <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
                 ${message}
             `;
-
+            
             document.body.appendChild(notification);
-
-            // Trigger reflow to ensure animation
-            notification.offsetWidth;
-
-            notification.style.opacity = '1';
-            notification.style.transform = 'translateX(-50%) translateY(0)';
-
+            
             setTimeout(() => {
                 notification.style.opacity = '0';
-                notification.style.transform = 'translateX(-50%) translateY(20px)';
                 setTimeout(() => {
                     document.body.removeChild(notification);
                 }, 300);
             }, 3000);
         }
 
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedCart = localStorage.getItem('cart');
-            const savedDiscount = localStorage.getItem('discount');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
-            }
-            if (savedDiscount) {
-                discount = parseFloat(savedDiscount);
-            }
-            filterProducts('all'); // Initial render
-            updateCart(); // Update cart display from local storage
+        // Ініціалізація пошуку
+        document.getElementById('searchInput').addEventListener('input', searchProducts);
+        
+        // Ініціалізація кнопок фільтрації
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
 
-        // Event listeners for price filter inputs
-        document.getElementById('priceMin').addEventListener('input', applyPriceFilter);
-        document.getElementById('priceMax').addEventListener('input', applyPriceFilter);
+        // Показати активні промокоди
+        document.querySelector('.discount-info').style.display = 'flex';
+
+        // Оновлення лічильника товарів при завантаженні
+        updateProductsCount();
     </script>
 </body>
 </html>
