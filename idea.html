@@ -30,7 +30,6 @@
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Base styles */
     * {
       margin: 0;
       padding: 0;
@@ -42,11 +41,10 @@
       background: var(--primary-bg);
       color: var(--text-primary);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-image:
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
       line-height: 1.6;
     }
 
@@ -54,64 +52,41 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
-      flex-grow: 1;
-    }
-
-    /* Animations */
-    .fade-in {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .slide-in {
-      animation: slideIn 0.3s ease-out forwards;
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
     }
 
     /* Auth Buttons */
     .auth-buttons {
       display: flex;
       justify-content: flex-end;
-      gap: 15px;
-      margin-bottom: 25px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
-
+    
     .auth-btn {
-      padding: 12px 20px;
+      padding: 10px 15px;
       border-radius: 8px;
       border: none;
       cursor: pointer;
       font-weight: 600;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 15px;
-      box-shadow: var(--shadow-sm);
     }
-
+    
     .user-btn {
-      background: var(--accent-blue);
+      background: #3b82f6;
       color: white;
     }
-
+    
     .admin-btn {
-      background: var(--accent-green);
+      background: #10b981;
       color: white;
     }
-
+    
     .auth-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     /* Auth Forms */
@@ -120,37 +95,36 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
-      padding: 30px;
-      margin-bottom: 30px;
+      padding: 24px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-md);
     }
 
     .auth-title {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 25px;
-      color: var(--accent-blue);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--text-primary);
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .auth-form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
     .auth-form-group {
-      margin-bottom: 0; /* Adjusted for gap in form */
+      margin-bottom: 16px;
     }
 
     .auth-form-label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 500;
       color: var(--text-primary);
-      font-size: 15px;
     }
 
     .auth-form-input {
@@ -160,14 +134,14 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: var(--text-primary);
-      font-size: 15px;
+      font-size: 14px;
       transition: var(--transition);
     }
 
     .auth-form-input:focus {
       outline: none;
       border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
 
     .auth-form-submit {
@@ -176,32 +150,28 @@
       border: none;
       border-radius: 8px;
       padding: 14px 24px;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      margin-top: 15px;
-      box-shadow: var(--shadow-sm);
+      margin-top: 8px;
     }
 
     .auth-form-submit:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
-      opacity: 0.95;
     }
 
     .auth-form-switch {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 16px;
       color: var(--text-secondary);
-      font-size: 15px;
     }
 
     .auth-form-switch a {
       color: var(--accent-blue);
       cursor: pointer;
       text-decoration: none;
-      font-weight: 600;
     }
 
     /* Header */
@@ -210,11 +180,10 @@
       backdrop-filter: blur(20px);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
-      padding: 30px;
-      margin-bottom: 30px;
+      padding: 24px;
+      margin-bottom: 24px;
       position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
     }
 
     .header::before {
@@ -223,9 +192,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 5px;
+      height: 4px;
       background: var(--gradient-primary);
-      z-index: 1;
     }
 
     .header-content {
@@ -233,32 +201,26 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
     }
 
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 18px;
-      text-decoration: none;
+      gap: 16px;
     }
 
     .logo {
-      width: 70px;
-      height: 70px;
-      border-radius: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
       box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-        transform: rotate(-5deg) scale(1.05);
     }
 
     .title-section h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -267,67 +229,65 @@
 
     .title-section p {
       color: var(--text-secondary);
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .stats-section {
       display: flex;
-      gap: 30px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
     .stat-item {
       text-align: center;
-      padding: 15px 20px;
+      padding: 12px 16px;
       background: var(--accent-bg);
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
     }
 
     .stat-number {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       color: var(--accent-blue);
       display: block;
-      margin-bottom: 5px;
     }
 
     .stat-label {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
     }
 
-    /* Form Section (Propose Idea) */
+    /* Form Section */
     .form-container {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
-      padding: 35px;
-      margin-bottom: 30px;
+      padding: 32px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-md);
     }
 
     .form-title {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 28px;
-      color: var(--accent-green);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .form-title i {
-      color: var(--accent-green);
+      color: var(--accent-blue);
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      gap: 24px;
     }
 
     @media (max-width: 768px) {
@@ -337,15 +297,14 @@
     }
 
     .form-group {
-      margin-bottom: 0; /* Adjusted for gap in form */
+      margin-bottom: 20px;
     }
 
     .form-label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 500;
       color: var(--text-primary);
-      font-size: 15px;
     }
 
     .form-input, .form-textarea, .form-select {
@@ -355,23 +314,18 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: var(--text-primary);
-      font-size: 15px;
+      font-size: 14px;
       transition: var(--transition);
-    }
-
-    .form-input::placeholder, .form-textarea::placeholder {
-        color: var(--text-muted);
-        opacity: 0.7;
     }
 
     .form-input:focus, .form-textarea:focus, .form-select:focus {
       outline: none;
       border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
 
     .form-textarea {
-      min-height: 150px;
+      min-height: 120px;
       resize: vertical;
     }
 
@@ -380,95 +334,61 @@
       color: white;
       border: none;
       border-radius: 8px;
-      padding: 15px 28px;
-      font-size: 18px;
+      padding: 14px 24px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      margin-top: 20px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      margin-top: 16px;
     }
 
     .form-submit:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
-      opacity: 0.95;
-    }
-    .form-submit:disabled {
-        background: var(--text-muted);
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-        opacity: 0.7;
     }
 
     /* Ideas List */
-    .ideas-section {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-md);
-        padding: 25px;
+    .ideas-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
     }
 
     .ideas-header {
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      padding: 20px 24px;
       border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: var(--accent-bg);
-      padding: 15px 20px;
-      border-radius: 10px;
-      margin: -25px -25px 25px -25px; /* Adjust padding to match section */
     }
 
     .ideas-title {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 600;
       color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .ideas-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .action-btn {
-      padding: 8px 15px;
+      padding: 6px 12px;
       background: var(--accent-blue);
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       color: white;
-      font-size: 14px;
+      font-size: 12px;
       cursor: pointer;
       transition: var(--transition);
-      font-weight: 500;
-      box-shadow: var(--shadow-sm);
-    }
-    .action-btn.active {
-        background: var(--gradient-primary);
     }
 
     .action-btn:hover {
       background: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .action-btn:disabled {
-        background: var(--text-muted);
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-        opacity: 0.7;
     }
 
     .ideas-list {
@@ -478,17 +398,13 @@
     }
 
     .idea-item {
-      padding: 25px 0;
+      padding: 20px 24px;
       border-bottom: 1px solid var(--border-color);
       transition: var(--transition);
-      background: transparent; /* Ensure no background issues */
     }
 
     .idea-item:hover {
       background: var(--accent-bg);
-      border-radius: 8px;
-      margin: 0 -15px; /* Extend hover background */
-      padding: 25px 15px; /* Maintain padding with margin */
     }
 
     .idea-item:last-child {
@@ -497,223 +413,198 @@
 
     .idea-header {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
-      gap: 10px;
+      margin-bottom: 12px;
     }
 
     .idea-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
       color: var(--text-primary);
-      flex-grow: 1;
-      line-height: 1.3;
     }
 
     .idea-meta {
       display: flex;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .idea-category {
-      padding: 5px 10px;
+      padding: 4px 8px;
       background: rgba(59, 130, 246, 0.1);
       color: var(--accent-blue);
-      border-radius: 6px;
-      font-size: 13px;
+      border-radius: 4px;
+      font-size: 12px;
       font-weight: 500;
-      border: 1px solid rgba(59, 130, 246, 0.3);
     }
 
     .idea-date {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
-    .idea-description {
+    .idea-content {
       color: var(--text-secondary);
-      font-size: 15px;
-      margin-bottom: 15px;
-      line-height: 1.6;
+      margin-bottom: 16px;
     }
 
     .idea-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
     }
 
-    .author-info {
+    .idea-author {
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: var(--text-muted);
-      font-size: 14px;
+      gap: 8px;
     }
 
     .author-avatar {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--gradient-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
+      font-size: 10px;
       font-weight: 600;
-      font-size: 14px;
     }
 
-    .vote-controls {
+    .author-name {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .idea-votes {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--accent-bg);
-      border-radius: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--border-color);
+      gap: 8px;
     }
 
     .vote-btn {
-      background: none;
+      background: transparent;
       border: none;
-      color: var(--text-secondary);
-      font-size: 18px;
+      color: var(--text-muted);
       cursor: pointer;
       transition: var(--transition);
-    }
-
-    .vote-btn.upvoted {
-        color: var(--accent-green);
-    }
-    .vote-btn.downvoted {
-        color: var(--accent-red);
+      padding: 4px;
     }
 
     .vote-btn:hover {
       color: var(--accent-blue);
-      transform: scale(1.1);
-    }
-    .vote-btn:disabled {
-        color: var(--text-muted);
-        cursor: not-allowed;
-        transform: none;
     }
 
     .vote-count {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--text-primary);
-      min-width: 25px; /* Ensures consistent width */
+      min-width: 20px;
       text-align: center;
     }
 
-    .idea-status {
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: white;
+    /* Status badges */
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
     }
 
-    .status-pending { background: var(--accent-yellow); }
-    .status-review { background: var(--accent-purple); }
-    .status-approved { background: var(--accent-green); }
-    .status-rejected { background: var(--accent-red); }
+    .status-pending {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-yellow);
+    }
+
+    .status-review {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+    }
+
+    .status-approved {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+    }
+
+    .status-rejected {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--accent-red);
+    }
 
     /* Pagination */
     .pagination {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      margin-top: 30px;
-      padding-top: 20px;
+      gap: 8px;
+      padding: 20px;
+      background: var(--accent-bg);
       border-top: 1px solid var(--border-color);
     }
 
     .pagination-btn {
-      background: var(--card-bg);
+      padding: 8px 12px;
+      background: transparent;
       border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      padding: 10px 15px;
-      border-radius: 8px;
+      border-radius: 6px;
+      color: var(--text-secondary);
       cursor: pointer;
       transition: var(--transition);
-      font-size: 15px;
-      font-weight: 500;
     }
 
-    .pagination-btn:hover {
-      background: var(--accent-bg);
+    .pagination-btn:hover:not(:disabled) {
+      background: var(--accent-blue);
+      color: white;
       border-color: var(--accent-blue);
-      color: var(--accent-blue);
     }
 
     .pagination-btn.active {
-      background: var(--gradient-primary);
+      background: var(--accent-blue);
       color: white;
-      border-color: transparent;
-      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-blue);
     }
 
     .pagination-btn:disabled {
-      background: var(--text-muted);
+      opacity: 0.5;
       cursor: not-allowed;
-      opacity: 0.6;
-      border-color: var(--text-muted);
-      color: var(--text-primary);
     }
 
     .pagination-info {
-      font-size: 15px;
-      color: var(--text-secondary);
+      margin: 0 16px;
+      color: var(--text-muted);
+      font-size: 14px;
     }
 
     /* Empty state */
     .empty-state {
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
       color: var(--text-muted);
-      background: var(--accent-bg);
-      border-radius: var(--border-radius);
-      border: 1px solid var(--border-color);
-      margin-top: 20px;
     }
 
     .empty-icon {
-      font-size: 60px;
-      margin-bottom: 20px;
-      opacity: 0.6;
-      color: var(--accent-blue);
-    }
-    .empty-state p {
-        font-size: 18px;
-        font-weight: 500;
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
     }
 
     /* User Info */
     .user-info {
       display: flex;
       align-items: center;
-      gap: 15px;
-      margin-bottom: 25px;
-      padding: 15px 20px;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
       background: var(--accent-bg);
       border-radius: var(--border-radius);
       border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
     }
 
     .user-avatar {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: var(--gradient-primary);
       display: flex;
@@ -721,9 +612,6 @@
       justify-content: center;
       color: white;
       font-weight: 600;
-      font-size: 20px;
-      flex-shrink: 0;
-      box-shadow: var(--shadow-sm);
     }
 
     .user-details {
@@ -732,12 +620,11 @@
 
     .user-name {
       font-weight: 600;
-      font-size: 18px;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
 
     .user-email {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
@@ -745,158 +632,110 @@
       background: var(--accent-red);
       color: white;
       border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 14px;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
       cursor: pointer;
       transition: var(--transition);
-      font-weight: 600;
-      box-shadow: var(--shadow-sm);
     }
 
     .logout-btn:hover {
       background: #dc2626;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
     }
 
-    /* Footer */
-    footer {
-        margin-top: 50px;
-        padding: 20px;
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 12px;
+      }
+
+      .header-content {
+        flex-direction: column;
         text-align: center;
-        color: var(--text-muted);
-        font-size: 14px;
-        border-top: 1px solid var(--border-color);
-        background: var(--secondary-bg);
+      }
+
+      .stats-section {
+        justify-content: center;
+      }
+
+      .form-container, .auth-form-container {
+        padding: 24px 16px;
+      }
+
+      .idea-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .idea-meta {
         width: 100%;
-    }
+        justify-content: space-between;
+      }
 
-
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
-        .header-content {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .stats-section {
-            justify-content: flex-start;
-            width: 100%;
-        }
-        .form-grid {
-            grid-template-columns: 1fr;
-        }
-        .ideas-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .ideas-actions {
-            width: 100%;
-            justify-content: flex-start;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            padding: 10px;
-        }
-        .header, .form-container, .ideas-section, .auth-form-container {
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .title-section h1 {
-            font-size: 26px;
-        }
-        .stat-item {
-            padding: 10px 15px;
-        }
-        .stat-number {
-            font-size: 24px;
-        }
-        .form-title, .ideas-title, .auth-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        .auth-form-submit, .form-submit {
-            padding: 12px 20px;
-            font-size: 16px;
-        }
-        .idea-item {
-            padding: 20px 0;
-        }
-        .idea-item:hover {
-            padding: 20px 10px;
-            margin: 0 -10px;
-        }
-        .idea-title {
-            font-size: 18px;
-        }
-        .pagination-btn {
-            padding: 8px 12px;
-            font-size: 14px;
-        }
-        .user-info {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .logout-btn {
-            width: 100%;
-            text-align: center;
-        }
+      .pagination {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header fade-in">
-        <div class="header-content">
-            <a href="index.html" class="logo-section">
-                <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO Logo" class="logo">
-                <div class="title-section">
-                    <h1>Ідеї для модифікацій</h1>
-                    <p>Пропонуйте, обговорюйте та голосуйте за найкращі ідеї</p>
-                </div>
-            </a>
-            <div class="stats-section">
-                <div class="stat-item">
-                    <span id="totalIdeas" class="stat-number">0</span>
-                    <span class="stat-label">Всі ідеї</span>
-                </div>
-                <div class="stat-item">
-                    <span id="approvedIdeas" class="stat-number">0</span>
-                    <span class="stat-label">Схвалені</span>
-                </div>
-                <div class="stat-item">
-                    <span id="pendingIdeas" class="stat-number">0</span>
-                    <span class="stat-label">На розгляді</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="authButtons" class="auth-buttons fade-in">
-      <button class="auth-btn user-btn" onclick="showLoginForm()()">
+    <!-- Auth Buttons -->
+    <div class="auth-buttons" id="authButtons">
+      <button onclick="showLoginForm()" class="auth-btn user-btn">
         <i class="fas fa-sign-in-alt"></i> Увійти
       </button>
-      <button class="auth-btn admin-btn" onclick="showRegisterForm()()">
-        <i class="fas fa-user-plus"></i> Зареєструватися
+      <button onclick="showRegisterForm()" class="auth-btn admin-btn">
+        <i class="fas fa-user-plus"></i> Реєстрація
       </button>
     </div>
 
-    <div id="userInfo" class="user-info slide-in" style="display: none;">
-        <div id="userAvatar" class="user-avatar"></div>
-        <div class="user-details">
-            <div id="userDisplayName" class="user-name"></div>
-            <div id="userEmail" class="user-email"></div>
-        </div>
-        <button class="logout-btn" onclick="logout()">
-            <i class="fas fa-sign-out-alt"></i> Вийти
-        </button>
+    <!-- User Info (shown when logged in) -->
+    <div class="user-info" id="userInfo" style="display: none;">
+      <div class="user-avatar" id="userAvatar">U</div>
+      <div class="user-details">
+        <div class="user-name" id="userDisplayName">Користувач</div>
+        <div class="user-email" id="userEmail">user@example.com</div>
+      </div>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i> Вийти
+      </button>
     </div>
 
-    <div id="loginFormContainer" class="auth-form-container fade-in" style="display: none;">
+    <!-- Login Form -->
+    <div class="auth-form-container" id="loginFormContainer">
       <h2 class="auth-title"><i class="fas fa-sign-in-alt"></i> Вхід</h2>
       <form id="loginForm" class="auth-form">
         <div class="auth-form-group">
@@ -909,12 +748,13 @@
         </div>
         <button type="submit" class="auth-form-submit">Увійти</button>
         <div class="auth-form-switch">
-          Немає облікового запису? <a onclick="showRegisterForm()">Зареєструйтесь</a>
+          Ще не зареєстровані? <a onclick="showRegisterForm()">Створіть акаунт</a>
         </div>
       </form>
     </div>
 
-    <div id="registerFormContainer" class="auth-form-container fade-in" style="display: none;">
+    <!-- Register Form -->
+    <div class="auth-form-container" id="registerFormContainer">
       <h2 class="auth-title"><i class="fas fa-user-plus"></i> Реєстрація</h2>
       <form id="registerForm" class="auth-form">
         <div class="auth-form-group">
@@ -940,18 +780,46 @@
       </form>
     </div>
 
+    <!-- Header -->
+    <div class="header fade-in">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO Logo" class="logo">
+          <div class="title-section">
+            <h1>Ідеї для модифікацій</h1>
+            <p>Ваші пропозиції для нашого магазину</p>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stat-item">
+            <span class="stat-number" id="totalIdeas">0</span>
+            <span class="stat-label">Всього ідей</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="approvedIdeas">0</span>
+            <span class="stat-label">Схвалено</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="pendingIdeas">0</span>
+            <span class="stat-label">На розгляді</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
     <div class="form-container fade-in">
       <h2 class="form-title"><i class="fas fa-lightbulb"></i> Запропонувати ідею</h2>
       <form id="ideaForm">
         <div class="form-grid">
           <div class="form-group">
             <label for="ideaTitle" class="form-label">Назва ідеї</label>
-            <input type="text" id="ideaTitle" class="form-input" placeholder="Наприклад: 'Skoda Octavia НПУ'" required>
+            <input type="text" id="ideaTitle" class="form-input" placeholder="Наприклад: Поліцейський BMW X5" required>
           </div>
           <div class="form-group">
             <label for="ideaCategory" class="form-label">Категорія</label>
             <select id="ideaCategory" class="form-select" required>
-              <option value="">Виберіть категорію</option>
+              <option value="">Оберіть категорію</option>
               <option value="vehicle">Транспорт</option>
               <option value="skin">Скіни</option>
               <option value="script">Скрипти</option>
@@ -961,92 +829,89 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="ideaDescription" class="form-label">Детальний опис ідеї</label>
-          <textarea id="ideaDescription" class="form-textarea" placeholder="Опишіть вашу ідею максимально детально: для чого вона потрібна, які функції має мати, які аналоги існують тощо." required></textarea>
+          <label for="ideaDescription" class="form-label">Опис ідеї</label>
+          <textarea id="ideaDescription" class="form-textarea" placeholder="Детально опишіть свою ідею..." required></textarea>
         </div>
-        <button type="submit" class="form-submit" disabled>
-            <i class="fas fa-paper-plane"></i> Подати ідею
+        <button type="submit" class="form-submit">
+          <i class="fas fa-paper-plane"></i> Надіслати ідею
         </button>
       </form>
     </div>
 
-    <div class="ideas-section fade-in">
+    <!-- Ideas List -->
+    <div class="ideas-container fade-in">
       <div class="ideas-header">
-        <h2 class="ideas-title"><i class="fas fa-list-ul"></i> Список ідей</h2>
+        <h3 class="ideas-title">Останні ідеї</h3>
         <div class="ideas-actions">
-          <button class="action-btn active" onclick="filterIdeas('all')">Всі</button>
-          <button class="action-btn" onclick="filterIdeas('approved')">Схвалені</button>
-          <button class="action-btn" onclick="filterIdeas('pending')">На розгляді</button>
+          <button class="action-btn" onclick="refreshIdeas()">
+            <i class="fas fa-sync-alt"></i> Оновити
+          </button>
+          <button class="action-btn" onclick="filterIdeas('all')">
+            <i class="fas fa-filter"></i> Всі
+          </button>
         </div>
       </div>
-      <ul id="ideasList" class="ideas-list">
+      
+      <ul class="ideas-list" id="ideasList">
         <li class="idea-item">
-            <div class="empty-state">
-                <div class="empty-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <p>Завантаження ідей...</p>
-            </div>
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Завантаження ідей...</span>
+          </div>
         </li>
       </ul>
-      <div class="pagination">
-        <button id="prevBtn" class="pagination-btn" onclick="goToPage(currentPage - 1)" disabled>
-          <i class="fas fa-chevron-left"></i> Попередня
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">
+          <i class="fas fa-chevron-left"></i>
         </button>
-        <div id="pageNumbers" class="pagination-pages">
-          </div>
-        <button id="nextBtn" class="pagination-btn" onclick="goToPage(currentPage + 1)" disabled>
-          Наступна <i class="fas fa-chevron-right"></i>
+        <div id="pageNumbers"></div>
+        <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">
+          <i class="fas fa-chevron-right"></i>
         </button>
-        <span id="paginationInfo" class="pagination-info"></span>
+        <div class="pagination-info" id="paginationInfo"></div>
       </div>
     </div>
   </div>
 
-  <footer>
-      <p>&copy; 2025 LSPDFR ELITE STUDIO. Усі права захищено.</p>
-  </footer>
-
   <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-    import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 
-    //  Firebase Configuration (ОБОВ'ЯЗКОВО ЗАМІНІТЬ ЦЕ ВАШИМИ ДАНИМИ З FIREBASE CONSOLE!)
-const firebaseConfig = {
-  apiKey: "AIzaSyDMG8Z9F17keeBrUMhM5MVZE44NSLHApDE",
-  authDomain: "lspdfr-elite.firebaseapp.com",
-  projectId: "lspdfr-elite",
-  storageBucket: "lspdfr-elite.firebasestorage.app",
-  messagingSenderId: "1037914221216",
-  appId: "1:1037914221216:web:7242e0a34d7819d32c37c5",
-  measurementId: "G-VZ5GMBZPG7",
-  databaseURL: "https://lspdfr-elite-default-rtdb.firebaseio.com"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
+      authDomain: "dkvs-1ec88.firebaseapp.com",
+      databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com",
+      projectId: "dkvs-1ec88",
+      storageBucket: "dkvs-1ec88.firebaseapp.com",
+      messagingSenderId: "167430647129",
+      appId: "1:167430647129:web:ab209fec7735f20b597048",
+      measurementId: "G-H6LKMLYD10"
+    };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
     const database = getDatabase(app);
+    const auth = getAuth(app);
 
-    // DOM Elements
+    // DOM elements
     const authButtons = document.getElementById('authButtons');
     const userInfo = document.getElementById('userInfo');
     const userAvatar = document.getElementById('userAvatar');
     const userDisplayName = document.getElementById('userDisplayName');
     const userEmail = document.getElementById('userEmail');
+    
     const loginFormContainer = document.getElementById('loginFormContainer');
     const loginForm = document.getElementById('loginForm');
     const registerFormContainer = document.getElementById('registerFormContainer');
     const registerForm = document.getElementById('registerForm');
+    
     const ideaForm = document.getElementById('ideaForm');
     const ideasList = document.getElementById('ideasList');
     const totalIdeas = document.getElementById('totalIdeas');
     const approvedIdeas = document.getElementById('approvedIdeas');
     const pendingIdeas = document.getElementById('pendingIdeas');
-    const submitIdeaButton = ideaForm.querySelector('button[type="submit"]');
-
 
     // Global variables
     let allIdeas = [];
@@ -1093,25 +958,22 @@ const firebaseConfig = {
     // Register new user
     registerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       const name = registerForm.registerName.value;
       const email = registerForm.registerEmail.value;
       const password = registerForm.registerPassword.value;
       const confirmPassword = registerForm.registerConfirmPassword.value;
-
+      
       if (password !== confirmPassword) {
-        alert("Паролі не співпадають!");
+        alert('Паролі не співпадають!');
         return;
       }
-
+      
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        // Update user profile with display name
-        await update(ref(database, 'users/' + user.uid), {
-            displayName: name,
-            email: email
-        });
+        // You can save additional user info to database here
         alert('Реєстрація успішна!');
+        registerForm.reset();
         hideAuthForms();
       } catch (error) {
         console.error("Помилка реєстрації:", error);
@@ -1122,12 +984,14 @@ const firebaseConfig = {
     // Login user
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       const email = loginForm.loginEmail.value;
       const password = loginForm.loginPassword.value;
-
+      
       try {
         await signInWithEmailAndPassword(auth, email, password);
         alert('Вхід успішний!');
+        loginForm.reset();
         hideAuthForms();
       } catch (error) {
         console.error("Помилка входу:", error);
@@ -1138,7 +1002,7 @@ const firebaseConfig = {
     // Logout user
     window.logout = function() {
       signOut(auth).then(() => {
-        alert('Ви вийшли з системи!');
+        alert('Ви успішно вийшли з акаунта');
       }).catch((error) => {
         console.error("Помилка виходу:", error);
       });
@@ -1150,69 +1014,59 @@ const firebaseConfig = {
         // User is signed in
         authButtons.style.display = 'none';
         userInfo.style.display = 'flex';
-        userDisplayName.textContent = user.displayName || user.email.split('@')[0];
+        
+        // Update user info
+        const displayName = user.displayName || user.email.split('@')[0];
+        userDisplayName.textContent = displayName;
         userEmail.textContent = user.email;
-        userAvatar.textContent = (user.displayName || user.email.charAt(0)).charAt(0).toUpperCase();
-        hideAuthForms();
-        submitIdeaButton.disabled = false; // Enable idea submission
+        userAvatar.textContent = displayName.charAt(0).toUpperCase();
+        
+        // Enable idea submission
+        ideaForm.querySelector('button[type="submit"]').disabled = false;
       } else {
         // User is signed out
         authButtons.style.display = 'flex';
         userInfo.style.display = 'none';
         hideAuthForms();
-        submitIdeaButton.disabled = true; // Disable idea submission
+        
+        // Disable idea submission
+        ideaForm.querySelector('button[type="submit"]').disabled = true;
       }
     });
 
     // Form submission
     ideaForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      console.log("1. Подія 'submit' форми ідеї спрацювала."); // Новий console.log
-
+      
       const user = auth.currentUser;
       if (!user) {
-        console.log("2. Користувач не авторизований для подачі ідеї."); // Новий console.log
         alert('Будь ласка, увійдіть або зареєструйтесь, щоб подати ідею');
         return;
       }
-      console.log("3. Користувач авторизований:", user.email); // Новий console.log
-
-
-      const title = document.getElementById('ideaTitle').value.trim(); // Додано .trim()
+      
+      const title = document.getElementById('ideaTitle').value;
       const category = document.getElementById('ideaCategory').value;
-      const description = document.getElementById('ideaDescription').value.trim(); // Додано .trim()
+      const description = document.getElementById('ideaDescription').value;
       const userName = user.displayName || user.email.split('@')[0];
-
-      // Додаткова перевірка, якщо поля пусті
-      if (!title || !description) {
-          alert('Будь ласка, заповніть заголовок та опис ідеї.');
-          console.log("4. Заголовок або опис ідеї порожні."); // Новий console.log
-          return;
-      }
-      console.log("5. Дані форми зібрано: Заголовок -", title, ", Опис -", description, ", Категорія -", category); // Новий console.log
-
-
+      
       try {
-        console.log("6. Спроба зберегти ідею в Firebase..."); // Новий console.log
         await push(ref(database, 'ideas'), {
           title,
           category,
           description,
           userName,
           userId: user.uid,
-          status: 'pending', // Default status
+          status: 'pending',
           votes: 0,
-          voters: {}, // Store user UIDs who voted
           createdAt: Date.now(),
           updatedAt: Date.now()
         });
-        console.log("7. Ідея успішно збережена в Firebase!"); // Новий console.log
+        
         // Reset form
         ideaForm.reset();
         alert('Ваша ідея успішно відправлена! Дякуємо за пропозицію.');
       } catch (error) {
-        // Оригінальний console.error, який тепер має спрацювати, якщо є помилка
-        console.error("ПОМИЛКА при відправці ідеї (в блоці catch):", error);
+        console.error("Помилка при відправці ідеї:", error);
         alert('Сталася помилка при відправці ідеї. Спробуйте ще раз.');
       }
     });
@@ -1220,10 +1074,15 @@ const firebaseConfig = {
     // Fetch ideas from Firebase
     function fetchIdeas() {
       const ideasRef = ref(database, 'ideas');
+      
       onValue(ideasRef, (snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
-          allIdeas = Object.keys(data).map(key => ({ id: key, ...data[key] })).sort((a, b) => b.createdAt - a.createdAt);
+          allIdeas = Object.keys(data).map(key => ({
+            id: key,
+            ...data[key]
+          })).sort((a, b) => b.createdAt - a.createdAt);
+          
           updateStats();
           filterIdeas(currentFilter);
         } else {
@@ -1232,145 +1091,165 @@ const firebaseConfig = {
           updateStats();
         }
       }, (error) => {
-        console.error("Помилка завантаження ідей:", error);
+        console.error("Помилка при отриманні ідей:", error);
         showError();
       });
     }
 
-    // Update stats
+    // Update statistics
     function updateStats() {
       totalIdeas.textContent = allIdeas.length;
-      approvedIdeas.textContent = allIdeas.filter(idea => idea.status === 'approved').length;
-      pendingIdeas.textContent = allIdeas.filter(idea => idea.status === 'pending').length;
-    }
-
-    // Render ideas to the list
-    function renderIdeas() {
-      ideasList.innerHTML = ''; // Clear previous ideas
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
-      const paginatedIdeas = filteredIdeas.slice(startIndex, endIndex);
-
-      if (paginatedIdeas.length === 0) {
-        showNoIdeas();
-        return;
-      }
-
-      paginatedIdeas.forEach(idea => {
-        const item = document.createElement('li');
-        item.className = 'idea-item';
-
-        const status = statusNames[idea.status] || { class: 'status-pending', text: 'Невідомо' };
-        const createdAt = new Date(idea.createdAt).toLocaleDateString('uk-UA');
-
-        const currentUser = auth.currentUser;
-        const hasVotedUp = currentUser && idea.voters && idea.voters[currentUser.uid] === 1;
-        const hasVotedDown = currentUser && idea.voters && idea.voters[currentUser.uid] === -1;
-
-        item.innerHTML = `
-          <div class="idea-header">
-            <h3 class="idea-title">${idea.title}</h3>
-            <div class="idea-meta">
-              <span class="idea-category">${categoryNames[idea.category] || 'Інше'}</span>
-              <span class="idea-date"><i class="fas fa-calendar-alt"></i> ${createdAt}</span>
-              <span class="idea-status ${status.class}">${status.text}</span>
-            </div>
-          </div>
-          <p class="idea-description">${idea.description}</p>
-          <div class="idea-footer">
-            <div class="author-info">
-              <span class="author-avatar">${idea.userName ? idea.userName.charAt(0).toUpperCase() : 'А'}</span>
-              <span>Автор: ${idea.userName || 'Анонім'}</span>
-            </div>
-            <div class="vote-controls">
-              <button class="vote-btn ${hasVotedDown ? 'downvoted' : ''}" onclick="voteIdea('${idea.id}', -1)" ${!currentUser ? 'disabled' : ''}>
-                <i class="fas fa-thumbs-down"></i>
-              </button>
-              <span class="vote-count">${idea.votes || 0}</span>
-              <button class="vote-btn ${hasVotedUp ? 'upvoted' : ''}" onclick="voteIdea('${idea.id}', 1)" ${!currentUser ? 'disabled' : ''}>
-                <i class="fas fa-thumbs-up"></i>
-              </button>
-            </div>
-          </div>
-        `;
-        ideasList.appendChild(item);
-      });
-      renderPagination();
+      approvedIdeas.textContent = allIdeas.filter(i => i.status === 'approved').length;
+      pendingIdeas.textContent = allIdeas.filter(i => i.status === 'pending').length;
     }
 
     // Filter ideas
     window.filterIdeas = function(filter) {
       currentFilter = filter;
+      currentPage = 1;
+      
       if (filter === 'all') {
         filteredIdeas = [...allIdeas];
       } else {
-        filteredIdeas = allIdeas.filter(idea => idea.status === filter);
+        filteredIdeas = allIdeas.filter(i => i.status === filter);
       }
-      currentPage = 1; // Reset to first page
+      
       renderIdeas();
-      updateFilterActionButtons(filter);
+      renderPagination();
     };
 
-    function updateFilterActionButtons(activeFilter) {
-        document.querySelectorAll('.ideas-actions .action-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.onclick.toString().includes(`filterIdeas('${activeFilter}')`)) {
-                btn.classList.add('active');
-            }
+    // Render ideas
+    function renderIdeas() {
+      if (filteredIdeas.length === 0) {
+        showNoIdeas();
+        return;
+      }
+      
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const pageIdeas = filteredIdeas.slice(startIndex, endIndex);
+      
+      ideasList.innerHTML = pageIdeas.map(idea => createIdeaItem(idea)).join('');
+      
+      // Add animation to items
+      setTimeout(() => {
+        document.querySelectorAll('.idea-item').forEach((item, index) => {
+          item.style.animationDelay = `${index * 50}ms`;
+          item.classList.add('slide-in');
         });
+      }, 10);
     }
 
-    // Voting mechanism
-    window.voteIdea = async function(ideaId, voteType) { // voteType: 1 for upvote, -1 for downvote
-        const user = auth.currentUser;
-        if (!user) {
-            alert("Будь ласка, увійдіть, щоб голосувати!");
-            return;
-        }
+    // Create idea item HTML
+    function createIdeaItem(idea) {
+      const date = new Date(idea.createdAt).toLocaleDateString('uk-UA');
+      const initials = idea.userName.split(' ').map(n => n[0]).join('').toUpperCase();
+      const status = statusNames[idea.status] || statusNames.pending;
+      
+      return `
+        <li class="idea-item">
+          <div class="idea-header">
+            <h4 class="idea-title">${idea.title}</h4>
+            <div class="idea-meta">
+              <span class="idea-category">${categoryNames[idea.category] || 'Інше'}</span>
+              <span class="status-badge ${status.class}">${status.text}</span>
+              <span class="idea-date">${date}</span>
+            </div>
+          </div>
+          <div class="idea-content">${idea.description}</div>
+          <div class="idea-footer">
+            <div class="idea-author">
+              <div class="author-avatar" title="${idea.userName}">${initials}</div>
+              <span class="author-name">${idea.userName}</span>
+            </div>
+            <div class="idea-votes">
+              <button class="vote-btn" onclick="voteIdea('${idea.id}', -1)">
+                <i class="fas fa-thumbs-down"></i>
+              </button>
+              <span class="vote-count">${idea.votes || 0}</span>
+              <button class="vote-btn" onclick="voteIdea('${idea.id}', 1)">
+                <i class="fas fa-thumbs-up"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      `;
+    }
 
-        const ideaRef = ref(database, `ideas/${ideaId}`);
-        onValue(ideaRef, async (snapshot) => {
-            const idea = snapshot.val();
-            if (!idea) return;
+    // Show empty state
+    function showNoIdeas() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p>Ідей ще немає. Будьте першим!</p>
+          </div>
+        </li>
+      `;
+    }
 
-            const currentVotes = idea.votes || 0;
-            const voters = idea.voters || {};
-            const userVote = voters[user.uid]; // 1, -1, or undefined
+    // Show error state
+    function showError() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="empty-state">
+            <div class="empty-icon" style="color: var(--accent-red);">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>Помилка завантаження ідей</p>
+            <button class="action-btn" onclick="fetchIdeas()" style="margin-top: 12px;">
+              Спробувати знову
+            </button>
+          </div>
+        </li>
+      `;
+    }
 
-            let newVotes = currentVotes;
-            let newVoters = { ...voters };
-
-            if (userVote === voteType) {
-                // User is trying to vote the same way again (unvote)
-                newVotes -= voteType;
-                delete newVoters[user.uid];
-            } else {
-                // User is voting differently or for the first time
-                if (userVote) { // Change vote
-                    newVotes -= userVote; // Remove old vote
-                }
-                newVotes += voteType; // Add new vote
-                newVoters[user.uid] = voteType;
-            }
-
-            try {
-                await update(ideaRef, { votes: newVotes, voters: newVoters });
-                // No alert, as onValue listener will re-render
-            } catch (error) {
-                console.error("Помилка при голосуванні:", error);
-                alert("Сталася помилка при голосуванні. Спробуйте ще раз.");
-            }
-        }, { onlyOnce: true }); // Use onlyOnce to prevent multiple triggers from local changes
+    // Vote for idea
+    window.voteIdea = function(id, direction) {
+      const user = auth.currentUser;
+      if (!user) {
+        alert('Будь ласка, увійдіть, щоб голосувати');
+        return;
+      }
+      
+      // In a real app, you would update the vote count in Firebase here
+      alert('Функція голосування буде реалізована в майбутньому!');
     };
 
+    // Refresh ideas
+    window.refreshIdeas = function() {
+      ideasList.innerHTML = `
+        <li class="idea-item">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Оновлення списку...</span>
+          </div>
+        </li>
+      `;
+      fetchIdeas();
+    };
 
     // Pagination functions
+    window.changePage = function(direction) {
+      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const newPage = currentPage + direction;
+      
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderIdeas();
+        renderPagination();
+      }
+    };
+
     function renderPagination() {
       const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
+      const pageNumbers = document.getElementById('pageNumbers');
       const paginationInfo = document.getElementById('paginationInfo');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
-      const pageNumbers = document.getElementById('pageNumbers');
 
       // Update buttons
       prevBtn.disabled = currentPage === 1;
@@ -1379,23 +1258,18 @@ const firebaseConfig = {
       // Update info
       const startItem = (currentPage - 1) * itemsPerPage + 1;
       const endItem = Math.min(currentPage * itemsPerPage, filteredIdeas.length);
-      paginationInfo.textContent = `${startItem}-${endItem} з ${filteredIdeas.length}` + (totalPages > 0 ? ` (Сторінка ${currentPage} з ${totalPages})` : '');
-
+      paginationInfo.textContent = `${startItem}-${endItem} з ${filteredIdeas.length}`;
 
       // Generate page numbers
       let pages = [];
       const maxVisiblePages = 5;
-
+      
       if (totalPages <= maxVisiblePages) {
         pages = Array.from({ length: totalPages }, (_, i) => i + 1);
       } else {
-        let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-        if (endPage - startPage + 1 < maxVisiblePages) {
-            startPage = Math.max(1, endPage - maxVisiblePages + 1);
-        }
-        pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+        const start = Math.max(1, currentPage - 2);
+        const end = Math.min(totalPages, start + maxVisiblePages - 1);
+        pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
       }
 
       pageNumbers.innerHTML = pages.map(page => `
@@ -1406,50 +1280,18 @@ const firebaseConfig = {
     }
 
     window.goToPage = function(page) {
-      const totalPages = Math.ceil(filteredIdeas.length / itemsPerPage);
-      if (page >= 1 && page <= totalPages) {
-        currentPage = page;
-        renderIdeas();
-        renderPagination();
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on page change
-      }
+      currentPage = page;
+      renderIdeas();
+      renderPagination();
     };
 
-    // Show empty state
-    function showNoIdeas() {
-      ideasList.innerHTML = `
-        <li class="idea-item" style="border-bottom: none; background: none; margin: 0; padding: 0;">
-          <div class="empty-state">
-            <div class="empty-icon">
-              <i class="fas fa-lightbulb"></i>
-            </div>
-            <p>Ідей ще немає. Будьте першим!</p>
-          </div>
-        </li>
-      `;
-      renderPagination(); // Update pagination even for empty state
-    }
-
-    // Show error state
-    function showError() {
-      ideasList.innerHTML = `
-        <li class="idea-item" style="border-bottom: none; background: none; margin: 0; padding: 0;">
-          <div class="empty-state">
-            <div class="empty-icon" style="color: var(--accent-red);">
-              <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <p>Не вдалося завантажити ідеї. Спробуйте оновити сторінку.</p>
-          </div>
-        </li>
-      `;
-      renderPagination();
-    }
-
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      fetchIdeas(); // Initial fetch and render
-    });
+    // Initialize
+    window.onload = () => {
+      fetchIdeas();
+      
+      // Auto-refresh every 30 seconds
+      setInterval(fetchIdeas, 30000);
+    };
   </script>
 </body>
 </html>
