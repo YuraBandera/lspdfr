@@ -1,1880 +1,696 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPDFR ELITE STUDIO SHOP - Магазин контенту для LSPDFR</title>
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" type="image/png">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
+    <title>LSPDFR ELITE STUDIO SHOP - Магазин авто</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Всі стилі залишаються без змін */
         :root {
-            --primary-blue: #0066FF;
-            --primary-blue-dark: #0052CC;
-            --secondary-orange: #FF6B35;
-            --accent-cyan: #00D4FF;
-            --accent-purple: #8B5CF6;
-            --accent-green: #10B981;
-            --accent-red: #EF4444;
-            
-            --bg-primary: #0A0A0F;
-            --bg-secondary: #111118;
-            --bg-tertiary: #1A1A24;
-            --bg-card: #1E1E2E;
-            --bg-glass: rgba(30, 30, 46, 0.85);
-            
-            --text-primary: #FFFFFF;
-            --text-secondary: #B4B4C7;
-            --text-muted: #8B8BA7;
-            
-            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
-            --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #8B5CF6 100%);
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
-            --shadow-glow-blue: 0 0 20px rgba(0, 102, 255, 0.3);
-            --shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
-            
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
-            
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+            --primary-bg: #0a0a0f;
+            --secondary-bg: #15151d;
+            --card-bg: #1a1a23;
+            --accent-bg: #252530;
+            --border-color: #2a2a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #6b6b7b;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
+            font-family: "Inter", sans-serif;
+            background: var(--primary-bg);
             color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 3px;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: 20px;
+            position: relative;
         }
 
-        .glass-effect {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gradient-text {
+        h1 {
+            margin-bottom: 10px;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 12px 24px;
-            border: none;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all var(--transition);
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-secondary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-
-        /* Header - FIXED */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 12px 0;
-            transition: all var(--transition);
-            background: transparent;
-        }
-
-        .header.scrolled {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav {
+        /* Стилі для фільтрів */
+        .filter-buttons {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-sm);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-
-        .logo-subtitle {
-            font-size: 11px;
-            color: var(--accent-cyan);
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-menu li {
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all var(--transition);
-            position: relative;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
-            display: block;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: all var(--transition);
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            width: 80%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            font-size: 16px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            backdrop-filter: blur(10px);
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
-
-        .hero-bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.1;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 200px;
-            height: 200px;
-            background: var(--gradient-primary);
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            width: 250px;
-            height: 250px;
-            background: var(--gradient-secondary);
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 30%;
-            left: 30%;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px); 
-            }
-            50% { 
-                transform: translateY(-20px) translateX(10px); 
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 8px 16px;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-xl);
-            backdrop-filter: blur(20px);
-            font-weight: 600;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-2xl);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
             flex-wrap: wrap;
-            margin-bottom: var(--space-2xl);
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: var(--space-2xl);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite;
+        .filter-btn {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 6px;
             cursor: pointer;
-            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--accent-bg);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product-price.free {
+            color: var(--accent-blue);
+        }
+
+        .add-to-cart {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Інші стилі залишаються незмінними */
+        .cart-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 350px;
+            height: calc(100vh - 40px);
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            transform: translateX(calc(100% + 40px));
+        }
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        .remove-item {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background: var(--bg-glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            width: 48px;
-            height: 48px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { 
-                transform: translateX(-50%) translateY(0); 
-            }
-            40% { 
-                transform: translateX(-50%) translateY(-10px); 
-            }
-            60% { 
-                transform: translateX(-50%) translateY(-5px); 
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 60px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--bg-tertiary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-lg);
-            font-weight: 600;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-            line-height: 1.3;
-        }
-
-        .section-description {
-            font-size: 16px;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: var(--space-xl);
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow-cyan);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        /* Leadership Grid */
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .leader-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .leader-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .leader-image {
-            width: 100%;
-            height: auto;
-            transition: transform var(--transition);
-          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
-        .leader-card:hover .leader-image {
-            transform: scale(1.05);
-        }
-
-        .leader-info {
-            padding: var(--space-lg);
-        }
-
-        .leader-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: var(--space-sm);
-            color: var(--text-primary);
-        }
-
-        .leader-position {
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            font-size: 14px;
-        }
-
-        .leader-experience {
-            color: var(--text-secondary);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        /* Departments Grid */
-        .departments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .department-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition);
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .department-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--gradient-primary);
-            transform: scaleY(0);
-            transition: transform var(--transition);
-            transform-origin: bottom;
-        }
-
-        .department-card:hover::before {
-            transform: scaleY(1);
-        }
-
-        .department-card:hover {
-            transform: translateX(8px);
-            border-color: rgba(0, 102, 255, 0.3);
-        }
-
-        .department-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .department-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-
-        .department-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .department-tasks {
-            background: var(--bg-tertiary);
-            padding: var(--space-md);
-            border-radius: var(--radius-sm);
-            margin-bottom: var(--space-lg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .department-head {
-            font-weight: 600;
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-size: 13px;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 16/9;
-            cursor: pointer;
-            transition: all var(--transition);
-            background: var(--bg-card);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition);
-        }
-
-        .gallery-item:hover .gallery-image {
+        .remove-item:hover {
             transform: scale(1.1);
         }
 
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-            opacity: 0;
-            transition: opacity var(--transition);
-            display: flex;
-            align-items: flex-end;
-            padding: var(--space-lg);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay span {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: var(--space-2xl) auto 0;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-            transition: all var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .faq-item:hover {
-            border-color: rgba(0, 212, 255, 0.3);
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: var(--space-lg);
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 16px;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all var(--transition);
-        }
-
-        .faq-question:hover {
-            color: var(--accent-cyan);
-        }
-
-        .faq-icon {
-            transition: transform var(--transition);
-            font-size: 16px;
-            color: var(--accent-cyan);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-content {
-            padding: 0 var(--space-lg) var(--space-lg);
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .faq-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .faq-list li {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-sm);
-            padding: var(--space-sm);
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-        }
-
-        .faq-list i {
-            font-size: 14px;
-            width: 16px;
-            text-align: center;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: var(--space-2xl) 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .footer-highlight {
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-top: var(--space-md);
-            font-size: 16px;
-        }
-
-        /* Scroll to Top */
-        .scroll-to-top {
-            position: fixed;
-            bottom: var(--space-xl);
-            right: var(--space-xl);
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 50%;
+        .checkout-btn {
+            background: var(--accent-green);
             color: white;
-            font-size: 16px;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 20px;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition);
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
+        .checkout-btn:hover {
+            opacity: 0.9;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-glow-blue);
         }
 
-        /* Loading */
-        .loading {
+        .cart-icon {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
+            right: 30px;
+            bottom: 30px;
+            background: var(--gradient-primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
         }
 
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .cart-icon:hover {
+            transform: scale(1.1);
         }
 
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(0, 102, 255, 0.2);
-            border-top: 3px solid var(--primary-blue);
+        #cartCount {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-red);
+            color: white;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: var(--space-lg);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
         }
 
-        .loading-text {
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            border-radius: 6px;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .notification.success {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .notification.error {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .notification.info {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Стилі для модального вікна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: var(--secondary-bg);
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .close-modal {
             color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .close-modal:hover {
+            color: var(--text-primary);
         }
 
-        /* Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .modal-body {
+            margin-top: 20px;
         }
 
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.6s ease;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
         }
 
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-primary);
         }
 
-        /* Responsive - FIXED */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-glass);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: var(--radius-lg);
-                margin: var(--space-md);
-                padding: var(--space-lg);
-                flex-direction: column;
-                gap: var(--space-md);
-                box-shadow: var(--shadow-lg);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-
-            .stats-grid,
-            .leadership-grid,
-            .departments-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .hero-title {
-                font-size: clamp(1.5rem, 5vw, 2.5rem);
-            }
-
-            .section-title {
-                font-size: clamp(1.25rem, 4vw, 2rem);
-            }
-
-            .nav {
-                height: 50px;
-            }
-
-            .logo img {
-                width: 32px;
-                height: 32px;
-            }
-
-            .logo-title {
-                font-size: 14px;
-            }
-
-            .logo-subtitle {
-                font-size: 10px;
-            }
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-sm);
-            }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
 
-            .card,
-            .stat-card,
-            .department-card {
-                padding: var(--space-lg);
-            }
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+        }
 
-            .faq-question {
-                padding: var(--space-md);
-                font-size: 14px;
-            }
+        .instruction-box {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-blue);
+        }
 
-            .scroll-to-top {
-                width: 40px;
-                height: 40px;
-                bottom: var(--space-lg);
-                right: var(--space-lg);
-                font-size: 14px;
-            }
+        .instruction-box ol {
+            padding-left: 20px;
+        }
+
+        .instruction-box li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Завантаження...</div>
+    <div class="container">
+        <h1>Магазин поліцейських авто</h1>
+        <p>Оберіть моделі для вашого LSPDFR</p>
+
+        <!-- Кнопки фільтрації -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProducts('all')">Всі авто</button>
+            <button class="filter-btn" onclick="filterProducts('patrol')">Патрульні</button>
+            <button class="filter-btn" onclick="filterProducts('other')">Інші</button>
+        </div>
+
+        <div class="product-grid">
+            <!-- Renault Logan -->
+            <div class="product-card" data-category="patrol">
+                <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Renault Logan Patrol" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Renault Logan Patrol</h3>
+                    <p>Повний комплект поліцейських текстур</p>
+                    <div class="product-price" style="color: #e53935; font-weight: bold;">Безкоштовно</div>
+                    <a href="https://drive.google.com/file/d/1r8vkSemmYKJEnk6QslPK5_ecaTXdCLJ_/view?usp=sharing" class="download-btn">Завантажити ↓</a>
+                </div>
+            </div>
+
+            <!-- Dacia Sandero -->
+            <div class="product-card" data-category="patrol">
+                <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Dacia Sandero" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Dacia Sandero Patrol</h3>
+                    <p>Повний комплект з текстурами та налаштуваннями</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(1)">Додати до кошика</button>
+                </div>
+            </div>
+
+            <!-- Toyota Corolla -->
+            <div class="product-card" data-category="patrol">
+                <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Toyota Corolla" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Toyota Corolla Patrol</h3>
+                    <p>Включає спецсигнали та унікальні текстури</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(2)">Додати до кошика</button>
+                </div>
+            </div>
+
+            <!-- Renault Duster -->
+            <div class="product-card" data-category="patrol">
+                <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Duster" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Renault Duster Patrol</h3>
+                    <p>Модель з реалістичною фізикою</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(3)">Додати до кошика</button>
+                </div>
+            </div>
+
+            <!-- Renault Duster НГУ -->
+            <div class="product-card" data-category="other">
+                <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Renault Duster НГУ" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Renault Duster НГУ</h3>
+                    <p>Спеціальна версія для Національної гвардії України</p>
+                    <div class="product-price">50 грн</div>
+                    <button class="add-to-cart" onclick="addToCart(4)">Додати до кошика</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кошик -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Ваше замовлення</h2>
+                <button class="close-cart" onclick="toggleCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItems"></div>
+            <div id="cartTotal" style="font-weight: bold; font-size: 18px; margin-top: 20px;"></div>
+            <button class="checkout-btn" onclick="showPaymentModal()">Оформити замовлення</button>
+        </div>
+
+        <!-- Іконка кошика -->
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
+            <span id="cartCount">0</span>
+        </div>
     </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <img src="https://cdn.discordapp.com/attachments/1277601608808792206/1386076400716349491/file_00000000ac58620a847b789ba3bbb3a1.png?ex=685863bd&is=6857123d&hm=7786eebf5a8bd7e46359b50a4bf90e57492ea902f9d73bcf5e3b642a40156982&" alt="LSPDFR ELITE STUDIO SHOP Логотип">
-                    <div class="logo-text">
-                        <div class="logo-title">LSPDFR ELITE</div>
-                        <div class="logo-subtitle"><br>STUDIO SHOP</div>
-                    </div>
+    <!-- Модальне вікно для оформлення замовлення -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Оформлення замовлення</h2>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="userEmail">Ваш email:</label>
+                    <input type="email" id="userEmail" placeholder="Введіть email для отримання файлів">
                 </div>
-                
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Головна</a></li>
-                    <li><a href="#about" class="nav-link">Про магазин</a></li>
-                    <li><a href="#statistics" class="nav-link">Статистика</a></li>
-                    <li><a href="#products" class="nav-link">Товари</a></li>
-                    <li><a href="#categories" class="nav-link">Категорії</a></li>
-                    <li><a href="#requirements" class="nav-link">Умови</a></li>
-                    <li><a href="#gallery" class="nav-link">Галерея</a></li>
-                    <li><a href="#faq" class="nav-link">FAQ</a></li>
-                </ul>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+                <div class="form-group">
+                    <label for="userComment">Назва авто, яке купуєте:</label>
+                    <input type="text" id="userComment" placeholder="Наприклад: Dacia Sandero">
+                </div>
+                <div class="instruction-box">
+                    <h4>Інструкція:</h4>
+                    <ol>
+                        <li>Натисніть кнопку "Перейти до оплати"</li>
+                        <li>Оплатіть вказану суму</li>
+                        <li>В коментарі до платежу вкажіть ваш email та назву авто</li>
+                        <li>Після оплати ми надішлемо файли на ваш email</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="processPayment()">Перейти до оплати</button>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
+    <script>
+        let cart = [];
+        const MONOBANK_JAR_URL = "https://send.monobank.ua/jar/G7ZB9qnNG";
         
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge fade-in-up">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Офіційний магазин контенту</span>
-                </div>
-                
-                <h1 class="hero-title fade-in-up">
-                    LSPDFR ELITE<br>
-                    <span class="gradient-text">STUDIO SHOP</span><br>
-                </h1>
-                
-                <p class="hero-subtitle fade-in-up">
-                    Найкращі моделі машин, скіни та плагіни для LSPDFR від професійних розробників
-                </p>
-                
-                <div class="hero-buttons fade-in-up">
-                    <a href="selection.html" class="btn btn-primary">
-                        <i class="fas fa-shopping-bag"></i>
-                        Перейти до покупки
-                    </a>
-                    <a href="#faq" class="btn btn-outline">
-                        <i class="fas fa-question-circle"></i>
-                        Допомога
-                    </a>
-                    <a href="idea.html" class="btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; box-shadow: var(--shadow-sm);">
-                        <i class="fas fa-lightbulb"></i>
-                        Запропонувати ідею
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
-            <i class="fas fa-chevron-down" style="color: var(--accent-cyan);"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Про нас</div>
-                <h2 class="section-title fade-in-up">
-                    Хто ми і що <span class="gradient-text">пропонуємо</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    LSPDFR ELITE STUDIO SHOP - це офіційний магазин якісного контенту для LSPDFR
-                </p>
-            </div>
-            
-            <div class="card fade-in-up">
-                <p style="font-size: 16px; line-height: 1.7; margin-bottom: var(--space-lg); color: var(--text-secondary);">
-                    Ми спеціалізуємося на створенні та продажу високоякісних моделей поліцейських машин, скінів персонажів та унікальних плагінів для LSPDFR. Наші продукти відрізняються реалізмом, стабільністю та унікальним дизайном.
-                </p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-car" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Поліцейські машини</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Реалістичні моделі з повним функціоналом</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Скіни персонажів</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні моделі поліцейських та спецагентів</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-code" style="color: white; font-size: 16px;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 14px; font-weight: 600;">Плагіни</h4>
-                            <p style="color: var(--text-secondary); font-size: 12px;">Унікальні скрипти для покращення геймплею</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; padding: var(--space-lg); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid rgba(0, 212, 255, 0.2);">
-                    <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-md); font-size: 18px; font-weight: 700;">Приєднуйтесь до нашої спільноти!</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); font-size: 14px;">Отримуйте ексклюзивні пропозиції та новинки першими</p>
-                    
-                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                        <a href="#products" class="btn btn-secondary">
-                            <i class="fas fa-shopping-cart"></i>
-                            Перейти до товарів
-                        </a>
-                        <a href="#faq" class="btn btn-primary">
-                            <i class="fas fa-headset"></i>
-                            Техпідтримка
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section id="statistics" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Наші досягнення</div>
-                <h2 class="section-title fade-in-up">
-                    Статистика <span class="gradient-text">магазину</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Цифри, що показують наш успіх та популярність серед гравців
-                </p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Доступних товарів</div>
-                </div>
-                
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number" data-target="2">0</div>
-                    <div class="stat-label">Задоволених клієнтів</div>
-                </div>
-                
-                <div class="stat-card fade-in-up scale-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="stat-number" data-target="4">0</div>
-                    <div class="stat-label">Середня оцінка товарів</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Наші продукти</div>
-                <h2 class="section-title fade-in-up">
-                    Популярні <span class="gradient-text">товари</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Кращі пропозиції від LSPDFR ELITE STUDIO
-                </p>
-            </div>
-            
-            <div class="leadership-grid">
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">Dacia Sandero</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-star" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 5.0/5 (0 відгуків)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">Toyota Corolla</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-medal" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 5.0/5 (0 відгуки)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="UkrainePatrol" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">(ОБНОВЛЕНО) Renault Daster</h3>
-                        <div class="leader-position">Із режимом патрулювання</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i>
-                            Рейтинг: 4.9/5 (0 відгуків)
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leader-card fade-in-up">
-                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="У розробці" class="leader-image">
-                    <div class="leader-info">
-                        <h3 class="leader-name">У розробці</h3>
-                        <div class="leader-position">У розробці</div>
-                        <div class="leader-experience">
-                            <i class="fas fa-user-plus" style="color: var(--secondary-orange);"></i>
-                            Рейтинг: У розробці
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Категорії</div>
-                <h2 class="section-title fade-in-up">
-                    Основні <span class="gradient-text">напрямки</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Спеціалізовані категорії товарів для вашого геймплею
-                </p>
-            </div>
-            
-            <div class="departments-grid">
-                <div class="department-card fade-in-up">
-                    <div class="department-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 class="department-title">Dacia Sandero</h3>
-                    <p class="department-description">
-                        Високоякісна модель авто НП України,розроблена нашою студією
-                    </p>
-                    <div class="department-tasks">
-                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
-                    </div>
-                    <div class="department-head">
-                        <i class="fas fa-tags"></i>
-                        В наявності: 2 авто із різними сиренами
-                    </div>
-                </div>
-                
-                <div class="department-card fade-in-up">
-                    <div class="department-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="department-title">Toyota Corolla</h3>
-                    <p class="department-description">
-                        Високоякісна модель авто НП України,розроблена нашою студією
-                    </p>
-                    <div class="department-tasks">
-                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
-                    </div>
-                    <div class="department-head">
-                        <i class="fas fa-tags"></i>
-                        В наявності: 1 модель у одній лівреї патрульної поліції
-                    </div>
-                </div>
-                
-                <div class="department-card fade-in-up">
-                    <div class="department-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="department-title">Renault Daster</h3>
-                    <p class="department-description">
-                        Високоякісна модель авто НП України,розроблена нашою студією
-                    </p>
-                    <div class="department-tasks">
-                        <strong style="color: var(--accent-cyan);">Включає:</strong><br>
-                        Режим патрулювання( Коли світить лиш один синій маячок ),обладнання та інші.
-                    </div>
-                    <div class="department-head">
-                        <i class="fas fa-tags"></i>
-                        В наявності: 1 авто у лівреях патурльної поліції та офіцера громади
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Requirements Section -->
-    <section id="requirements" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Умови покупки</div>
-                <h2 class="section-title fade-in-up">
-                    Вимоги для <span class="gradient-text">користувачів</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Основні критерії для успішної покупки та використання наших продуктів
-                </p>
-            </div>
-            
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div class="card fade-in-up">
-                    <div style="display: grid; gap: var(--space-lg);">
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue);">
-                            <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-gamepad" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">GTA V + LSPDFR</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Обов'язкова наявність гри та модифікації</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-cyan);">
-                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-desktop" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Системні вимоги</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Рекомендовані параметри ПК,які потянуть вашу GTA V + LSPDFR</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--secondary-orange);">
-                            <div style="width: 40px; height: 40px; background: var(--gradient-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-file-archive" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">OpenIV</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Необхідний для встановлення модів</p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
-                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-purple), var(--primary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-scroll" style="color: white; font-size: 16px;"></i>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--text-primary); margin-bottom: 4px; font-size: 16px; font-weight: 600;">Ліцензійна угода</h4>
-                                <p style="color: var(--text-secondary); font-size: 13px;">Заборонено публічне поширення</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Наші роботи</div>
-                <h2 class="section-title fade-in-up">
-                    <span class="gradient-text">Галерея</span> продуктів
-                </h2>
-                <p class="section-description fade-in-up">
-                    Скріншоти наших продуктів в дії
-                </p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377259635492520016/1377259814018613338/image.png?ex=6855fa67&is=6854a8e7&hm=0ab0e88a9c6c98b6ed8310e2e1b39f3f5b1589587c8aa9d328fd908138415e0b&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Dacia Sandero</span>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377260807414353981/1378826407702040749/image.png?ex=68566768&is=685515e8&hm=98ef336540b56b27ea93a10f81d41c28010affcb3d72ed8027b35347c2d14622&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Toyota Corolla</span>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377261455451361432/1386074010009469009/image.png?ex=68586183&is=68571003&hm=106989157f60f0be5ea58aa9616765d237bea2cb2eac8317b676170ca0de7f6f&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Renault Daster</span>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://cdn.discordapp.com/attachments/1377258605602144316/1377258742852227197/GrandTheftAutoVScreenshot2024_05.png?ex=6855f968&is=6854a7e8&hm=22a1f5b8293b93992b414d4e561ba0c391224ef038b70ea2ef91b2f1c7d02ae6&" alt="Ukraine Patrol" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Renault Logan</span>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Очікуйте нові фото</span>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in-up scale-in">
-                    <img src="https://oblrada.dp.gov.ua/wp-content/uploads/2017/03/image2-1024x768.jpg" alt="Очікуйте нові фото" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <span>Очікуйте нові фото</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge fade-in-up">Питання та відповіді</div>
-                <h2 class="section-title fade-in-up">
-                    Часті <span class="gradient-text">запитання</span>
-                </h2>
-                <p class="section-description fade-in-up">
-                    Відповіді на найпоширеніші питання про наш магазин
-                </p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Як купити товар у вашому магазині?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fas fa-shopping-cart" style="color: var(--primary-blue);"></i> 1. Виберіть потрібний товар</li>
-                                <li><i class="fas fa-credit-card" style="color: var(--primary-blue);"></i> 2. Додайте його до кошика та оплатіть</li>
-                                <li><i class="fas fa-download" style="color: var(--primary-blue);"></i> 3. Отримайте файли на email або в особистому кабінеті</li>
-                                <li><i class="fas fa-book" style="color: var(--primary-blue);"></i> 4. Виконайте інструкції з встановлення</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Які способи оплати ви приймаєте?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fab fa-cc-visa" style="color: var(--accent-green);"></i> Кредитні/дебетові картки (Visa, Mastercard)</li>
-                                <li><i class="fab fa-paypal" style="color: var(--accent-green);"></i> PayPal</li>
-                                <li><i class="fas fa-money-bill-wave" style="color: var(--accent-green);"></i> Електронні валюти (WebMoney, Qiwi)</li>
-                                <li><i class="fab fa-bitcoin" style="color: var(--accent-green);"></i> Криптовалюти (Bitcoin, Ethereum)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in-up">
-                    <button class="faq-question">
-                        <span>Як встановити куплений контент?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-content">
-                            <ul class="faq-list">
-                                <li><i class="fas fa-download" style="color: var(--accent-cyan);"></i> 1. Завантажте архів з файлами</li>
-                                <li><i class="fas fa-folder-open" style="color: var(--accent-cyan);"></i> 2. Розпакуйте архів за допомогою WinRAR/7-Zip</li>
-                                <li><i class="fas fa-cogs" style="color: var(--accent-cyan);"></i> 3. Виконайте інструкцію з README файлу</li>
-                                <li><i class="fas fa-question-circle" style="color: var(--accent-cyan);"></i> 4. У разі проблем - звертайтесь до техпідтримки</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p style="margin-bottom: var(--space-sm);">&copy; 2025 LSPDFR ELITE STUDIO SHOP. Всі права захищені.</p>
-                <p class="footer-highlight">Грайте з задоволенням!</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script type="module">
-        // Firebase Configuration
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBzefxFDTHQqXFHg9t08JTiL5EaH8si1oY",
-            authDomain: "dkvs-1ec88.firebaseapp.com",
-            databaseURL: "https://dkvs-1ec88-default-rtdb.firebaseio.com/",
-            projectId: "dkvs-1ec88",
-            storageBucket: "dkvs-1ec88.appspot.com",
-            messagingSenderId: "167430647129",
-            appId: "1:167430647129:web:ab209fec7735f20b597048",
-            measurementId: "G-H6LKMLYD10"
+        // Дані товарів
+        const products = {
+            1: { id: 1, name: "Dacia Sandero Patrol", price: 50, file: "dacia_sandero.zip", category: "patrol" },
+            2: { id: 2, name: "Toyota Corolla Patrol", price: 50, file: "toyota_corolla.zip", category: "patrol" },
+            3: { id: 3, name: "Renault Duster Patrol", price: 50, file: "renault_duster.zip", category: "patrol" },
+            4: { id: 4, name: "Renault Duster НГУ", price: 50, file: "renault_duster_ngu.zip", category: "other" }
         };
 
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-        // Loading Screen
-        setTimeout(() => {
-            document.getElementById('loading').classList.add('hidden');
-        }, 1500);
-
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function updateScrollElements() {
-            const scrollY = window.scrollY;
+        // Функція фільтрації продуктів
+        function filterProducts(category) {
+            const productCards = document.querySelectorAll('.product-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
             
-            if (scrollY > 100) {
-                header.classList.add('scrolled');
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                scrollToTopBtn.classList.remove('visible');
-            }
-
-            updateActiveNavLink();
-        }
-
-        window.addEventListener('scroll', updateScrollElements);
-
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        let menuOpen = false;
-
-        mobileMenuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            navMenu.classList.toggle('active');
+            // Оновити активну кнопку
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(category === 'all' ? 'Всі' : 
+                                            category === 'patrol' ? 'Патрульні' : 'Інші')) {
+                    btn.classList.add('active');
+                }
+            });
             
-            const icon = mobileMenuBtn.querySelector('i');
-            if (menuOpen) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            }
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (menuOpen) {
-                    navMenu.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                    menuOpen = false;
-                }
-            });
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = header.offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Scroll to Top
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Active Navigation Link Update
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const headerHeight = header.offsetHeight;
-
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 50;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Intersection Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters for stat cards
-                    if (entry.target.classList.contains('stat-card')) {
-                        animateCounter(entry.target);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter Animation
-        function animateCounter(statCard) {
-            const numberElement = statCard.querySelector('.stat-number');
-            const target = parseInt(numberElement.dataset.target);
-            const duration = 2000;
-            const startTime = performance.now();
-
-            function updateCounter(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const current = Math.floor(target * easeOutQuart);
-                
-                numberElement.textContent = current;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
+            // Фільтрація продуктів
+            productCards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
                 } else {
-                    numberElement.textContent = target;
+                    if (card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
                 }
-            }
-            
-            requestAnimationFrame(updateCounter);
+            });
         }
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                const answer = faqItem.querySelector('.faq-answer');
-
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        otherAnswer.style.maxHeight = '0px';
-                    }
+        // Додавання товару до кошика
+        function addToCart(productId) {
+            cart.push({...products[productId]});
+            updateCart();
+            showNotification('Товар додано до кошика!', 'success');
+        }
+        
+        // Видалення товару з кошика
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            showNotification('Товар видалено з кошика', 'error');
+        }
+        
+        // Оновлення відображення кошика
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Кошик порожній</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price} грн</div>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    `;
+                    cartItems.appendChild(itemElement);
                 });
-
-                // Toggle clicked item
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                } else {
-                    faqItem.classList.remove('active');
-                    answer.style.maxHeight = '0px';
-                }
-            });
-        });
-
-        // Firebase Data Loading
-        const counterRef = ref(db, 'counter');
-        onValue(counterRef, (snapshot) => {
-            try {
-                const productsCount = snapshot.val() || 0;
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = productsCount;
-                }
-            } catch (error) {
-                console.error('Firebase error:', error);
-                const productsElement = document.getElementById('productsCount');
-                if (productsElement) {
-                    productsElement.dataset.target = '127';
-                }
             }
-        });
+            
+            cartCount.textContent = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = `Всього: ${total} грн`;
+        }
+        
+        // Перемикання видимості кошика
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+        
+        // Показати модальне вікно оплати
+        function showPaymentModal() {
+            if (cart.length === 0) {
+                showNotification('Кошик порожній!', 'error');
+                return;
+            }
+            
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+        
+        // Закрити модальне вікно
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
 
-        // Gallery Lightbox
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('.gallery-image');
-                
-                const lightbox = document.createElement('div');
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10000;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                `;
-                
-                const lightboxImg = document.createElement('img');
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightboxImg.style.cssText = `
-                    max-width: 90%;
-                    max-height: 90%;
-                    object-fit: contain;
-                    border-radius: 12px;
-                `;
-                
-                const closeBtn = document.createElement('button');
-                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                closeBtn.style.cssText = `
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    background: rgba(255, 255, 255, 0.1);
-                    border: none;
-                    color: white;
-                    font-size: 20px;
-                    padding: 10px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    backdrop-filter: blur(10px);
-                `;
-                
-                lightbox.appendChild(lightboxImg);
-                lightbox.appendChild(closeBtn);
-                document.body.appendChild(lightbox);
-                
+        // Обробка оплати
+        function processPayment() {
+            const email = document.getElementById('userEmail').value;
+            const comment = document.getElementById('userComment').value;
+            
+            if (!email || !email.includes('@')) {
+                showNotification('Будь ласка, введіть коректний email', 'error');
+                return;
+            }
+            
+            if (!comment) {
+                showNotification('Будь ласка, вкажіть назву авто', 'error');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const paymentUrl = `${MONOBANK_JAR_URL}?amount=${total*100}`;
+            
+            // Показати інструкцію
+            alert(`Для завершення покупки:
+1. Оплатіть ${total} грн за посиланням
+2. В коментарі до платежу вкажіть:
+"${email}, ${comment}"
+3. Після оплати ми надішлемо файли на вказаний email`);
+            
+            // Відкрити посилання на оплату
+            window.open(paymentUrl, '_blank');
+            
+            // Закрити модальне вікно та очистити кошик
+            closeModal();
+            cart = [];
+            updateCart();
+        }
+        
+        // Функція для показу сповіщень
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
                 setTimeout(() => {
-                    lightbox.style.opacity = '1';
-                }, 10);
-                
-                const closeLightbox = () => {
-                    lightbox.style.opacity = '0';
-                    setTimeout(() => {
-                        document.body.removeChild(lightbox);
-                    }, 300);
-                };
-                
-                closeBtn.addEventListener('click', closeLightbox);
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) closeLightbox();
-                });
-                
-                document.addEventListener('keydown', function escHandler(e) {
-                    if (e.key === 'Escape') {
-                        closeLightbox();
-                        document.removeEventListener('keydown', escHandler);
-                    }
-                });
-            });
-        });
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
 
-        console.log('LSPDFR ELITE STUDIO SHOP - Loaded successfully!');
+        // Ініціалізація кошика
+        updateCart();
     </script>
 </body>
 </html>
