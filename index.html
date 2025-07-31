@@ -1589,6 +1589,22 @@ html[data-theme="light"] .counter-box .label {
 html[data-theme="light"] .counter-box .icon {
     color: #2b6cb0 !important;
 }
+/* Виправлення для тексту на градієнті у світлій темі */
+html[data-theme="light"] .counters-section .counter-box .label,
+html[data-theme="light"] .counters-section .counter-box .count {
+    color: #1a365d !important; /* Темно-синій колір */
+    text-shadow: 0 1px 2px rgba(255,255,255,0.7) !important;
+}
+
+/* Якщо текст все ще не видно, додайте ці стилі */
+html[data-theme="light"] .counters-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+html[data-theme="light"] .counters-section .counter-box {
+    background: rgba(255,255,255,0.9) !important;
+    border: 1px solid #dee2e6 !important;
+}
     </style>
 </head>
 
