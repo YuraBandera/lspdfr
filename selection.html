@@ -2194,14 +2194,14 @@
         const discountInfo = document.getElementById('discountInfo');
         
         // Перевірити промокод
-        if (code === 'ELITE10') {
-            discount = 0.10; // 10% знижка
+        if (code === 'OPEN50') {
+            discount = 0.50; // 50% знижка
             discountCode = code;
-            discountInfo.innerHTML = '<i class="fas fa-check-circle"></i> Застосовано знижку 10%';
+            discountInfo.innerHTML = '<i class="fas fa-check-circle"></i> Застосовано знижку 50%';
             discountInfo.className = 'discount-info';
             discountInfo.style.display = 'flex';
             showNotification('Промокод успішно застосовано!', 'success');
-        } else if (code === 'ELITE20') {
+        } else if (code === '999909009090877655') {
             discount = 0.20; // 20% знижка
             discountCode = code;
             discountInfo.innerHTML = '<i class="fas fa-check-circle"></i> Застосовано знижку 20%';
