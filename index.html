@@ -86,9 +86,12 @@
         }
 
         html[data-theme="light"] body {
-            background-color: var(--bg-body-light);
-            color: var(--text-primary-light);
-        }
+    background-color: var(--bg-body-light);
+    color: var(--text-primary-light);
+}
+        html[data-theme="light"] .gradient-text {
+        background: linear-gradient(135deg, #0056b3 0%, #1e7e34 100%);
+}
         html[data-theme="light"] .card, html[data-theme="light"] .feature-card, html[data-theme="light"] .product-item, html[data-theme="light"] .testimonial-card, html[data-theme="light"] .plan-item, html[data-theme="light"] .team-member-card, html[data-theme="light"] .faq-item-header {
             background-color: var(--bg-card-light);
             border: 1px solid var(--border-light);
@@ -1374,6 +1377,53 @@
             .theme-toggle {
                 bottom: calc(var(--spacing-md) + 55px);
             }
+
+/* Додаткові стилі для світлої теми */
+html[data-theme="light"] .gradient-text {
+    background: linear-gradient(135deg, #0056b3 0%, #1e7e34 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+html[data-theme="light"] .counters-section {
+    background: linear-gradient(135deg, #e6a800 0%, #5a6268 100%);
+    color: #333;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+
+html[data-theme="light"] .counter-box {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333;
+}
+
+html[data-theme="light"] .counter-box .icon {
+    color: #e6a800;
+}
+
+html[data-theme="light"] .counter-box .count {
+    color: #343a40;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+html[data-theme="light"] .counter-box .label {
+    color: #495057;
+}
+
+html[data-theme="light"] .btn-primary {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+html[data-theme="light"] .btn-outline {
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+html[data-theme="light"] .btn-outline:hover {
+    color: white;
+    background-color: #0056b3;
+}
         }
     </style>
 </head>
