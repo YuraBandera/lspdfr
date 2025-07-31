@@ -1639,6 +1639,39 @@ html[data-theme="light"] .counters-section {
     border: 1px solid #e2e8f0 !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
 }
+/* Повністю видаляємо градієнт для світлої теми */
+html[data-theme="light"] .counters-section {
+    background: #ffffff !important; /* Суцільний білий фон */
+    border: 1px solid #e2e8f0 !important; /* Сіра рамка */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Стилі для окремих блоків з цифрами */
+html[data-theme="light"] .counter-box {
+    background: #f8fafc !important; /* Дуже світлий сіруватий фон */
+    border: 2px solid #3182ce !important; /* Синька рамка */
+    color: #2d3748 !important; /* Темно-сірий текст */
+}
+
+/* Стилі для цифр */
+html[data-theme="light"] .counter-box .count {
+    color: #3182ce !important; /* Яскраво-синій */
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+}
+
+/* Стилі для підписів ("Наші моди", "Проекти" тощо) */
+html[data-theme="light"] .counter-box .label {
+    color: #4a5568 !important; /* Темно-сірий */
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+/* Стилі для іконок */
+html[data-theme="light"] .counter-box .icon {
+    color: #3182ce !important;
+    font-size: 2rem !important;
+}
     </style>
 </head>
 
