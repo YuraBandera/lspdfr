@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSPDFR ELITE STUDIO - Автомобілі та Абонементи</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="637144604768-b3rfbbg673ahe3ii0mjuhofn0e7qi7jm.apps.googleusercontent.com">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --danger: #ef4444;
+            --dark: #1e1e2e;
+            --dark-secondary: #2d2d3f;
+            --dark-tertiary: #3d3d52;
+            --light: #f8fafc;
+            --light-secondary: #f1f5f9;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --gradient-secondary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: bgMove 20s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(30, 30, 46, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0 20px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--primary-light);
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: var(--text);
+            padding: 10px 18px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .cart-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .login-btn {
+            background: var(--gradient);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .user-menu {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 6px 12px 6px 6px;
+            border-radius: 50px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-name {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            color: var(--danger);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--primary-light);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Subscription Cards */
+        .subscriptions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .subscription-card {
+            background: var(--dark-secondary);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .subscription-card:nth-child(1) { animation-delay: 0.1s; }
+        .subscription-card:nth-child(2) { animation-delay: 0.2s; }
+        .subscription-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .subscription-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .subscription-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .subscription-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .subscription-card.premium {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .subscription-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--gradient);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .subscription-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .premium .subscription-icon {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(217, 70, 239, 0.2) 100%);
+        }
+
+        .subscription-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subscription-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .subscription-price {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .subscription-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .subscription-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .subscription-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .subscription-features li i {
+            color: var(--secondary);
+        }
+
+        .subscription-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--gradient);
+            color: white;
+        }
+
+        .subscription-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Cars Grid */
+        .cars-section {
+            padding-top: 40px;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .car-card {
+            background: var(--dark-secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            animation: fadeInUp 0.5s ease-out both;
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .car-card:hover .car-image {
+            transform: scale(1.05);
+        }
+
+        .car-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--gradient);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .car-info {
+            padding: 20px;
+        }
+
+        .car-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .car-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+        }
+
+        .car-price span {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .car-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: transparent;
+            color: var(--text);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .car-btn:hover {
+            background: var(--gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        /* Premium Section */
+        .premium-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: var(--border-radius);
+            padding: 60px;
+            margin: 80px auto;
+            max-width: 1400px;
+        }
+
+        .premium-grid .car-card {
+            background: var(--dark-secondary);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .premium-grid .car-card:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--gradient);
+            border-color: transparent;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-btn i {
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .contact-btn .online-dot {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .contact-btn .offline-dot {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--danger);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        /* Chat Modal */
+        .chat-modal {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            max-height: 500px;
+            background: var(--dark-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-modal.show {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 16px 20px;
+            background: var(--gradient);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-avatar i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .chat-title {
+            font-weight: 700;
+            color: white;
+        }
+
+        .chat-status {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .chat-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .chat-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: messageIn 0.3s ease-out;
+        }
+
+        @keyframes messageIn {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .message.bot {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: var(--gradient);
+            color: white;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--dark);
+            color: var(--text);
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-send {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        /* Offline Message */
+        .offline-message {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .offline-message i {
+            font-size: 48px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .offline-message h3 {
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .offline-message p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-secondary);
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Cart Page Styles */
+        .cart-page {
+            display: none;
+            padding: 100px 20px 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .cart-page.active {
+            display: block;
+        }
+
+        .cart-header {
+            margin-bottom: 40px;
+        }
+
+        .cart-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .cart-subtitle {
+            color: var(--text-secondary);
+        }
+
+        .cart-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cart-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            background: var(--dark-secondary);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .cart-item-image {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-type {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .cart-item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .cart-item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .cart-item-remove {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+
+        .cart-item-remove:hover {
+            color: var(--danger);
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dark);
+            padding: 4px;
+            border-radius: 50px;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gradient);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .quantity-value {
+            min-width: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .cart-summary {
+            background: var(--dark-secondary);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .promo-input-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .promo-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--dark);
+            color: var(--text);
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .promo-input:focus {
+            border-color: var(--primary);
+        }
+
+        .promo-btn {
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            background: var(--gradient);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .promo-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 16px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .summary-total span:last-child {
+            color: var(--primary-light);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: var(--border-radius-sm);
+            border: none;
+            background: var(--gradient);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-cart i {
+            font-size: 64px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .empty-cart h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .empty-cart p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .empty-cart a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .empty-cart a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            padding: 16px 24px;
+            background: var(--dark-secondary);
+            border-radius: var(--border-radius-sm);
+            border-left: 4px solid var(--secondary);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2000;
+            transform: translateX(120%);
+            transition: var(--transition);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            border-color: var(--danger);
+        }
+
+        .toast i {
+            font-size: 20px;
+            color: var(--secondary);
+        }
+
+        .toast.error i {
+            color: var(--danger);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                height: 60px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .premium-section {
+                padding: 30px 20px;
+            }
+
+            .chat-modal {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 90px;
+            }
+        }
+
+        /* Page visibility */
+        .main-page {
+            display: block;
+        }
+
+        .main-page.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo" onclick="showMainPage()">
+                <div class="logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <span class="logo-text">LSPDFR ELITE STUDIO</span>
+            </a>
+
+            <nav>
+                <a href="#" class="nav-link active" onclick="showMainPage()">Головна</a>
+                <a href="#subscriptions" class="nav-link">Абонементи</a>
+                <a href="#cars" class="nav-link">Автомобілі</a>
+                <a href="#premium-cars" class="nav-link">Преміум</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="cart-btn" onclick="showCartPage()">
+                    <i class="fas fa-shopping-cart"></i>
+                    Кошик
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <div id="loginContainer">
+                    <button class="login-btn" onclick="handleGoogleLogin()">
+                        <i class="fab fa-google"></i>
+                        Увійти
+                    </button>
+                </div>
+                <div id="userMenu" class="user-menu">
+                    <img id="userAvatar" class="user-avatar" src="" alt="User">
+                    <span id="userName" class="user-name"></span>
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Page -->
+    <div class="main-page" id="mainPage">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-fire"></i>
+                    LSPDFR ELITE STUDIO
+                </div>
+                <h1 class="hero-title">
+                    Автомобілі для <span>LSPDFR</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Купуйте преміальні автомобілі та абонементи для вашого LSPDFR мода. 
+                    Швидка доставка, постійні оновлення та підтримка 24/7
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">46</div>
+                        <div class="stat-label">Автомобілів</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Абонементи</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Підтримка</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscriptions -->
+        <section id="subscriptions">
+            <div class="section-header">
+                <h2 class="section-title">Абонементи</h2>
+                <p class="section-subtitle">Оберіть зручний для вас тарифний план</p>
+            </div>
+
+            <div class="subscriptions">
+                <div class="subscription-card">
+                    <div class="subscription-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="subscription-title">Звичайний</h3>
+                    <p class="subscription-desc">Доступ до всіх звичайних автомобілів</p>
+                    <div class="subscription-price">600 ₴ <span>/ місяць</span></div>
+                    <ul class="subscription-features">
+                        <li><i class="fas fa-check"></i> 28 автомобілів</li>
+                        <li><i class="fas fa-check"></i> Базова підтримка</li>
+                        <li><i class="fas fa-check"></i> Оновлення</li>
+                    </ul>
+                    <button class="subscription-btn" onclick="addToCart('subscription-regular', 'Звичайний абонемент', 600)">
+                        Придбати
+                    </button>
+                </div>
+
+                <div class="subscription-card premium">
+                    <span class="subscription-badge">Популярний</span>
+                    <div class="subscription-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="subscription-title">Преміум</h3>
+                    <p class="subscription-desc">Доступ до всіх преміум автомобілів</p>
+                    <div class="subscription-price">1700 ₴ <span>/ місяць</span></div>
+                    <ul class="subscription-features">
+                        <li><i class="fas fa-check"></i> 18 преміум авто</li>
+                        <li><i class="fas fa-check"></i> Пріоритетна підтримка</li>
+                        <li><i class="fas fa-check"></i> Ранній доступ</li>
+                    </ul>
+                    <button class="subscription-btn" onclick="addToCart('subscription-premium', 'Преміум абонемент', 1700)">
+                        Придбати
+                    </button>
+                </div>
+
+                <div class="subscription-card">
+                    <div class="subscription-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="subscription-title">Duster 2024 Пак</h3>
+                    <p class="subscription-desc">4 Renault Duster 2024 (НГУ, ДСНС, Патрульна, Поліція)</p>
+                    <div class="subscription-price">500 ₴ <span>/ разово</span></div>
+                    <ul class="subscription-features">
+                        <li><i class="fas fa-check"></i> 4 автомобілі</li>
+                        <li><i class="fas fa-check"></i> Без абонементу</li>
+                        <li><i class="fas fa-check"></i> Один платіж</li>
+                    </ul>
+                    <button class="subscription-btn" onclick="addToCart('duster-2024-pack', 'Renault Duster 2024 Пак (4 авто)', 500)">
+                        Придбати
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regular Cars -->
+        <section id="cars" class="cars-section">
+            <div class="section-header">
+                <h2 class="section-title">Звичайні автомобілі</h2>
+                <p class="section-subtitle">28 автомобілів по 150 ₴</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('all')">Всі</button>
+                <button class="tab-btn" onclick="switchTab('police')">Поліція</button>
+                <button class="tab-btn" onclick="switchTab('emergency')">Екстрені</button>
+                <button class="tab-btn" onclick="switchTab('service')">Службові</button>
+            </div>
+
+            <div class="cars-grid" id="regularCars">
+                <!-- Cars will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Premium Cars -->
+        <section id="premium-cars" class="premium-section">
+            <div class="section-header">
+                <h2 class="section-title">Преміум автомобілі</h2>
+                <p class="section-subtitle">18 автомобілів по 250 ₴</p>
+            </div>
+
+            <div class="cars-grid premium-grid" id="premiumCars">
+                <!-- Premium cars will be populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Page -->
+    <div class="cart-page" id="cartPage">
+        <div class="cart-header">
+            <h1 class="cart-title">Кошик</h1>
+            <p class="cart-subtitle">Оформіть ваше замовлення</p>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+
+            <div class="cart-summary">
+                <h3 class="summary-title">Підсумок</h3>
+                <div class="promo-input-group">
+                    <input type="text" class="promo-input" id="promoCode" placeholder="Промокод">
+                    <button class="promo-btn" onclick="applyPromo()">Застосувати</button>
+                </div>
+                <div class="summary-row">
+                    <span>Товарів:</span>
+                    <span id="totalItems">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Промокод:</span>
+                    <span id="discountAmount">-0 ₴</span>
+                </div>
+                <div class="summary-total">
+                    <span>Всього:</span>
+                    <span id="totalPrice">0 ₴</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">
+                    Оформити замовлення
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <button class="contact-btn" onclick="toggleChat()">
+            <i class="fas fa-comment"></i>
+            <span class="online-dot" id="statusDot"></span>
+        </button>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <div class="chat-title">LSPDFR Bot</div>
+                    <div class="chat-status" id="chatStatus">Онлайн</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be populated by JavaScript -->
+        </div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Введіть повідомлення..." onkeypress="handleChatKeypress(event)">
+            <button class="chat-send" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Успішно додано до кошика!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <span class="logo-text">LSPDFR ELITE STUDIO</span>
+                </a>
+                <p class="footer-desc">
+                    Найкращий магазин автомобілів для LSPDFR мода в Україні. 
+                    Якісні моделі, швидка підтримка та оновлення.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Навігація</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showMainPage()">Головна</a></li>
+                    <li><a href="#subscriptions">Абонементи</a></li>
+                    <li><a href="#cars">Автомобілі</a></li>
+                    <li><a href="#premium-cars">Преміум</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Підтримка</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="toggleChat()">Зв'язатися з нами</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Правила</a></li>
+                    <li><a href="#">Політика конфіденційності</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Контакти</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> support@lspdfr.ua</li>
+                    <li><i class="fab fa-discord"></i> <a href="https://discord.gg/CeWUSyXE" target="_blank">Discord</a></li>
+                    <li><i class="fas fa-clock"></i> Пн-Пт: 10:00 - 22:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LSPDFR Ukraine. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Car Data
+        const regularCars = [
+            { id: 'toyota-camry-2018-sbu', name: 'Toyota Camry 2018 — СБУ', price: 150, image: 'images/Toyota Camry 2018 — СБУ.png', category: 'police' },
+            { id: 'mazda-cx5-gt', name: 'Mazda CX-5 GT', price: 150, image: 'images/mazda-cx5-gt.jpg', category: 'police' },
+            { id: 'ford-transit-cord', name: 'Ford Transit Cord', price: 150, image: 'images/ford-transit-cord.jpg', category: 'service' },
+            { id: 'renault-duster-tiger', name: 'Renault Duster Охорона Тигр', price: 150, image: 'images/renault-duster-охорона-тигр.jpg', category: 'service' },
+            { id: 'dodge-ram-trx', name: 'Dodge Ram TRX 1500', price: 150, image: 'images/dodge-ram-trx-1500.jpg', category: 'police' },
+            { id: 'evacuator', name: 'Евакуатор', price: 150, image: 'images/евакуатор.jpg', category: 'service' },
+            { id: 'peugeot-301', name: 'Peugeot 301', price: 150, image: 'images/peugeot-301.jpg', category: 'police' },
+            { id: 'toyota-prius', name: 'Toyota Prius', price: 150, image: 'images/toyota-prius.jpg', category: 'police' },
+            { id: 'volkswagen-t6', name: 'Volkswagen T6', price: 150, image: 'images/volkswagen-t6.jpg', category: 'service' },
+            { id: 'toyota-camry', name: 'Toyota Camry', price: 150, image: 'images/toyota-camry.jpg', category: 'police' },
+            { id: 'skoda-kodiaq-sbu', name: 'Skoda Kodiaq СБУ', price: 150, image: 'images/skoda-kodiaq-сбу.jpg', category: 'police' },
+            { id: 'kia-sorento-sx', name: 'Kia Sorento SX', price: 150, image: 'images/kia-sorento-sx.jpg', category: 'police' },
+            { id: 'toyota-hilux', name: 'Toyota Hilux', price: 150, image: 'images/toyota-hilux.jpg', category: 'police' },
+            { id: 'skoda-karoq', name: 'Skoda Karoq', price: 150, image: 'images/skoda-karoq.jpg', category: 'police' },
+            { id: 'skoda-octavia', name: 'Skoda Octavia', price: 150, image: 'images/skoda-octavia.jpg', category: 'police' },
+            { id: 'toyota-corolla-2020', name: 'Toyota Corolla 2020', price: 150, image: 'images/toyota-corolla-2020.jpg', category: 'police' },
+            { id: 'ford-taurus', name: 'Ford Taurus', price: 150, image: 'images/ford-taurus.jpg', category: 'police' },
+            { id: 'ambulance-volkswagen', name: 'Volkswagen Crafter Швидка', price: 150, image: 'images/ambulance-volkswagen-crafter!.jpg', category: 'emergency' },
+            { id: 'dacia-doker', name: 'Dacia Doker', price: 150, image: 'images/dacia-doker.jpg', category: 'service' },
+            { id: 'hyundai-sonata', name: 'Hyundai Sonata', price: 150, image: 'images/Hyundai-sonata.jpg', category: 'police' },
+            { id: 'volkswagen-crafter', name: 'Volkswagen Crafter', price: 150, image: 'images/volkswagen-crafter.jpg', category: 'service' },
+            { id: 'mitsubishi-outlander', name: 'Mitsubishi Outlander', price: 150, image: 'images/mitsubishi-outlander.jpg', category: 'police' },
+            { id: 'renault-duster-2023', name: 'Renault Duster 2023', price: 150, image: 'images/renault-duster-2023.png', category: 'police' },
+            { id: 'hyundai-tucson-police', name: 'Hyundai Tucson Поліція Охорони', price: 150, image: 'images/hyundai-tucson-поліції-охорони.png', category: 'police' },
+            { id: 'fiat-doblo', name: 'Fiat Doblo', price: 150, image: 'images/fiat-doblo.png', category: 'service' },
+            { id: 'skoda-octavia-2021', name: 'Skoda Octavia 2021', price: 150, image: 'images/skoda-octavia-2021.png', category: 'police' },
+            { id: 'renault-duster-security', name: 'Renault Duster Security', price: 150, image: 'images/renault-duster-security!.png', category: 'service' },
+            { id: 'renault-duster-national-police', name: 'Renault Duster Національна Поліція', price: 150, image: 'images/renault-duster-national-police-of-ukraine.png', category: 'police' }
+        ];
+
+        const premiumCars = [
+            { id: 'peugeot-landtrek-2023', name: 'Peugeot Landtrek 2023', price: 250, image: 'images/Peugeot Landtrek 2023.png', category: 'police' },
+            { id: 'toyota-prius-2', name: 'Toyota Prius (2)', price: 250, image: 'images/toyota-prius охрана(prem).png', category: 'police' },
+            { id: 'renault-duster-2024-ngu', name: 'Renault Duster 2024 НГУ', price: 250, image: 'images/Renault Duster 2024 НГУ.png', category: 'police' },
+            { id: 'renault-duster-2024-dsns', name: 'Renault Duster 2024 ДСНС', price: 250, image: 'images/Renault Duster 2024 ДСНС.png', category: 'emergency' },
+            { id: 'renault-duster-2024-patrol', name: 'Renault Duster 2024 Патрульна', price: 250, image: 'images/Renault Duster 2024.png', category: 'police' },
+            { id: 'renault-duster-2024-police', name: 'Renault Duster 2024 Поліція', price: 250, image: 'images/renault-duster-national-police-of-ukraine.png', category: 'police' },
+            { id: 'mitsubishi-outlander-2023', name: 'Mitsubishi Outlander 2023', price: 250, image: 'images/mitsubishi-outlander 2023.png', category: 'police' },
+            { id: 'renault-duster2023-prem', name: 'Renault Duster 2023', price: 250, image: 'images/renault-duster2023.jpg', category: 'police' },
+            { id: 'skoda-octavia-2021-prem', name: 'Skoda Octavia 2021', price: 250, image: 'images/skoda-octavia-2021(prem).png', category: 'police' },
+            { id: 'toyota-corolla-2020-prem', name: 'Toyota Corolla 2020', price: 250, image: 'images/toyota-corolla-2020!.png', category: 'police' },
+            { id: 'suzuki-sv650', name: 'Suzuki SV650 Мотобат', price: 250, image: 'images/suzuki-sv650-мотобат.jpg', category: 'police' },
+            { id: 'mitsubishi-outlander-2018', name: 'Mitsubishi Outlander 2018', price: 250, image: 'images/mitsubishi-outlander.png', category: 'police' },
+            { id: '2023-suzuki-vitara', name: '2023 Suzuki Vitara', price: 250, image: 'images/2023-suzuki-vitara.jpg', category: 'police' },
+            { id: 'peugeot-301-prem', name: 'Peugeot 301', price: 250, image: 'images/peugeot-301(prem).jpg', category: 'police' },
+            { id: 'eup-police-ukraine', name: 'EUP Police Ukraine', price: 700, image: 'images/eup-police-Ukraine.png', category: 'police' },
+            { id: 'toyota-prius-prem', name: 'Toyota Prius', price: 250, image: 'images/toyota-prius охрана.png', category: 'police' },
+            { id: 'toyota-prius-plain', name: 'Toyota Prius', price: 250, image: 'images/toyota-prius.png', category: 'police' },
+            { id: 'skoda-octavia-plain', name: 'Skoda Octavia', price: 250, image: 'images/skoda-octavia.jpg', category: 'police' }
+        ];
+
+        // Cart State
+        let cart = [];
+        let discount = 0;
+        let currentUser = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCars();
+            updateCartBadge();
+            checkChatStatus();
+            setInterval(checkChatStatus, 60000); // Check every minute
+        });
+
+        // Render Cars
+        function renderCars() {
+            const regularGrid = document.getElementById('regularCars');
+            const premiumGrid = document.getElementById('premiumCars');
+
+            regularGrid.innerHTML = regularCars.map((car, index) => `
+                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%236366f1\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
+                        <span class="car-badge">Звичайний</span>
+                    </div>
+                    <div class="car-info">
+                        <h3 class="car-name">${car.name}</h3>
+                        <div class="car-price">${car.price} ₴ <span>/ од</span></div>
+                        <button class="car-btn" onclick="addToCart('${car.id}', '${car.name}', ${car.price}, '${car.image}')">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            premiumGrid.innerHTML = premiumCars.map((car, index) => `
+                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%238b5cf6\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
+                        <span class="car-badge">Преміум</span>
+                    </div>
+                    <div class="car-info">
+                        <h3 class="car-name">${car.name}</h3>
+                        <div class="car-price">${car.price} ₴ <span>/ од</span></div>
+                        <button class="car-btn" onclick="addToCart('${car.id}', '${car.name}', ${car.price}, '${car.image}')">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Cart Functions
+        function addToCart(id, name, price, image = '') {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+
+            updateCartBadge();
+            renderCartItems();
+            showToast('Успішно додано до кошика!');
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateQuantity(id, delta) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    updateCartBadge();
+                    renderCartItems();
+                }
+            }
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = total;
+            badge.style.display = total > 0 ? 'flex' : 'none';
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItems');
+            const totalItemsEl = document.getElementById('totalItems');
+            const totalPriceEl = document.getElementById('totalPrice');
+            const discountEl = document.getElementById('discountAmount');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Кошик порожній</h3>
+                        <p>Додайте товари, щоб оформити замовлення</p>
+                        <a href="#" onclick="showMainPage()">
+                            <i class="fas fa-arrow-left"></i> До покупок
+                        </a>
+                    </div>
+                `;
+                totalItemsEl.textContent = '0';
+                totalPriceEl.textContent = '0 ₴';
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image || 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'80\' viewBox=\'0 0 120 80\'%3E%3Crect fill=\'%232d2d3f\' width=\'120\' height=\'80\'/%3E%3Ctext fill=\'%236366f1\' font-family=\'Arial\' font-size=\'10\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3EНемає фото%3C/text%3E%3C/svg%3E'}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-info">
+                        <h4 class="cart-item-name">${item.name}</h4>
+                        <p class="cart-item-type">${item.price} ₴ / од</p>
+                        <div class="cart-item-price">${item.price * item.quantity} ₴</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity-value">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = Math.max(0, subtotal - discount);
+            
+            totalItemsEl.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            discountEl.textContent = `-${discount} ₴`;
+            totalPriceEl.textContent = `${total} ₴`;
+        }
+
+        function applyPromo() {
+            const code = document.getElementById('promoCode').value.trim().toUpperCase();
+            const promoCodes = {
+                'LSPDFR10': 10,
+                'PREMIUM20': 20,
+                'WELCOME15': 15
+            };
+
+            if (promoCodes[code]) {
+                discount = promoCodes[code];
+                renderCartItems();
+                showToast('Промокод застосовано!');
+            } else {
+                showToast('Невірний промокод!', true);
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('Кошик порожній!', true);
+                return;
+            }
+
+            if (!currentUser) {
+                showToast('Будь ласка, увійдіть через Google!', true);
+                handleGoogleLogin();
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) - discount;
+            
+            // Here you would integrate with payment system
+            alert(`Дякуємо за замовлення!\n\nЗамовлення: ${cart.length} товарів\nСума: ${total} ₴\n\nНаш менеджер зв'яжеться з вами найближчим часом.`);
+            
+            cart = [];
+            discount = 0;
+            updateCartBadge();
+            renderCartItems();
+            showMainPage();
+        }
+
+        // Page Navigation
+        function showMainPage() {
+            document.getElementById('mainPage').classList.remove('hidden');
+            document.getElementById('cartPage').classList.remove('active');
+            window.scrollTo(0, 0);
+            return false;
+        }
+
+        function showCartPage() {
+            document.getElementById('mainPage').classList.add('hidden');
+            document.getElementById('cartPage').classList.add('active');
+            renderCartItems();
+            window.scrollTo(0, 0);
+            return false;
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            // Filter functionality can be added here
+        }
+
+        // Chat Functions
+        function checkChatStatus() {
+            const now = new Date();
+            const hours = now.getUTCHours() + 2; // Ukraine is UTC+2
+            const isOnline = hours >= 10 && hours < 22;
+            
+            const statusDot = document.getElementById('statusDot');
+            const chatStatus = document.getElementById('chatStatus');
+
+            if (isOnline) {
+                statusDot.className = 'online-dot';
+                chatStatus.textContent = 'Онлайн';
+            } else {
+                statusDot.className = 'offline-dot';
+                chatStatus.textContent = 'Не в мережі';
+            }
+
+            return isOnline;
+        }
+
+        function toggleChat() {
+            const modal = document.getElementById('chatModal');
+            const isOnline = checkChatStatus();
+            
+            if (!isOnline) {
+                // Show offline message
+                const messages = document.getElementById('chatMessages');
+                messages.innerHTML = `
+                    <div class="offline-message">
+                        <i class="fas fa-clock"></i>
+                        <h3>Ми зараз не працюємо</h3>
+                        <p>Графік роботи: 10:00 - 22:00</p>
+                        <p>Залиште повідомлення, і ми відповімо вам найближчим часом!</p>
+                    </div>
+                `;
+                document.querySelector('.chat-input-area').style.display = 'none';
+            } else {
+                document.querySelector('.chat-input-area').style.display = 'flex';
+                if (document.getElementById('chatMessages').children.length === 0) {
+                    addBotMessage('Привіт! Я LSPDFR Bot. Чим я можу вам допомогти?');
+                }
+            }
+            
+            modal.classList.toggle('show');
+        }
+
+        function addBotMessage(text) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot';
+            messageDiv.textContent = text;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.textContent = text;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addUserMessage(message);
+            input.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const responses = [
+                    'Дякую за запитання! Я можу допомогти вам з вибором автомобіля.',
+                    'У нас є 28 звичайних та 18 преміум автомобілів. Який вас цікавить?',
+                    'Звичайний абонемент коштує 150₴, Преміум - 300₴.',
+                    'Для оформлення замовлення додайте товари до кошика.',
+                    'Якщо у вас є питання щодо оплати чи доставки, зверніться до нашої підтримки.',
+                    'Всі автомобілі доступні для негайного завантаження після оплати.'
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addBotMessage(randomResponse);
+            }, 1000 + Math.random() * 1000);
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Toast
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.className = isError ? 'toast error show' : 'toast show';
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Google OAuth
+        function handleGoogleLogin() {
+            if (currentUser) return;
+            
+            // Initialize Google OAuth
+            const client = google.accounts.oauth2.initTokenClient({
+                client_id: '637144604768-b3rfbbg673ahe3ii0mjuhofn0e7qi7jm.apps.googleusercontent.com',
+                scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+                callback: (response) => {
+                    if (response.access_token) {
+                        fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+                            headers: { 'Authorization': `Bearer ${response.access_token}` }
+                        })
+                        .then(res => res.json())
+                        .then(userInfo => {
+                            currentUser = {
+                                name: userInfo.name,
+                                email: userInfo.email,
+                                picture: userInfo.picture
+                            };
+                            updateUserMenu();
+                            showToast('Вхід успішний!');
+                        });
+                    }
+                }
+            });
+            
+            client.requestAccessToken();
+        }
+
+        function updateUserMenu() {
+            document.getElementById('loginContainer').style.display = 'none';
+            const userMenu = document.getElementById('userMenu');
+            userMenu.style.display = 'flex';
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('userAvatar').src = currentUser.picture;
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('userMenu').style.display = 'none';
+            showToast('Ви вийшли з акаунту');
+        }
+    </script>
+</body>
+</html>
