@@ -1691,8 +1691,28 @@
             renderCars();
             updateCartBadge();
             checkChatStatus();
+            checkSavedUser();
             setInterval(checkChatStatus, 60000); // Check every minute
         });
+
+        // Check for saved user
+        function checkSavedUser() {
+            const savedUser = localStorage.getItem('lspdfr_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUserMenu();
+            }
+        }
+
+        // Save user to localStorage
+        function saveUser(user) {
+            localStorage.setItem('lspdfr_user', JSON.stringify(user));
+        }
+
+        // Clear saved user
+        function clearSavedUser() {
+            localStorage.removeItem('lspdfr_user');
+        }
 
         // Render Cars
         function renderCars() {
@@ -1859,14 +1879,158 @@
 
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) - discount;
             
-            // Here you would integrate with payment system
-            alert(`Дякуємо за замовлення!\n\nЗамовлення: ${cart.length} товарів\nСума: ${total} ₴\n\nНаш менеджер зв'яжеться з вами найближчим часом.`);
+            // Show styled checkout modal
+            const orderDetails = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
             
-            cart = [];
-            discount = 0;
-            updateCartBadge();
-            renderCartItems();
-            showMainPage();
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'checkout-modal';
+            modal.innerHTML = `
+                <div class="checkout-modal-content">
+                    <div class="checkout-header">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h2>Оформлення замовлення</h2>
+                    </div>
+                    <div class="checkout-body">
+                        <p class="checkout-total">До сплати: <span>${total} грн</span></p>
+                        <p class="checkout-items">${orderDetails}</p>
+                        <p class="checkout-email">Ваш Email: ${currentUser.email}</p>
+                        <div class="checkout-instructions">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Після оплати в коментарі до переказу вкажіть вашу електронну пошту. Адміністратор зв'яжеться з вами протягом 24 годин.</p>
+                        </div>
+                    </div>
+                    <div class="checkout-actions">
+                        <button class="checkout-cancel" onclick="this.closest('.checkout-modal').remove()">Скасувати</button>
+                        <a href="https://send.monobank.ua/jar/G7ZB9qnNG?amount=${total * 100}&text=${encodeURIComponent('Замовлення: ' + orderDetails + ', Email: ' + currentUser.email)}" target="_blank" class="checkout-pay">
+                            <i class="fas fa-credit-card"></i> Оплатити
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add modal styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .checkout-modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    animation: fadeIn 0.3s ease;
+                }
+                .checkout-modal-content {
+                    background: linear-gradient(135deg, #1e1e2e 0%, #2d2d3f 100%);
+                    border-radius: 20px;
+                    padding: 30px;
+                    max-width: 450px;
+                    width: 90%;
+                    border: 1px solid rgba(99, 102, 241, 0.3);
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                }
+                .checkout-header {
+                    text-align: center;
+                    margin-bottom: 24px;
+                }
+                .checkout-header i {
+                    font-size: 48px;
+                    color: #6366f1;
+                    margin-bottom: 12px;
+                }
+                .checkout-header h2 {
+                    color: white;
+                    font-size: 24px;
+                }
+                .checkout-total {
+                    text-align: center;
+                    font-size: 18px;
+                    color: #94a3b8;
+                    margin-bottom: 16px;
+                }
+                .checkout-total span {
+                    font-size: 32px;
+                    font-weight: 800;
+                    color: #10b981;
+                }
+                .checkout-items {
+                    color: #e2e8f0;
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                    padding: 12px;
+                    background: rgba(0, 0, 0, 0.2);
+                    border-radius: 8px;
+                }
+                .checkout-email {
+                    color: #94a3b8;
+                    font-size: 13px;
+                    margin-bottom: 16px;
+                }
+                .checkout-instructions {
+                    display: flex;
+                    gap: 12px;
+                    padding: 16px;
+                    background: rgba(99, 102, 241, 0.1);
+                    border-radius: 12px;
+                    margin-bottom: 24px;
+                }
+                .checkout-instructions i {
+                    color: #6366f1;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .checkout-instructions p {
+                    color: #94a3b8;
+                    font-size: 13px;
+                    line-height: 1.5;
+                }
+                .checkout-actions {
+                    display: flex;
+                    gap: 12px;
+                }
+                .checkout-cancel {
+                    flex: 1;
+                    padding: 14px;
+                    border-radius: 12px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    background: transparent;
+                    color: #94a3b8;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                .checkout-cancel:hover {
+                    background: rgba(255, 255, 255, 0.05);
+                    color: white;
+                }
+                .checkout-pay {
+                    flex: 1;
+                    padding: 14px;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                    color: white;
+                    font-weight: 700;
+                    text-decoration: none;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    transition: all 0.3s ease;
+                }
+                .checkout-pay:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+                }
+            `;
+            document.head.appendChild(style);
         }
 
         // Page Navigation
@@ -2018,6 +2182,7 @@
                                 email: userInfo.email,
                                 picture: userInfo.picture
                             };
+                            saveUser(currentUser);
                             updateUserMenu();
                             showToast('Вхід успішний!');
                         });
@@ -2038,6 +2203,7 @@
 
         function handleLogout() {
             currentUser = null;
+            clearSavedUser();
             document.getElementById('loginContainer').style.display = 'block';
             document.getElementById('userMenu').style.display = 'none';
             showToast('Ви вийшли з акаунту');
