@@ -9,6 +9,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="637144604768-6t4lhcu46u8u6d0cqn4003js10tj07st.apps.googleusercontent.com">
+
     <style>
         :root {
             --primary: #6366f1;
@@ -804,7 +805,7 @@
             color: white;
         }
 
-        .chat-status {
+        .chat-subtitle {
             font-size: 12px;
             color: rgba(255, 255, 255, 0.8);
         }
@@ -1350,9 +1351,14 @@
                 <a href="#subscriptions" class="nav-link">Абонементи</a>
                 <a href="#cars" class="nav-link">Автомобілі</a>
                 <a href="#premium-cars" class="nav-link">Преміум</a>
+                <a href="idea.html" class="nav-link" style="color: var(--accent);">Запропонувати ідею</a>
             </nav>
 
             <div class="header-actions">
+                <a href="idea.html" class="cart-btn" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                    <i class="fas fa-lightbulb"></i>
+                    Ідея
+                </a>
                 <a href="#" class="cart-btn" onclick="showCartPage()">
                     <i class="fas fa-shopping-cart"></i>
                     Кошик
@@ -1478,10 +1484,10 @@
             </div>
 
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('all')">Всі</button>
-                <button class="tab-btn" onclick="switchTab('police')">Поліція</button>
-                <button class="tab-btn" onclick="switchTab('emergency')">Екстрені</button>
-                <button class="tab-btn" onclick="switchTab('service')">Службові</button>
+                <button class="tab-btn active" onclick="switchTab('all', this)">Всі</button>
+                <button class="tab-btn" onclick="switchTab('police', this)">Поліція</button>
+                <button class="tab-btn" onclick="switchTab('emergency', this)">Екстрені</button>
+                <button class="tab-btn" onclick="switchTab('service', this)">Службові</button>
             </div>
 
             <div class="cars-grid" id="regularCars">
@@ -1555,8 +1561,8 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div>
-                    <div class="chat-title">LSPDFR Bot</div>
-                    <div class="chat-status" id="chatStatus">Онлайн</div>
+                    <div class="chat-title">Технічна підтримка</div>
+                    <div class="chat-status" id="chatStatus">GTA 5, вильоти, краші, помилки</div>
                 </div>
             </div>
             <button class="chat-close" onclick="toggleChat()">
@@ -1669,7 +1675,6 @@
             { id: 'renault-duster-2024-police', name: 'Renault Duster 2024 Поліція', price: 250, image: 'images/renault-duster-national-police-of-ukraine.png', category: 'police' },
             { id: 'mitsubishi-outlander-2023', name: 'Mitsubishi Outlander 2023', price: 250, image: 'images/mitsubishi-outlander 2023.png', category: 'police' },
             { id: 'renault-duster2023-prem', name: 'Renault Duster 2023', price: 250, image: 'images/renault-duster2023.jpg', category: 'police' },
-            { id: 'skoda-octavia-2021-prem', name: 'Skoda Octavia 2021', price: 250, image: 'images/skoda-octavia-2021(prem).png', category: 'police' },
             { id: 'toyota-corolla-2020-prem', name: 'Toyota Corolla 2020', price: 250, image: 'images/toyota-corolla-2020!.png', category: 'police' },
             { id: 'suzuki-sv650', name: 'Suzuki SV650 Мотобат', price: 250, image: 'images/suzuki-sv650-мотобат.jpg', category: 'police' },
             { id: 'mitsubishi-outlander-2018', name: 'Mitsubishi Outlander 2018', price: 250, image: 'images/mitsubishi-outlander.png', category: 'police' },
@@ -1740,6 +1745,38 @@
                     <div class="car-image-wrapper">
                         <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%238b5cf6\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
                         <span class="car-badge">Преміум</span>
+                    </div>
+                    <div class="car-info">
+                        <h3 class="car-name">${car.name}</h3>
+                        <div class="car-price">${car.price} ₴ <span>/ од</span></div>
+                        <button class="car-btn" onclick="addToCart('${car.id}', '${car.name}', ${car.price}, '${car.image}')">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter cars by category
+        function switchTab(category, btn) {
+            // Update active button
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const regularGrid = document.getElementById('regularCars');
+            const premiumGrid = document.getElementById('premiumCars');
+            
+            // Filter regular cars
+            const filteredRegular = category === 'all' 
+                ? regularCars 
+                : regularCars.filter(car => car.category === category);
+            
+            // Re-render regular grid
+            regularGrid.innerHTML = filteredRegular.map((car, index) => `
+                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%236366f1\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
+                        <span class="car-badge">Звичайний</span>
                     </div>
                     <div class="car-info">
                         <h3 class="car-name">${car.name}</h3>
@@ -2049,10 +2086,53 @@
             return false;
         }
 
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            // Filter functionality can be added here
+        // Filter cars by category
+        function filterCars(category) {
+            const regularGrid = document.getElementById('regularCars');
+            const premiumGrid = document.getElementById('premiumCars');
+            
+            // Filter regular cars
+            const filteredRegular = category === 'all' 
+                ? regularCars 
+                : regularCars.filter(car => car.category === category);
+            
+            // Filter premium cars  
+            const filteredPremium = category === 'all'
+                ? premiumCars
+                : premiumCars.filter(car => car.category === category);
+            
+            // Re-render grids
+            regularGrid.innerHTML = filteredRegular.map((car, index) => `
+                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%236366f1\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
+                        <span class="car-badge">Звичайний</span>
+                    </div>
+                    <div class="car-info">
+                        <h3 class="car-name">${car.name}</h3>
+                        <div class="car-price">${car.price} ₴ <span>/ од</span></div>
+                        <button class="car-btn" onclick="addToCart('${car.id}', '${car.name}', ${car.price}, '${car.image}')">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            premiumGrid.innerHTML = filteredPremium.map((car, index) => `
+                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="car-image-wrapper">
+                        <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%238b5cf6\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
+                        <span class="car-badge">Преміум</span>
+                    </div>
+                    <div class="car-info">
+                        <h3 class="car-name">${car.name}</h3>
+                        <div class="car-price">${car.price} ₴ <span>/ од</span></div>
+                        <button class="car-btn" onclick="addToCart('${car.id}', '${car.name}', ${car.price}, '${car.image}')">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                    </div>
+                </div>
+            `).join('');
         }
 
         // Chat Functions
@@ -2094,7 +2174,7 @@
             } else {
                 document.querySelector('.chat-input-area').style.display = 'flex';
                 if (document.getElementById('chatMessages').children.length === 0) {
-                    addBotMessage('Привіт! Я LSPDFR Bot. Чим я можу вам допомогти?');
+                    addBotMessage('Привіт! Я технічна підтримка LSPDFR. Чим можу допомогти? (GTA 5, вильоти, краші, помилки)', 'support');
                 }
             }
             
@@ -2131,12 +2211,12 @@
             // Simulate AI response
             setTimeout(() => {
                 const responses = [
-                    'Дякую за запитання! Я можу допомогти вам з вибором автомобіля.',
-                    'У нас є 28 звичайних та 18 преміум автомобілів. Який вас цікавить?',
-                    'Звичайний абонемент коштує 150₴, Преміум - 300₴.',
-                    'Для оформлення замовлення додайте товари до кошика.',
-                    'Якщо у вас є питання щодо оплати чи доставки, зверніться до нашої підтримки.',
-                    'Всі автомобілі доступні для негайного завантаження після оплати.'
+                    'Я допоможу вирішити вашу проблему з GTA 5! Опишіть детальніше, що саме не працює.',
+                    'Для виправлення вильотів спробуйте: оновлені драйвери відеокарти, видалити mods/Update/RPF.meta, перевстановити LSPDFR.',
+                    'Якщо гра крашиться, переконайтесь що у вас встановлені: Visual C++ Redistributable, .NET Framework, DirectX.',
+                    'Для проблем з плагінами переконайтесь що вони сумісні з вашою версією LSPDFR.',
+                    'Якщо потрібна допомога з конкретним плагіном, вкажіть його назву.',
+                    'Для стабільної роботи рекомендую: 16GB+ RAM, SSD, GTX 1060 або краще.'
                 ];
                 const randomResponse = responses[Math.floor(Math.random() * responses.length)];
                 addBotMessage(randomResponse);
@@ -2192,7 +2272,7 @@
             
             client.requestAccessToken();
         }
-
+        
         function updateUserMenu() {
             document.getElementById('loginContainer').style.display = 'none';
             const userMenu = document.getElementById('userMenu');
@@ -2200,7 +2280,7 @@
             document.getElementById('userName').textContent = currentUser.name;
             document.getElementById('userAvatar').src = currentUser.picture;
         }
-
+        
         function handleLogout() {
             currentUser = null;
             clearSavedUser();
