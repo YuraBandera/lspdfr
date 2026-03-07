@@ -1888,13 +1888,14 @@
         function applyPromo() {
             const code = document.getElementById('promoCode').value.trim().toUpperCase();
             const promoCodes = {
-                'ELITE_OPEN': 25
+                'ELITE_OPEN': 25 
             };
 
             if (promoCodes[code]) {
-                discount = promoCodes[code];
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                discount = Math.round(subtotal * (promoCodes[code] / 100));
                 renderCartItems();
-                showToast('Промокод застосовано!');
+                showToast(`Промокод застосовано! -${promoCodes[code]}%`);
             } else {
                 showToast('Невірний промокод!', true);
             }
