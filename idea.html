@@ -27,7 +27,7 @@
       --accent-yellow: #f59e0b;
       --accent-purple: #8b5cf6;
       --accent-pink: #ec4899;
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100());
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --gradient-glow: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -342,6 +342,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: #3b82f6; /* Fallback color */
     }
 
     .stat-label {
@@ -427,6 +428,12 @@
       font-size: 15px;
       transition: var(--transition);
       font-family: 'Inter', sans-serif;
+    }
+
+    .form-select option {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 12px;
     }
 
     .form-input:focus, .form-textarea:focus, .form-select:focus {
