@@ -546,6 +546,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
             animation: fadeInUp 0.5s ease-out both;
+            cursor: pointer;
         }
 
         .car-card:hover {
@@ -1428,7 +1429,7 @@
                     </div>
                     <h3 class="subscription-title">Звичайний</h3>
                     <p class="subscription-desc">Доступ до всіх звичайних автомобілів</p>
-                    <div class="subscription-price">600 ₴ <span>/ місяць</span></div>
+                    <div class="subscription-price">600 ₴ <span>/ назавжди</span></div>
                     <ul class="subscription-features">
                         <li><i class="fas fa-check"></i> 28 автомобілів</li>
                         <li><i class="fas fa-check"></i> Базова підтримка</li>
@@ -1446,7 +1447,7 @@
                     </div>
                     <h3 class="subscription-title">Преміум</h3>
                     <p class="subscription-desc">Доступ до всіх преміум автомобілів</p>
-                    <div class="subscription-price">1700 ₴ <span>/ місяць</span></div>
+                    <div class="subscription-price">1700 ₴ <span>/ назавжди</span></div>
                     <ul class="subscription-features">
                         <li><i class="fas fa-check"></i> 18 преміум авто</li>
                         <li><i class="fas fa-check"></i> Пріоритетна підтримка</li>
@@ -1463,7 +1464,7 @@
                     </div>
                     <h3 class="subscription-title">Duster 2024 Пак</h3>
                     <p class="subscription-desc">4 Renault Duster 2024 (НГУ, ДСНС, Патрульна, Поліція)</p>
-                    <div class="subscription-price">500 ₴ <span>/ разово</span></div>
+                    <div class="subscription-price">500 ₴ <span>/ назавжди</span></div>
                     <ul class="subscription-features">
                         <li><i class="fas fa-check"></i> 4 автомобілі</li>
                         <li><i class="fas fa-check"></i> Без абонементу</li>
@@ -1486,8 +1487,9 @@
             <div class="tabs">
                 <button class="tab-btn active" onclick="switchTab('all', this)">Всі</button>
                 <button class="tab-btn" onclick="switchTab('police', this)">Поліція</button>
+                <button class="tab-btn" onclick="switchTab('police_ochorona', this)">Поліція Охорони</button>
+                <button class="tab-btn" onclick="switchTab('sbu', this)">СБУ</button>
                 <button class="tab-btn" onclick="switchTab('emergency', this)">Екстрені</button>
-                <button class="tab-btn" onclick="switchTab('service', this)">Службові</button>
             </div>
 
             <div class="cars-grid" id="regularCars">
@@ -1636,17 +1638,18 @@
     <script>
         // Car Data
         const regularCars = [
-            { id: 'toyota-camry-2018-sbu', name: 'Toyota Camry 2018 — СБУ', price: 150, image: 'images/Toyota Camry 2018 — СБУ.png', category: 'police' },
+            { id: 'toyota-camry-2018-sbu', name: 'Toyota Camry 2018 — СБУ', price: 150, image: 'images/Toyota Camry 2018 — СБУ.png', category: 'sbu' },
             { id: 'mazda-cx5-gt', name: 'Mazda CX-5 GT', price: 150, image: 'images/mazda-cx5-gt.jpg', category: 'police' },
-            { id: 'ford-transit-cord', name: 'Ford Transit Cord', price: 150, image: 'images/ford-transit-cord.jpg', category: 'service' },
-            { id: 'renault-duster-tiger', name: 'Renault Duster Охорона Тигр', price: 150, image: 'images/renault-duster-охорона-тигр.jpg', category: 'service' },
+            { id: 'ford-transit-cord', name: 'Ford Transit Cord', price: 150, image: 'images/ford-transit-cord.jpg', category: 'police' },
+            { id: 'renault-duster-tiger', name: 'Renault Duster Охорона Тигр', price: 150, image: 'images/renault-duster-охорона-тигр.jpg', category: 'police_ochorona' },
             { id: 'dodge-ram-trx', name: 'Dodge Ram TRX 1500', price: 150, image: 'images/dodge-ram-trx-1500.jpg', category: 'police' },
-            { id: 'evacuator', name: 'Евакуатор', price: 150, image: 'images/евакуатор.jpg', category: 'service' },
+            { id: 'evacuator', name: 'Евакуатор', price: 150, image: 'images/евакуатор.jpg', category: 'police' },
             { id: 'peugeot-301', name: 'Peugeot 301', price: 150, image: 'images/peugeot-301.jpg', category: 'police' },
             { id: 'toyota-prius', name: 'Toyota Prius', price: 150, image: 'images/toyota-prius.jpg', category: 'police' },
-            { id: 'volkswagen-t6', name: 'Volkswagen T6', price: 150, image: 'images/volkswagen-t6.jpg', category: 'service' },
+            { id: 'volkswagen-t6', name: 'Volkswagen T6', price: 150, image: 'images/volkswagen-t6.jpg', category: 'police' },
             { id: 'toyota-camry', name: 'Toyota Camry', price: 150, image: 'images/toyota-camry.jpg', category: 'police' },
-            { id: 'skoda-kodiaq-sbu', name: 'Skoda Kodiaq СБУ', price: 150, image: 'images/skoda-kodiaq-сбу.jpg', category: 'police' },
+            { id: 'toyota-prius-ochorona', name: 'Toyota Prius Охорона', price: 150, image: 'images/toyota-prius охрана.png', category: 'police_ochorona' },
+            { id: 'skoda-kodiaq-sbu', name: 'Skoda Kodiaq СБУ', price: 150, image: 'images/skoda-kodiaq-сбу.jpg', category: 'sbu' },
             { id: 'kia-sorento-sx', name: 'Kia Sorento SX', price: 150, image: 'images/kia-sorento-sx.jpg', category: 'police' },
             { id: 'toyota-hilux', name: 'Toyota Hilux', price: 150, image: 'images/toyota-hilux.jpg', category: 'police' },
             { id: 'skoda-karoq', name: 'Skoda Karoq', price: 150, image: 'images/skoda-karoq.jpg', category: 'police' },
@@ -1654,25 +1657,26 @@
             { id: 'toyota-corolla-2020', name: 'Toyota Corolla 2020', price: 150, image: 'images/toyota-corolla-2020.jpg', category: 'police' },
             { id: 'ford-taurus', name: 'Ford Taurus', price: 150, image: 'images/ford-taurus.jpg', category: 'police' },
             { id: 'ambulance-volkswagen', name: 'Volkswagen Crafter Швидка', price: 150, image: 'images/ambulance-volkswagen-crafter!.jpg', category: 'emergency' },
-            { id: 'dacia-doker', name: 'Dacia Doker', price: 150, image: 'images/dacia-doker.jpg', category: 'service' },
+            { id: 'dacia-doker', name: 'Dacia Doker', price: 150, image: 'images/dacia-doker.jpg', category: 'police' },
             { id: 'hyundai-sonata', name: 'Hyundai Sonata', price: 150, image: 'images/Hyundai-sonata.jpg', category: 'police' },
-            { id: 'volkswagen-crafter', name: 'Volkswagen Crafter', price: 150, image: 'images/volkswagen-crafter.jpg', category: 'service' },
+            { id: 'volkswagen-crafter', name: 'Volkswagen Crafter', price: 150, image: 'images/volkswagen-crafter.jpg', category: 'police' },
             { id: 'mitsubishi-outlander', name: 'Mitsubishi Outlander', price: 150, image: 'images/mitsubishi-outlander.jpg', category: 'police' },
             { id: 'renault-duster-2023', name: 'Renault Duster 2023', price: 150, image: 'images/renault-duster-2023.png', category: 'police' },
-            { id: 'hyundai-tucson-police', name: 'Hyundai Tucson Поліція Охорони', price: 150, image: 'images/hyundai-tucson-поліції-охорони.png', category: 'police' },
-            { id: 'fiat-doblo', name: 'Fiat Doblo', price: 150, image: 'images/fiat-doblo.png', category: 'service' },
+            { id: 'hyundai-tucson-police', name: 'Hyundai Tucson Поліція Охорони', price: 150, image: 'images/hyundai-tucson-поліції-охорони.png', category: 'police_ochorona' },
+            { id: 'fiat-doblo', name: 'Fiat Doblo', price: 150, image: 'images/fiat-doblo.png', category: 'police' },
+            { id: 'toyota-prius-prem', name: 'Toyota Prius Охорона', price: 150, image: 'images/toyota-prius охрана.png', category: 'police_ochorona' },
             { id: 'skoda-octavia-2021', name: 'Skoda Octavia 2021', price: 150, image: 'images/skoda-octavia-2021.png', category: 'police' },
-            { id: 'renault-duster-security', name: 'Renault Duster Security', price: 150, image: 'images/renault-duster-security!.png', category: 'service' },
+            { id: 'renault-duster-security', name: 'Renault Duster Security', price: 150, image: 'images/renault-duster-security!.png', category: 'police_ochorona' },
             { id: 'renault-duster-national-police', name: 'Renault Duster Національна Поліція', price: 150, image: 'images/renault-duster-national-police-of-ukraine.png', category: 'police' }
         ];
 
         const premiumCars = [
             { id: 'peugeot-landtrek-2023', name: 'Peugeot Landtrek 2023', price: 250, image: 'images/Peugeot Landtrek 2023.png', category: 'police' },
-            { id: 'toyota-prius-2', name: 'Toyota Prius (2)', price: 250, image: 'images/toyota-prius охрана(prem).png', category: 'police' },
+            { id: 'toyota-prius-2', name: 'Toyota Prius Охорона', price: 250, image: 'images/toyota-prius охрана(prem).png', category: 'police_ochorona' },
             { id: 'renault-duster-2024-ngu', name: 'Renault Duster 2024 НГУ', price: 250, image: 'images/Renault Duster 2024 НГУ.png', category: 'police' },
             { id: 'renault-duster-2024-dsns', name: 'Renault Duster 2024 ДСНС', price: 250, image: 'images/Renault Duster 2024 ДСНС.png', category: 'emergency' },
-            { id: 'renault-duster-2024-patrol', name: 'Renault Duster 2024 Патрульна', price: 250, image: 'images/Renault Duster 2024.png', category: 'police' },
-            { id: 'renault-duster-2024-police', name: 'Renault Duster 2024 Поліція', price: 250, image: 'images/renault-duster-national-police-of-ukraine.png', category: 'police' },
+            { id: 'renault-duster-2024-patrol', name: 'Renault Duster 2024 Патрульна', price: 250, image: 'images/РеноПатруль.png', category: 'police' },
+            { id: 'renault-duster-2024-police', name: 'Renault Duster 2024 Поліція', price: 250, image: 'images/Renault Duster 2024.png', category: 'police' },
             { id: 'mitsubishi-outlander-2023', name: 'Mitsubishi Outlander 2023', price: 250, image: 'images/mitsubishi-outlander 2023.png', category: 'police' },
             { id: 'renault-duster2023-prem', name: 'Renault Duster 2023', price: 250, image: 'images/renault-duster2023.jpg', category: 'police' },
             { id: 'toyota-corolla-2020-prem', name: 'Toyota Corolla 2020', price: 250, image: 'images/toyota-corolla-2020!.png', category: 'police' },
@@ -1681,7 +1685,6 @@
             { id: '2023-suzuki-vitara', name: '2023 Suzuki Vitara', price: 250, image: 'images/2023-suzuki-vitara.jpg', category: 'police' },
             { id: 'peugeot-301-prem', name: 'Peugeot 301', price: 250, image: 'images/peugeot-301(prem).jpg', category: 'police' },
             { id: 'eup-police-ukraine', name: 'EUP Police Ukraine', price: 700, image: 'images/eup-police-Ukraine.png', category: 'police' },
-            { id: 'toyota-prius-prem', name: 'Toyota Prius', price: 250, image: 'images/toyota-prius охрана.png', category: 'police' },
             { id: 'toyota-prius-plain', name: 'Toyota Prius', price: 250, image: 'images/toyota-prius.png', category: 'police' },
         ];
 
@@ -1689,6 +1692,113 @@
         let cart = [];
         let discount = 0;
         let currentUser = null;
+
+        // Car Details Data - add more cars here with additional photos and descriptions
+        const carDetails = {
+            'eup-police-ukraine': {
+                description: 'Детальний опис ЕУП: повний пакет компонентів для реалістичного патрулювання в LSPDFR. Включає всі необхідні моделі, патрульної та інших служб.',
+                features: [
+                    'Повний пакет ЕУП',
+                    'Сумісність з LSPDFR',
+                    'Висока деталізація',
+                    'Оптимізована робота'
+                ],
+                additionalPhotos: [
+                    'images/eup-police-Ukraine.png',
+                    'images/ЕУП1.png',
+                    'images/ЕУП2.png',
+                    'images/ЕУП3.png',
+                    // Додай сюди шляхи до інших фото, наприклад:
+                    // 'images/eup-extra-1.jpg',
+                    // 'images/eup-extra-2.jpg'
+                ]
+            }
+            // Додай більше автомобілів за зразком:
+            // 'car-id': {
+            //     description: 'Опис...',
+            //     features: ['Фіча 1', 'Фіча 2'],
+            //     additionalPhotos: ['path1.jpg', 'path2.jpg']
+            // }
+        };
+
+        // Open Car Detail Modal
+        function openCarDetail(carId, carName, carImage, carPrice) {
+            const details = carDetails[carId];
+            if (!details) return; // No details for this car
+
+            // Add modal styles if not already added
+            if (!document.getElementById('car-detail-styles')) {
+                const style = document.createElement('style');
+                style.id = 'car-detail-styles';
+                style.textContent = `
+                    .car-detail-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; display: flex; align-items: center; justify-content: center; }
+                    .car-detail-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); }
+                    .car-detail-content { position: relative; background: linear-gradient(135deg, #1e1e2e 0%, #2d2d3f 100%); border-radius: 20px; max-width: 900px; width: 90%; max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255, 255, 255, 0.1); animation: modalSlideIn 0.3s ease; }
+                    @keyframes modalSlideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+                    .car-detail-close { position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.1); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; z-index: 10; transition: all 0.3s; }
+                    .car-detail-close:hover { background: #ef4444; }
+                    .car-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
+                    .car-detail-main-image img { width: 100%; border-radius: 12px; object-fit: contain; }
+                    .car-detail-info h2 { color: white; font-size: 24px; margin-bottom: 8px; }
+                    .car-detail-price { font-size: 28px; font-weight: 700; color: #10b981; margin-bottom: 16px; }
+                    .car-detail-price span { font-size: 16px; color: #94a3b8; }
+                    .car-detail-description { color: #94a3b8; line-height: 1.6; margin-bottom: 16px; }
+                    .car-detail-features h4, .car-detail-gallery h4 { color: white; margin-bottom: 12px; }
+                    .car-detail-features ul { list-style: none; padding: 0; }
+                    .car-detail-features li { color: #e2e8f0; padding: 8px 0; display: flex; align-items: center; gap: 8px; }
+                    .car-detail-features li i { color: #10b981; }
+                    .car-detail-gallery { margin-top: 16px; }
+                    .car-detail-thumbnails { display: flex; gap: 8px; flex-wrap: wrap; }
+                    .car-detail-thumbnails img { width: 80px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+                    .car-detail-thumbnails img:hover { transform: scale(1.1); border-color: #6366f1; }
+                    .car-detail-add-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px; transition: transform 0.2s; }
+                    .car-detail-add-btn:hover { transform: scale(1.02); }
+                    @media (max-width: 768px) { .car-detail-grid { grid-template-columns: 1fr; } }
+                `;
+                document.head.appendChild(style);
+            }
+
+            const modal = document.createElement('div');
+            modal.className = 'car-detail-modal';
+            modal.innerHTML = `
+                <div class="car-detail-overlay" onclick="this.closest('.car-detail-modal').remove()"></div>
+                <div class="car-detail-content">
+                    <button class="car-detail-close" onclick="this.closest('.car-detail-modal').remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="car-detail-grid">
+                        <div class="car-detail-main-image">
+                            <img src="${carImage}" alt="${carName}">
+                        </div>
+                        <div class="car-detail-info">
+                            <h2>${carName}</h2>
+                            <div class="car-detail-price">${carPrice} ₴ <span>/ од</span></div>
+                            <p class="car-detail-description">${details.description}</p>
+                            <div class="car-detail-features">
+                                <h4>Особливості:</h4>
+                                <ul>
+                                    ${details.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                                </ul>
+                            </div>
+                            ${details.additionalPhotos && details.additionalPhotos.length > 0 ? `
+                            <div class="car-detail-gallery">
+                                <h4>Додаткові фото:</h4>
+                                <div class="car-detail-thumbnails">
+                                    ${details.additionalPhotos.map(photo => `
+                                        <img src="${photo}" alt="Додаткове фото" onclick="this.closest('.car-detail-modal').querySelector('.car-detail-main-image img').src = this.src">
+                                    `).join('')}
+                                </div>
+                            </div>
+                            ` : ''}
+                            <button class="car-detail-add-btn" onclick="addToCart('${carId}', '${carName}', ${carPrice}, '${carImage}'); this.closest('.car-detail-modal').remove();">
+                                <i class="fas fa-cart-plus"></i> В кошик
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
@@ -1740,7 +1850,7 @@
             `).join('');
 
             premiumGrid.innerHTML = premiumCars.map((car, index) => `
-                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                <div class="car-card" style="animation-delay: ${index * 0.05}s" onclick="if(event.target.classList.contains('car-btn')) return; openCarDetail('${car.id}', '${car.name}', '${car.image}', ${car.price})">
                     <div class="car-image-wrapper">
                         <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%238b5cf6\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
                         <span class="car-badge">Преміум</span>
@@ -1772,7 +1882,7 @@
             
             // Re-render regular grid
             regularGrid.innerHTML = filteredRegular.map((car, index) => `
-                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                <div class="car-card" style="animation-delay: ${index * 0.05}s" onclick="if(event.target.classList.contains('car-btn')) return; openCarDetail('${car.id}', '${car.name}', '${car.image}', ${car.price})">
                     <div class="car-image-wrapper">
                         <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%236366f1\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
                         <span class="car-badge">Звичайний</span>
@@ -1880,14 +1990,14 @@
             const total = Math.max(0, subtotal - discount);
             
             totalItemsEl.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-            discountEl.textContent = `-${discount} ₴`;
+            discountEl.textContent = subtotal > 0 ? `-${discount} ₴ (${Math.round(discount / subtotal * 100)}%)` : '-0 ₴';
             totalPriceEl.textContent = `${total} ₴`;
         }
 
         function applyPromo() {
             const code = document.getElementById('promoCode').value.trim().toUpperCase();
             const promoCodes = {
-                'ELITE_OPEN': 25 
+                'ELITE_OPEN': 25 // 25% discount
             };
 
             if (promoCodes[code]) {
@@ -1937,7 +2047,7 @@
                     </div>
                     <div class="checkout-actions">
                         <button class="checkout-cancel" onclick="this.closest('.checkout-modal').remove()">Скасувати</button>
-                        <a href="https://send.monobank.ua/jar/G7ZB9qnNG?amount=${total *1 }&text=${encodeURIComponent('Замовлення: ' + orderDetails + ', Email: ' + currentUser.email)}" target="_blank" class="checkout-pay">
+                        <a href="https://send.monobank.ua/jar/G7ZB9qnNG?amount=${total * 100}&text=${encodeURIComponent('Замовлення: ' + orderDetails + ', Email: ' + currentUser.email)}" target="_blank" class="checkout-pay">
                             <i class="fas fa-credit-card"></i> Оплатити
                         </a>
                     </div>
@@ -1961,7 +2071,6 @@
                     justify-content: center;
                     z-index: 10000;
                     animation: fadeIn 0.3s ease;
-                }
                 .checkout-modal-content {
                     background: linear-gradient(135deg, #1e1e2e 0%, #2d2d3f 100%);
                     border-radius: 20px;
@@ -2117,7 +2226,7 @@
             `).join('');
             
             premiumGrid.innerHTML = filteredPremium.map((car, index) => `
-                <div class="car-card" style="animation-delay: ${index * 0.05}s">
+                <div class="car-card" style="animation-delay: ${index * 0.05}s" onclick="if(event.target.classList.contains('car-btn')) return; openCarDetail('${car.id}', '${car.name}', '${car.image}', ${car.price})">
                     <div class="car-image-wrapper">
                         <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\' viewBox=\'0 0 280 180\'%3E%3Crect fill=\'%232d2d3f\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%238b5cf6\' font-family=\'Arial\' font-size=\'14\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3E${car.name}%3C/text%3E%3C/svg%3E'">
                         <span class="car-badge">Преміум</span>
