@@ -438,6 +438,61 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
             border-color: rgba(139, 92, 246, 0.3);
         }
+        
+        /* Package card specific styles */
+        .subscription-card[onclick*="openCarDetail"] {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .subscription-card[onclick*="openCarDetail"]:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .subscription-card[onclick*="openCarDetail"]::after {
+            content: '📷';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-size: 18px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .subscription-card[onclick*="openCarDetail"]:hover::after {
+            opacity: 0.7;
+            transform: scale(1.2);
+        }
+        
+        /* Pulse animation for package cards */
+        @keyframes pulseBorder {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+        
+        .subscription-card[onclick*="openCarDetail"] {
+            animation: fadeInUp 0.6s ease-out both, pulseBorder 2s infinite;
+        }
+        
+        /* Zoom effect on hover for package cards */
+        .subscription-card[onclick*="openCarDetail"] .subscription-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .subscription-card[onclick*="openCarDetail"]:hover .subscription-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Add subtle overlay effect */
+        .subscription-card[onclick*="openCarDetail"]::before {
+            transition: all 0.3s ease;
+        }
+        
+        .subscription-card[onclick*="openCarDetail"]:hover::before {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
 
         .subscription-badge {
             position: absolute;
@@ -1418,11 +1473,16 @@
         <!-- Subscriptions -->
         <section id="subscriptions">
             <div class="section-header">
-                <h2 class="section-title">Абонементи</h2>
+                <h2 class="section-title">Абонементи та Паки</h2>
                 <p class="section-subtitle">Оберіть зручний для вас тарифний план</p>
             </div>
 
-            <div class="subscriptions">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchSubscriptionTab('subscriptions', this)">Абонементи</button>
+                <button class="tab-btn" onclick="switchSubscriptionTab('packages', this)">Паки</button>
+            </div>
+
+            <div class="subscriptions" id="subscriptionTab">
                 <div class="subscription-card">
                     <div class="subscription-icon">
                         <i class="fas fa-star"></i>
@@ -1457,20 +1517,56 @@
                         Придбати
                     </button>
                 </div>
+            </div>
 
-                <div class="subscription-card">
+            <div class="subscriptions" id="packageTab" style="display: none;">
+                <div class="subscription-card" onclick="if(event.target.classList.contains('subscription-btn')) return; openCarDetail('duster-2024-pack', 'Renault Duster 2024 Пак', 'images/Renault Duster 2024.png', 500)">
                     <div class="subscription-icon">
                         <i class="fas fa-box"></i>
                     </div>
                     <h3 class="subscription-title">Duster 2024 Пак</h3>
-                    <p class="subscription-desc">4 Renault Duster 2024 (НГУ, ДСНС, Патрульна, Поліція)</p>
+                    <p class="subscription-desc">5 Renault Duster 2024 (НГУ, ДСНС, Патрульна, Поліція, СБУ)</p>
                     <div class="subscription-price">500 ₴ <span>/ назавжди</span></div>
                     <ul class="subscription-features">
-                        <li><i class="fas fa-check"></i> 4 автомобілі</li>
+                        <li><i class="fas fa-check"></i> 5 автомобілів</li>
                         <li><i class="fas fa-check"></i> Без абонементу</li>
                         <li><i class="fas fa-check"></i> Один платіж</li>
                     </ul>
-                    <button class="subscription-btn" onclick="addToCart('duster-2024-pack', 'Renault Duster 2024 Пак (4 авто)', 500)">
+                    <button class="subscription-btn" onclick="addToCart('duster-2024-pack', 'Renault Duster 2024 Пак (5 авто)', 500)">
+                        Придбати
+                    </button>
+                </div>
+                
+                <div class="subscription-card" onclick="if(event.target.classList.contains('subscription-btn')) return; openCarDetail('skoda-karoq-2023-pack', 'Skoda Karoq 2023 Пак', 'images/police_karoq1.jpg', 500)">
+                    <div class="subscription-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="subscription-title">Skoda Karoq 2023 Пак</h3>
+                    <p class="subscription-desc">5 Skoda Karoq 2023 (Поліція, Патрульна поліція, СБУ та дві моделі із іншими лайт-барами)</p>
+                    <div class="subscription-price">500 ₴ <span>/ назавжди</span></div>
+                    <ul class="subscription-features">
+                        <li><i class="fas fa-check"></i> 5 автомобілів</li>
+                        <li><i class="fas fa-check"></i> Без абонементу</li>
+                        <li><i class="fas fa-check"></i> Один платіж</li>
+                    </ul>
+                    <button class="subscription-btn" onclick="addToCart('skoda-karoq-2023-pack', 'Skoda Karoq 2023 Пак (5 авто)', 500)">
+                        Придбати
+                    </button>
+                </div>
+                
+                <div class="subscription-card" onclick="if(event.target.classList.contains('subscription-btn')) return; openCarDetail('megapack', 'Мегапак LSPDFR', 'images/logo.jpg', 2500)">
+                    <div class="subscription-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="subscription-title">Мегапак LSPDFR</h3>
+                    <p class="subscription-desc">Повний комплект плагінів для LSPDFR (LSPDFR, STOP THE PED, COMPULITE, ULTIMATE BACKUP, ELS, EUP, 686 CALLOUTS, SIMPLE CALLOUTS, TRAFFIC CONTROL, LIVELY WORLD, CUSTOM PULLOWER, BlueLine Dispatch)</p>
+                    <div class="subscription-price">2500 ₴ <span>/ назавжди</span></div>
+                    <ul class="subscription-features">
+                        <li><i class="fas fa-check"></i> 12 плагінів</li>
+                        <li><i class="fas fa-check"></i> Повна сумісність</li>
+                        <li><i class="fas fa-check"></i> Один платіж</li>
+                    </ul>
+                    <button class="subscription-btn" onclick="addToCart('megapack', 'Мегапак LSPDFR (12 плагінів)', 2500)">
                         Придбати
                     </button>
                 </div>
@@ -1624,7 +1720,7 @@
             <div>
                 <h4 class="footer-title">Контакти</h4>
                 <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> support@lspdfr.ua</li>
+                    <li><i class="fas fa-envelope"></i> lspdfrelitestudio207@gmail.com</li>
                     <li><i class="fab fa-discord"></i> <a href="https://discord.gg/CeWUSyXE" target="_blank">Discord</a></li>
                     <li><i class="fas fa-clock"></i> Пн-Пт: 10:00 - 22:00</li>
                 </ul>
@@ -1677,6 +1773,7 @@
             { id: 'renault-duster-2024-dsns', name: 'Renault Duster 2024 ДСНС', price: 250, image: 'images/Renault Duster 2024 ДСНС.png', category: 'emergency' },
             { id: 'renault-duster-2024-patrol', name: 'Renault Duster 2024 Патрульна', price: 250, image: 'images/patrul.png', category: 'police' },
             { id: 'renault-duster-2024-police', name: 'Renault Duster 2024 Поліція', price: 250, image: 'images/Renault Duster 2024.png', category: 'police' },
+            { id: 'renault-duster-2024-sbu', name: 'Renault Duster 2024 СБУ', price: 250, image: 'images/reno2024sbu.png', category: 'sbu' },
             { id: 'mitsubishi-outlander-2023', name: 'Mitsubishi Outlander 2023', price: 250, image: 'images/mitsubishi-outlander 2023.png', category: 'police' },
             { id: 'renault-duster2023-prem', name: 'Renault Duster 2023', price: 250, image: 'images/renault-duster2023.jpg', category: 'police' },
             { id: 'toyota-corolla-2020-prem', name: 'Toyota Corolla 2020', price: 250, image: 'images/toyota-corolla-2020!.png', category: 'police' },
@@ -1711,6 +1808,62 @@
                     // Додай сюди шляхи до інших фото, наприклад:
                     // 'images/eup-extra-1.jpg',
                     // 'images/eup-extra-2.jpg'
+                ]
+            },
+            'duster-2024-pack': {
+                description: 'Пакет Renault Duster 2024 для LSPDFR. Включає 5 автомобілів для різних служб: НГУ, ДСНС, Патрульна, Поліція, СБУ. Висока якість моделей та текстур.',
+                features: [
+                    '5 автомобілів в одному пакеті',
+                    'Для різних служб',
+                    'Висока деталізація',
+                    'Сумісність з LSPDFR'
+                ],
+                additionalPhotos: [
+                    'images/Renault Duster 2024.png',
+                    'images/Renault Duster 2024 НГУ.png',
+                    'images/Renault Duster 2024 ДСНС.png',
+                    'images/reno2024sbu.png',
+                    'images/patrul.png'
+                ]
+            },
+            'skoda-karoq-2023-pack': {
+                description: 'Пакет Skoda Karoq 2023 для LSPDFR. Включає 5 автомобілів для різних служб: Поліція, Патрульна поліція, СБУ(2 авто із різними лайт-барами). Висока якість моделей та текстур.',
+                features: [
+                    '5 автомобілів в одному пакеті',
+                    'Для різних служб',
+                    'Висока деталізація',
+                    'Сумісність з LSPDFR'
+                ],
+                additionalPhotos: [
+                    'images/police_karoq1.jpg',
+                    'images/police_karoq2.jpg',
+                    'images/patrol_karoq1.jpg',
+                    'images/patrol_karoq2.jpg',
+                    'images/sbu_karoq1.jpg'
+                ]
+            },
+            'megapack': {
+                description: 'Повний мегапак для LSPDFR, що включає всі необхідні плагіни для реалістичного іммерсивного досвіду. Комплект з 12 найпопулярніших плагінів для поліцейського симулятора.',
+                features: [
+                    'LSPDFR - основний мод',
+                    'STOP THE PED - зупинка пішоходів',
+                    'COMPULITE - поліцейський планшет',
+                    'ULTIMATE BACKUP - покращені підкріплення',
+                    'ELS - система сирени',
+                    'EUP - уніформа поліції',
+                    '686 CALLOUTS - покращені виклики',
+                    'SIMPLE CALLOUTS - прості виклики',
+                    'TRAFFIC CONTROL - контроль трафіку',
+                    'LIVELY WORLD - рослинний світ',
+                    'CUSTOM PULLOWER - власні перехоплення',
+                    'BlueLine Dispatch - диспетчеризація'
+                ],
+                additionalPhotos: [
+                    'images/logo.jpg',
+                    'images/eup-police-ukraine.png',
+                    'images/eup1.png',
+                    'images/eup2.png',
+                    'images/eup3.png'
                 ]
             }
             // Додай більше автомобілів за зразком:
@@ -1876,8 +2029,8 @@
             const premiumGrid = document.getElementById('premiumCars');
             
             // Filter regular cars
-            const filteredRegular = category === 'all' 
-                ? regularCars 
+            const filteredRegular = category === 'all'
+                ? regularCars
                 : regularCars.filter(car => car.category === category);
             
             // Re-render regular grid
@@ -1896,6 +2049,24 @@
                     </div>
                 </div>
             `).join('');
+        }
+        
+        // Switch between subscription and package tabs
+        function switchSubscriptionTab(tabName, btn) {
+            // Update active button
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Hide all tabs
+            document.getElementById('subscriptionTab').style.display = 'none';
+            document.getElementById('packageTab').style.display = 'none';
+            
+            // Show selected tab
+            if (tabName === 'subscriptions') {
+                document.getElementById('subscriptionTab').style.display = 'grid';
+            } else if (tabName === 'packages') {
+                document.getElementById('packageTab').style.display = 'grid';
+            }
         }
 
         // Cart Functions
