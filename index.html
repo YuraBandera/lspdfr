@@ -64,10 +64,11 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 40% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+            overflow: hidden;
         }
 
         .bg-animation::before {
@@ -84,6 +85,147 @@
         @keyframes bgMove {
             0% { transform: translate(0, 0); }
             100% { transform: translate(60px, 60px); }
+        }
+
+        /* Additional animated background elements */
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 30%);
+            animation: slowPulse 15s ease-in-out infinite alternate;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            width: 4px;
+            height: 4px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 20s;
+            background: rgba(99, 102, 241, 0.4);
+        }
+
+        .particle:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            top: 70%;
+            left: 80%;
+            animation-duration: 25s;
+            background: rgba(139, 92, 246, 0.4);
+        }
+
+        .particle:nth-child(3) {
+            width: 3px;
+            height: 3px;
+            top: 40%;
+            left: 60%;
+            animation-duration: 18s;
+            background: rgba(16, 185, 129, 0.4);
+        }
+
+        .particle:nth-child(4) {
+            width: 5px;
+            height: 5px;
+            top: 80%;
+            left: 20%;
+            animation-duration: 22s;
+            background: rgba(245, 158, 11, 0.4);
+        }
+
+        .particle:nth-child(5) {
+            width: 4px;
+            height: 4px;
+            top: 10%;
+            left: 70%;
+            animation-duration: 16s;
+            background: rgba(239, 68, 68, 0.4);
+        }
+
+        .particle:nth-child(6) {
+            width: 7px;
+            height: 7px;
+            top: 50%;
+            left: 30%;
+            animation-duration: 24s;
+            background: rgba(59, 130, 246, 0.4);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(20px, 20px);
+            }
+            50% {
+                transform: translate(0, 40px);
+            }
+            75% {
+                transform: translate(-20px, 20px);
+            }
+        }
+
+        @keyframes slowPulse {
+            0% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Moving gradient waves */
+        .wave-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: -3;
+            opacity: 0.1;
+            background: linear-gradient(45deg,
+                #6366f1, #8b5cf6, #ec4899, #10b981, #f59e0b, #ef4444);
+            background-size: 400% 400%;
+            animation: waveGradient 30s ease infinite;
+            pointer-events: none;
+        }
+
+        @keyframes waveGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Header */
@@ -1391,6 +1533,17 @@
 </head>
 <body>
     <div class="bg-animation"></div>
+    
+    <!-- Animated background elements -->
+    <div class="wave-bg"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -1801,7 +1954,7 @@
                     'Оптимізована робота'
                 ],
                 additionalPhotos: [
-                    'images/eup-police-ukraine.png',
+                    'images/eup-police-Ukraine.png',
                     'images/eup1.png',
                     'images/eup2.png',
                     'images/eup3.png',
@@ -2566,6 +2719,17 @@
             document.getElementById('userMenu').style.display = 'none';
             showToast('Ви вийшли з акаунту');
         }
-    </script>
+
+// Заборона правої кнопки миші
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Заборона клавіш (F12, Ctrl+Shift+I тощо)
+  document.onkeydown = function(e) {
+    if (e.keyCode == 123) return false; // F12
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+  };
+</script>
 </body>
 </html>
